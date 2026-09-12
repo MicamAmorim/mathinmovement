@@ -51,7 +51,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/19_relacao_euler_poliedros.py",
       "scene": "RelacaoEulerPoliedros",
@@ -59,7 +59,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "euler_polyhedra_reduction_v1"
   },
   "narration": {
     "enabled": false

@@ -52,7 +52,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/16_lei_cossenos.py",
       "scene": "LeiCossenos",
@@ -60,7 +60,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "law_of_cosines_projection_v1"
   },
   "narration": {
     "enabled": false

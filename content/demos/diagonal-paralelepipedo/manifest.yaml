@@ -46,7 +46,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/20_diagonal_paralelepipedo.py",
       "scene": "DiagonalParalelepipedo",
@@ -54,7 +54,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "cuboid_space_diagonal_v1"
   },
   "narration": {
     "enabled": false

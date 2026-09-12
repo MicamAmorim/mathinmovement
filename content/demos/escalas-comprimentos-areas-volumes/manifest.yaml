@@ -23,18 +23,18 @@
       },
       {
         "narration": "A área recebe o fator duas vezes.",
-        "math": "A"
+        "math": "A'=(2L)^2=4L^2=2^2A"
       },
       {
         "narration": "No volume, o fator aparece em três dimensões."
       },
       {
         "narration": "Duas unidades em cada direção: 2 × 2 × 2 cubinhos.",
-        "math": "V"
+        "math": "V'=2\\cdot2\\cdot2\\,V=8V"
       },
       {
         "narration": "Continue a dedução algébrica indicada na animação.",
-        "math": "V"
+        "math": "V'=(kL)^3=k^3V"
       },
       {
         "narration": "Regra geral: expoente = dimensão medida.",
@@ -52,7 +52,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/18_escalas_comprimentos_areas_volumes.py",
       "scene": "EscalasComprimentosAreasVolumes",
@@ -60,7 +60,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "scale_dimension_exponents_v1"
   },
   "narration": {
     "enabled": false
