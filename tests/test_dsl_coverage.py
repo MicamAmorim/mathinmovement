@@ -85,6 +85,16 @@ class DSLCoverageTests(unittest.TestCase):
                     count += 1
         self.assertGreaterEqual(count, 27)
 
+    def test_qenem_shadow_migration_has_reached_twelve_items(self):
+        registry = Registry().rebuild()
+        qenem = registry.find(content_type="qenem")
+        migrated = [
+            record
+            for record in qenem
+            if (record.manifest.get("dsl_shadow") or {}).get("visuals")
+        ]
+        self.assertGreaterEqual(len(migrated), 12)
+
     def test_common_qenem_profile_is_explicit(self):
         self.assertIn("replacement_transform", QENEM_COMMON)
         self.assertIn("rounded_rectangle", QENEM_COMMON)
