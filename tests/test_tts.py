@@ -118,8 +118,10 @@ class TTSTests(unittest.TestCase):
             )
             self.assertTrue(
                 (
-                    root
-                    / "assets/audio/source.mp3"
+                    record.path
+                    / "assets"
+                    / "audio"
+                    / "source.mp3"
                 ).is_file()
             )
             self.assertEqual(
