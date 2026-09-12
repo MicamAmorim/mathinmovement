@@ -147,7 +147,10 @@ def cmd_render(args: argparse.Namespace) -> int:
     registry = Registry().rebuild()
 
     if args.all:
-        records = registry.find(content_type=args.type, status=args.status)
+        records = registry.find(
+            content_type=args.type,
+            status=None if args.status == "all" else args.status,
+        )
         if not records:
             print("Nenhum conteúdo selecionado para renderização.")
             return 0
@@ -270,7 +273,12 @@ def build_parser() -> argparse.ArgumentParser:
     p_render.add_argument("id", nargs="?", help="ID do conteúdo.")
     p_render.add_argument("--all", action="store_true", help="Renderiza todos os conteúdos selecionados.")
     p_render.add_argument("--type", choices=["qenem", "demo"], help="Filtra o lote por tipo.")
-    p_render.add_argument("--status", choices=["draft", "validated", "production", "deprecated"], default="production")
+    p_render.add_argument(
+        "--status",
+        choices=["all", "draft", "validated", "production", "deprecated"],
+        default="production",
+        help="Filtra por status; use 'all' para incluir todos os status.",
+    )
     p_render.add_argument("--format", choices=["vertical", "horizontal"], default="vertical")
     p_render.add_argument("--quality", choices=["draft", "final"], default="draft")
     p_render.add_argument(
