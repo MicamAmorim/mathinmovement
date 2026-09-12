@@ -219,21 +219,16 @@
           "step": 1
         },
         {
-          "op": "parallel",
-          "actions": [
-            {
-              "op": "add",
-              "target": "secL"
-            },
-            {
-              "op": "add",
-              "target": "secR1"
-            },
-            {
-              "op": "add",
-              "target": "secR2"
-            }
-          ]
+          "op": "add",
+          "target": "secL"
+        },
+        {
+          "op": "add",
+          "target": "secR1"
+        },
+        {
+          "op": "add",
+          "target": "secR2"
         },
         {
           "op": "equation",
