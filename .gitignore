@@ -6,3 +6,5 @@ media/
 enem/media/
 enem/media_horizontal/
 media_horizontal/
+.mim_build/
+cache/
