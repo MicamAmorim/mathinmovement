@@ -54,5 +54,333 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "front",
+          "type": "polygon",
+          "points": [
+            [
+              -2.6,
+              -1.5
+            ],
+            [
+              1.8,
+              -1.5
+            ],
+            [
+              1.8,
+              0.9
+            ],
+            [
+              -2.6,
+              0.9
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0
+        },
+        {
+          "id": "back",
+          "type": "polygon",
+          "points": [
+            [
+              -1.5,
+              -0.6
+            ],
+            [
+              2.9,
+              -0.6
+            ],
+            [
+              2.9,
+              1.8
+            ],
+            [
+              -1.5,
+              1.8
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0
+        },
+        {
+          "id": "c1",
+          "type": "line",
+          "start": [
+            -2.6,
+            -1.5
+          ],
+          "end": [
+            -1.5,
+            -0.6
+          ],
+          "color": "white",
+          "stroke_width": 2
+        },
+        {
+          "id": "c2",
+          "type": "line",
+          "start": [
+            1.8,
+            -1.5
+          ],
+          "end": [
+            2.9,
+            -0.6
+          ],
+          "color": "white",
+          "stroke_width": 2
+        },
+        {
+          "id": "c3",
+          "type": "line",
+          "start": [
+            1.8,
+            0.9
+          ],
+          "end": [
+            2.9,
+            1.8
+          ],
+          "color": "white",
+          "stroke_width": 2
+        },
+        {
+          "id": "c4",
+          "type": "line",
+          "start": [
+            -2.6,
+            0.9
+          ],
+          "end": [
+            -1.5,
+            1.8
+          ],
+          "color": "white",
+          "stroke_width": 2
+        },
+        {
+          "id": "db",
+          "type": "line",
+          "start": [
+            -2.6,
+            -1.5
+          ],
+          "end": [
+            2.9,
+            -0.6
+          ],
+          "color": "green",
+          "stroke_width": 5
+        },
+        {
+          "id": "ground",
+          "type": "polygon",
+          "points": [
+            [
+              -2.6,
+              -1.5
+            ],
+            [
+              1.8,
+              -1.5
+            ],
+            [
+              2.9,
+              -0.6
+            ]
+          ],
+          "color": "green",
+          "fill_opacity": 0.15
+        },
+        {
+          "id": "a",
+          "type": "math",
+          "tex": "a",
+          "at": [
+            -0.4,
+            -1.9
+          ],
+          "color": "cyan",
+          "font_size": 30
+        },
+        {
+          "id": "b",
+          "type": "math",
+          "tex": "b",
+          "at": [
+            2.45,
+            -1
+          ],
+          "color": "cyan",
+          "font_size": 30
+        },
+        {
+          "id": "c",
+          "type": "math",
+          "tex": "c",
+          "at": [
+            3.25,
+            0.6
+          ],
+          "color": "gold",
+          "font_size": 30
+        },
+        {
+          "id": "space",
+          "type": "line",
+          "start": [
+            -2.6,
+            -1.5
+          ],
+          "end": [
+            2.9,
+            1.8
+          ],
+          "color": "gold",
+          "stroke_width": 6
+        },
+        {
+          "id": "upright",
+          "type": "polygon",
+          "points": [
+            [
+              -2.6,
+              -1.5
+            ],
+            [
+              2.9,
+              -0.6
+            ],
+            [
+              2.9,
+              1.8
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0.18
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "parallel",
+          "run_time": 1.5,
+          "actions": [
+            {
+              "op": "create",
+              "target": "front"
+            },
+            {
+              "op": "create",
+              "target": "back"
+            },
+            {
+              "op": "create",
+              "target": "c1"
+            },
+            {
+              "op": "create",
+              "target": "c2"
+            },
+            {
+              "op": "create",
+              "target": "c3"
+            },
+            {
+              "op": "create",
+              "target": "c4"
+            }
+          ]
+        },
+        {
+          "op": "create",
+          "target": "db",
+          "run_time": 0.7
+        },
+        {
+          "op": "fade_in",
+          "target": "ground"
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "write",
+              "target": "a"
+            },
+            {
+              "op": "write",
+              "target": "b"
+            },
+            {
+              "op": "write",
+              "target": "c"
+            }
+          ]
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "equation",
+          "step": 0
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "create",
+          "target": "space",
+          "run_time": 0.9
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "fade_out",
+              "target": "ground"
+            },
+            {
+              "op": "fade_in",
+              "target": "upright"
+            }
+          ]
+        },
+        {
+          "op": "equation",
+          "step": 1
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "end"
+        }
+      ]
+    }
   }
 }
