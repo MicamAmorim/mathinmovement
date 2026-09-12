@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "relacoes-metricas-triangulo-retangulo",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Relações métricas no triângulo retângulo",
   "tags": [
     "demo",
@@ -58,7 +58,7 @@
     "math": "a^2=cn\\qquad b^2=cm"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

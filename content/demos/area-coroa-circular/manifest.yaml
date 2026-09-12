@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-coroa-circular",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área da coroa circular",
   "tags": [
     "demo",
@@ -35,7 +35,7 @@
     "math": "A=\\pi(R^2-r^2)"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

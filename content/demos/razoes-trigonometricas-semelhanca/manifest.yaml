@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "razoes-trigonometricas-semelhanca",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Razões trigonométricas por semelhança",
   "tags": [
     "demo",
@@ -43,7 +43,7 @@
     "math": "\\tan\\theta=\\frac{op}{adj}"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

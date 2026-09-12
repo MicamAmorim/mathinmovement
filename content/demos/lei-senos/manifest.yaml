@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "lei-senos",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Lei dos senos",
   "tags": [
     "demo",
@@ -55,7 +55,7 @@
     "math": "\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],
