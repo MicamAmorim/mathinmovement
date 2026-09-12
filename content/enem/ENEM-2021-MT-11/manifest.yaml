@@ -67,10 +67,10 @@ solution:
 visuals:
   statement:
     renderer: triangle_instrument
-    description: Instrumento triangular e triângulo equilátero com altura de 8 cm.
+    description: 'Figura 1: instrumento musical triangular com abertura. Figura 2: triângulo equilátero com altura h = 8 cm traçada do vértice à base.'
   concept:
     renderer: equilateral
-    note: A altura divide o equilátero em dois triângulos retângulos congruentes.
+    note: A altura de 8 cm divide o equilátero em dois triângulos 30°–60°–90° e também divide a base ao meio.
 
 render:
   production_engine: compatibility

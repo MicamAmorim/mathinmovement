@@ -8,23 +8,31 @@ tags:
   - areas
   - triangulo
 
+presentation:
+  profile: motion_math_v1
+  number: "01"
+  category: ÁREAS
+  formula: A=\frac{bh}{2}
+  signature: MIQUÉIAS AMORIM
+  captions:
+    base_height: Uma base. Uma altura perpendicular.
+    duplicate: Duas cópias iguais completam um paralelogramo.
+    half: Cada triângulo ocupa metade da área.
+
 lesson:
   objective: Demonstrar visualmente por que a área do triângulo é metade do produto entre base e altura.
   hook: Por que aparece o fator um meio na fórmula da área?
   steps:
-    - narration: Uma base e uma altura perpendicular determinam a área.
+    - narration: Uma base. Uma altura perpendicular.
       visual:
         action: create_triangle
-    - narration: Marcamos a altura perpendicular à base.
-      visual:
-        action: show_height
-    - narration: Uma segunda cópia congruente pode ser girada e transladada para completar um paralelogramo.
+    - narration: Duas cópias iguais completam um paralelogramo.
       visual:
         action: complete_parallelogram
       math: 2A=bh
-    - narration: O paralelogramo é formado por dois triângulos congruentes, então cada triângulo ocupa metade da área.
+    - narration: Cada triângulo ocupa metade da área.
       visual:
-        action: hold
+        action: conclude
       math: A=\frac{bh}{2}
 
 result:
@@ -34,12 +42,11 @@ render:
   production_engine: compatibility
   formats:
     - vertical
-    - horizontal
   native_formats:
     - vertical
-    - horizontal
   default_format: vertical
   native_engine: unified-v2
+  native_renderer: area_triangle_parallelogram_v1
   compatibility:
     source: videos/01_area_triangulo.py
     scene: AreaTriangulo

@@ -4,402 +4,643 @@ import os
 import textwrap
 from pathlib import Path
 
-from manim import (
-    DOWN,
-    LEFT,
-    RIGHT,
-    UP,
-    Create,
-    FadeIn,
-    FadeOut,
-    MathTex,
-    Rectangle,
-    RoundedRectangle,
-    Scene,
-    Text,
-    VGroup,
-    Write,
-    config,
-)
+import numpy as np
+from manim import *
 
 from ..config import PROJECT_ROOT
+from ..fonts import DEMO_FONT, ENEM_TEXT_FONT
 from ..registry import Registry
-from ..visuals import build_visual, run_demo_action
+from ..visuals import build_visual
+from ..visuals.registry import concept_diagram, source_figure
 
 BG = "#0B1020"
 WHITE = "#EEF2FF"
 CYAN = "#55D6CF"
 GOLD = "#FFCC78"
 MUTED = "#9CAAC5"
-GREEN_C = "#8DE2A7"
 PINK = "#F28DB2"
+GREEN = "#8DE2A7"
+RED = "#FF7D7D"
+BLUE = "#79A7FF"
 
 VIDEO_FORMAT = os.getenv("MIM_FORMAT", "vertical").strip().lower()
 if VIDEO_FORMAT not in {"vertical", "horizontal"}:
     VIDEO_FORMAT = "vertical"
-HORIZONTAL = VIDEO_FORMAT == "horizontal"
-FAST = os.getenv("MIM_FAST_PREVIEW", "0").lower() in {"1", "true", "yes"}
+IS_HORIZONTAL = VIDEO_FORMAT == "horizontal"
+FAST_PREVIEW = os.getenv("MIM_FAST_PREVIEW", "0").lower() in {"1", "true", "yes"}
 
-config.frame_width = 16 if HORIZONTAL else 9
-config.frame_height = 9 if HORIZONTAL else 16
+config.frame_width = 16 if IS_HORIZONTAL else 9
+config.frame_height = 9 if IS_HORIZONTAL else 16
 config.background_color = BG
 
 
-def _fit(mob, width: float, height: float | None = None):
-    if mob.width > width:
-        mob.scale_to_fit_width(width)
-    if height is not None and mob.height > height:
-        mob.scale_to_fit_height(height)
+def P(x, y):
+    return np.array([x, y, 0.0])
+
+
+def _lv(vertical, horizontal):
+    return horizontal if IS_HORIZONTAL else vertical
+
+
+def fit(mob, w=None, h=None):
+    if w is None:
+        w = _lv(7.5, 13.5)
+    if mob.width > w:
+        mob.scale_to_fit_width(w)
+    if h and mob.height > h:
+        mob.scale_to_fit_height(h)
     return mob
 
 
-def _txt(value: str, size: int = 28, color: str = WHITE, wrap: int | None = None, bold: bool = False):
-    if wrap:
-        value = "\n".join(textwrap.fill(p, wrap) for p in str(value).splitlines())
-    mob = Text(value, font_size=size, color=color, weight="BOLD" if bold else "NORMAL", line_spacing=0.9)
-    return mob
+def mt(tex, size=45, color=WHITE):
+    return fit(MathTex(tex, font_size=size, color=color), _lv(7.5, 13.2))
 
 
-def _math(value: str, size: int = 44, color: str = WHITE):
-    return MathTex(value, font_size=size, color=color)
+def enem_txt(s, size=26, color=WHITE, width=46, weight=NORMAL):
+    wrapped = "\n".join(textwrap.fill(p, width) for p in str(s).splitlines())
+    return fit(
+        Text(
+            wrapped,
+            font=ENEM_TEXT_FONT,
+            font_size=size,
+            color=color,
+            weight=weight,
+            line_spacing=0.9,
+        ),
+        _lv(7.5, 13.5),
+    )
+
+
+def polygon_xy(points, color=CYAN, fill_opacity=0.22, stroke_width=3):
+    return Polygon(
+        *[P(x, y) for x, y in points],
+        color=color,
+        stroke_width=stroke_width,
+        fill_color=color,
+        fill_opacity=fill_opacity,
+    )
+
+
+def safe_mathtex(tex, font_size=50, color=WHITE, max_width=7.4):
+    obj = MathTex(tex, font_size=font_size, color=color)
+    if obj.width > max_width:
+        obj.scale_to_fit_width(max_width)
+    return obj
 
 
 class UnifiedContentScene(Scene):
-    """Scene declarativa compartilhada por demos e questões ENEM."""
+    """Native v2 scene engine.
+
+    It reads only v2 manifests/registry. Visual behavior is ported from the
+    approved renderers, but no legacy common.py/specs.py/questions.json scene
+    module is imported at render time.
+    """
+
+    def wait(self, duration=1, **kwargs):
+        kwargs.setdefault("frozen_frame", True)
+        return super().wait(duration, **kwargs)
+
+    def play(self, *animations, **kwargs):
+        if getattr(self, "_profile", "") == "motion_math_v1":
+            kwargs["run_time"] = kwargs.get("run_time", 1) * float(
+                os.getenv("MANIM_PACE", "1.15")
+            )
+        return super().play(*animations, **kwargs)
 
     def construct(self):
         content_id = os.getenv("MIM_CONTENT_ID")
         if not content_id:
             raise RuntimeError("MIM_CONTENT_ID não foi definido pelo renderer.")
+
         self.record = Registry().rebuild().get(content_id)
         self.manifest = self.record.manifest
-        self.narration = {
+        narration = self.manifest.get("narration") or {}
+        self.narr = {
             str(segment["key"]): segment
-            for segment in (self.manifest.get("narration") or {}).get("segments", [])
+            for segment in narration.get("segments", [])
             if isinstance(segment, dict) and segment.get("key")
         }
-        if self.record.type == "qenem":
-            self.render_qenem()
-        elif self.record.type == "demo":
+
+        if self.record.type == "demo":
+            self._profile = "motion_math_v1"
             self.render_demo()
-        else:
-            raise RuntimeError(f"Tipo não suportado: {self.record.type}")
-
-    # ------------------------- timing/audio -------------------------
-
-    def segment_duration(self, key: str, default: float = 2.5) -> float:
-        segment = self.narration.get(key) or {}
-        value = segment.get("duration", segment.get("estimated_seconds", default))
-        try:
-            duration = float(value)
-        except (TypeError, ValueError):
-            duration = default
-        if FAST:
-            duration *= 0.12
-        return max(0.35, duration)
-
-    def speak(self, key: str, animations=None, default: float = 2.5):
-        duration = self.segment_duration(key, default)
-        segment = self.narration.get(key) or {}
-        audio = segment.get("audio")
-        if audio and not FAST:
-            path = (PROJECT_ROOT / str(audio)).resolve()
-            if path.exists():
-                self.add_sound(str(path))
-        if animations:
-            run_time = min(duration * 0.5, 3.2)
-            run_time = max(0.3, run_time)
-            self.play(*animations, run_time=run_time)
-            if duration > run_time:
-                self.wait(duration - run_time)
-        else:
-            self.wait(duration)
-
-    def pause_for_step(self, words: int = 10):
-        duration = max(0.8, min(3.0, words / 4.5))
-        self.wait(0.35 if FAST else duration)
-
-    # ------------------------- shared layout -------------------------
-
-    def clear_screen(self, run_time: float = 0.45):
-        if not self.mobjects:
             return
-        self.play(*[FadeOut(m) for m in list(self.mobjects)], run_time=0.15 if FAST else run_time)
+        if self.record.type == "qenem":
+            self._profile = "qenem_v1"
+            self.render_qenem()
+            return
+        raise RuntimeError(f"Tipo não suportado: {self.record.type}")
 
-    def heading(self, text: str):
-        y = 3.65 if HORIZONTAL else 6.75
-        size = 28 if HORIZONTAL else 24
-        mob = _txt(text, size=size, color=CYAN, bold=True).move_to([0, y, 0])
-        return mob
+    # ------------------------------------------------------------------
+    # Demo profile: port of MotionMathScene identity and timing
+    # ------------------------------------------------------------------
 
-    # ------------------------- demo -------------------------
+    def demo_text(self, s, size=28, color=WHITE, max_width=7.4, weight=NORMAL):
+        t = Text(s, font=DEMO_FONT, font_size=size, color=color, weight=weight)
+        if t.width > max_width:
+            t.scale_to_fit_width(max_width)
+        return t
+
+    def demo_header(self, number, title, formula=None, category=None):
+        category = category or "GEOMETRIA"
+        self.brand = self.demo_text("MATEMÁTICA EM MOVIMENTO", 17, MUTED).move_to(P(0, 6.75))
+        self.counter = self.demo_text(f"{number}  /  {category}", 19, CYAN).move_to(P(0, 5.95))
+        self.title_mob = self.demo_text(title, 38, WHITE, weight=BOLD).move_to(P(0, 5.02))
+        self.add(self.brand)
+        self.play(FadeIn(self.counter, shift=UP * 0.12), run_time=0.55)
+        self.play(Write(self.title_mob), run_time=1.0)
+        self.intro_formula = VGroup()
+        if formula:
+            self.intro_formula = safe_mathtex(formula, 54).move_to(P(0, 3.55))
+            self.play(Write(self.intro_formula), run_time=1.25)
+        self.caption_mob = VGroup()
+        self.work_formula = VGroup()
+        signature = (self.manifest.get("presentation") or {}).get("signature", "MIQUÉIAS AMORIM")
+        self.signature = self.demo_text(signature, 15, MUTED).move_to(P(0, -6.78))
+        self.add(self.signature)
+        self.wait(0.55)
+
+    def demo_hide_intro_formula(self):
+        if len(self.intro_formula) > 0:
+            self.play(FadeOut(self.intro_formula), run_time=0.45)
+            self.intro_formula = VGroup()
+
+    def demo_caption(self, s, color=WHITE, size=25, y=-3.28):
+        new = self.demo_text(textwrap.fill(s, width=47), size, color).move_to(P(0, y))
+        if len(self.caption_mob) > 0:
+            self.play(
+                FadeOut(self.caption_mob),
+                FadeIn(new, shift=UP * 0.10),
+                run_time=0.42,
+            )
+        else:
+            self.play(FadeIn(new, shift=UP * 0.10), run_time=0.42)
+        self.caption_mob = new
+        self.wait(max(1.4, len(s.split()) / 3.0))
+        return new
+
+    def demo_equation(self, tex, color=WHITE, size=50, y=-4.75, transform=True):
+        new = safe_mathtex(tex, size, color).move_to(P(0, y))
+        if len(self.work_formula) > 0 and transform:
+            self.play(ReplacementTransform(self.work_formula, new), run_time=1.05)
+        else:
+            if len(self.work_formula) > 0:
+                self.play(FadeOut(self.work_formula), run_time=0.25)
+            self.play(Write(new), run_time=0.95)
+        self.work_formula = new
+        self.wait(2.0)
+        return new
+
+    def demo_end(self, pause=2.4):
+        if len(self.work_formula) > 0:
+            self.play(
+                Indicate(self.work_formula, color=CYAN, scale_factor=1.04),
+                run_time=1.0,
+            )
+        self.wait(pause)
+
+    def right_angle(self, at, size=0.20, color=GOLD, quadrant=UR):
+        x, y, _ = at
+        sx = 1 if quadrant[0] >= 0 else -1
+        sy = 1 if quadrant[1] >= 0 else -1
+        return Polygon(
+            P(x, y),
+            P(x + sx * size, y),
+            P(x + sx * size, y + sy * size),
+            P(x, y + sy * size),
+            color=color,
+            stroke_width=2,
+            fill_opacity=0,
+        )
 
     def render_demo(self):
-        lesson = self.manifest["lesson"]
-        result = self.manifest["result"]
-
-        title_y = 3.2 if HORIZONTAL else 6.0
-        formula_y = 2.1 if HORIZONTAL else 4.4
-        title = _txt(self.manifest["title"], 42 if HORIZONTAL else 38, WHITE, bold=True).move_to([0, title_y, 0])
-        final_math = result.get("math")
-        intro_formula = _math(final_math, 46 if HORIZONTAL else 42, GOLD).move_to([0, formula_y, 0]) if final_math else None
-        animations = [Write(title)]
-        if intro_formula:
-            animations.append(Write(intro_formula))
-        self.play(*animations, run_time=1.2)
-        self.wait(0.5 if FAST else 1.0)
-
-        if intro_formula:
-            self.play(FadeOut(intro_formula), run_time=0.4)
-        self.play(title.animate.scale(0.65).to_edge(UP, buff=0.35), run_time=0.5)
-
-        caption = None
-        state = {}
-        for step in lesson.get("steps", []):
-            narration = str(step.get("narration", "")).strip()
-            if caption is not None:
-                self.play(FadeOut(caption), run_time=0.25)
-            caption = _txt(
-                narration,
-                size=25 if HORIZONTAL else 24,
-                color=WHITE,
-                wrap=70 if HORIZONTAL else 42,
+        if IS_HORIZONTAL:
+            raise RuntimeError(
+                "O perfil nativo motion_math_v1 ainda não foi aprovado para horizontal."
             )
-            if HORIZONTAL:
-                caption.move_to([4.6, 0.4, 0])
-                _fit(caption, 6.0, 5.3)
-            else:
-                caption.move_to([0, -5.6, 0])
-                _fit(caption, 7.2, 2.4)
-            self.play(FadeIn(caption), run_time=0.35)
 
-            run_demo_action(self, state, step, horizontal=HORIZONTAL)
+        render = self.manifest.get("render") or {}
+        renderer = str(render.get("native_renderer", ""))
+        if renderer != "area_triangle_parallelogram_v1":
+            raise RuntimeError(f"Renderer demo nativo ainda não portado: {renderer!r}")
 
-            math = step.get("math")
-            if math:
-                equation = _math(str(math), 46 if HORIZONTAL else 42, GOLD)
-                if HORIZONTAL:
-                    equation.move_to([4.6, -2.15, 0])
-                    _fit(equation, 6.0, 1.5)
-                else:
-                    equation.move_to([0, -3.9, 0])
-                    _fit(equation, 7.2, 1.5)
-                previous = state.get("equation")
-                if previous is not None:
-                    self.play(FadeOut(previous), run_time=0.25)
-                self.play(Write(equation), run_time=0.7)
-                state["equation"] = equation
+        presentation = self.manifest.get("presentation") or {}
+        captions = presentation.get("captions") or {}
+        self.demo_header(
+            str(presentation.get("number", "01")),
+            self.manifest["title"],
+            str(presentation.get("formula", self.manifest.get("result", {}).get("math", ""))),
+            str(presentation.get("category", "ÁREAS")),
+        )
 
-            self.pause_for_step(max(8, len(narration.split())))
+        tri = polygon_xy([(-2.8, -0.9), (2.2, -0.9), (-0.8, 1.6)])
+        self.demo_caption(captions["base_height"])
+        self.play(Create(tri), run_time=1.8)
 
-        if caption is not None:
-            self.play(FadeOut(caption), run_time=0.3)
+        h = DashedLine(P(-0.8, -0.9), P(-0.8, 1.6), color=GOLD)
+        ra = self.right_angle(P(-0.8, -0.9), quadrant=UR)
+        labels = VGroup(
+            safe_mathtex("b", 36, CYAN).move_to(P(-0.3, -1.35)),
+            safe_mathtex("h", 36, GOLD).move_to(P(-1.15, 0.25)),
+        )
+        self.play(Create(h), Create(ra), Write(labels), run_time=1.2)
+        self.wait(1.2)
 
-        final = _math(final_math, 54 if HORIZONTAL else 48, GREEN_C) if final_math else _txt(result.get("text", ""), 36, GREEN_C)
-        if HORIZONTAL:
-            final.move_to([4.6, 0.0, 0])
+        self.demo_caption(captions["duplicate"])
+        self.demo_hide_intro_formula()
+        other = tri.copy().set_color(GOLD)
+        self.play(
+            FadeOut(h),
+            FadeOut(ra),
+            FadeOut(labels),
+            other.animate.shift(UP * 0.45),
+            run_time=0.8,
+        )
+        self.play(Rotate(other, PI, about_point=other.get_center()), run_time=1.35)
+        target = polygon_xy([(-0.8, 1.6), (4.2, 1.6), (2.2, -0.9)], GOLD)
+        self.play(
+            other.animate.shift(target.get_center() - other.get_center()),
+            run_time=1.35,
+        )
+        group = VGroup(tri, other)
+        self.play(group.animate.shift(LEFT * 0.7), run_time=0.65)
+        self.wait(0.9)
+        self.demo_equation(r"2A=bh")
+        self.demo_caption(captions["half"])
+        self.demo_equation(r"A=\frac{bh}{2}")
+        self.demo_end()
+
+    # ------------------------------------------------------------------
+    # ENEM profile: port of ENEMSolutionScene, driven only by manifest
+    # ------------------------------------------------------------------
+
+    def segment_duration(self, key, default=2.5):
+        rec = self.narr.get(key, {})
+        raw = rec.get("duration", rec.get("estimated_seconds", default))
+        try:
+            d = float(raw)
+        except (TypeError, ValueError):
+            d = float(default)
+        return max(0.35, d * (0.16 if FAST_PREVIEW else 1.0))
+
+    def audio_path(self, key):
+        rec = self.narr.get(key, {})
+        rel = rec.get("audio")
+        if not rel:
+            return None
+        path = (PROJECT_ROOT / str(rel)).resolve()
+        return path if path.exists() else None
+
+    def speak(self, key, animations=None, run_time=None):
+        duration = self.segment_duration(key)
+        audio = self.audio_path(key)
+        if audio and not FAST_PREVIEW:
+            self.add_sound(str(audio))
+        if animations:
+            rt = min(duration * 0.52, 3.8) if run_time is None else min(float(run_time), duration)
+            rt = max(0.25, rt)
+            self.play(*animations, run_time=rt)
+            if duration > rt:
+                self.wait(duration - rt)
         else:
-            final.move_to([0, -5.0, 0])
-        _fit(final, 6.2 if HORIZONTAL else 7.2, 2.0)
-        self.play(Write(final), run_time=0.9)
-        self.wait(0.5 if FAST else 1.8)
-
-    # ------------------------- qenem -------------------------
+            self.wait(duration)
+        return duration
 
     def render_qenem(self):
-        self.q_source()
-        self.q_statement()
-        visuals = self.manifest.get("visuals") or {}
-        if visuals.get("statement"):
-            self.q_figure()
-        self.q_options()
-        self.q_data()
-        self.q_strategy()
-        if visuals.get("concept"):
-            self.q_concept()
-        self.q_solution()
-        self.q_answer()
+        self.q = self.manifest["question"]
+        self.exam = self.manifest["exam"]
+        self.solution = self.manifest["solution"]
+        self.visuals = self.manifest.get("visuals") or {}
 
-    def q_source(self):
-        exam = self.manifest["exam"]
-        tag = _txt("QUESTÃO COMENTADA", 22, CYAN, bold=True)
-        tag.move_to([0, 2.2 if HORIZONTAL else 5.8, 0])
-        code = _txt(
-            f'{exam["canonical_id"]} — Q{exam["question_number"]}',
-            40 if HORIZONTAL else 34,
+        self.source_screen()
+        self.statement_screen()
+        if self.visuals.get("statement"):
+            self.figure_screen()
+        self.options_screen()
+        self.data_screen()
+        self.goal_screen()
+        self.visual_screen()
+        self.solution_screen()
+
+    def source_screen(self):
+        tag = enem_txt("QUESTÃO COMENTADA", 20, CYAN, weight=BOLD).move_to(
+            P(0, _lv(5.8, 2.9))
+        )
+        code = enem_txt(
+            f'{self.exam["canonical_id"]} — Q{self.exam["question_number"]}',
+            _lv(34, 38),
             WHITE,
-            bold=True,
+            weight=BOLD,
         )
-        src = _txt(f'Fonte: {exam["name"]} {exam["year"]} · {exam.get("booklet", "")}', 22, MUTED)
-        group = VGroup(code, src).arrange(DOWN, buff=0.35).move_to([0, 0.15, 0])
-        self.speak("source", [FadeIn(tag), Write(code), FadeIn(src)], default=3.5)
-        self.clear_screen()
+        src = enem_txt(
+            f'Fonte: {self.exam["name"]} {self.exam["year"]} · {self.exam.get("booklet", "")}',
+            21,
+            MUTED,
+        )
+        group = VGroup(code, src).arrange(DOWN, buff=0.35).move_to(P(0, _lv(0.3, 0)))
+        self.speak(
+            "source",
+            [FadeIn(tag, shift=DOWN * 0.15), Write(code), FadeIn(src)],
+        )
+        self.play(FadeOut(VGroup(tag, group)), run_time=0.45)
 
-    def q_statement(self):
-        h = self.heading("ENUNCIADO")
-        q = self.manifest["question"]
-        body = _txt(
-            q["stem"],
-            25 if HORIZONTAL else 23,
+    def statement_screen(self):
+        heading = enem_txt("1 · LEIA O PROBLEMA", 20, CYAN, weight=BOLD).move_to(
+            P(0, _lv(6.7, 3.65))
+        )
+        self.add(heading)
+        segs = [v for k, v in sorted(self.narr.items()) if k.startswith("statement_")]
+        for i, seg in enumerate(segs, 1):
+            card = RoundedRectangle(
+                width=_lv(7.7, 14.2),
+                height=_lv(10.7, 5.6),
+                corner_radius=0.18,
+                color="#24324E",
+                fill_color="#111A30",
+                fill_opacity=1,
+            )
+            body = enem_txt(
+                seg["text"],
+                _lv(24, 23),
+                WHITE,
+                width=_lv(51, 92),
+            )
+            fit(body, _lv(7.1, 13.2), _lv(9.4, 4.45))
+            body.move_to(card)
+            page_no = enem_txt(f"{i}/{len(segs)}", 16, MUTED).move_to(
+                P(0, _lv(-5.25, -2.55))
+            )
+            group = VGroup(card, body, page_no)
+            self.speak(seg["key"], [FadeIn(group, shift=UP * 0.12)])
+            self.play(FadeOut(group), run_time=0.35)
+        self.play(FadeOut(heading), run_time=0.25)
+
+    def figure_screen(self):
+        h = enem_txt("2 · FIGURA DA QUESTÃO", 20, CYAN, weight=BOLD).move_to(
+            P(0, _lv(6.7, 3.65))
+        )
+        sub = enem_txt("reconstrução vetorial esquemática", 16, MUTED).next_to(
+            h, DOWN, buff=0.12
+        )
+        spec = self.visuals["statement"]
+        fig = source_figure(str(spec["renderer"]))
+        note = enem_txt(
+            str(spec.get("description", "")),
+            _lv(18, 19),
+            MUTED,
+            width=_lv(52, 46),
+        )
+        if IS_HORIZONTAL:
+            fit(fig, 8.0, 5.25)
+            fig.move_to(P(-3.25, -0.15))
+            fit(note, 5.15, 4.5)
+            note.move_to(P(4.35, -0.1))
+        else:
+            fit(fig, 7.2, 9.0)
+            fig.move_to(P(0, 0.3))
+            fit(note, 7.2, 2.2)
+            note.move_to(P(0, -5.1))
+        children = list(fig) if len(fig) > 0 else [fig]
+        anim = [
+            FadeIn(VGroup(h, sub)),
+            LaggedStart(
+                *[
+                    Create(x) if isinstance(x, VMobject) else FadeIn(x)
+                    for x in children
+                ],
+                lag_ratio=0.09,
+            ),
+            FadeIn(note),
+        ]
+        self.speak("figure", anim)
+        self.play(FadeOut(VGroup(h, sub, fig, note)), run_time=0.4)
+
+    def options_screen(self):
+        h = enem_txt("3 · ALTERNATIVAS", 20, CYAN, weight=BOLD).move_to(
+            P(0, _lv(6.7, 3.65))
+        )
+        self.add(h)
+        option_lines = [
+            f"{letter}) {value}" for letter, value in self.q.get("options", {}).items()
+        ]
+        body = enem_txt(
+            "\n".join(option_lines),
+            _lv(22, 21),
             WHITE,
-            wrap=96 if HORIZONTAL else 47,
+            width=_lv(51, 90),
         )
-        card = RoundedRectangle(
-            width=14.2 if HORIZONTAL else 7.7,
-            height=5.4 if HORIZONTAL else 10.8,
+        fit(body, _lv(7.1, 13.1), _lv(10.2, 4.75))
+        body.move_to(P(0, 0))
+        box = RoundedRectangle(
+            width=_lv(7.7, 14.2),
+            height=_lv(10.9, 5.6),
             corner_radius=0.18,
-            stroke_color="#283652",
-            fill_color="#111A2F",
-            fill_opacity=0.88,
+            color="#24324E",
+            fill_color="#111A30",
+            fill_opacity=1,
         )
-        card.move_to([0, -0.05 if HORIZONTAL else 0.0, 0])
-        _fit(body, 13.4 if HORIZONTAL else 7.0, 4.6 if HORIZONTAL else 9.7)
-        body.move_to(card.get_center())
-        first = "statement_01"
-        if first in self.narration:
-            self.speak(first, [FadeIn(h), FadeIn(card), Write(body)], default=4.0)
-            for key in sorted(k for k in self.narration if k.startswith("statement_") and k != first):
-                self.speak(key, default=3.0)
-        else:
-            self.play(FadeIn(h), FadeIn(card), Write(body), run_time=1.5)
-            self.pause_for_step(len(str(q["stem"]).split()))
-        self.clear_screen()
+        self.speak("options", [FadeIn(box), FadeIn(body, shift=UP * 0.1)])
+        self.play(FadeOut(VGroup(h, box, body)), run_time=0.35)
 
-    def q_figure(self):
-        h = self.heading("FIGURA DO ENUNCIADO")
-        spec = (self.manifest.get("visuals") or {}).get("statement") or {}
-        visual = build_visual(str(spec.get("renderer", "")), horizontal=HORIZONTAL)
-        note = _txt(str(spec.get("description", "")), 22, MUTED, wrap=58 if HORIZONTAL else 42)
-        if HORIZONTAL:
-            visual.scale_to_fit_height(5.1)
-            visual.move_to([-3.8, -0.15, 0])
-            _fit(note, 6.2, 4.0)
-            note.move_to([4.4, -0.2, 0])
-        else:
-            _fit(visual, 7.1, 8.5)
-            visual.move_to([0, 0.4, 0])
-            _fit(note, 7.1, 2.0)
-            note.move_to([0, -5.25, 0])
-        self.speak("figure", [FadeIn(h), Create(visual), FadeIn(note)], default=4.0)
-        self.clear_screen()
-
-    def q_options(self):
-        h = self.heading("ALTERNATIVAS")
-        options = self.manifest["question"]["options"]
-        text = "\n\n".join(f"{letter}) {options[letter]}" for letter in "ABCDE")
-        body = _txt(text, 30 if HORIZONTAL else 27, WHITE, wrap=75 if HORIZONTAL else 42)
-        card = RoundedRectangle(
-            width=13.0 if HORIZONTAL else 7.7,
-            height=5.0 if HORIZONTAL else 10.0,
-            corner_radius=0.18,
-            stroke_color="#283652",
-            fill_color="#111A2F",
-            fill_opacity=0.88,
+    def data_screen(self):
+        h = enem_txt("4 · SEPARE OS DADOS", 20, CYAN, weight=BOLD).move_to(
+            P(0, _lv(6.7, 3.65))
         )
-        card.move_to([0, -0.15, 0])
-        _fit(body, 12.1 if HORIZONTAL else 7.0, 4.2 if HORIZONTAL else 9.1)
-        body.move_to(card.get_center())
-        self.speak("options", [FadeIn(h), FadeIn(card), Write(body)], default=4.0)
-        self.clear_screen()
-
-    def q_data(self):
-        h = self.heading("DADOS-CHAVE")
-        items = self.manifest["solution"].get("data") or []
-        rows = VGroup()
-        for item in items:
-            bullet = _txt("• " + str(item), 27 if HORIZONTAL else 25, WHITE, wrap=42 if HORIZONTAL else 38)
-            rows.add(bullet)
-        if HORIZONTAL:
-            rows.arrange_in_grid(rows=2, cols=max(1, (len(rows) + 1) // 2), buff=(0.8, 0.8), aligned_edge=LEFT)
-            _fit(rows, 13.5, 4.6)
-            rows.move_to([0, -0.15, 0])
-        else:
-            rows.arrange(DOWN, buff=0.55, aligned_edge=LEFT)
-            _fit(rows, 7.2, 9.0)
-            rows.move_to([0, 0, 0])
-        self.speak("data", [FadeIn(h), FadeIn(rows)], default=4.0)
-        self.clear_screen()
-
-    def q_strategy(self):
-        h = self.heading("ESTRATÉGIA")
-        sol = self.manifest["solution"]
-        goal = _txt("Objetivo: " + sol["goal"], 28 if HORIZONTAL else 26, GOLD, wrap=50 if HORIZONTAL else 40, bold=True)
-        hook = _txt(str(sol.get("hook", "")), 24, MUTED, wrap=52 if HORIZONTAL else 40)
-        plans = VGroup(*[
-            _txt(f"{i}. {item}", 25 if HORIZONTAL else 23, WHITE, wrap=42 if HORIZONTAL else 39)
-            for i, item in enumerate(sol.get("strategy") or [], 1)
-        ])
-        plans.arrange(DOWN, buff=0.45, aligned_edge=LEFT)
-        if HORIZONTAL:
-            goal.move_to([-3.7, 1.2, 0]); _fit(goal, 6.3, 1.4)
-            hook.move_to([-3.7, -0.4, 0]); _fit(hook, 6.3, 2.1)
-            plans.move_to([4.0, -0.2, 0]); _fit(plans, 6.5, 4.8)
-        else:
-            goal.move_to([0, 4.4, 0]); _fit(goal, 7.2, 1.8)
-            hook.move_to([0, 2.5, 0]); _fit(hook, 7.1, 2.0)
-            plans.move_to([0, -0.9, 0]); _fit(plans, 7.2, 5.8)
-        self.speak("strategy", [FadeIn(h), FadeIn(goal), FadeIn(hook), FadeIn(plans)], default=4.0)
-        self.clear_screen()
-
-    def q_concept(self):
-        h = self.heading("MODELO VISUAL")
-        spec = (self.manifest.get("visuals") or {}).get("concept") or {}
-        visual = build_visual(str(spec.get("renderer", "")), horizontal=HORIZONTAL)
-        note = _txt(str(spec.get("note", "")), 23, MUTED, wrap=55 if HORIZONTAL else 42)
-        if HORIZONTAL:
-            _fit(visual, 6.4, 5.1); visual.move_to([-3.9, -0.25, 0])
-            _fit(note, 6.0, 3.8); note.move_to([4.3, -0.1, 0])
-        else:
-            _fit(visual, 7.0, 7.5); visual.move_to([0, 0.7, 0])
-            _fit(note, 7.0, 2.2); note.move_to([0, -5.1, 0])
-        self.speak("visual", [FadeIn(h), Create(visual), FadeIn(note)], default=4.0)
-        self.clear_screen()
-
-    def q_solution(self):
-        steps = self.manifest["solution"]["steps"]
-        h = self.heading("RESOLUÇÃO")
-        self.play(FadeIn(h), run_time=0.3)
-        previous = None
-        previous_label = None
-        concept_spec = (self.manifest.get("visuals") or {}).get("concept") or {}
-        side_visual = None
-        if HORIZONTAL and concept_spec:
-            side_visual = build_visual(str(concept_spec.get("renderer", "")), horizontal=True)
-            _fit(side_visual, 5.2, 4.8)
-            side_visual.move_to([-4.3, -0.4, 0])
-            self.play(FadeIn(side_visual), run_time=0.4)
-
-        for i, step in enumerate(steps, 1):
-            label = _txt(str(step.get("label", "")), 25 if HORIZONTAL else 23, GOLD, wrap=42 if HORIZONTAL else 38, bold=True)
-            eq = _math(str(step.get("math", "")), 42 if HORIZONTAL else 40, WHITE)
-            if HORIZONTAL:
-                label.move_to([3.8, 1.15, 0]); _fit(label, 6.6, 1.5)
-                eq.move_to([3.8, -0.6, 0]); _fit(eq, 6.6, 2.2)
+        self.add(h)
+        items = []
+        for datum in self.solution.get("data", []):
+            if IS_HORIZONTAL:
+                t = enem_txt(datum, 22, WHITE, width=44)
+                fit(t, 6.05, 1.6)
+                box = RoundedRectangle(
+                    width=6.55,
+                    height=max(0.8, t.height + 0.35),
+                    corner_radius=0.13,
+                    color="#334568",
+                    fill_color="#111A30",
+                    fill_opacity=1,
+                )
             else:
-                label.move_to([0, 4.6, 0]); _fit(label, 7.0, 1.6)
-                eq.move_to([0, 0.1, 0]); _fit(eq, 7.1, 3.0)
-
-            animations = []
-            if previous is not None:
-                animations.extend([FadeOut(previous), FadeOut(previous_label)])
-            animations.extend([FadeIn(label), Write(eq)])
-            self.speak(f"step_{i:02d}", animations, default=3.0)
-            previous = eq
-            previous_label = label
-
-        self.clear_screen()
-
-    def q_answer(self):
-        h = self.heading("RESPOSTA")
-        q = self.manifest["question"]
-        letter = self.manifest["solution"]["final_answer"]
-        answer = _txt(
-            f"Alternativa {letter}\n{q['options'][letter]}",
-            42 if HORIZONTAL else 36,
-            GREEN_C,
-            wrap=40,
-            bold=True,
+                t = enem_txt(datum, 24, WHITE, width=38)
+                box = RoundedRectangle(
+                    width=7.5,
+                    height=max(0.8, t.height + 0.35),
+                    corner_radius=0.13,
+                    color="#334568",
+                    fill_color="#111A30",
+                    fill_opacity=1,
+                )
+            t.move_to(box)
+            items.append(VGroup(box, t))
+        if IS_HORIZONTAL:
+            rows = VGroup()
+            for i in range(0, len(items), 2):
+                rows.add(VGroup(*items[i : i + 2]).arrange(RIGHT, buff=0.32))
+            cards = rows.arrange(DOWN, buff=0.25).move_to(P(0, -0.05))
+            fit(cards, 13.7, 5.35)
+        else:
+            cards = VGroup(*items).arrange(DOWN, buff=0.2).move_to(P(0, 0.4))
+            fit(cards, 7.6, 10.8)
+        self.speak(
+            "data",
+            [
+                LaggedStart(
+                    *[FadeIn(c, shift=RIGHT * 0.2) for c in items],
+                    lag_ratio=0.22,
+                )
+            ],
         )
-        answer.move_to([0, 0, 0])
-        _fit(answer, 10.5 if HORIZONTAL else 7.0, 4.0)
-        self.speak("answer", [FadeIn(h), Write(answer)], default=3.0)
+        self.play(FadeOut(VGroup(h, cards)), run_time=0.35)
+
+    def goal_screen(self):
+        h = enem_txt("5 · ESTRATÉGIA", 20, CYAN, weight=BOLD).move_to(
+            P(0, _lv(6.7, 3.65))
+        )
+        self.add(h)
+        goal_text = str(self.solution.get("goal", ""))
+        hook_text = str(self.solution.get("hook", ""))
+        plan = self.solution.get("strategy") or []
+
+        if IS_HORIZONTAL:
+            goal = enem_txt(goal_text, 27, GOLD, width=40, weight=BOLD)
+            fit(goal, 6.25, 1.55)
+            hook = enem_txt(hook_text, 20, MUTED, width=42)
+            fit(hook, 6.25, 1.8)
+            left = VGroup(goal, hook).arrange(
+                DOWN, aligned_edge=LEFT, buff=0.55
+            ).move_to(P(-3.65, 0.2))
+            chain = VGroup(
+                *[
+                    enem_txt(f"{i}. {item}", 21, WHITE, width=43)
+                    for i, item in enumerate(plan, 1)
+                ]
+            )
+            chain.arrange(DOWN, aligned_edge=LEFT, buff=0.38).move_to(P(3.55, -0.05))
+            fit(chain, 6.35, 5.25)
+            divider = Line(
+                P(0, -2.7), P(0, 2.55), color="#24324E", stroke_width=2
+            )
+            self.speak(
+                "strategy",
+                [
+                    Write(goal),
+                    FadeIn(hook),
+                    Create(divider),
+                    LaggedStart(
+                        *[FadeIn(x, shift=UP * 0.12) for x in chain],
+                        lag_ratio=0.3,
+                    ),
+                ],
+            )
+            self.play(FadeOut(VGroup(h, left, chain, divider)), run_time=0.4)
+        else:
+            goal = enem_txt(goal_text, 29, GOLD, width=42, weight=BOLD).move_to(
+                P(0, 4.5)
+            )
+            hook = enem_txt(hook_text, 22, MUTED, width=47).move_to(P(0, 2.7))
+            chain = VGroup(
+                *[
+                    enem_txt(f"{i}. {item}", 23, WHITE, width=43)
+                    for i, item in enumerate(plan, 1)
+                ]
+            )
+            chain.arrange(DOWN, aligned_edge=LEFT, buff=0.42).move_to(P(0, -0.5))
+            fit(chain, 7.4, 6.8)
+            self.speak(
+                "strategy",
+                [
+                    Write(goal),
+                    FadeIn(hook),
+                    LaggedStart(
+                        *[FadeIn(x, shift=UP * 0.12) for x in chain],
+                        lag_ratio=0.3,
+                    ),
+                ],
+            )
+            self.play(FadeOut(VGroup(h, goal, hook, chain)), run_time=0.4)
+
+    def visual_screen(self):
+        h = enem_txt("6 · MODELE VISUALMENTE", 20, CYAN, weight=BOLD).move_to(
+            P(0, _lv(6.7, 3.65))
+        )
+        self.add(h)
+        spec = self.visuals.get("concept") or {}
+        diagram = concept_diagram(str(spec.get("renderer", "generic")))
+        note = enem_txt(
+            str(spec.get("note", "")),
+            _lv(22, 20),
+            MUTED,
+            width=_lv(46, 45),
+        )
+        if IS_HORIZONTAL:
+            diagram.move_to(P(-3.3, -0.05))
+            fit(diagram, 8.0, 5.25)
+            fit(note, 5.2, 4.6)
+            note.move_to(P(4.3, -0.05))
+        else:
+            diagram.move_to(P(0, 0.5))
+            fit(diagram, 7.2, 9.2)
+            note.move_to(P(0, -5.15))
+        children = list(diagram) if len(diagram) > 0 else [diagram]
+        self.speak(
+            "visual",
+            [
+                LaggedStart(
+                    *[
+                        Create(x) if isinstance(x, VMobject) else FadeIn(x)
+                        for x in children
+                    ],
+                    lag_ratio=0.10,
+                ),
+                FadeIn(note),
+            ],
+        )
+        if not FAST_PREVIEW and len(diagram) > 0:
+            self.play(
+                Indicate(diagram[0], color=GOLD, scale_factor=1.04),
+                run_time=0.65,
+            )
+        self.play(FadeOut(VGroup(h, diagram, note)), run_time=0.35)
+
+    def solution_screen(self):
+        h = enem_txt("7 · RESOLVA PASSO A PASSO", 20, CYAN, weight=BOLD).move_to(
+            P(0, _lv(6.7, 3.65))
+        )
+        self.add(h)
+        current = None
+        for i, step in enumerate(self.solution.get("steps", []), 1):
+            label = enem_txt(
+                str(step.get("label", "")),
+                _lv(22, 21),
+                GOLD,
+                width=_lv(44, 72),
+            ).move_to(P(0, _lv(4.9, 2.55)))
+            size = step.get("font_size")
+            equation = mt(
+                str(step.get("math", "")),
+                int(size) if size else _lv(45, 43),
+            ).move_to(P(0, _lv(0.2, 0.1)))
+            if current is None:
+                anim = [FadeIn(label), Write(equation)]
+            else:
+                anim = [
+                    FadeOut(current[0]),
+                    FadeIn(label),
+                    ReplacementTransform(current[1], equation),
+                ]
+            self.speak(f"step_{i:02d}", anim)
+            current = (label, equation)
+
+        answer_letter = str(
+            self.solution.get("final_answer", self.q.get("answer", ""))
+        )
+        option = self.q.get("options", {}).get(answer_letter, "")
+        answer = enem_txt(
+            f"Alternativa {answer_letter}: {option}",
+            _lv(30, 27),
+            GREEN,
+            width=_lv(42, 76),
+            weight=BOLD,
+        ).move_to(P(0, _lv(-4.5, -2.55)))
+        check = SurroundingRectangle(answer, color=GREEN, buff=0.22)
+        self.speak("answer", [FadeIn(answer), Create(check)])
