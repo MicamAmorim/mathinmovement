@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import os
 import shutil
 import subprocess
@@ -24,6 +25,28 @@ RESOLUTIONS = {
 
 def _safe_filename(value: str) -> str:
     return "".join(c if c.isalnum() or c in "._-" else "-" for c in value).strip("-")
+
+
+def _short_build_dir(
+    record: ContentRecord,
+    *,
+    engine: str,
+    video_format: str,
+    quality: str,
+) -> Path:
+    """Return a deterministic short build path, avoiding Windows MAX_PATH issues."""
+    digest = hashlib.sha1(record.id.encode("utf-8")).hexdigest()[:10]
+    engine_code = "n" if engine == "native" else "c"
+    format_code = "v" if video_format == "vertical" else "h"
+    quality_code = "d" if quality == "draft" else "f"
+    return (
+        PROJECT_ROOT
+        / ".mim_build"
+        / engine_code
+        / digest
+        / format_code
+        / quality_code
+    )
 
 
 def probe_duration(path: Path) -> float | None:
@@ -208,13 +231,11 @@ def render_record(
         )
 
     safe_id = _safe_filename(record.id)
-    build_dir = (
-        PROJECT_ROOT
-        / ".mim_build"
-        / resolved_engine
-        / safe_id
-        / video_format
-        / quality
+    build_dir = _short_build_dir(
+        record,
+        engine=resolved_engine,
+        video_format=video_format,
+        quality=quality,
     )
     output_dir = PROJECT_ROOT / output_root_name / record.type / video_format
     output = output_dir / f"{safe_id}.mp4"
