@@ -193,5 +193,405 @@
         "audio": "assets/audio/answer.mp3"
       }
     ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "statement": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "xaxis",
+              "type": "line",
+              "start": [
+                -3.25,
+                -1.8
+              ],
+              "end": [
+                3.25,
+                -1.8
+              ],
+              "color": "muted",
+              "stroke_width": 2
+            },
+            {
+              "id": "yaxis",
+              "type": "line",
+              "start": [
+                -3.25,
+                -1.8
+              ],
+              "end": [
+                -3.25,
+                2
+              ],
+              "color": "muted",
+              "stroke_width": 2
+            },
+            {
+              "id": "A",
+              "type": "dot",
+              "point": [
+                -0.82,
+                1.4
+              ],
+              "color": "cyan",
+              "radius": 0.07
+            },
+            {
+              "id": "Al",
+              "type": "math",
+              "tex": "A",
+              "at": [
+                -0.82,
+                1.72
+              ],
+              "color": "cyan",
+              "font_size": 22
+            },
+            {
+              "id": "B",
+              "type": "dot",
+              "point": [
+                2.45,
+                -0.2
+              ],
+              "color": "cyan",
+              "radius": 0.07
+            },
+            {
+              "id": "Bl",
+              "type": "math",
+              "tex": "B",
+              "at": [
+                2.45,
+                0.12
+              ],
+              "color": "cyan",
+              "font_size": 22
+            },
+            {
+              "id": "I",
+              "type": "dot",
+              "point": [
+                -0.82,
+                -1.8
+              ],
+              "color": "gold",
+              "radius": 0.06
+            },
+            {
+              "id": "Il",
+              "type": "math",
+              "tex": "I",
+              "at": [
+                -0.82,
+                -2.1
+              ],
+              "color": "gold",
+              "font_size": 18
+            },
+            {
+              "id": "II",
+              "type": "dot",
+              "point": [
+                0.27,
+                -1.8
+              ],
+              "color": "gold",
+              "radius": 0.06
+            },
+            {
+              "id": "IIl",
+              "type": "math",
+              "tex": "II",
+              "at": [
+                0.27,
+                -2.1
+              ],
+              "color": "gold",
+              "font_size": 18
+            },
+            {
+              "id": "III",
+              "type": "dot",
+              "point": [
+                0.82,
+                -1.8
+              ],
+              "color": "gold",
+              "radius": 0.06
+            },
+            {
+              "id": "IIIl",
+              "type": "math",
+              "tex": "III",
+              "at": [
+                0.82,
+                -2.1
+              ],
+              "color": "gold",
+              "font_size": 18
+            },
+            {
+              "id": "IV",
+              "type": "dot",
+              "point": [
+                1.36,
+                -1.8
+              ],
+              "color": "gold",
+              "radius": 0.06
+            },
+            {
+              "id": "IVl",
+              "type": "math",
+              "tex": "IV",
+              "at": [
+                1.36,
+                -2.1
+              ],
+              "color": "gold",
+              "font_size": 18
+            },
+            {
+              "id": "V",
+              "type": "dot",
+              "point": [
+                2.45,
+                -1.8
+              ],
+              "color": "gold",
+              "radius": 0.06
+            },
+            {
+              "id": "Vl",
+              "type": "math",
+              "tex": "V",
+              "at": [
+                2.45,
+                -2.1
+              ],
+              "color": "gold",
+              "font_size": 18
+            },
+            {
+              "id": "r1",
+              "type": "line",
+              "start": [
+                -0.82,
+                1.4
+              ],
+              "end": [
+                1.36,
+                -1.8
+              ],
+              "color": "green",
+              "stroke_width": 3
+            },
+            {
+              "id": "r2",
+              "type": "line",
+              "start": [
+                2.45,
+                -0.2
+              ],
+              "end": [
+                1.36,
+                -1.8
+              ],
+              "color": "green",
+              "stroke_width": 3
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "xaxis",
+          "yaxis",
+          "r1",
+          "r2",
+          "A",
+          "Al",
+          "B",
+          "Bl",
+          "I",
+          "Il",
+          "II",
+          "IIl",
+          "III",
+          "IIIl",
+          "IV",
+          "IVl",
+          "V",
+          "Vl"
+        ]
+      },
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "xaxis",
+              "type": "line",
+              "start": [
+                -3.25,
+                -0.63
+              ],
+              "end": [
+                3.25,
+                -0.63
+              ],
+              "color": "muted",
+              "stroke_width": 2
+            },
+            {
+              "id": "yaxis",
+              "type": "line",
+              "start": [
+                -3.25,
+                -2.2
+              ],
+              "end": [
+                -3.25,
+                2.2
+              ],
+              "color": "muted",
+              "stroke_width": 2
+            },
+            {
+              "id": "A",
+              "type": "dot",
+              "point": [
+                -0.82,
+                1.89
+              ],
+              "color": "cyan",
+              "radius": 0.07
+            },
+            {
+              "id": "Al",
+              "type": "math",
+              "tex": "A",
+              "at": [
+                -0.82,
+                2.15
+              ],
+              "color": "cyan",
+              "font_size": 22
+            },
+            {
+              "id": "B",
+              "type": "dot",
+              "point": [
+                2.45,
+                0.63
+              ],
+              "color": "cyan",
+              "radius": 0.07
+            },
+            {
+              "id": "Bl",
+              "type": "math",
+              "tex": "B",
+              "at": [
+                2.45,
+                0.92
+              ],
+              "color": "cyan",
+              "font_size": 22
+            },
+            {
+              "id": "Br",
+              "type": "dot",
+              "point": [
+                2.45,
+                -1.89
+              ],
+              "color": "gold",
+              "radius": 0.07
+            },
+            {
+              "id": "Brl",
+              "type": "math",
+              "tex": "B'",
+              "at": [
+                2.45,
+                -2.15
+              ],
+              "color": "gold",
+              "font_size": 22
+            },
+            {
+              "id": "reflect",
+              "type": "dashed_line",
+              "start": [
+                2.45,
+                0.63
+              ],
+              "end": [
+                2.45,
+                -1.89
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "path",
+              "type": "line",
+              "start": [
+                -0.82,
+                1.89
+              ],
+              "end": [
+                2.45,
+                -1.89
+              ],
+              "color": "green",
+              "stroke_width": 3
+            },
+            {
+              "id": "X",
+              "type": "dot",
+              "point": [
+                1.36,
+                -0.63
+              ],
+              "color": "pink",
+              "radius": 0.07
+            },
+            {
+              "id": "IV",
+              "type": "math",
+              "tex": "IV",
+              "at": [
+                1.36,
+                -0.95
+              ],
+              "color": "pink",
+              "font_size": 20
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "xaxis",
+          "yaxis",
+          "A",
+          "Al",
+          "B",
+          "Bl",
+          "Br",
+          "Brl",
+          "reflect",
+          "path",
+          "X",
+          "IV"
+        ]
+      }
+    }
   }
 }
