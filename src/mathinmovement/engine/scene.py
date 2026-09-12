@@ -11,7 +11,7 @@ from ..config import PROJECT_ROOT
 from ..fonts import DEMO_FONT, ENEM_TEXT_FONT
 from ..registry import Registry
 from ..visuals import build_visual
-from ..visuals.registry import concept_diagram, source_figure
+from ..visuals.registry import concept_diagram, ferris_alternatives, source_figure
 
 BG = "#0B1020"
 WHITE = "#EEF2FF"
@@ -2701,6 +2701,14 @@ class UnifiedContentScene(Scene):
             P(0, _lv(6.7, 3.65))
         )
         self.add(h)
+        if self.exam.get("canonical_id") == "ENEM-2023-MT-29":
+            body = ferris_alternatives()
+            fit(body, _lv(7.1, 13.6), _lv(11.0, 5.55))
+            body.move_to(P(_lv(0.2, 0), 0))
+            self.speak("options", [FadeIn(body, shift=UP * 0.1)])
+            self.play(FadeOut(VGroup(h, body)), run_time=0.35)
+            return
+
         option_lines = [
             f"{letter}) {value}" for letter, value in self.q.get("options", {}).items()
         ]
