@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2021-MT-12",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2021 — Q147",
+  "tags": [
+    "enem",
+    "enem-2021"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2021,
+    "canonical_id": "ENEM-2021-MT-12",
+    "question_number": 147,
+    "booklet": "Caderno 5 Amarelo - digital"
+  },
+  "source": {
+    "page": 65,
+    "exam_file": "2021_PV_digital_D2_CD5.pdf",
+    "answer_key_file": "2021_GB_digital_D2_CD5.pdf"
+  },
+  "question": {
+    "stem": "Uma pessoa comprou uma caneca para tomar sopa, conforme ilustração.\n\n\n      Sabe-se que 1 cm3 = 1 mL e que o topo da caneca é uma circunferência de\ndiâmetro (D) medindo 10 cm, e a base é um círculo de diâmetro (d) medindo 8 cm. Além\ndisso, sabe-se que a altura (h) dessa caneca mede 12 cm (distância entre o centro das\ncircunferências do topo e da base).\n\n      Utilize 3 como aproximação para π.\n\nQual é a capacidade volumétrica, em mililitro, dessa caneca?",
+    "options": {
+      "A": "216",
+      "B": "408",
+      "C": "732",
+      "D": "2 196",
+      "E": "2 928"
+    },
+    "answer": "C"
+  },
+  "solution": {
+    "data": [
+      "topo: diâmetro 10 cm ⇒ R = 5 cm",
+      "base: diâmetro 8 cm ⇒ r = 4 cm",
+      "altura h = 12 cm",
+      "π ≈ 3 e 1 cm³ = 1 mL"
+    ],
+    "goal": "Calcular a capacidade da caneca.",
+    "hook": "A caneca não é um cilindro: os dois raios são diferentes.",
+    "strategy": [
+      "Reconhecer um tronco de cone.",
+      "Aplicar a fórmula do volume.",
+      "Converter cm³ em mL."
+    ],
+    "steps": [
+      {
+        "label": "Volume do tronco de cone",
+        "math": "V={\\pi h\\over3}(R^2+Rr+r^2)"
+      },
+      {
+        "label": "Substitua os dados",
+        "math": "V={3\\cdot12\\over3}(5^2+5\\cdot4+4^2)"
+      },
+      {
+        "label": "Cancele 3 no numerador e denominador",
+        "math": "V=12(25+20+16)"
+      },
+      {
+        "label": "Some dentro dos parênteses",
+        "math": "V=12\\cdot61=732\\ \\mathrm{cm^3}"
+      },
+      {
+        "label": "Use 1 cm³ = 1 mL",
+        "math": "V=732\\ \\mathrm{mL}"
+      }
+    ],
+    "final_answer": "C"
+  },
+  "visuals": {
+    "statement": {
+      "renderer": "cup_frustum",
+      "description": "Ilustração de uma caneca em forma de tronco de cone, com diâmetro superior 10 cm, diâmetro inferior 8 cm e altura 12 cm."
+    },
+    "concept": {
+      "renderer": "cone_frustum",
+      "note": "As duas bases paralelas têm raios diferentes: é um tronco de cone."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/02_2021_q147_caneca_tronco_cone.py",
+      "scene": "Resolucao02",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2021, questão 147. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.608,
+        "audio": "enem/audio/ENEM-2021-MT-12/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "Uma pessoa comprou uma caneca para tomar sopa, conforme ilustração. Sabe-se que 1 centímetros cúbicos é igual a 1 mililitro e que o topo da caneca é uma circunferência de diâmetro (D) medindo 10 centímetros, e a base é um círculo de diâmetro (d) medindo 8 centímetros. Além disso, sabe-se que a altura (h) dessa caneca mede 12 centímetros (distância entre o centro das circunferências do topo e da base). Utilize 3 como aproximação para pi.",
+        "duration": 29.856,
+        "audio": "enem/audio/ENEM-2021-MT-12/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "Qual é a capacidade volumétrica, em mililitro, dessa caneca?",
+        "duration": 4.56,
+        "audio": "enem/audio/ENEM-2021-MT-12/statement_02.mp3"
+      },
+      {
+        "key": "figure",
+        "text": "Observe a reconstrução esquemática da figura da questão. Ilustração de uma caneca em forma de tronco de cone, com diâmetro superior 10 centímetros, diâmetro inferior 8 centímetros e altura 12 centímetros.",
+        "duration": 13.608,
+        "audio": "enem/audio/ENEM-2021-MT-12/figure.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: 216; B: 408; C: 732; D: 2 196; E: 2 928.",
+        "duration": 13.392,
+        "audio": "enem/audio/ENEM-2021-MT-12/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: topo: diâmetro 10 centímetros portanto R é igual a 5 centímetros; base: diâmetro 8 centímetros portanto r é igual a 4 centímetros; altura h é igual a 12 centímetros; pi aproximadamente 3 e 1 centímetros cúbicos é igual a 1 mililitro.",
+        "duration": 19.104,
+        "audio": "enem/audio/ENEM-2021-MT-12/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "A caneca não é um cilindro: os dois raios são diferentes. O plano é: 1, Reconhecer um tronco de cone. 2, Aplicar a fórmula do volume. 3, Converter centímetros cúbicos em mililitros.",
+        "duration": 15.408,
+        "audio": "enem/audio/ENEM-2021-MT-12/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "As duas bases paralelas têm raios diferentes: é um tronco de cone.",
+        "duration": 4.896,
+        "audio": "enem/audio/ENEM-2021-MT-12/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Volume do tronco de cone. Na tela, V é igual a pi h dividido por 3 (R ao quadrado mais Rr mais r ao quadrado).",
+        "duration": 9.192,
+        "audio": "enem/audio/ENEM-2021-MT-12/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Substitua os dados. Na tela, V é igual a 3 vezes 12 dividido por 3 (5 ao quadrado mais 5 vezes 4 mais 4 ao quadrado).",
+        "duration": 10.296,
+        "audio": "enem/audio/ENEM-2021-MT-12/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Cancele 3 no numerador e denominador. Na tela, V é igual a 12(25 mais 20 mais 16).",
+        "duration": 8.184,
+        "audio": "enem/audio/ENEM-2021-MT-12/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Some dentro dos parênteses. Na tela, V é igual a 12 vezes 61 é igual a 732 centímetros cúbicos.",
+        "duration": 9.408,
+        "audio": "enem/audio/ENEM-2021-MT-12/step_04.mp3"
+      },
+      {
+        "key": "step_05",
+        "text": "Use 1 centímetros cúbicos é igual a 1 mililitro. Na tela, V é igual a 732 mililitros.",
+        "duration": 7.968,
+        "audio": "enem/audio/ENEM-2021-MT-12/step_05.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa C: 732",
+        "duration": 5.064,
+        "audio": "enem/audio/ENEM-2021-MT-12/answer.mp3"
+      }
+    ]
+  }
+}

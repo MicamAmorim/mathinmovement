@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2022-MT-10",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2022 — Q145",
+  "tags": [
+    "enem",
+    "enem-2022"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2022,
+    "canonical_id": "ENEM-2022-MT-10",
+    "question_number": 145,
+    "booklet": "Caderno 5 Amarelo - digital"
+  },
+  "source": {
+    "page": 63,
+    "exam_file": "2022_PV_digital_D2_CD5.pdf",
+    "answer_key_file": "2022_GB_digital_D2_CD5.pdf"
+  },
+  "question": {
+    "stem": "O governo de um estado pretende realizar uma obra de infraestrutura para auxiliar na\nintegração e no processo de escoamento da produção agrícola de duas cidades.\nO projeto consiste na interligação direta das cidades A e B com a Rodovia 003, pela\nconstrução das Rodovias 001 e 002. As duas rodovias serão construídas em linha reta e\ndeverão se conectar à Rodovia 003 em um mesmo ponto, conforme esboço apresentado\nna figura, na qual estão também indicadas as posições das cidades A e B, considerando\no eixo x posicionado sobre a Rodovia 003, e cinco localizações sugeridas para o ponto de\nconexão entre as três rodovias.\n\n y (km)                                                             Rodovia 001\n                       Cidade A\n     40\n                                                                    Rodovia 002\n\n       30\n\n       20                                                           Cidade B\n\n\n       10\n               Rodovia 003 I    II III IV   V\n             0   5 10 15 20 25 30 35 40 45 50 55 x (km)\n   Pretende-se que a distância percorrida entre as duas cidades,                    pelas\nRodovias 001 e 002, passando pelo ponto de conexão, seja a menor possível.\n\nDadas as exigências do projeto, qual das localizações sugeridas deve ser a escolhida\npara o ponto de conexão?",
+    "options": {
+      "A": "I",
+      "B": "II",
+      "C": "III",
+      "D": "IV",
+      "E": "V\n\n\n                                                                                             /"
+    },
+    "answer": "D"
+  },
+  "solution": {
+    "data": [
+      "cidade A em (20,40)",
+      "cidade B em (50,20)",
+      "a Rodovia 003 coincide com o eixo x",
+      "candidatos I–V; o ponto IV está em x=40"
+    ],
+    "goal": "Escolher a conexão que minimiza a soma das duas rodovias.",
+    "hook": "Um truque de reflexão transforma duas distâncias em uma única reta.",
+    "strategy": [
+      "Refletir B em relação ao eixo x.",
+      "Trocar o caminho A–X–B pelo segmento reto A–B′.",
+      "Achar a interseção desse segmento com o eixo x."
+    ],
+    "steps": [
+      {
+        "label": "Reflita B=(50,20) no eixo x",
+        "math": "B'=(50,-20)"
+      },
+      {
+        "label": "Coeficiente angular de A até B′",
+        "math": "m={-20-40\\over50-20}=-2"
+      },
+      {
+        "label": "Equação da reta passando por A",
+        "math": "y-40=-2(x-20)"
+      },
+      {
+        "label": "No ponto de conexão, y=0",
+        "math": "0-40=-2(x-20)"
+      },
+      {
+        "label": "Resolva a equação",
+        "math": "40=2x-40\\quad\\Rightarrow\\quad x=40"
+      },
+      {
+        "label": "O candidato em x=40 é IV",
+        "math": "X=(40,0)\\quad\\Rightarrow\\quad IV"
+      }
+    ],
+    "final_answer": "D"
+  },
+  "visuals": {
+    "statement": {
+      "renderer": "roads",
+      "description": "Plano cartesiano com a Rodovia 003 sobre o eixo x, cidade A em (20,40), cidade B em (50,20) e pontos candidatos I a V sobre o eixo x; IV está em x=40."
+    },
+    "concept": {
+      "renderer": "reflection",
+      "note": "Como XB=XB′, qualquer caminho A–X–B tem o mesmo comprimento de A–X–B′; a menor soma ocorre quando A, X e B′ ficam alinhados."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/08_2022_q145_menor_caminho.py",
+      "scene": "Resolucao08",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2022, questão 145. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.656,
+        "audio": "enem/audio/ENEM-2022-MT-10/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "O governo de um estado pretende realizar uma obra para integrar duas cidades e facilitar o escoamento da produção agrícola. O projeto interliga diretamente as cidades A e B à Rodovia 003 por duas rodovias retas, 001 e 002, que devem chegar ao mesmo ponto da Rodovia 003. A figura indica as posições das cidades e cinco localizações sugeridas, de I a V, para esse ponto de conexão.",
+        "duration": 26.568,
+        "audio": "enem/audio/ENEM-2022-MT-10/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "Pretende-se que a distância percorrida entre as duas cidades, passando pelo ponto de conexão, seja a menor possível. Qual das localizações sugeridas deve ser escolhida?",
+        "duration": 11.016,
+        "audio": "enem/audio/ENEM-2022-MT-10/statement_02.mp3"
+      },
+      {
+        "key": "figure",
+        "text": "Observe a reconstrução esquemática da figura da questão. Plano cartesiano com a Rodovia 003 sobre o eixo x, cidade A em (20,40), cidade B em (50,20) e pontos candidatos I a V sobre o eixo x; IV está em x é igual a 40.",
+        "duration": 18.504,
+        "audio": "enem/audio/ENEM-2022-MT-10/figure.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: I; B: II; C: III; D: IV; E: V.",
+        "duration": 8.856,
+        "audio": "enem/audio/ENEM-2022-MT-10/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: cidade A em (20,40); cidade B em (50,20); a Rodovia 003 coincide com o eixo x; candidatos I–V; o ponto IV está em x é igual a 40.",
+        "duration": 15.456,
+        "audio": "enem/audio/ENEM-2022-MT-10/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "Um truque de reflexão transforma duas distâncias em uma única reta. O plano é: 1, Refletir B em relação ao eixo x. 2, Trocar o caminho A–X–B pelo segmento reto A–B′. 3, Achar a interseção desse segmento com o eixo x.",
+        "duration": 17.64,
+        "audio": "enem/audio/ENEM-2022-MT-10/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "Como XB é igual a XB′, qualquer caminho A–X–B tem o mesmo comprimento de A–X–B′; a menor soma ocorre quando A, X e B′ ficam alinhados.",
+        "duration": 10.968,
+        "audio": "enem/audio/ENEM-2022-MT-10/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Reflita B é igual a (50,20) no eixo x. Na tela, B' é igual a (50, menos 20).",
+        "duration": 9.24,
+        "audio": "enem/audio/ENEM-2022-MT-10/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Coeficiente angular de A até B′. Na tela, m é igual a menos 20 menos 40 dividido por 50 menos 20 é igual a menos 2.",
+        "duration": 9.456,
+        "audio": "enem/audio/ENEM-2022-MT-10/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Equação da reta passando por A. Na tela, y menos 40 é igual a menos 2(x menos 20).",
+        "duration": 8.088,
+        "audio": "enem/audio/ENEM-2022-MT-10/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "No ponto de conexão, y é igual a 0. Na tela, 0 menos 40 é igual a menos 2(x menos 20).",
+        "duration": 8.832,
+        "audio": "enem/audio/ENEM-2022-MT-10/step_04.mp3"
+      },
+      {
+        "key": "step_05",
+        "text": "Resolva a equação. Na tela, 40 é igual a 2x menos 40; portanto, x é igual a 40.",
+        "duration": 8.28,
+        "audio": "enem/audio/ENEM-2022-MT-10/step_05.mp3"
+      },
+      {
+        "key": "step_06",
+        "text": "O candidato em x é igual a 40 é IV. Na tela, X é igual a (40,0); portanto, IV.",
+        "duration": 8.88,
+        "audio": "enem/audio/ENEM-2022-MT-10/step_06.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa D: IV",
+        "duration": 3.96,
+        "audio": "enem/audio/ENEM-2022-MT-10/answer.mp3"
+      }
+    ]
+  }
+}

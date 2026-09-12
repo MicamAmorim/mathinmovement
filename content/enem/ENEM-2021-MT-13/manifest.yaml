@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2021-MT-13",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2021 — Q148",
+  "tags": [
+    "enem",
+    "enem-2021"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2021,
+    "canonical_id": "ENEM-2021-MT-13",
+    "question_number": 148,
+    "booklet": "Caderno 5 Amarelo - digital"
+  },
+  "source": {
+    "page": 66,
+    "exam_file": "2021_PV_digital_D2_CD5.pdf",
+    "answer_key_file": "2021_GB_digital_D2_CD5.pdf"
+  },
+  "question": {
+    "stem": "O dono de uma loja pretende usar cartões imantados para a divulgação de sua loja.\nA empresa que fornecerá o serviço lhe informa que o custo de fabricação do cartão é de\nR$ 0,01 por centímetro quadrado e que disponibiliza modelos tendo como faces úteis\npara impressão:\n\n        um triângulo equilátero de lado 12 cm;\n        um quadrado de lado 8 cm;\n        um retângulo de lados 11 cm e 8 cm;\n        um hexágono regular de lado 6 cm;\n        um círculo de diâmetro 10 cm.\n\n    O dono da loja está disposto a pagar, no máximo, R$ 0,80 por cartão. Ele escolherá,\ndentro desse limite de preço, o modelo que tiver maior área de impressão.\n\n      Use 3 como aproximação para             e use 1,7 como aproximação para   .\n\nNessas condições, o modelo que deverá ser escolhido tem como face útil para impressão\num",
+    "options": {
+      "A": "triângulo.",
+      "B": "quadrado.",
+      "C": "retângulo.",
+      "D": "hexágono.",
+      "E": "círculo."
+    },
+    "answer": "E"
+  },
+  "solution": {
+    "data": [
+      "custo: R$ 0,01 por cm²",
+      "limite: R$ 0,80 ⇒ área máxima permitida 80 cm²",
+      "triângulo ℓ=12; quadrado ℓ=8",
+      "retângulo 11×8; hexágono ℓ=6; círculo d=10",
+      "π≈3 e √3≈1,7"
+    ],
+    "goal": "Escolher a maior área que não ultrapasse 80 cm².",
+    "hook": "Primeiro traduza o limite de preço em um limite de área.",
+    "strategy": [
+      "Calcular a área dos cinco modelos.",
+      "Eliminar os que custam mais de R$ 0,80.",
+      "Comparar os modelos restantes."
+    ],
+    "steps": [
+      {
+        "label": "Triângulo equilátero",
+        "math": "A_t={\\sqrt3\\over4}12^2={1{,}7\\over4}144=61{,}2"
+      },
+      {
+        "label": "Quadrado",
+        "math": "A_q=8^2=64"
+      },
+      {
+        "label": "Retângulo",
+        "math": "A_r=11\\cdot8=88>80\\quad\\text{elimine}"
+      },
+      {
+        "label": "Hexágono: seis equiláteros",
+        "math": "A_h=6{\\sqrt3\\over4}6^2=91{,}8>80\\quad\\text{elimine}"
+      },
+      {
+        "label": "Círculo de raio 5",
+        "math": "A_c=\\pi5^2=3\\cdot25=75"
+      },
+      {
+        "label": "Maior área admissível",
+        "math": "75>64>61{,}2\\quad\\Rightarrow\\quad\\text{círculo}"
+      }
+    ],
+    "final_answer": "E"
+  },
+  "visuals": {
+    "concept": {
+      "renderer": "shape_areas",
+      "note": "O critério tem duas etapas: respeitar o preço e só depois maximizar a área."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/03_2021_q148_areas_cartoes.py",
+      "scene": "Resolucao03",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2021, questão 148. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.56,
+        "audio": "enem/audio/ENEM-2021-MT-13/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "O dono de uma loja pretende usar cartões imantados para a divulgação de sua loja.",
+        "duration": 5.4,
+        "audio": "enem/audio/ENEM-2021-MT-13/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "A empresa que fornecerá o serviço lhe informa que o custo de fabricação do cartão é de R$ 0,01 por centímetro quadrado e que disponibiliza modelos tendo como faces úteis para impressão: um triângulo equilátero de lado 12 centímetros; um quadrado de lado 8 centímetros; um retângulo de lados 11 centímetros e 8 centímetros; um hexágono regular de lado 6 centímetros; um círculo de diâmetro 10 centímetros. O dono da loja está disposto a pagar, no máximo, R$ 0,80 por cartão.",
+        "duration": 31.512,
+        "audio": "enem/audio/ENEM-2021-MT-13/statement_02.mp3"
+      },
+      {
+        "key": "statement_03",
+        "text": "Ele escolherá, dentro desse limite de preço, o modelo que tiver maior área de impressão. Use 3 como aproximação para e use 1,7 como aproximação para . Nessas condições, o modelo que deverá ser escolhido tem como face útil para impressão um",
+        "duration": 16.128,
+        "audio": "enem/audio/ENEM-2021-MT-13/statement_03.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: triângulo.; B: quadrado.; C: retângulo.; D: hexágono.; E: círculo..",
+        "duration": 9.48,
+        "audio": "enem/audio/ENEM-2021-MT-13/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: custo: R$ 0,01 por centímetros quadrados; limite: R$ 0,80 portanto área máxima permitida 80 centímetros quadrados; triângulo L é igual a 12; quadrado L é igual a 8; retângulo 11 vezes 8; hexágono L é igual a 6; círculo d é igual a 10; pi aproximadamente 3 e raiz de três aproximadamente 1,7.",
+        "duration": 26.52,
+        "audio": "enem/audio/ENEM-2021-MT-13/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "Primeiro traduza o limite de preço em um limite de área. O plano é: 1, Calcular a área dos cinco modelos. 2, Eliminar os que custam mais de R$ 0,80. 3, Comparar os modelos restantes.",
+        "duration": 16.248,
+        "audio": "enem/audio/ENEM-2021-MT-13/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "O critério tem duas etapas: respeitar o preço e só depois maximizar a área.",
+        "duration": 5.52,
+        "audio": "enem/audio/ENEM-2021-MT-13/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Triângulo equilátero. Na tela, A índice t é igual a raiz quadrada de 3 dividido por 4 12 ao quadrado é igual a 1,7 dividido por 4 144 é igual a 61,2.",
+        "duration": 13.536,
+        "audio": "enem/audio/ENEM-2021-MT-13/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Quadrado. Na tela, A índice q é igual a 8 ao quadrado é igual a 64.",
+        "duration": 6.408,
+        "audio": "enem/audio/ENEM-2021-MT-13/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Retângulo. Na tela, A índice r é igual a 11 vezes 8 é igual a 88 é maior que 80, elimine.",
+        "duration": 8.352,
+        "audio": "enem/audio/ENEM-2021-MT-13/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Hexágono: seis equiláteros. Na tela, A índice h é igual a 6 raiz quadrada de 3 dividido por 4 6 ao quadrado é igual a 91,8 é maior que 80, elimine.",
+        "duration": 12.552,
+        "audio": "enem/audio/ENEM-2021-MT-13/step_04.mp3"
+      },
+      {
+        "key": "step_05",
+        "text": "Círculo de raio 5. Na tela, A índice c é igual a pi 5 ao quadrado é igual a 3 vezes 25 é igual a 75.",
+        "duration": 9.168,
+        "audio": "enem/audio/ENEM-2021-MT-13/step_05.mp3"
+      },
+      {
+        "key": "step_06",
+        "text": "Maior área admissível. Na tela, 75 é maior que 64 é maior que 61,2; portanto, círculo.",
+        "duration": 9.408,
+        "audio": "enem/audio/ENEM-2021-MT-13/step_06.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa E: círculo.",
+        "duration": 3.96,
+        "audio": "enem/audio/ENEM-2021-MT-13/answer.mp3"
+      }
+    ]
+  }
+}

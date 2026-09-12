@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2024-MT-02",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2024 — Q137",
+  "tags": [
+    "enem",
+    "enem-2024"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2024,
+    "canonical_id": "ENEM-2024-MT-02",
+    "question_number": 137,
+    "booklet": "Caderno 11 Laranja - acessível"
+  },
+  "source": {
+    "page": 65,
+    "exam_file": "2024_Dia_2_P1_CN_MT_Caderno_11_Laranja_NVDA.pdf",
+    "answer_key_file": "2024_GB_impresso_D2_CD11.pdf"
+  },
+  "question": {
+    "stem": "Um proprietário pretende instalar um sensor de presença para a proteção de seu imóvel. O sensor deverá detectar movimentos de objetos e pessoas numa determinada região plana. A figura ilustra a vista superior da área de cobertura (setor circular em azul) de um sensor colocado no ponto S. Essa área depende da medida do ângulo alfa, em grau, e do raio R, em metro.\n\nDescrição da figura: A figura apresenta um setor circular, de centro S, raio R e ângulo alfa. (Fim da descrição)\n\nAo aumentar o ângulo alfa ou o raio R aumenta-se a área de cobertura do sensor. Entretanto, quanto maior essa área, maior o preço do sensor.\nPara esse fim, há cinco tipos de sensores disponíveis no mercado, cada um com as seguintes características:\ntipo 1: alfa é igual a 15 graus e R é igual a 20 metros;\ntipo 2: alfa é igual a 30 graus e R é igual a 22 metros;\ntipo 3: alfa é igual a 40 graus e R é igual a 12 metros;\ntipo 4: alfa é igual a 60 graus e R é igual a 16 metros;\ntipo 5: alfa é igual a 90 graus e R é igual a 10 metros.\n\nEsse proprietário pretende adquirir um desses sensores que seja capaz de cobrir, no mínimo, uma área de medida 70 metros quadrados, com o menor preço possível.\nUse 3 como valor aproximado para pi.\n\nO proprietário do imóvel deverá adquirir o sensor do tipo",
+    "options": {
+      "A": "1.",
+      "B": "2.",
+      "C": "3.",
+      "D": "4.",
+      "E": "5."
+    },
+    "answer": "E"
+  },
+  "solution": {
+    "data": [
+      "área é um setor circular",
+      "cinco pares (α,R)",
+      "área mínima exigida: 70 m²",
+      "π≈3",
+      "menor área admissível corresponde ao menor preço"
+    ],
+    "goal": "Escolher o sensor mais barato que cubra pelo menos 70 m².",
+    "hook": "Não basta cobrir 70 m²: entre os que cobrem, escolha a menor área e portanto o menor preço.",
+    "strategy": [
+      "Calcular A=απR²/360 para cada tipo.",
+      "Eliminar áreas menores que 70.",
+      "Escolher a menor das áreas restantes."
+    ],
+    "steps": [
+      {
+        "label": "Tipo 1: 15°, R=20",
+        "math": "A_1={15\\over360}3(20)^2=50"
+      },
+      {
+        "label": "Tipo 2: 30°, R=22",
+        "math": "A_2={30\\over360}3(22)^2=121"
+      },
+      {
+        "label": "Tipo 3: 40°, R=12",
+        "math": "A_3={40\\over360}3(12)^2=48"
+      },
+      {
+        "label": "Tipo 4: 60°, R=16",
+        "math": "A_4={60\\over360}3(16)^2=128"
+      },
+      {
+        "label": "Tipo 5: 90°, R=10",
+        "math": "A_5={90\\over360}3(10)^2=75"
+      },
+      {
+        "label": "Admissíveis: 2, 4 e 5; escolha a menor área",
+        "math": "75<121<128\\quad\\Rightarrow\\quad\\text{tipo 5}"
+      }
+    ],
+    "final_answer": "E"
+  },
+  "visuals": {
+    "statement": {
+      "renderer": "sector",
+      "description": "Setor circular de centro S, raio R e ângulo alfa representando a área de cobertura do sensor."
+    },
+    "concept": {
+      "renderer": "sector",
+      "note": "O setor ocupa a fração α/360° do círculo inteiro."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/24_2024_q137_area_setor.py",
+      "scene": "Resolucao24",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2024, questão 137. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.752,
+        "audio": "enem/audio/ENEM-2024-MT-02/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "Um proprietário pretende instalar um sensor de presença para a proteção de seu imóvel. O sensor deverá detectar movimentos de objetos e pessoas numa determinada região plana. A figura ilustra a vista superior da área de cobertura (setor circular em azul) de um sensor colocado no ponto S. Essa área depende da medida do ângulo alfa, em grau, e do raio R, em metro.",
+        "duration": 23.4,
+        "audio": "enem/audio/ENEM-2024-MT-02/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "Ao aumentar o ângulo alfa ou o raio R aumenta-se a área de cobertura do sensor. Entretanto, quanto maior essa área, maior o preço do sensor.",
+        "duration": 9.816,
+        "audio": "enem/audio/ENEM-2024-MT-02/statement_02.mp3"
+      },
+      {
+        "key": "statement_03",
+        "text": "Para esse fim, há cinco tipos de sensores disponíveis no mercado, cada um com as seguintes características: tipo 1: alfa é igual a 15 graus e R é igual a 20 metros; tipo 2: alfa é igual a 30 graus e R é igual a 22 metros; tipo 3: alfa é igual a 40 graus e R é igual a 12 metros; tipo 4: alfa é igual a 60 graus e R é igual a 16 metros; tipo 5: alfa é igual a 90 graus e R é igual a 10 metros.",
+        "duration": 28.32,
+        "audio": "enem/audio/ENEM-2024-MT-02/statement_03.mp3"
+      },
+      {
+        "key": "statement_04",
+        "text": "Esse proprietário pretende adquirir um desses sensores que seja capaz de cobrir, no mínimo, uma área de medida 70 metros quadrados, com o menor preço possível. Use 3 como valor aproximado para pi. O proprietário do imóvel deverá adquirir o sensor do tipo",
+        "duration": 16.968,
+        "audio": "enem/audio/ENEM-2024-MT-02/statement_04.mp3"
+      },
+      {
+        "key": "figure",
+        "text": "Observe a reconstrução esquemática da figura da questão. Setor circular de centro S, raio R e ângulo alfa representando a área de cobertura do sensor.",
+        "duration": 10.488,
+        "audio": "enem/audio/ENEM-2024-MT-02/figure.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: 1.; B: 2.; C: 3.; D: 4.; E: 5..",
+        "duration": 8.832,
+        "audio": "enem/audio/ENEM-2024-MT-02/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: área é um setor circular; cinco pares (alfa,R); área mínima exigida: 70 metros quadrados; pi aproximadamente 3; menor área admissível corresponde ao menor preço.",
+        "duration": 14.352,
+        "audio": "enem/audio/ENEM-2024-MT-02/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "Não basta cobrir 70 metros quadrados: entre os que cobrem, escolha a menor área e portanto o menor preço. O plano é: 1, Calcular A é igual a alfapiR ao quadrado dividido por 360 para cada tipo. 2, Eliminar áreas menores que 70. 3, Escolher a menor das áreas restantes.",
+        "duration": 21.24,
+        "audio": "enem/audio/ENEM-2024-MT-02/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "O setor ocupa a fração alfa dividido por 360 graus do círculo inteiro.",
+        "duration": 5.472,
+        "audio": "enem/audio/ENEM-2024-MT-02/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Tipo 1: 15 graus, R é igual a 20. Na tela, A índice 1 é igual a 15 dividido por 360 3(20) ao quadrado é igual a 50.",
+        "duration": 11.664,
+        "audio": "enem/audio/ENEM-2024-MT-02/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Tipo 2: 30 graus, R é igual a 22. Na tela, A índice 2 é igual a 30 dividido por 360 3(22) ao quadrado é igual a 121.",
+        "duration": 12.552,
+        "audio": "enem/audio/ENEM-2024-MT-02/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Tipo 3: 40 graus, R é igual a 12. Na tela, A índice 3 é igual a 40 dividido por 360 3(12) ao quadrado é igual a 48.",
+        "duration": 12.168,
+        "audio": "enem/audio/ENEM-2024-MT-02/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Tipo 4: 60 graus, R é igual a 16. Na tela, A índice 4 é igual a 60 dividido por 360 3(16) ao quadrado é igual a 128.",
+        "duration": 13.2,
+        "audio": "enem/audio/ENEM-2024-MT-02/step_04.mp3"
+      },
+      {
+        "key": "step_05",
+        "text": "Tipo 5: 90 graus, R é igual a 10. Na tela, A índice 5 é igual a 90 dividido por 360 3(10) ao quadrado é igual a 75.",
+        "duration": 12.48,
+        "audio": "enem/audio/ENEM-2024-MT-02/step_05.mp3"
+      },
+      {
+        "key": "step_06",
+        "text": "Admissíveis: 2, 4 e 5; escolha a menor área. Na tela, 75 é menor que 121 é menor que 128; portanto, tipo 5.",
+        "duration": 11.808,
+        "audio": "enem/audio/ENEM-2024-MT-02/step_06.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa E: 5.",
+        "duration": 3.768,
+        "audio": "enem/audio/ENEM-2024-MT-02/answer.mp3"
+      }
+    ]
+  }
+}

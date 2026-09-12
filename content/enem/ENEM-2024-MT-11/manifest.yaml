@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2024-MT-11",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2024 — Q146",
+  "tags": [
+    "enem",
+    "enem-2024"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2024,
+    "canonical_id": "ENEM-2024-MT-11",
+    "question_number": 146,
+    "booklet": "Caderno 11 Laranja - acessível"
+  },
+  "source": {
+    "page": 78,
+    "exam_file": "2024_Dia_2_P1_CN_MT_Caderno_11_Laranja_NVDA.pdf",
+    "answer_key_file": "2024_GB_impresso_D2_CD11.pdf"
+  },
+  "question": {
+    "stem": "Em uma empresa é comercializado um produto em embalagens em formato de cilindro circular reto, com raio medindo 3 centímetros, e altura medindo 15 centímetros. Essa empresa planeja comercializar o mesmo produto em embalagens em formato de cubo, com capacidade igual a 80 por cento da capacidade da embalagem cilíndrica utilizada atualmente.\nUse 3 como valor aproximado para pi.\n\nA medida da aresta da nova embalagem, em centímetro, deve ser",
+    "options": {
+      "A": "6",
+      "B": "18",
+      "C": "6 vezes raiz quadrada de 6",
+      "D": "6 vezes raiz cúbica de 6",
+      "E": "3 vezes raiz cúbica de 12"
+    },
+    "answer": "E"
+  },
+  "solution": {
+    "data": [
+      "cilindro: r=3 cm e h=15 cm",
+      "π≈3",
+      "cubo terá 80% da capacidade do cilindro",
+      "volume do cubo: a³"
+    ],
+    "goal": "Encontrar a aresta do cubo.",
+    "hook": "Primeiro obtenha 80% do volume cilíndrico; depois tire a raiz cúbica.",
+    "strategy": [
+      "Calcular o volume cilíndrico.",
+      "Tomar 80% desse volume.",
+      "Isolar a por raiz cúbica."
+    ],
+    "steps": [
+      {
+        "label": "Volume do cilindro",
+        "math": "V_c=\\pi r^2h=3\\cdot3^2\\cdot15=405"
+      },
+      {
+        "label": "O cubo terá 80%",
+        "math": "V_q=0{,}8\\cdot405=324"
+      },
+      {
+        "label": "Volume do cubo",
+        "math": "a^3=324"
+      },
+      {
+        "label": "Extraia a raiz cúbica positiva",
+        "math": "a=\\sqrt[3]{324}"
+      },
+      {
+        "label": "Fatore 324=27·12",
+        "math": "a=\\sqrt[3]{27\\cdot12}=3\\sqrt[3]{12}\\ \\mathrm{cm}"
+      }
+    ],
+    "final_answer": "E"
+  },
+  "visuals": {
+    "concept": {
+      "renderer": "cylinder_compare",
+      "note": "Capacidades iguais significam comparar volumes, não áreas externas."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/26_2024_q146_cilindro_cubo.py",
+      "scene": "Resolucao26",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2024, questão 146. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.824,
+        "audio": "enem/audio/ENEM-2024-MT-11/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "Em uma empresa é comercializado um produto em embalagens em formato de cilindro circular reto, com raio medindo 3 centímetros, e altura medindo 15 centímetros. Essa empresa planeja comercializar o mesmo produto em embalagens em formato de cubo, com capacidade igual a 80 por cento da capacidade da embalagem cilíndrica utilizada atualmente. Use 3 como valor aproximado para pi.",
+        "duration": 24.096,
+        "audio": "enem/audio/ENEM-2024-MT-11/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "A medida da aresta da nova embalagem, em centímetro, deve ser",
+        "duration": 4.584,
+        "audio": "enem/audio/ENEM-2024-MT-11/statement_02.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: 6; B: 18; C: 6 vezes raiz quadrada de 6; D: 6 vezes raiz cúbica de 6; E: 3 vezes raiz cúbica de 12.",
+        "duration": 13.128,
+        "audio": "enem/audio/ENEM-2024-MT-11/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: cilindro: r é igual a 3 centímetros e h é igual a 15 centímetros; pi aproximadamente 3; cubo terá 80% da capacidade do cilindro; volume do cubo: a ao cubo.",
+        "duration": 14.976,
+        "audio": "enem/audio/ENEM-2024-MT-11/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "Primeiro obtenha 80% do volume cilíndrico; depois tire a raiz cúbica. O plano é: 1, Calcular o volume cilíndrico. 2, Tomar 80% desse volume. 3, Isolar a por raiz cúbica.",
+        "duration": 16.032,
+        "audio": "enem/audio/ENEM-2024-MT-11/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "Capacidades iguais significam comparar volumes, não áreas externas.",
+        "duration": 5.088,
+        "audio": "enem/audio/ENEM-2024-MT-11/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Volume do cilindro. Na tela, V índice c é igual a pi r ao quadradoh é igual a 3 vezes 3 ao quadrado vezes 15 é igual a 405.",
+        "duration": 10.488,
+        "audio": "enem/audio/ENEM-2024-MT-11/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "O cubo terá 80%. Na tela, V índice q é igual a 0,8 vezes 405 é igual a 324.",
+        "duration": 9.744,
+        "audio": "enem/audio/ENEM-2024-MT-11/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Volume do cubo. Na tela, a ao cubo é igual a 324.",
+        "duration": 5.856,
+        "audio": "enem/audio/ENEM-2024-MT-11/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Extraia a raiz cúbica positiva. Na tela, a é igual a raiz cúbica de 324.",
+        "duration": 7.32,
+        "audio": "enem/audio/ENEM-2024-MT-11/step_04.mp3"
+      },
+      {
+        "key": "step_05",
+        "text": "Fatore 324 é igual a 27·12. Na tela, a é igual a raiz cúbica de 27 vezes 12 é igual a 3 raiz cúbica de 12 centímetros.",
+        "duration": 11.232,
+        "audio": "enem/audio/ENEM-2024-MT-11/step_05.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa E: 3 vezes raiz cúbica de 12",
+        "duration": 5.208,
+        "audio": "enem/audio/ENEM-2024-MT-11/answer.mp3"
+      }
+    ]
+  }
+}

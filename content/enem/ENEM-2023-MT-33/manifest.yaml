@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2023-MT-33",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2023 — Q168",
+  "tags": [
+    "enem",
+    "enem-2023"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2023,
+    "canonical_id": "ENEM-2023-MT-33",
+    "question_number": 168,
+    "booklet": "Caderno 11 Laranja - acessível"
+  },
+  "source": {
+    "page": 44,
+    "exam_file": "2023_Dia_2_P1_MT_Caderno_11_Laranja_NVDA.pdf",
+    "answer_key_file": "2023_GB_impresso_D2_CD11.pdf"
+  },
+  "question": {
+    "stem": "A foto mostra a construção de uma cisterna destinada ao armazenamento de água. Uma cisterna como essa, na forma de cilindro circular reto com 3 metros quadrados de área da base, foi abastecida por um curso-d'água com vazão constante. O seu proprietário registrou a altura do nível da água no interior da cisterna durante o abastecimento em diferentes momentos de um mesmo dia, conforme o quadro.\n\nDescrição do quadro: Quadro que fornece o nível da água, em metro, em quatro horários.\n6 horas: 0,5 metro\n8 horas: 1,1 metro\n12 horas: 2,3 metros\n15 horas: 3,2 metros\n(Fim da descrição)\n\nDescrição da foto: Foto em preto e branco de pessoas construindo uma cisterna em frente a uma casa. (Fim da descrição)\n\nQual foi a vazão, em metro cúbico por hora, do curso-d'água que abasteceu a cisterna?",
+    "options": {
+      "A": "0,3",
+      "B": "0,5",
+      "C": "0,9",
+      "D": "1,8",
+      "E": "2,7"
+    },
+    "answer": "C"
+  },
+  "solution": {
+    "data": [
+      "cisterna com área da base 3 m²",
+      "vazão constante",
+      "6h: 0,5 m; 8h: 1,1 m; 12h: 2,3 m; 15h: 3,2 m"
+    ],
+    "goal": "Calcular a vazão em m³/h.",
+    "hook": "Vazão constante significa crescimento linear do nível; dois registros já bastam.",
+    "strategy": [
+      "Escolher dois registros.",
+      "Calcular a variação de altura e tempo.",
+      "Converter altura em volume pela área da base."
+    ],
+    "steps": [
+      {
+        "label": "De 6h a 8h",
+        "math": "\\Delta t=8-6=2\\ \\mathrm h"
+      },
+      {
+        "label": "Variação da altura",
+        "math": "\\Delta h=1{,}1-0{,}5=0{,}6\\ \\mathrm m"
+      },
+      {
+        "label": "Variação do volume",
+        "math": "\\Delta V=A_b\\Delta h=3\\cdot0{,}6=1{,}8\\ \\mathrm{m^3}"
+      },
+      {
+        "label": "Vazão",
+        "math": "Q={\\Delta V\\over\\Delta t}={1{,}8\\over2}=0{,}9\\ \\mathrm{m^3/h}"
+      },
+      {
+        "label": "Conferência: de 12h a 15h",
+        "math": "Q={3(3{,}2-2{,}3)\\over15-12}=0{,}9"
+      }
+    ],
+    "final_answer": "C"
+  },
+  "visuals": {
+    "statement": {
+      "renderer": "cistern_table",
+      "description": "Foto contextual de cisterna e quadro: 6 h → 0,5 m; 8 h → 1,1 m; 12 h → 2,3 m; 15 h → 3,2 m."
+    },
+    "concept": {
+      "renderer": "cylinder",
+      "note": "Em base constante, ΔV=A_b·Δh; por isso altura e tempo variam linearmente."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/20_2023_q168_vazao_cisterna.py",
+      "scene": "Resolucao20",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2023, questão 168. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.752,
+        "audio": "enem/audio/ENEM-2023-MT-33/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "A foto mostra a construção de uma cisterna destinada ao armazenamento de água. Uma cisterna como essa, na forma de cilindro circular reto com 3 metros quadrados de área da base, foi abastecida por um curso-d'água com vazão constante. O seu proprietário registrou a altura do nível da água no interior da cisterna durante o abastecimento em diferentes momentos de um mesmo dia, conforme o quadro.",
+        "duration": 23.664,
+        "audio": "enem/audio/ENEM-2023-MT-33/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "Qual foi a vazão, em metro cúbico por hora, do curso-d'água que abasteceu a cisterna?",
+        "duration": 5.904,
+        "audio": "enem/audio/ENEM-2023-MT-33/statement_02.mp3"
+      },
+      {
+        "key": "figure",
+        "text": "Observe a reconstrução esquemática da figura da questão. Foto contextual de cisterna e quadro: 6 h para 0,5 metros; 8 h para 1,1 metros; 12 h para 2,3 metros; 15 h para 3,2 metros.",
+        "duration": 16.824,
+        "audio": "enem/audio/ENEM-2023-MT-33/figure.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: 0,3; B: 0,5; C: 0,9; D: 1,8; E: 2,7.",
+        "duration": 11.856,
+        "audio": "enem/audio/ENEM-2023-MT-33/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: cisterna com área da base 3 metros quadrados; vazão constante; 6h: 0,5 metros; 8h: 1,1 metros; 12h: 2,3 metros; 15h: 3,2 metros.",
+        "duration": 17.736,
+        "audio": "enem/audio/ENEM-2023-MT-33/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "Vazão constante significa crescimento linear do nível; dois registros já bastam. O plano é: 1, Escolher dois registros. 2, Calcular a variação de altura e tempo. 3, Converter altura em volume pela área da base.",
+        "duration": 16.68,
+        "audio": "enem/audio/ENEM-2023-MT-33/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "Em base constante, variação de V é igual a A_b·variação de h; por isso altura e tempo variam linearmente.",
+        "duration": 7.824,
+        "audio": "enem/audio/ENEM-2023-MT-33/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "De 6h a 8h. Na tela, variação de t é igual a 8 menos 6 é igual a 2 mathrm h.",
+        "duration": 7.92,
+        "audio": "enem/audio/ENEM-2023-MT-33/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Variação da altura. Na tela, variação de h é igual a 1,1 menos 0,5 é igual a 0,6 mathrm m.",
+        "duration": 9.48,
+        "audio": "enem/audio/ENEM-2023-MT-33/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Variação do volume. Na tela, variação de V é igual a A índice b variação de h é igual a 3 vezes 0,6 é igual a 1,8 metros cúbicos.",
+        "duration": 11.04,
+        "audio": "enem/audio/ENEM-2023-MT-33/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Vazão. Na tela, Q é igual a variação de V dividido por variação de t é igual a 1,8 dividido por 2 é igual a 0,9 metros cúbicos dividido por h.",
+        "duration": 11.4,
+        "audio": "enem/audio/ENEM-2023-MT-33/step_04.mp3"
+      },
+      {
+        "key": "step_05",
+        "text": "Conferência: de 12h a 15h. Na tela, Q é igual a 3(3,2 menos 2,3) dividido por 15 menos 12 é igual a 0,9.",
+        "duration": 12.24,
+        "audio": "enem/audio/ENEM-2023-MT-33/step_05.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa C: 0,9",
+        "duration": 4.608,
+        "audio": "enem/audio/ENEM-2023-MT-33/answer.mp3"
+      }
+    ]
+  }
+}

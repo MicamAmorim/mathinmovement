@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2022-MT-12",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2022 — Q147",
+  "tags": [
+    "enem",
+    "enem-2022"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2022,
+    "canonical_id": "ENEM-2022-MT-12",
+    "question_number": 147,
+    "booklet": "Caderno 5 Amarelo - digital"
+  },
+  "source": {
+    "page": 65,
+    "exam_file": "2022_PV_digital_D2_CD5.pdf",
+    "answer_key_file": "2022_GB_digital_D2_CD5.pdf"
+  },
+  "question": {
+    "stem": "Uma cozinheira produz docinhos especiais por encomenda. Usando uma\nreceita-base de massa, ela prepara uma porção, com a qual produz 50 docinhos maciços\nde formato esférico, com 2 cm de diâmetro. Um cliente encomenda 150 desses docinhos,\nmas pede que cada um tenha formato esférico com 4 cm de diâmetro. A cozinheira\npretende preparar o número exato de porções da receita-base de massa necessário para\nproduzir os docinhos dessa encomenda.\n\nQuantas porções da receita-base de massa ela deve preparar para atender esse cliente?",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "6",
+      "D": "12",
+      "E": "24\n\n\n                                                                                        /"
+    },
+    "answer": "E"
+  },
+  "solution": {
+    "data": [
+      "receita: 50 esferas de diâmetro 2 cm",
+      "pedido: 150 esferas de diâmetro 4 cm",
+      "o diâmetro e o raio dobram",
+      "volume de esfera varia com r³"
+    ],
+    "goal": "Calcular quantas receitas de massa são necessárias.",
+    "hook": "Dobrar o diâmetro dobra o raio, mas multiplica o volume por oito.",
+    "strategy": [
+      "Calcular o fator de volume de cada doce.",
+      "Calcular o fator da quantidade de doces.",
+      "Multiplicar os dois fatores."
+    ],
+    "steps": [
+      {
+        "label": "Razão dos raios",
+        "math": "k={4\\over2}=2"
+      },
+      {
+        "label": "Fator do volume",
+        "math": "{V'\\over V}=k^3=2^3=8"
+      },
+      {
+        "label": "Fator da quantidade",
+        "math": "{150\\over50}=3"
+      },
+      {
+        "label": "Massa total necessária",
+        "math": "3\\cdot8=24\\ \\text{receitas}"
+      }
+    ],
+    "final_answer": "E"
+  },
+  "visuals": {
+    "concept": {
+      "renderer": "sphere_scale",
+      "note": "Dobrar as três dimensões multiplica o volume por 2³=8."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/09_2022_q147_escala_esferas.py",
+      "scene": "Resolucao09",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2022, questão 147. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.752,
+        "audio": "enem/audio/ENEM-2022-MT-12/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "Uma cozinheira produz docinhos especiais por encomenda. Usando uma receita-base de massa, ela prepara uma porção, com a qual produz 50 docinhos maciços de formato esférico, com 2 centímetros de diâmetro. Um cliente encomenda 150 desses docinhos, mas pede que cada um tenha formato esférico com 4 centímetros de diâmetro.",
+        "duration": 21.504,
+        "audio": "enem/audio/ENEM-2022-MT-12/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "A cozinheira pretende preparar o número exato de porções da receita-base de massa necessário para produzir os docinhos dessa encomenda. Quantas porções da receita-base de massa ela deve preparar para atender esse cliente?",
+        "duration": 13.176,
+        "audio": "enem/audio/ENEM-2022-MT-12/statement_02.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: 2; B: 3; C: 6; D: 12; E: 24.",
+        "duration": 9.312,
+        "audio": "enem/audio/ENEM-2022-MT-12/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: receita: 50 esferas de diâmetro 2 centímetros; pedido: 150 esferas de diâmetro 4 centímetros; o diâmetro e o raio dobram; volume de esfera varia com r ao cubo.",
+        "duration": 14.688,
+        "audio": "enem/audio/ENEM-2022-MT-12/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "Dobrar o diâmetro dobra o raio, mas multiplica o volume por oito. O plano é: 1, Calcular o fator de volume de cada doce. 2, Calcular o fator da quantidade de doces. 3, Multiplicar os dois fatores.",
+        "duration": 16.104,
+        "audio": "enem/audio/ENEM-2022-MT-12/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "Dobrar as três dimensões multiplica o volume por 2 ao cubo é igual a 8.",
+        "duration": 5.376,
+        "audio": "enem/audio/ENEM-2022-MT-12/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Razão dos raios. Na tela, k é igual a 4 dividido por 2 é igual a 2.",
+        "duration": 6.576,
+        "audio": "enem/audio/ENEM-2022-MT-12/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Fator do volume. Na tela, V' dividido por V é igual a k ao cubo é igual a 2 ao cubo é igual a 8.",
+        "duration": 7.992,
+        "audio": "enem/audio/ENEM-2022-MT-12/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Fator da quantidade. Na tela, 150 dividido por 50 é igual a 3.",
+        "duration": 6.624,
+        "audio": "enem/audio/ENEM-2022-MT-12/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Massa total necessária. Na tela, 3 vezes 8 é igual a 24 receitas.",
+        "duration": 6.6,
+        "audio": "enem/audio/ENEM-2022-MT-12/step_04.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa E: 24 dividido por",
+        "duration": 4.632,
+        "audio": "enem/audio/ENEM-2022-MT-12/answer.mp3"
+      }
+    ]
+  }
+}

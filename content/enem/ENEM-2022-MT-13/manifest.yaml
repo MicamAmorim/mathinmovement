@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2022-MT-13",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2022 — Q148",
+  "tags": [
+    "enem",
+    "enem-2022"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2022,
+    "canonical_id": "ENEM-2022-MT-13",
+    "question_number": 148,
+    "booklet": "Caderno 5 Amarelo - digital"
+  },
+  "source": {
+    "page": 66,
+    "exam_file": "2022_PV_digital_D2_CD5.pdf",
+    "answer_key_file": "2022_GB_digital_D2_CD5.pdf"
+  },
+  "question": {
+    "stem": "Uma empresa produz e vende um tipo de chocolate, maciço, em formato de cone\ncircular reto com as medidas do diâmetro da base e da altura iguais a 8 cm e 10 cm,\nrespectivamente, como apresenta a figura.\n\n                                         8 cm\n\n\n                                                       10 cm\n\n\n    Devido a um aumento de preço dos ingredientes utilizados na produção desse\nchocolate, a empresa decide produzir esse mesmo tipo de chocolate com um volume\n19% menor, no mesmo formato de cone circular reto com altura de 10 cm.\n\nPara isso, a empresa produzirá esses novos chocolates com medida do raio da base, em\ncentímetro, igual a",
+    "options": {
+      "A": "1,52.",
+      "B": "3,24.",
+      "C": "3,60.",
+      "D": "6,48.",
+      "E": "7,20.\n\n\n                                                                                       /"
+    },
+    "answer": "C"
+  },
+  "solution": {
+    "data": [
+      "cone original: diâmetro 8 cm ⇒ r=4 cm",
+      "altura permanece 10 cm",
+      "novo volume é 19% menor ⇒ 81% do original"
+    ],
+    "goal": "Encontrar o novo raio.",
+    "hook": "Com a altura fixa, basta acompanhar o quadrado do raio.",
+    "strategy": [
+      "Formar a razão entre os volumes.",
+      "Cancelar fatores iguais.",
+      "Extrair a raiz quadrada positiva."
+    ],
+    "steps": [
+      {
+        "label": "Volumes antigo e novo",
+        "math": "V={1\\over3}\\pi(4)^2(10),\\quad V'={1\\over3}\\pi r'^2(10)"
+      },
+      {
+        "label": "Use V′=0,81V",
+        "math": "{1\\over3}\\pi r'^2(10)=0{,}81{1\\over3}\\pi(4)^2(10)"
+      },
+      {
+        "label": "Cancele π, 10 e 1/3",
+        "math": "r'^2=0{,}81\\cdot16=12{,}96"
+      },
+      {
+        "label": "Raiz positiva",
+        "math": "r'=\\sqrt{12{,}96}=3{,}6\\ \\mathrm{cm}"
+      }
+    ],
+    "final_answer": "C"
+  },
+  "visuals": {
+    "statement": {
+      "renderer": "cone_dims",
+      "description": "Cone circular reto com diâmetro da base 8 cm e altura 10 cm."
+    },
+    "concept": {
+      "renderer": "cone",
+      "note": "Com a altura fixa, o volume do cone é proporcional ao quadrado do raio."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/10_2022_q148_volume_cone.py",
+      "scene": "Resolucao10",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2022, questão 148. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.68,
+        "audio": "enem/audio/ENEM-2022-MT-13/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "Uma empresa produz e vende um tipo de chocolate, maciço, em formato de cone circular reto com as medidas do diâmetro da base e da altura iguais a 8 centímetros e 10 centímetros, respectivamente, como apresenta a figura.",
+        "duration": 13.608,
+        "audio": "enem/audio/ENEM-2022-MT-13/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "8 centímetros 10 centímetros Devido a um aumento de preço dos ingredientes utilizados na produção desse chocolate, a empresa decide produzir esse mesmo tipo de chocolate com um volume 19% menor, no mesmo formato de cone circular reto com altura de 10 centímetros. Para isso, a empresa produzirá esses novos chocolates com medida do raio da base, em centímetro, igual a",
+        "duration": 23.376,
+        "audio": "enem/audio/ENEM-2022-MT-13/statement_02.mp3"
+      },
+      {
+        "key": "figure",
+        "text": "Observe a reconstrução esquemática da figura da questão. Cone circular reto com diâmetro da base 8 centímetros e altura 10 centímetros.",
+        "duration": 9.528,
+        "audio": "enem/audio/ENEM-2022-MT-13/figure.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: 1,52.; B: 3,24.; C: 3,60.; D: 6,48.; E: 7,20..",
+        "duration": 12.432,
+        "audio": "enem/audio/ENEM-2022-MT-13/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: cone original: diâmetro 8 centímetros portanto r é igual a 4 centímetros; altura permanece 10 centímetros; novo volume é 19% menor portanto 81% do original.",
+        "duration": 15.024,
+        "audio": "enem/audio/ENEM-2022-MT-13/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "Com a altura fixa, basta acompanhar o quadrado do raio. O plano é: 1, Formar a razão entre os volumes. 2, Cancelar fatores iguais. 3, Extrair a raiz quadrada positiva.",
+        "duration": 14.784,
+        "audio": "enem/audio/ENEM-2022-MT-13/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "Com a altura fixa, o volume do cone é proporcional ao quadrado do raio.",
+        "duration": 5.112,
+        "audio": "enem/audio/ENEM-2022-MT-13/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Volumes antigo e novo. Na tela, V é igual a 1 dividido por 3 pi (4) ao quadrado(10),, V' é igual a 1 dividido por 3 pi r' ao quadrado(10).",
+        "duration": 12.264,
+        "audio": "enem/audio/ENEM-2022-MT-13/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Use V′ é igual a 0,81V. Na tela, 1 dividido por 3 pi r' ao quadrado(10) é igual a 0,81 1 dividido por 3 pi (4) ao quadrado(10).",
+        "duration": 13.704,
+        "audio": "enem/audio/ENEM-2022-MT-13/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Cancele pi, 10 e 1 dividido por 3. Na tela, r' ao quadrado é igual a 0,81 vezes 16 é igual a 12,96.",
+        "duration": 10.752,
+        "audio": "enem/audio/ENEM-2022-MT-13/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Raiz positiva. Na tela, r' é igual a raiz quadrada de 12,96 é igual a 3,6 centímetros.",
+        "duration": 8.904,
+        "audio": "enem/audio/ENEM-2022-MT-13/step_04.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa C: 3,60.",
+        "duration": 4.824,
+        "audio": "enem/audio/ENEM-2022-MT-13/answer.mp3"
+      }
+    ]
+  }
+}

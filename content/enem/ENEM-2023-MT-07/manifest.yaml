@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2023-MT-07",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2023 — Q142",
+  "tags": [
+    "enem",
+    "enem-2023"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2023,
+    "canonical_id": "ENEM-2023-MT-07",
+    "question_number": 142,
+    "booklet": "Caderno 11 Laranja - acessível"
+  },
+  "source": {
+    "page": 9,
+    "exam_file": "2023_Dia_2_P1_MT_Caderno_11_Laranja_NVDA.pdf",
+    "answer_key_file": "2023_GB_impresso_D2_CD11.pdf"
+  },
+  "question": {
+    "stem": "Na planta baixa de um clube, a piscina é representada por um quadrado cuja área real mede 400 metros quadrados. Ao redor dessa piscina, será construída uma calçada, de largura constante igual a 5 metros.\n\nDescrição da figura: Figura de um quadrado representando uma piscina, emoldurado por uma faixa de largura constante igual a 5 metros, representando a calçada. (Fim da descrição)\n\nQual é a medida da área, em metro quadrado, ocupada pela calçada?",
+    "options": {
+      "A": "1000",
+      "B": "900",
+      "C": "600",
+      "D": "500",
+      "E": "400"
+    },
+    "answer": "D"
+  },
+  "solution": {
+    "data": [
+      "piscina quadrada com área 400 m²",
+      "calçada de 5 m ao redor",
+      "largura acrescentada nos dois lados de cada dimensão"
+    ],
+    "goal": "Encontrar somente a área da calçada.",
+    "hook": "A calçada é uma moldura: quadrado de fora menos quadrado de dentro.",
+    "strategy": [
+      "Extrair a raiz para achar o lado da piscina.",
+      "Calcular o lado do quadrado externo.",
+      "Subtrair a área interna."
+    ],
+    "steps": [
+      {
+        "label": "Área da piscina",
+        "math": "\\ell^2=400"
+      },
+      {
+        "label": "Raiz positiva",
+        "math": "\\ell=\\sqrt{400}=20\\ \\mathrm m"
+      },
+      {
+        "label": "Lado externo",
+        "math": "L=20+5+5=30\\ \\mathrm m"
+      },
+      {
+        "label": "Diferença de áreas",
+        "math": "A_{cal}=30^2-20^2"
+      },
+      {
+        "label": "Calcule",
+        "math": "A_{cal}=900-400=500\\ \\mathrm{m^2}"
+      }
+    ],
+    "final_answer": "D"
+  },
+  "visuals": {
+    "statement": {
+      "renderer": "pool",
+      "description": "Piscina quadrada cercada por uma calçada de largura constante de 5 m."
+    },
+    "concept": {
+      "renderer": "pool",
+      "note": "Calçada = quadrado externo menos quadrado interno."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/16_2023_q142_area_calcada.py",
+      "scene": "Resolucao16",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2023, questão 142. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.752,
+        "audio": "enem/audio/ENEM-2023-MT-07/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "Na planta baixa de um clube, a piscina é representada por um quadrado cuja área real mede 400 metros quadrados. Ao redor dessa piscina, será construída uma calçada, de largura constante igual a 5 metros. Qual é a medida da área, em metro quadrado, ocupada pela calçada?",
+        "duration": 18.6,
+        "audio": "enem/audio/ENEM-2023-MT-07/statement_01.mp3"
+      },
+      {
+        "key": "figure",
+        "text": "Observe a reconstrução esquemática da figura da questão. Piscina quadrada cercada por uma calçada de largura constante de 5 metros.",
+        "duration": 9.24,
+        "audio": "enem/audio/ENEM-2023-MT-07/figure.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: 1000; B: 900; C: 600; D: 500; E: 400.",
+        "duration": 9.864,
+        "audio": "enem/audio/ENEM-2023-MT-07/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: piscina quadrada com área 400 metros quadrados; calçada de 5 metros ao redor; largura acrescentada nos dois lados de cada dimensão.",
+        "duration": 12.144,
+        "audio": "enem/audio/ENEM-2023-MT-07/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "A calçada é uma moldura: quadrado de fora menos quadrado de dentro. O plano é: 1, Extrair a raiz para achar o lado da piscina. 2, Calcular o lado do quadrado externo. 3, Subtrair a área interna.",
+        "duration": 15.84,
+        "audio": "enem/audio/ENEM-2023-MT-07/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "Calçada é igual a quadrado externo menos quadrado interno.",
+        "duration": 4.152,
+        "audio": "enem/audio/ENEM-2023-MT-07/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Área da piscina. Na tela, L ao quadrado é igual a 400.",
+        "duration": 5.688,
+        "audio": "enem/audio/ENEM-2023-MT-07/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Raiz positiva. Na tela, L é igual a raiz quadrada de 400 é igual a 20 mathrm m.",
+        "duration": 7.44,
+        "audio": "enem/audio/ENEM-2023-MT-07/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Lado externo. Na tela, L é igual a 20 mais 5 mais 5 é igual a 30 mathrm m.",
+        "duration": 6.792,
+        "audio": "enem/audio/ENEM-2023-MT-07/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Diferença de áreas. Na tela, A índice cal é igual a 30 ao quadrado menos 20 ao quadrado.",
+        "duration": 7.08,
+        "audio": "enem/audio/ENEM-2023-MT-07/step_04.mp3"
+      },
+      {
+        "key": "step_05",
+        "text": "Calcule. Na tela, A índice cal é igual a 900 menos 400 é igual a 500 metros quadrados.",
+        "duration": 8.136,
+        "audio": "enem/audio/ENEM-2023-MT-07/step_05.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa D: 500",
+        "duration": 4.248,
+        "audio": "enem/audio/ENEM-2023-MT-07/answer.mp3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2024-MT-14",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2024 — Q149",
+  "tags": [
+    "enem",
+    "enem-2024"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2024,
+    "canonical_id": "ENEM-2024-MT-14",
+    "question_number": 149,
+    "booklet": "Caderno 11 Laranja - acessível"
+  },
+  "source": {
+    "page": 81,
+    "exam_file": "2024_Dia_2_P1_CN_MT_Caderno_11_Laranja_NVDA.pdf",
+    "answer_key_file": "2024_GB_impresso_D2_CD11.pdf"
+  },
+  "question": {
+    "stem": "Para obter um sólido de revolução (rotação de 360 graus em torno de um eixo fixo), uma professora realizou as seguintes etapas:\nrecortou o trapézio retângulo PQRS de um material rígido;\nafixou o lado PS do trapézio em uma vareta fixa retilínea (eixo de rotação);\ngirou o trapézio 360 graus em torno da vareta e obteve um sólido de revolução.\n\nObserve a figura que apresenta o trapézio afixado na vareta e o sentido de giro.\n\nDescrição da figura: Trapézio PQRS, de lados PQ e RS perpendiculares ao lado SP, e PQ paralelo a RS. O lado SP está sobreposto a um segmento de reta representando uma vareta, em torno da qual será executado um giro no sentido anti-horário. (Fim da descrição)\n\nO sólido obtido foi um(a)",
+    "options": {
+      "A": "cone.",
+      "B": "cilindro.",
+      "C": "pirâmide.",
+      "D": "tronco de cone.",
+      "E": "tronco de pirâmide."
+    },
+    "answer": "D"
+  },
+  "solution": {
+    "data": [
+      "trapézio retângulo PQRS",
+      "PQ e RS são paralelos e têm comprimentos diferentes",
+      "PS é o eixo de rotação",
+      "giro completo de 360°"
+    ],
+    "goal": "Identificar o sólido de revolução.",
+    "hook": "Gire mentalmente o trapézio: duas distâncias diferentes ao eixo viram dois raios diferentes.",
+    "strategy": [
+      "Observar as distâncias de PQ e RS ao eixo.",
+      "Girar as duas bases em torno de PS.",
+      "Identificar a superfície lateral inclinada."
+    ],
+    "steps": [
+      {
+        "label": "PQ gira e gera uma base circular",
+        "math": "PQ\\longrightarrow\\text{círculo de raio }R"
+      },
+      {
+        "label": "RS gera a outra base",
+        "math": "RS\\longrightarrow\\text{círculo de raio }r"
+      },
+      {
+        "label": "Como R≠r, não é cilindro",
+        "math": "R\\ne r"
+      },
+      {
+        "label": "Duas bases circulares paralelas e lateral inclinada",
+        "math": "\\text{tronco de cone}"
+      }
+    ],
+    "final_answer": "D"
+  },
+  "visuals": {
+    "statement": {
+      "renderer": "trapezoid_spin",
+      "description": "Trapézio retângulo PQRS preso pelo lado PS a uma vareta, com indicação de giro de 360 graus em torno de PS."
+    },
+    "concept": {
+      "renderer": "trapezoid_spin",
+      "note": "Os lados paralelos geram círculos de raios diferentes; o lado inclinado gera a lateral."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/27_2024_q149_solido_revolucao.py",
+      "scene": "Resolucao27",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2024, questão 149. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.776,
+        "audio": "enem/audio/ENEM-2024-MT-14/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "Para obter um sólido de revolução (rotação de 360 graus em torno de um eixo fixo), uma professora realizou as seguintes etapas: recortou o trapézio retângulo PQRS de um material rígido; afixou o lado PS do trapézio em uma vareta fixa retilínea (eixo de rotação); girou o trapézio 360 graus em torno da vareta e obteve um sólido de revolução. Observe a figura que apresenta o trapézio afixado na vareta e o sentido de giro.",
+        "duration": 28.056,
+        "audio": "enem/audio/ENEM-2024-MT-14/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "O sólido obtido foi um(a)",
+        "duration": 2.64,
+        "audio": "enem/audio/ENEM-2024-MT-14/statement_02.mp3"
+      },
+      {
+        "key": "figure",
+        "text": "Observe a reconstrução esquemática da figura da questão. Trapézio retângulo PQRS preso pelo lado PS a uma vareta, com indicação de giro de 360 graus em torno de PS.",
+        "duration": 12.528,
+        "audio": "enem/audio/ENEM-2024-MT-14/figure.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: cone.; B: cilindro.; C: pirâmide.; D: tronco de cone.; E: tronco de pirâmide..",
+        "duration": 9.84,
+        "audio": "enem/audio/ENEM-2024-MT-14/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: trapézio retângulo PQRS; PQ e RS são paralelos e têm comprimentos diferentes; PS é o eixo de rotação; giro completo de 360 graus.",
+        "duration": 13.776,
+        "audio": "enem/audio/ENEM-2024-MT-14/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "Gire mentalmente o trapézio: duas distâncias diferentes ao eixo viram dois raios diferentes. O plano é: 1, Observar as distâncias de PQ e RS ao eixo. 2, Girar as duas bases em torno de PS. 3, Identificar a superfície lateral inclinada.",
+        "duration": 19.128,
+        "audio": "enem/audio/ENEM-2024-MT-14/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "Os lados paralelos geram círculos de raios diferentes; o lado inclinado gera a lateral.",
+        "duration": 5.952,
+        "audio": "enem/audio/ENEM-2024-MT-14/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "PQ gira e gera uma base circular. Na tela, PQ gera círculo de raio R.",
+        "duration": 6.384,
+        "audio": "enem/audio/ENEM-2024-MT-14/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "RS gera a outra base. Na tela, RS gera círculo de raio r.",
+        "duration": 6.48,
+        "audio": "enem/audio/ENEM-2024-MT-14/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Como R≠r, não é cilindro. Na tela, R diferente de r.",
+        "duration": 6.648,
+        "audio": "enem/audio/ENEM-2024-MT-14/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Duas bases circulares paralelas e lateral inclinada. Na tela, tronco de cone.",
+        "duration": 6.432,
+        "audio": "enem/audio/ENEM-2024-MT-14/step_04.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa D: tronco de cone.",
+        "duration": 4.32,
+        "audio": "enem/audio/ENEM-2024-MT-14/answer.mp3"
+      }
+    ]
+  }
+}

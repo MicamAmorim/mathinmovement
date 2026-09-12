@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2023-MT-41",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2023 — Q176",
+  "tags": [
+    "enem",
+    "enem-2023"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2023,
+    "canonical_id": "ENEM-2023-MT-41",
+    "question_number": 176,
+    "booklet": "Caderno 11 Laranja - acessível"
+  },
+  "source": {
+    "page": 56,
+    "exam_file": "2023_Dia_2_P1_MT_Caderno_11_Laranja_NVDA.pdf",
+    "answer_key_file": "2023_GB_impresso_D2_CD11.pdf"
+  },
+  "question": {
+    "stem": "O mastro de uma bandeira foi instalado perpendicularmente ao solo em uma região plana. Devido aos fortes ventos, três cabos de aço, de mesmo comprimento, serão instalados para dar sustentação ao mastro. Cada cabo de aço ficará perfeitamente esticado, com uma extremidade num ponto P do mastro, a uma altura h do solo, e a outra extremidade, num ponto no chão, como mostra a figura.\n\nDescrição da figura: A figura representa o mastro de uma bandeira instalado perpendicularmente ao solo de uma região plana. No mastro há um ponto P, a uma altura h do solo, que é vértice comum a três triângulos; os outros dois vértices de cada triângulo são: o ponto de fixação do mastro no chão e o ponto de fixação de um cabo no chão. Em cada triângulo, o ângulo oposto ao lado que contém parte do mastro mede alfa. (Fim da descrição)\n\nOs cabos de aço formam um ângulo alfa com o plano do chão.\nPor medida de segurança, há apenas três opções de instalação:\n\nopção 1: h é igual a 11 metros e alfa é igual a 30 graus\nopção 2: h é igual a 12 metros e alfa é igual a 45 graus\nopção 3: h é igual a 18 metros e alfa é igual a 60 graus\n\nA opção a ser escolhida é aquela em que a medida dos cabos seja a menor possível.\n\nQual será a medida, em metro, de cada um dos cabos a serem instalados?",
+    "options": {
+      "A": "Fração com numerador 22 vezes raiz quadrada de 3 e denominador 3",
+      "B": "11 vezes raiz quadrada de 2",
+      "C": "12 vezes raiz quadrada de 2",
+      "D": "12 vezes raiz quadrada de 3",
+      "E": "22"
+    },
+    "answer": "C"
+  },
+  "solution": {
+    "data": [
+      "cabo, mastro e chão formam triângulo retângulo",
+      "opção 1: h=11 m, α=30°",
+      "opção 2: h=12 m, α=45°",
+      "opção 3: h=18 m, α=60°",
+      "escolher o menor cabo"
+    ],
+    "goal": "Comparar os comprimentos dos três cabos.",
+    "hook": "O cabo é a hipotenusa; o seno liga diretamente altura, ângulo e comprimento.",
+    "strategy": [
+      "Identificar h como cateto oposto e cabo como hipotenusa.",
+      "Usar sen α=h/c.",
+      "Calcular e comparar as três opções."
+    ],
+    "steps": [
+      {
+        "label": "Isole o cabo c",
+        "math": "\\sin\\alpha={h\\over c}\\quad\\Rightarrow\\quad c={h\\over\\sin\\alpha}"
+      },
+      {
+        "label": "Opção 1",
+        "math": "c_1={11\\over\\sin30^\\circ}={11\\over1/2}=22"
+      },
+      {
+        "label": "Opção 2",
+        "math": "c_2={12\\over\\sin45^\\circ}={12\\over\\sqrt2/2}"
+      },
+      {
+        "label": "Racionalize ou multiplique pelo inverso",
+        "math": "c_2={24\\over\\sqrt2}={24\\sqrt2\\over2}=12\\sqrt2"
+      },
+      {
+        "label": "Opção 3",
+        "math": "c_3={18\\over\\sin60^\\circ}={18\\over\\sqrt3/2}=12\\sqrt3"
+      },
+      {
+        "label": "Compare aproximações",
+        "math": "12\\sqrt2\\approx16{,}97<12\\sqrt3\\approx20{,}78<22"
+      }
+    ],
+    "final_answer": "C"
+  },
+  "visuals": {
+    "statement": {
+      "renderer": "mast",
+      "description": "Mastro vertical e cabo tensionado formando triângulo retângulo com o solo; o cabo faz ângulo alfa com o chão."
+    },
+    "concept": {
+      "renderer": "mast",
+      "note": "O cabo é a hipotenusa; a altura h fica oposta ao ângulo com o chão."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/21_2023_q176_cabos_mastro.py",
+      "scene": "Resolucao21",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2023, questão 176. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.824,
+        "audio": "enem/audio/ENEM-2023-MT-41/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "O mastro de uma bandeira foi instalado perpendicularmente ao solo em uma região plana. Devido aos fortes ventos, três cabos de aço, de mesmo comprimento, serão instalados para dar sustentação ao mastro. Cada cabo de aço ficará perfeitamente esticado, com uma extremidade num ponto P do mastro, a uma altura h do solo, e a outra extremidade, num ponto no chão, como mostra a figura.",
+        "duration": 24.36,
+        "audio": "enem/audio/ENEM-2023-MT-41/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "Os cabos de aço formam um ângulo alfa com o plano do chão. Por medida de segurança, há apenas três opções de instalação: opção 1: h é igual a 11 metros e alfa é igual a 30 graus opção 2: h é igual a 12 metros e alfa é igual a 45 graus opção 3: h é igual a 18 metros e alfa é igual a 60 graus A opção a ser escolhida é aquela em que a medida dos cabos seja a menor possível.",
+        "duration": 25.032,
+        "audio": "enem/audio/ENEM-2023-MT-41/statement_02.mp3"
+      },
+      {
+        "key": "statement_03",
+        "text": "Qual será a medida, em metro, de cada um dos cabos a serem instalados?",
+        "duration": 5.064,
+        "audio": "enem/audio/ENEM-2023-MT-41/statement_03.mp3"
+      },
+      {
+        "key": "figure",
+        "text": "Observe a reconstrução esquemática da figura da questão. Mastro vertical e cabo tensionado formando triângulo retângulo com o solo; o cabo faz ângulo alfa com o chão.",
+        "duration": 11.088,
+        "audio": "enem/audio/ENEM-2023-MT-41/figure.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: Fração com numerador 22 vezes raiz quadrada de 3 e denominador 3; B: 11 vezes raiz quadrada de 2; C: 12 vezes raiz quadrada de 2; D: 12 vezes raiz quadrada de 3; E: 22.",
+        "duration": 17.76,
+        "audio": "enem/audio/ENEM-2023-MT-41/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: cabo, mastro e chão formam triângulo retângulo; opção 1: h é igual a 11 metros, alfa é igual a 30 graus; opção 2: h é igual a 12 metros, alfa é igual a 45 graus; opção 3: h é igual a 18 metros, alfa é igual a 60 graus; escolher o menor cabo.",
+        "duration": 21.984,
+        "audio": "enem/audio/ENEM-2023-MT-41/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "O cabo é a hipotenusa; o seno liga diretamente altura, ângulo e comprimento. O plano é: 1, Identificar h como cateto oposto e cabo como hipotenusa. 2, Usar seno de alfa é igual a h dividido por c. 3, Calcular e comparar as três opções.",
+        "duration": 17.568,
+        "audio": "enem/audio/ENEM-2023-MT-41/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "O cabo é a hipotenusa; a altura h fica oposta ao ângulo com o chão.",
+        "duration": 4.848,
+        "audio": "enem/audio/ENEM-2023-MT-41/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Isole o cabo c. Na tela, seno de alfa é igual a h dividido por c ; portanto, c é igual a h dividido por seno de alfa.",
+        "duration": 9.576,
+        "audio": "enem/audio/ENEM-2023-MT-41/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Opção 1. Na tela, c índice 1 é igual a 11 dividido por seno de 30 graus é igual a 11 dividido por 1 dividido por 2 é igual a 22.",
+        "duration": 10.416,
+        "audio": "enem/audio/ENEM-2023-MT-41/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Opção 2. Na tela, c índice 2 é igual a 12 dividido por seno de 45 graus é igual a 12 dividido por raiz quadrada de 2 dividido por 2.",
+        "duration": 11.112,
+        "audio": "enem/audio/ENEM-2023-MT-41/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Racionalize ou multiplique pelo inverso. Na tela, c índice 2 é igual a 24 dividido por raiz quadrada de 2 é igual a 24 raiz quadrada de 2 dividido por 2 é igual a 12 raiz quadrada de 2.",
+        "duration": 14.16,
+        "audio": "enem/audio/ENEM-2023-MT-41/step_04.mp3"
+      },
+      {
+        "key": "step_05",
+        "text": "Opção 3. Na tela, c índice 3 é igual a 18 dividido por seno de 60 graus é igual a 18 dividido por raiz quadrada de 3 dividido por 2 é igual a 12 raiz quadrada de 3.",
+        "duration": 13.152,
+        "audio": "enem/audio/ENEM-2023-MT-41/step_05.mp3"
+      },
+      {
+        "key": "step_06",
+        "text": "Compare aproximações. Na tela, 12 raiz quadrada de 2 aproximadamente 16,97 é menor que 12 raiz quadrada de 3 aproximadamente 20,78 é menor que 22.",
+        "duration": 13.512,
+        "audio": "enem/audio/ENEM-2023-MT-41/step_06.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa C: 12 vezes raiz quadrada de 2",
+        "duration": 5.64,
+        "audio": "enem/audio/ENEM-2023-MT-41/answer.mp3"
+      }
+    ]
+  }
+}

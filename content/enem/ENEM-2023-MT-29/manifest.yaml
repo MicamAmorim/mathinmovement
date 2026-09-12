@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2023-MT-29",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2023 — Q164",
+  "tags": [
+    "enem",
+    "enem-2023"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2023,
+    "canonical_id": "ENEM-2023-MT-29",
+    "question_number": 164,
+    "booklet": "Caderno 11 Laranja - acessível"
+  },
+  "source": {
+    "page": 38,
+    "exam_file": "2023_Dia_2_P1_MT_Caderno_11_Laranja_NVDA.pdf",
+    "answer_key_file": "2023_GB_impresso_D2_CD11.pdf"
+  },
+  "question": {
+    "stem": "A figura ilustra uma roda-gigante no exato instante em que a cadeira onde se encontra a pessoa P está no ponto mais alto dessa roda-gigante.\n\nDescrição da figura: A figura representa uma roda-gigante, cujos suportes estão apoiados ao solo, no instante em que a cadeira onde se encontra uma pessoa P está no ponto mais alto dessa roda. Uma seta indica que a roda-gigante gira no sentido horário. (Fim da descrição)\n\nCom o passar do tempo, à medida que a roda-gigante gira, com velocidade constante e no sentido horário, a altura da cadeira onde se encontra a pessoa P, em relação ao solo, vai se alterando.\n\nO gráfico que melhor representa a variação dessa altura, em função do tempo, contado a partir do instante em que a cadeira da pessoa P se encontra na posição mais alta da roda-gigante, é\n\nDescrição das alternativas: Em cada alternativa há a representação de um gráfico cartesiano, em que o eixo horizontal representa o tempo; e o eixo vertical representa a altura da cadeira onde está a pessoa P em relação ao solo. Todos os gráficos são curvas contínuas que oscilam de um valor máximo a um valor mínimo, sendo o valor mínimo positivo, e iniciam no ponto de abscissa 0 e ordenada igual ao valor máximo.",
+    "options": {
+      "A": "O gráfico é representado por uma cossenoide.",
+      "B": "O gráfico é representado por uma linha poligonal formada por 4 segmentos de reta de mesmo comprimento, decrescentes e crescentes alternadamente.",
+      "C": "O gráfico é representado por uma linha poligonal formada por 7 segmentos de reta, 4 deles decrescentes e crescentes alternadamente e de mesmo comprimento, interligados por 3 segmentos de reta horizontais de mesmo comprimento.",
+      "D": "O gráfico é representado por 3 arcos de parábolas com concavidade para baixo, formando uma única curva contínua.",
+      "E": "O gráfico é representado por 2 arcos de parábolas com concavidade para cima, formando uma única curva contínua. (Fim da descrição)"
+    },
+    "answer": "A"
+  },
+  "solution": {
+    "data": [
+      "roda-gigante gira com velocidade angular constante",
+      "pessoa começa no ponto mais alto",
+      "altura varia continuamente e periodicamente",
+      "o ponto mais baixo fica acima do solo"
+    ],
+    "goal": "Escolher o gráfico altura × tempo.",
+    "hook": "Movimento circular uniforme visto na vertical produz uma cossenoide.",
+    "strategy": [
+      "Modelar o movimento circular uniforme.",
+      "Projetar a posição vertical.",
+      "Comparar forma, período e valor inicial."
+    ],
+    "steps": [
+      {
+        "label": "Ângulo cresce linearmente",
+        "math": "\\theta(t)=\\omega t"
+      },
+      {
+        "label": "Começando no topo",
+        "math": "h(t)=h_c+R\\cos(\\omega t)"
+      },
+      {
+        "label": "No instante inicial",
+        "math": "h(0)=h_c+R\\quad\\text{máximo}"
+      },
+      {
+        "label": "A curva é suave e periódica",
+        "math": "h(t+2\\pi/\\omega)=h(t)"
+      },
+      {
+        "label": "Logo, é uma cossenoide",
+        "math": "\\text{gráfico A}"
+      }
+    ],
+    "final_answer": "A"
+  },
+  "visuals": {
+    "statement": {
+      "renderer": "ferris_choices",
+      "description": "Roda-gigante com a cadeira P inicialmente no ponto mais alto e alternativas formadas por cinco gráficos altura versus tempo."
+    },
+    "concept": {
+      "renderer": "ferris",
+      "note": "A altura é a projeção vertical de um raio que gira uniformemente."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/18_2023_q164_roda_gigante.py",
+      "scene": "Resolucao18",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2023, questão 164. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.824,
+        "audio": "enem/audio/ENEM-2023-MT-29/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "A figura ilustra uma roda-gigante no exato instante em que a cadeira onde se encontra a pessoa P está no ponto mais alto dessa roda-gigante. Com o passar do tempo, à medida que a roda-gigante gira, com velocidade constante e no sentido horário, a altura da cadeira onde se encontra a pessoa P, em relação ao solo, vai se alterando.",
+        "duration": 19.56,
+        "audio": "enem/audio/ENEM-2023-MT-29/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "O gráfico que melhor representa a variação dessa altura, em função do tempo, contado a partir do instante em que a cadeira da pessoa P se encontra na posição mais alta da roda-gigante, é",
+        "duration": 11.28,
+        "audio": "enem/audio/ENEM-2023-MT-29/statement_02.mp3"
+      },
+      {
+        "key": "figure",
+        "text": "Observe a reconstrução esquemática da figura da questão. Roda-gigante com a cadeira P inicialmente no ponto mais alto e alternativas formadas por cinco gráficos altura versus tempo.",
+        "duration": 11.376,
+        "audio": "enem/audio/ENEM-2023-MT-29/figure.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são cinco gráficos. Observe que todos começam na altura máxima, mas têm formas diferentes. A alternativa A é uma cossenoide; as demais são formadas por segmentos de reta ou arcos de parábola.",
+        "duration": 14.832,
+        "audio": "enem/audio/ENEM-2023-MT-29/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: roda-gigante gira com velocidade angular constante; pessoa começa no ponto mais alto; altura varia continuamente e periodicamente; o ponto mais baixo fica acima do solo.",
+        "duration": 13.584,
+        "audio": "enem/audio/ENEM-2023-MT-29/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "Movimento circular uniforme visto na vertical produz uma cossenoide. O plano é: 1, Modelar o movimento circular uniforme. 2, Projetar a posição vertical. 3, Comparar forma, período e valor inicial.",
+        "duration": 16.272,
+        "audio": "enem/audio/ENEM-2023-MT-29/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "A altura é a projeção vertical de um raio que gira uniformemente.",
+        "duration": 4.392,
+        "audio": "enem/audio/ENEM-2023-MT-29/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Ângulo cresce linearmente. Na tela, teta (t) é igual a ômega t.",
+        "duration": 6.648,
+        "audio": "enem/audio/ENEM-2023-MT-29/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Começando no topo. Na tela, h(t) é igual a h índice c mais R cosseno de ( ômega t).",
+        "duration": 8.352,
+        "audio": "enem/audio/ENEM-2023-MT-29/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "No instante inicial. Na tela, h(0) é igual a h índice c mais R, máximo.",
+        "duration": 7.776,
+        "audio": "enem/audio/ENEM-2023-MT-29/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "A curva é suave e periódica. Na tela, h(t mais 2 pi dividido por ômega ) é igual a h(t).",
+        "duration": 8.472,
+        "audio": "enem/audio/ENEM-2023-MT-29/step_04.mp3"
+      },
+      {
+        "key": "step_05",
+        "text": "Logo, é uma cossenoide. Na tela, gráfico A.",
+        "duration": 4.968,
+        "audio": "enem/audio/ENEM-2023-MT-29/step_05.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa A: O gráfico é representado por uma cossenoide.",
+        "duration": 5.784,
+        "audio": "enem/audio/ENEM-2023-MT-29/answer.mp3"
+      }
+    ]
+  }
+}

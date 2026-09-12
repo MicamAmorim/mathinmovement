@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2024-MT-34",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2024 — Q169",
+  "tags": [
+    "enem",
+    "enem-2024"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2024,
+    "canonical_id": "ENEM-2024-MT-34",
+    "question_number": 169,
+    "booklet": "Caderno 11 Laranja - acessível"
+  },
+  "source": {
+    "page": 105,
+    "exam_file": "2024_Dia_2_P1_CN_MT_Caderno_11_Laranja_NVDA.pdf",
+    "answer_key_file": "2024_GB_impresso_D2_CD11.pdf"
+  },
+  "question": {
+    "stem": "Um jardineiro dispõe de k metros lineares de cerca baixa para fazer um jardim ornamental. O jardim, delimitado por essa cerca, deve ter a forma de um triângulo equilátero, um quadrado ou um hexágono regular. A escolha será pela forma que resulte na maior área.\n\nO jardineiro escolherá a forma de",
+    "options": {
+      "A": "hexágono regular, pois a área do jardim, em metro quadrado, será fração, numerador k ao quadrado vezes raiz quadrada de 3, denominador 24.",
+      "B": "hexágono regular, pois a área do jardim, em metro quadrado, será fração, numerador 3 vezes k ao quadrado vezes raiz quadrada de 3, denominador 2.",
+      "C": "quadrado, pois a área do jardim, em metro quadrado, será fração, numerador k ao quadrado, denominador 16.",
+      "D": "triângulo equilátero, pois a área do jardim, em metro quadrado, será fração, numerador k ao quadrado vezes raiz quadrada de 3, denominador 36.",
+      "E": "triângulo equilátero, pois a área do jardim, em metro quadrado, será fração, numerador k ao quadrado vezes raiz quadrada de 3, denominador 4."
+    },
+    "answer": "A"
+  },
+  "solution": {
+    "data": [
+      "perímetro disponível: k",
+      "formas: equilátero, quadrado ou hexágono regular",
+      "cada forma deve usar todo o perímetro"
+    ],
+    "goal": "Escolher a forma de maior área.",
+    "hook": "Com perímetro fixo, compare as áreas depois de escrever cada lado em função de k.",
+    "strategy": [
+      "Escrever o lado de cada figura em função de k.",
+      "Calcular as três áreas.",
+      "Comparar os coeficientes de k²."
+    ],
+    "steps": [
+      {
+        "label": "Equilátero: lado k/3",
+        "math": "A_3={\\sqrt3\\over4}(k/3)^2={\\sqrt3\\over36}k^2"
+      },
+      {
+        "label": "Quadrado: lado k/4",
+        "math": "A_4=(k/4)^2={1\\over16}k^2"
+      },
+      {
+        "label": "Hexágono: seis equiláteros de lado k/6",
+        "math": "A_6=6{\\sqrt3\\over4}(k/6)^2={\\sqrt3\\over24}k^2"
+      },
+      {
+        "label": "Compare aproximadamente",
+        "math": "{\\sqrt3\\over36}\\approx0{,}0481;\\quad{1\\over16}=0{,}0625;\\quad{\\sqrt3\\over24}\\approx0{,}0722"
+      },
+      {
+        "label": "Maior coeficiente",
+        "math": "A_6>A_4>A_3\\quad\\Rightarrow\\quad\\text{hexágono}"
+      }
+    ],
+    "final_answer": "A"
+  },
+  "visuals": {
+    "concept": {
+      "renderer": "regular_polygons",
+      "note": "Com o mesmo perímetro, aumentar o número de lados aproxima a figura do círculo."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/29_2024_q169_poligono_maior_area.py",
+      "scene": "Resolucao29",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2024, questão 169. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.824,
+        "audio": "enem/audio/ENEM-2024-MT-34/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "Um jardineiro dispõe de k metros lineares de cerca baixa para fazer um jardim ornamental. O jardim, delimitado por essa cerca, deve ter a forma de um triângulo equilátero, um quadrado ou um hexágono regular. A escolha será pela forma que resulte na maior área. O jardineiro escolherá a forma de",
+        "duration": 19.128,
+        "audio": "enem/audio/ENEM-2024-MT-34/statement_01.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: hexágono regular, pois a área do jardim, em metro quadrado, será fração, numerador k ao quadrado vezes raiz quadrada de 3, denominador 24.; B: hexágono regular, pois a área do jardim, em metro quadrado, será fração, numerador 3 vezes k ao quadrado vezes raiz quadrada de 3, denominador 2.; C: quadrado, pois a área do jardim, em metro quadrado, será fração, numerador k ao quadrado, denominador 16.; D: triângulo equilátero, pois a área do jardim, em metro quadrado, será fração, numerador k ao quadrado vezes raiz quadrada de 3, denominador 36.; E: triângulo equilátero, pois a área do jardim, em metro quadrado, será fração, numerador k ao quadrado vezes raiz quadrada de 3, denominador 4..",
+        "duration": 52.92,
+        "audio": "enem/audio/ENEM-2024-MT-34/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: perímetro disponível: k; formas: equilátero, quadrado ou hexágono regular; cada forma deve usar todo o perímetro.",
+        "duration": 11.04,
+        "audio": "enem/audio/ENEM-2024-MT-34/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "Com perímetro fixo, compare as áreas depois de escrever cada lado em função de k. O plano é: 1, Escrever o lado de cada figura em função de k. 2, Calcular as três áreas. 3, Comparar os coeficientes de k ao quadrado.",
+        "duration": 16.416,
+        "audio": "enem/audio/ENEM-2024-MT-34/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "Com o mesmo perímetro, aumentar o número de lados aproxima a figura do círculo.",
+        "duration": 5.28,
+        "audio": "enem/audio/ENEM-2024-MT-34/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Equilátero: lado k dividido por 3. Na tela, A índice 3 é igual a raiz quadrada de 3 dividido por 4 (k dividido por 3) ao quadrado é igual a raiz quadrada de 3 dividido por 36 k ao quadrado.",
+        "duration": 14.568,
+        "audio": "enem/audio/ENEM-2024-MT-34/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Quadrado: lado k dividido por 4. Na tela, A índice 4 é igual a (k dividido por 4) ao quadrado é igual a 1 dividido por 16 k ao quadrado.",
+        "duration": 11.016,
+        "audio": "enem/audio/ENEM-2024-MT-34/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Hexágono: seis equiláteros de lado k dividido por 6. Na tela, A índice 6 é igual a 6 raiz quadrada de 3 dividido por 4 (k dividido por 6) ao quadrado é igual a raiz quadrada de 3 dividido por 24 k ao quadrado.",
+        "duration": 15.792,
+        "audio": "enem/audio/ENEM-2024-MT-34/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Compare aproximadamente. Na tela, raiz quadrada de 3 dividido por 36 aproximadamente 0,0481;, 1 dividido por 16 é igual a 0,0625;, raiz quadrada de 3 dividido por 24 aproximadamente 0,0722.",
+        "duration": 18.552,
+        "audio": "enem/audio/ENEM-2024-MT-34/step_04.mp3"
+      },
+      {
+        "key": "step_05",
+        "text": "Maior coeficiente. Na tela, A índice 6 é maior que A índice 4 é maior que A índice 3; portanto, hexágono.",
+        "duration": 9.12,
+        "audio": "enem/audio/ENEM-2024-MT-34/step_05.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa A: hexágono regular, pois a área do jardim, em metro quadrado, será fração, numerador k ao quadrado vezes raiz quadrada de 3, denominador 24.",
+        "duration": 12.96,
+        "audio": "enem/audio/ENEM-2024-MT-34/answer.mp3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2023-MT-15",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2023 — Q150",
+  "tags": [
+    "enem",
+    "enem-2023"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2023,
+    "canonical_id": "ENEM-2023-MT-15",
+    "question_number": 150,
+    "booklet": "Caderno 11 Laranja - acessível"
+  },
+  "source": {
+    "page": 21,
+    "exam_file": "2023_Dia_2_P1_MT_Caderno_11_Laranja_NVDA.pdf",
+    "answer_key_file": "2023_GB_impresso_D2_CD11.pdf"
+  },
+  "question": {
+    "stem": "Um artista plástico esculpe uma escultura a partir de um bloco de madeira de lei, em etapas. Inicialmente, esculpe um cone reto com 36 centímetros de altura e diâmetro da base medindo 18 centímetros. Em seguida, remove desse cone um cone menor, cujo diâmetro da base mede 6 centímetros obtendo, assim, um tronco de cone, conforme ilustrado na figura.\n\nDescrição da imagem: A imagem é formada por duas figuras. A figura à esquerda apresenta um cone circular reto, com diâmetro da base igual a 18 centímetros e altura igual a 36 centímetros. Nele está destacado um cone circular reto, de mesmo vértice e mesmo eixo de simetria mas altura menor, e cujo diâmetro da base é igual a 6 centímetros.\nA figura à direita mostra o tronco de cone, obtido pela retirada do cone de altura menor do cone de altura maior, do qual foi removido também um cilindro circular reto, de diâmetro igual a 6 centímetros, com o mesmo eixo de simetria que o cone original. (Fim da descrição)\n\nEm seguida, perfura esse tronco de cone, removendo um cilindro reto, de diâmetro 6 centímetros, cujo eixo de simetria é o mesmo do cone original. Dessa forma, ao final, a escultura tem a forma de um tronco de cone com uma perfuração cilíndrica de base a base.\nO tipo de madeira utilizada para produzir essa escultura tem massa igual a 0,6 grama por centímetro cúbico de volume. Utilize 3 como aproximação para pi.\n\nQual é a massa, em grama, dessa escultura?",
+    "options": {
+      "A": "1198,8",
+      "B": "1296,0",
+      "C": "1360,8",
+      "D": "4665,6",
+      "E": "4860,0"
+    },
+    "answer": "B"
+  },
+  "solution": {
+    "data": [
+      "cone maior: R=9 cm e H=36 cm",
+      "cone retirado: r=3 cm",
+      "cones semelhantes",
+      "perfuração cilíndrica de raio 3 cm atravessa o tronco",
+      "densidade 0,6 g/cm³; π≈3"
+    ],
+    "goal": "Calcular a massa da escultura restante.",
+    "hook": "A escultura final nasce de duas subtrações de volume, seguidas pela densidade.",
+    "strategy": [
+      "Achar a altura do cone pequeno por semelhança.",
+      "Subtrair os volumes dos cones.",
+      "Subtrair o cilindro e aplicar a densidade."
+    ],
+    "steps": [
+      {
+        "label": "Semelhança dos cones",
+        "math": "{h\\over36}={3\\over9}={1\\over3}"
+      },
+      {
+        "label": "Altura do cone pequeno",
+        "math": "h=36/3=12\\ \\mathrm{cm}"
+      },
+      {
+        "label": "Volume do cone maior",
+        "math": "V_M={1\\over3}\\cdot3\\cdot9^2\\cdot36=2916"
+      },
+      {
+        "label": "Volume do cone pequeno",
+        "math": "V_m={1\\over3}\\cdot3\\cdot3^2\\cdot12=108"
+      },
+      {
+        "label": "Altura do tronco",
+        "math": "H_t=36-12=24"
+      },
+      {
+        "label": "Volume do cilindro retirado",
+        "math": "V_c=3\\cdot3^2\\cdot24=648"
+      },
+      {
+        "label": "Volume restante",
+        "math": "V=2916-108-648=2160\\ \\mathrm{cm^3}"
+      },
+      {
+        "label": "Massa = densidade × volume",
+        "math": "m=0{,}6\\cdot2160=1296\\ \\mathrm g"
+      }
+    ],
+    "final_answer": "B"
+  },
+  "visuals": {
+    "statement": {
+      "renderer": "sculpture",
+      "description": "Cone maior de altura 36 cm e diâmetro 18 cm, com cone menor semelhante removido; depois há perfuração cilíndrica axial de diâmetro 6 cm."
+    },
+    "concept": {
+      "renderer": "cone_frustum",
+      "note": "Primeiro obtemos o tronco; depois retiramos o furo cilíndrico."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/17_2023_q150_escultura_cones.py",
+      "scene": "Resolucao17",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2023, questão 150. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.536,
+        "audio": "enem/audio/ENEM-2023-MT-15/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "Um artista plástico esculpe uma escultura a partir de um bloco de madeira de lei, em etapas. Inicialmente, esculpe um cone reto com 36 centímetros de altura e diâmetro da base medindo 18 centímetros. Em seguida, remove desse cone um cone menor, cujo diâmetro da base mede 6 centímetros obtendo, assim, um tronco de cone, conforme ilustrado na figura.",
+        "duration": 23.304,
+        "audio": "enem/audio/ENEM-2023-MT-15/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "Em seguida, perfura esse tronco de cone, removendo um cilindro reto, de diâmetro 6 centímetros, cujo eixo de simetria é o mesmo do cone original. Dessa forma, ao final, a escultura tem a forma de um tronco de cone com uma perfuração cilíndrica de base a base. O tipo de madeira utilizada para produzir essa escultura tem massa igual a 0,6 grama por centímetro cúbico de volume. Utilize 3 como aproximação para pi.",
+        "duration": 27.312,
+        "audio": "enem/audio/ENEM-2023-MT-15/statement_02.mp3"
+      },
+      {
+        "key": "statement_03",
+        "text": "Qual é a massa, em grama, dessa escultura?",
+        "duration": 3.576,
+        "audio": "enem/audio/ENEM-2023-MT-15/statement_03.mp3"
+      },
+      {
+        "key": "figure",
+        "text": "Observe a reconstrução esquemática da figura da questão. Cone maior de altura 36 centímetros e diâmetro 18 centímetros, com cone menor semelhante removido; depois há perfuração cilíndrica axial de diâmetro 6 centímetros.",
+        "duration": 14.928,
+        "audio": "enem/audio/ENEM-2023-MT-15/figure.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: 1198,8; B: 1296,0; C: 1360,8; D: 4665,6; E: 4860,0.",
+        "duration": 16.968,
+        "audio": "enem/audio/ENEM-2023-MT-15/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: cone maior: R é igual a 9 centímetros e H é igual a 36 centímetros; cone retirado: r é igual a 3 centímetros; cones semelhantes; perfuração cilíndrica de raio 3 centímetros atravessa o tronco; densidade 0,6 g dividido por centímetros cúbicos; pi aproximadamente 3.",
+        "duration": 22.56,
+        "audio": "enem/audio/ENEM-2023-MT-15/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "A escultura final nasce de duas subtrações de volume, seguidas pela densidade. O plano é: 1, Achar a altura do cone pequeno por semelhança. 2, Subtrair os volumes dos cones. 3, Subtrair o cilindro e aplicar a densidade.",
+        "duration": 17.496,
+        "audio": "enem/audio/ENEM-2023-MT-15/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "Primeiro obtemos o tronco; depois retiramos o furo cilíndrico.",
+        "duration": 4.44,
+        "audio": "enem/audio/ENEM-2023-MT-15/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Semelhança dos cones. Na tela, h dividido por 36 é igual a 3 dividido por 9 é igual a 1 dividido por 3.",
+        "duration": 8.856,
+        "audio": "enem/audio/ENEM-2023-MT-15/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Altura do cone pequeno. Na tela, h é igual a 36 dividido por 3 é igual a 12 centímetros.",
+        "duration": 7.752,
+        "audio": "enem/audio/ENEM-2023-MT-15/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Volume do cone maior. Na tela, V índice M é igual a 1 dividido por 3 vezes 3 vezes 9 ao quadrado vezes 36 é igual a 2916.",
+        "duration": 11.352,
+        "audio": "enem/audio/ENEM-2023-MT-15/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Volume do cone pequeno. Na tela, V índice m é igual a 1 dividido por 3 vezes 3 vezes 3 ao quadrado vezes 12 é igual a 108.",
+        "duration": 10.176,
+        "audio": "enem/audio/ENEM-2023-MT-15/step_04.mp3"
+      },
+      {
+        "key": "step_05",
+        "text": "Altura do tronco. Na tela, H índice t é igual a 36 menos 12 é igual a 24.",
+        "duration": 7.152,
+        "audio": "enem/audio/ENEM-2023-MT-15/step_05.mp3"
+      },
+      {
+        "key": "step_06",
+        "text": "Volume do cilindro retirado. Na tela, V índice c é igual a 3 vezes 3 ao quadrado vezes 24 é igual a 648.",
+        "duration": 10.104,
+        "audio": "enem/audio/ENEM-2023-MT-15/step_06.mp3"
+      },
+      {
+        "key": "step_07",
+        "text": "Volume restante. Na tela, V é igual a 2916 menos 108 menos 648 é igual a 2160 centímetros cúbicos.",
+        "duration": 11.544,
+        "audio": "enem/audio/ENEM-2023-MT-15/step_07.mp3"
+      },
+      {
+        "key": "step_08",
+        "text": "Massa é igual a densidade vezes volume. Na tela, m é igual a 0,6 vezes 2160 é igual a 1296 mathrm g.",
+        "duration": 10.392,
+        "audio": "enem/audio/ENEM-2023-MT-15/step_08.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa B: 1296,0",
+        "duration": 5.568,
+        "audio": "enem/audio/ENEM-2023-MT-15/answer.mp3"
+      }
+    ]
+  }
+}

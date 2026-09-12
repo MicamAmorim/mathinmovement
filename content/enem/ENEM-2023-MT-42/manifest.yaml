@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2023-MT-42",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2023 — Q177",
+  "tags": [
+    "enem",
+    "enem-2023"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2023,
+    "canonical_id": "ENEM-2023-MT-42",
+    "question_number": 177,
+    "booklet": "Caderno 11 Laranja - acessível"
+  },
+  "source": {
+    "page": 58,
+    "exam_file": "2023_Dia_2_P1_MT_Caderno_11_Laranja_NVDA.pdf",
+    "answer_key_file": "2023_GB_impresso_D2_CD11.pdf"
+  },
+  "question": {
+    "stem": "Um controlador de voo dispõe de um instrumento que descreve a altitude de uma aeronave em voo, em função da distância em solo. Essa distância em solo é a medida na horizontal entre o ponto de origem do voo até o ponto que representa a projeção ortogonal da posição da aeronave, em voo, no solo. Essas duas grandezas são dadas numa mesma unidade de medida.\nA tela do instrumento representa proporcionalmente as dimensões reais das distâncias associadas ao voo. A figura apresenta a tela do instrumento depois de concluída a viagem de um avião, sendo a medida do lado de cada quadradinho da malha igual a 1 centímetro.\n\nDescrição do gráfico: Gráfico cartesiano, em que o eixo horizontal indica a distância, e o eixo vertical indica a altitude, sendo a unidade de medida em cada um dos eixos igual à medida do lado do quadradinho da malha que é igual a 1 centímetro.\nO gráfico é formado por cinco segmentos de reta que representam a trajetória desde o ponto de origem do voo até seu ponto de destino.\nSegmento 1: de (0 ; 0) a (2 ; 1).\nSegmento 2: de (2 ; 1) a (7 ; 1).\nSegmento 3: de (7 ; 1) a (9 ; 0,5).\nSegmento 4: de (9 ; 0,5) a (10 ; 0,5).\nSegmento 5: de (10 ; 0,5) a (12 ; 0).\n(Fim da descrição)\n\nEssa tela apresenta os dados de um voo cuja maior altitude alcançada foi de 5 quilômetros.\n\nA escala em que essa tela representa as medidas reais é",
+    "options": {
+      "A": "1 para 5.",
+      "B": "1 para 11.",
+      "C": "1 para 55.",
+      "D": "1 para 5000.",
+      "E": "1 para 500.000."
+    },
+    "answer": "E"
+  },
+  "solution": {
+    "data": [
+      "malha: quadrados de 1 cm",
+      "maior altitude na tela: 1 cm",
+      "maior altitude real: 5 km",
+      "escala deve usar a mesma unidade"
+    ],
+    "goal": "Determinar a escala da tela.",
+    "hook": "Leia um centímetro na tela, converta a altitude real e forme a escala.",
+    "strategy": [
+      "Ler a maior ordenada no gráfico.",
+      "Converter 5 km para centímetros.",
+      "Formar a razão tela/real."
+    ],
+    "steps": [
+      {
+        "label": "Converta quilômetros em metros",
+        "math": "5\\ \\mathrm{km}=5000\\ \\mathrm m"
+      },
+      {
+        "label": "Converta metros em centímetros",
+        "math": "5000\\ \\mathrm m=500000\\ \\mathrm{cm}"
+      },
+      {
+        "label": "Escala",
+        "math": "E={1\\ \\mathrm{cm}\\over500000\\ \\mathrm{cm}}"
+      },
+      {
+        "label": "Forma 1:n",
+        "math": "E=1:500000"
+      }
+    ],
+    "final_answer": "E"
+  },
+  "visuals": {
+    "statement": {
+      "renderer": "graph_scale",
+      "description": "Gráfico em malha quadriculada de lado 1 cm. A maior altitude representada ocupa 1 cm na vertical."
+    },
+    "concept": {
+      "renderer": "graph_scale",
+      "note": "O maior patamar do gráfico tem uma unidade vertical, isto é, 1 cm na tela."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/22_2023_q177_escala_voo.py",
+      "scene": "Resolucao22",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2023, questão 177. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.824,
+        "audio": "enem/audio/ENEM-2023-MT-42/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "Um controlador de voo dispõe de um instrumento que descreve a altitude de uma aeronave em voo, em função da distância em solo. Essa distância em solo é a medida na horizontal entre o ponto de origem do voo até o ponto que representa a projeção ortogonal da posição da aeronave, em voo, no solo. Essas duas grandezas são dadas numa mesma unidade de medida.",
+        "duration": 21.576,
+        "audio": "enem/audio/ENEM-2023-MT-42/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "A tela do instrumento representa proporcionalmente as dimensões reais das distâncias associadas ao voo. A figura apresenta a tela do instrumento depois de concluída a viagem de um avião, sendo a medida do lado de cada quadradinho da malha igual a 1 centímetro. Essa tela apresenta os dados de um voo cuja maior altitude alcançada foi de 5 quilômetros. A escala em que essa tela representa as medidas reais é",
+        "duration": 24.696,
+        "audio": "enem/audio/ENEM-2023-MT-42/statement_02.mp3"
+      },
+      {
+        "key": "figure",
+        "text": "Observe a reconstrução esquemática da figura da questão. Gráfico em malha quadriculada de lado 1 centímetros. A maior altitude representada ocupa 1 centímetros na vertical.",
+        "duration": 11.832,
+        "audio": "enem/audio/ENEM-2023-MT-42/figure.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: 1 para 5.; B: 1 para 11.; C: 1 para 55.; D: 1 para 5000.; E: 1 para 500.000..",
+        "duration": 11.16,
+        "audio": "enem/audio/ENEM-2023-MT-42/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: malha: quadrados de 1 centímetros; maior altitude na tela: 1 centímetros; maior altitude real: 5 quilômetros; escala deve usar a mesma unidade.",
+        "duration": 13.344,
+        "audio": "enem/audio/ENEM-2023-MT-42/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "Leia um centímetro na tela, converta a altitude real e forme a escala. O plano é: 1, Ler a maior ordenada no gráfico. 2, Converter 5 quilômetros para centímetros. 3, Formar a razão tela dividido por real.",
+        "duration": 16.464,
+        "audio": "enem/audio/ENEM-2023-MT-42/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "O maior patamar do gráfico tem uma unidade vertical, isto é, 1 centímetros na tela.",
+        "duration": 6.336,
+        "audio": "enem/audio/ENEM-2023-MT-42/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Converta quilômetros em metros. Na tela, 5 quilômetros é igual a 5000 mathrm m.",
+        "duration": 7.032,
+        "audio": "enem/audio/ENEM-2023-MT-42/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Converta metros em centímetros. Na tela, 5000 mathrm m é igual a 500000 centímetros.",
+        "duration": 7.68,
+        "audio": "enem/audio/ENEM-2023-MT-42/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Escala. Na tela, E é igual a 1 centímetros dividido por 500000 centímetros.",
+        "duration": 6.84,
+        "audio": "enem/audio/ENEM-2023-MT-42/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Forma 1:n. Na tela, E é igual a 1:500000.",
+        "duration": 5.304,
+        "audio": "enem/audio/ENEM-2023-MT-42/step_04.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa E: 1 para 500.000.",
+        "duration": 4.464,
+        "audio": "enem/audio/ENEM-2023-MT-42/answer.mp3"
+      }
+    ]
+  }
+}

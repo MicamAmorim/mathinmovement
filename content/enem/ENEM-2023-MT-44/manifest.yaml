@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "id": "ENEM-2023-MT-44",
+  "type": "qenem",
+  "status": "draft",
+  "title": "ENEM 2023 — Q179",
+  "tags": [
+    "enem",
+    "enem-2023"
+  ],
+  "exam": {
+    "name": "ENEM",
+    "year": 2023,
+    "canonical_id": "ENEM-2023-MT-44",
+    "question_number": 179,
+    "booklet": "Caderno 11 Laranja - acessível"
+  },
+  "source": {
+    "page": 61,
+    "exam_file": "2023_Dia_2_P1_MT_Caderno_11_Laranja_NVDA.pdf",
+    "answer_key_file": "2023_GB_impresso_D2_CD11.pdf"
+  },
+  "question": {
+    "stem": "Sejam a, b e c as medidas dos lados de um triângulo retângulo, tendo a como medida da hipotenusa. Esses valores a, b e c são, respectivamente, os diâmetros dos círculos C índice 1, C índice 2 e C índice 3, como apresentados na figura.\n\nDescrição da figura: A figura apresenta um triângulo retângulo de lados a, b e c; o círculo C índice 1, que tem o lado a do triângulo como diâmetro; o círculo C índice 2, que tem o lado b do triângulo como diâmetro, e o círculo C índice 3, que tem o lado c do triângulo como diâmetro. (Fim da descrição)\n\nEssa construção assegura, pelo teorema de Pitágoras, que área de C índice 1 é igual a área de C índice 2 mais área de C índice 3.\nUm professor de matemática era conhecedor dessa construção e, confraternizando com dois amigos em uma pizzaria onde são vendidas pizzas somente em formato de círculo, lançou um desafio: mesmo sem usar um instrumento de medição, poderia afirmar com certeza se a área do círculo correspondente à pizza que ele pedisse era maior, igual ou menor do que a soma das áreas das pizzas dos dois amigos. Assim, foram pedidas três pizzas. O professor as dividiu ao meio e formou um triângulo com os diâmetros das pizzas, conforme indicado na figura.\n\nDescrição da figura: Figura de um triângulo, em que um dos ângulos tem medida igual a alfa e cada um de seus lados é diâmetro de um semicírculo. O semicírculo, cujo diâmetro é o lado oposto ao ângulo alfa, representa a meia pizza do professor de matemática; os outros dois semicírculos representam a meia pizza do amigo 1 e a meia pizza do amigo 2. (Fim da descrição)\n\nA partir da medida do ângulo alfa, o professor afirmou que a área de sua pizza é maior do que a soma das áreas das outras duas pizzas.\n\nA área da pizza do professor de matemática é maior do que a soma das áreas das outras duas pizzas, pois",
+    "options": {
+      "A": "zero grau menor que alfa menor que 90 graus.",
+      "B": "alfa igual a 90 graus.",
+      "C": "90 graus menor que alfa menor que 180 graus.",
+      "D": "alfa igual a 180 graus.",
+      "E": "180 graus menor que alfa menor que 360 graus."
+    },
+    "answer": "C"
+  },
+  "solution": {
+    "data": [
+      "lado a está oposto ao ângulo α",
+      "diâmetros das pizzas são a, b e c",
+      "área de círculo é proporcional ao quadrado do diâmetro",
+      "área da pizza do professor é maior que a soma das outras"
+    ],
+    "goal": "Determinar em que intervalo está α.",
+    "hook": "Áreas de pizzas viram quadrados dos diâmetros; depois entra a lei dos cossenos.",
+    "strategy": [
+      "Transformar a comparação de áreas em comparação de quadrados.",
+      "Aplicar a lei dos cossenos.",
+      "Analisar o sinal de cos α."
+    ],
+    "steps": [
+      {
+        "label": "Condição de áreas",
+        "math": "{\\pi\\over4}a^2>{\\pi\\over4}b^2+{\\pi\\over4}c^2"
+      },
+      {
+        "label": "Cancele o fator positivo π/4",
+        "math": "a^2>b^2+c^2"
+      },
+      {
+        "label": "Lei dos cossenos",
+        "math": "a^2=b^2+c^2-2bc\\cos\\alpha"
+      },
+      {
+        "label": "Substitua na desigualdade",
+        "math": "b^2+c^2-2bc\\cos\\alpha>b^2+c^2"
+      },
+      {
+        "label": "Subtraia b²+c² dos dois lados",
+        "math": "-2bc\\cos\\alpha>0"
+      },
+      {
+        "label": "Como b,c>0, divida por −2bc e inverta o sinal",
+        "math": "\\cos\\alpha<0"
+      },
+      {
+        "label": "Cosseno negativo no triângulo",
+        "math": "90^\\circ<\\alpha<180^\\circ"
+      }
+    ],
+    "final_answer": "C"
+  },
+  "visuals": {
+    "statement": {
+      "renderer": "pizza_pythagoras",
+      "description": "Duas figuras: círculos construídos sobre os lados de um triângulo retângulo; e três semicírculos/pizzas cujos diâmetros formam um triângulo de ângulo alfa."
+    },
+    "concept": {
+      "renderer": "pizza",
+      "note": "Como A=π(d/2)², o fator π/4 é igual para todas as pizzas e pode ser cancelado."
+    }
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "enem/videos/23_2023_q179_pizzas_lei_cossenos.py",
+      "scene": "Resolucao23",
+      "cwd": "enem",
+      "formats": [
+        "vertical",
+        "horizontal"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": true,
+    "language": "pt-BR",
+    "voice": "pt-BR-AntonioNeural",
+    "segments": [
+      {
+        "key": "source",
+        "text": "ENEM 2023, questão 179. Vamos ler, interpretar e resolver visualmente.",
+        "duration": 7.8,
+        "audio": "enem/audio/ENEM-2023-MT-44/source.mp3"
+      },
+      {
+        "key": "statement_01",
+        "text": "Sejam a, b e c as medidas dos lados de um triângulo retângulo, tendo a como medida da hipotenusa. Esses valores a, b e c são, respectivamente, os diâmetros dos círculos C índice 1, C índice 2 e C índice 3, como apresentados na figura. Essa construção assegura, pelo teorema de Pitágoras, que área de C índice 1 é igual a área de C índice 2 mais área de C índice 3.",
+        "duration": 25.08,
+        "audio": "enem/audio/ENEM-2023-MT-44/statement_01.mp3"
+      },
+      {
+        "key": "statement_02",
+        "text": "Um professor de matemática era conhecedor dessa construção e, confraternizando com dois amigos em uma pizzaria onde são vendidas pizzas somente em formato de círculo, lançou um desafio: mesmo sem usar um instrumento de medição, poderia afirmar com certeza se a área do círculo correspondente à pizza que ele pedisse era maior, igual ou menor do que a soma das áreas das pizzas dos dois amigos. Assim, foram pedidas três pizzas.",
+        "duration": 25.272,
+        "audio": "enem/audio/ENEM-2023-MT-44/statement_02.mp3"
+      },
+      {
+        "key": "statement_03",
+        "text": "O professor as dividiu ao meio e formou um triângulo com os diâmetros das pizzas, conforme indicado na figura. A partir da medida do ângulo alfa, o professor afirmou que a área de sua pizza é maior do que a soma das áreas das outras duas pizzas. A área da pizza do professor de matemática é maior do que a soma das áreas das outras duas pizzas, pois",
+        "duration": 21.288,
+        "audio": "enem/audio/ENEM-2023-MT-44/statement_03.mp3"
+      },
+      {
+        "key": "figure",
+        "text": "Observe a reconstrução esquemática da figura da questão. Duas figuras: círculos construídos sobre os lados de um triângulo retângulo; e três semicírculos dividido por pizzas cujos diâmetros formam um triângulo de ângulo alfa.",
+        "duration": 14.328,
+        "audio": "enem/audio/ENEM-2023-MT-44/figure.mp3"
+      },
+      {
+        "key": "options",
+        "text": "As alternativas são: A: zero grau menor que alfa menor que 90 graus.; B: alfa igual a 90 graus.; C: 90 graus menor que alfa menor que 180 graus.; D: alfa igual a 180 graus.; E: 180 graus menor que alfa menor que 360 graus..",
+        "duration": 19.32,
+        "audio": "enem/audio/ENEM-2023-MT-44/options.mp3"
+      },
+      {
+        "key": "data",
+        "text": "Separe os dados que realmente entram na conta: lado a está oposto ao ângulo alfa; diâmetros das pizzas são a, b e c; área de círculo é proporcional ao quadrado do diâmetro; área da pizza do professor é maior que a soma das outras.",
+        "duration": 14.448,
+        "audio": "enem/audio/ENEM-2023-MT-44/data.mp3"
+      },
+      {
+        "key": "strategy",
+        "text": "Áreas de pizzas viram quadrados dos diâmetros; depois entra a lei dos cossenos. O plano é: 1, Transformar a comparação de áreas em comparação de quadrados. 2, Aplicar a lei dos cossenos. 3, Analisar o sinal de cos alfa.",
+        "duration": 17.208,
+        "audio": "enem/audio/ENEM-2023-MT-44/strategy.mp3"
+      },
+      {
+        "key": "visual",
+        "text": "Como A é igual a pi(d dividido por 2) ao quadrado, o fator pi dividido por 4 é igual para todas as pizzas e pode ser cancelado.",
+        "duration": 9,
+        "audio": "enem/audio/ENEM-2023-MT-44/visual.mp3"
+      },
+      {
+        "key": "step_01",
+        "text": "Condição de áreas. Na tela, pi dividido por 4 a ao quadrado é maior que pi dividido por 4 b ao quadrado mais pi dividido por 4 c ao quadrado.",
+        "duration": 10.392,
+        "audio": "enem/audio/ENEM-2023-MT-44/step_01.mp3"
+      },
+      {
+        "key": "step_02",
+        "text": "Cancele o fator positivo pi dividido por 4. Na tela, a ao quadrado é maior que b ao quadrado mais c ao quadrado.",
+        "duration": 8.352,
+        "audio": "enem/audio/ENEM-2023-MT-44/step_02.mp3"
+      },
+      {
+        "key": "step_03",
+        "text": "Lei dos cossenos. Na tela, a ao quadrado é igual a b ao quadrado mais c ao quadrado menos 2bc cosseno de alfa.",
+        "duration": 8.568,
+        "audio": "enem/audio/ENEM-2023-MT-44/step_03.mp3"
+      },
+      {
+        "key": "step_04",
+        "text": "Substitua na desigualdade. Na tela, b ao quadrado mais c ao quadrado menos 2bc cosseno de alfa é maior que b ao quadrado mais c ao quadrado.",
+        "duration": 10.008,
+        "audio": "enem/audio/ENEM-2023-MT-44/step_04.mp3"
+      },
+      {
+        "key": "step_05",
+        "text": "Subtraia b ao quadrado+c ao quadrado dos dois lados. Na tela, menos 2bc cosseno de alfa é maior que 0.",
+        "duration": 8.88,
+        "audio": "enem/audio/ENEM-2023-MT-44/step_05.mp3"
+      },
+      {
+        "key": "step_06",
+        "text": "Como b,c>0, divida por −2bc e inverta o sinal. Na tela, cosseno de alfa é menor que 0.",
+        "duration": 8.472,
+        "audio": "enem/audio/ENEM-2023-MT-44/step_06.mp3"
+      },
+      {
+        "key": "step_07",
+        "text": "Cosseno negativo no triângulo. Na tela, 90 graus é menor que alfa é menor que 180 graus.",
+        "duration": 7.896,
+        "audio": "enem/audio/ENEM-2023-MT-44/step_07.mp3"
+      },
+      {
+        "key": "answer",
+        "text": "Logo, a resposta é a alternativa C: 90 graus menor que alfa menor que 180 graus.",
+        "duration": 6.816,
+        "audio": "enem/audio/ENEM-2023-MT-44/answer.mp3"
+      }
+    ]
+  }
+}
