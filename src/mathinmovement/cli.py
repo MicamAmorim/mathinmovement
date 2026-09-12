@@ -112,10 +112,14 @@ def _print_voice_result(result) -> None:
 def cmd_verify(args: argparse.Namespace) -> int:
     from .verify import verify_local
 
-    return verify_local(
-        render_dsl=args.render_dsl,
-        keep_going=args.keep_going,
-    )
+    try:
+        return verify_local(
+            render_dsl=args.render_dsl,
+            keep_going=args.keep_going,
+        )
+    except RuntimeError as exc:
+        print(f"ERRO: {exc}", file=sys.stderr)
+        return 2
 
 
 def cmd_voice(args: argparse.Namespace) -> int:
