@@ -1,0 +1,26 @@
+dsl_version: '1.0'
+objects:
+  - id: t
+    type: tracker
+    value: 0
+  - id: wheel
+    type: circle
+    radius: 1
+    at: ['=t', 0]
+    color: cyan
+    dynamic: true
+  - id: ground
+    type: line
+    start: [-3.5, -1.2]
+    end: [3.5, -1.2]
+    color: muted
+timeline:
+  - op: create
+    target: ground
+  - op: create
+    target: wheel
+  - op: animate_value
+    target: t
+    value: '=tau'
+    run_time: 5
+    rate_func: linear

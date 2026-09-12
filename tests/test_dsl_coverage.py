@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import unittest
 
+from mathinmovement.registry import Registry
 from mathinmovement.dsl.coverage import (
     DEMO_USAGE,
     DEMO_VALIDATION_SET,
@@ -30,6 +31,17 @@ class DSLCoverageTests(unittest.TestCase):
             covered_by(QENEM_USAGE, QENEM_VALIDATION_SET),
             universe(QENEM_USAGE),
         )
+
+    def test_validation_videos_exist_in_production_catalog(self):
+        registry = Registry().rebuild()
+        for content_id in DEMO_VALIDATION_SET + QENEM_VALIDATION_SET:
+            with self.subTest(content_id=content_id):
+                record = registry.get(content_id)
+                self.assertEqual(record.manifest.get("status"), "production")
+                self.assertEqual(
+                    record.manifest["render"]["production_engine"],
+                    "native",
+                )
 
     def test_common_qenem_profile_is_explicit(self):
         self.assertIn("replacement_transform", QENEM_COMMON)

@@ -45,6 +45,11 @@ jobs:
           python -m mathinmovement render ENEM-2021-MT-11 --format vertical --engine native --dry-run
           python -m mathinmovement render ENEM-2021-MT-11 --format horizontal --engine native --dry-run
 
+      - name: Check visual DSL contracts
+        run: |
+          python -m mathinmovement dsl audit
+          python -m mathinmovement dsl ops
+
       - name: Check voice and produce orchestration
         run: |
           python -m mathinmovement voice ENEM-2021-MT-11 --dry-run

@@ -128,6 +128,21 @@ python -m mathinmovement produce nova.qenem --dry-run
 
 Dentro de um pacote novo, assets podem ser referenciados de forma portátil, por exemplo `assets/audio/source.mp3`.
 
+## DSL visual v1
+
+A DSL visual é versionada e usa um registry extensível de capacidades.
+
+```powershell
+python -m mathinmovement dsl ops
+python -m mathinmovement dsl audit
+python -m mathinmovement dsl validate <id>
+```
+
+Um demo novo pode declarar `visual_program` com `dsl_version`, `objects` e `timeline`.
+qENEM podem declarar programas DSL estáticos em `visuals.statement.program` e `visuals.concept.program`.
+
+A v1 cobre o vocabulário gráfico já usado nos 60 vídeos aprovados. O conjunto mínimo de regressão possui 8 demos e 6 qENEM. Veja `docs/DSL_COVERAGE.md` e `docs/DSL_SPEC.md`.
+
 ## Estrutura principal
 
 ```text
