@@ -28,6 +28,24 @@ python -m mathinmovement db rebuild
 python -m mathinmovement db status
 ```
 
+## Verificação local
+
+Como o projeto não depende de CI remota para garantir integridade, o quality gate canônico pode ser executado localmente:
+
+```powershell
+python -m mathinmovement verify
+```
+
+Esse comando compila o código, roda a suíte de testes, reconstrói/valida catálogo e SQLite, valida todos os programas DSL e verifica em `dry-run` todas as combinações conteúdo/formato declaradas pelos shadow ports.
+
+Para também renderizar de verdade todos os shadow ports em qualidade `draft`:
+
+```powershell
+python -m mathinmovement verify --render-dsl --keep-going
+```
+
+A renderização completa é mais lenta; por isso o modo padrão usa `dry-run`.
+
 ## Listar conteúdo
 
 ```powershell
