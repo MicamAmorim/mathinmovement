@@ -52,7 +52,7 @@ class DemoBatch1115CandidateTests(unittest.TestCase):
         record = self.registry.get("lei-senos")
         self.assertEqual(
             record.manifest["lesson"]["steps"][5]["math"],
-            r"h'=c\sin A=a\sin C".replace("\\", "\"),
+            "h'=c\\sin A=a\\sin C",
         )
 
 
