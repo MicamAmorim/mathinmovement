@@ -25,6 +25,9 @@ class LegacyEnemMigrationTests(unittest.TestCase):
             self.assertEqual(q.manifest["question"]["answer"], "D")
             self.assertEqual(q.manifest["solution"]["final_answer"], "D")
             self.assertEqual(q.manifest["status"], "draft")
+            self.assertEqual(q.manifest["render"]["production_engine"], "compatibility")
+            self.assertTrue(q.manifest["render"]["compatibility"]["source"].startswith("enem/videos/"))
+            self.assertEqual(q.manifest["render"]["compatibility"]["cwd"], "enem")
 
     def test_migrated_question_contains_narration_segments(self):
         with tempfile.TemporaryDirectory() as tmp:

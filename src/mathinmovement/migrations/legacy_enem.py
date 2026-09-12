@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import json
 import runpy
 from pathlib import Path
@@ -14,6 +15,34 @@ from ..registry import Registry, validate_manifest
 LEGACY_ENEM_ROOT = PROJECT_ROOT / "enem"
 
 
+def _load_scene_map(specs: list[dict]) -> dict[str, dict]:
+    render_all = LEGACY_ENEM_ROOT / "render_all.py"
+    tree = ast.parse(render_all.read_text(encoding="utf-8"))
+    scenes = None
+    for node in tree.body:
+        if isinstance(node, ast.Assign):
+            if any(isinstance(t, ast.Name) and t.id == "SCENES" for t in node.targets):
+                scenes = ast.literal_eval(node.value)
+                break
+    if scenes is None:
+        raise ValueError("Não foi possível localizar SCENES em enem/render_all.py")
+    if len(scenes) != len(specs):
+        raise ValueError(
+            f"Quantidade de cenas ({len(scenes)}) difere da quantidade de specs ({len(specs)})."
+        )
+
+    result = {}
+    for spec, scene_rec in zip(specs, scenes):
+        _, filename, scene_name = scene_rec
+        result[str(spec["id"])] = {
+            "source": f"enem/videos/{filename}",
+            "scene": str(scene_name),
+            "cwd": "enem",
+            "formats": ["vertical", "horizontal"],
+        }
+    return result
+
+
 def _load_sources():
     questions = json.loads((LEGACY_ENEM_ROOT / "data" / "questions.json").read_text(encoding="utf-8"))
     specs = runpy.run_path(str(LEGACY_ENEM_ROOT / "specs.py"))["SPECS"]
@@ -21,20 +50,24 @@ def _load_sources():
     audio_path = LEGACY_ENEM_ROOT / "audio" / "manifest.json"
     narrations = json.loads(narrations_path.read_text(encoding="utf-8")) if narrations_path.exists() else {}
     audio = json.loads(audio_path.read_text(encoding="utf-8")) if audio_path.exists() else {}
+    scene_map = _load_scene_map(specs)
 
     q_by_id = {str(q["canonical_id"]): q for q in questions}
     s_by_id = {str(s["id"]): s for s in specs}
     ids = sorted(set(q_by_id) | set(s_by_id))
     missing_q = [cid for cid in ids if cid not in q_by_id]
     missing_s = [cid for cid in ids if cid not in s_by_id]
-    if missing_q or missing_s:
+    missing_scene = [cid for cid in ids if cid not in scene_map]
+    if missing_q or missing_s or missing_scene:
         pieces = []
         if missing_q:
             pieces.append("sem question: " + ", ".join(missing_q))
         if missing_s:
             pieces.append("sem spec: " + ", ".join(missing_s))
+        if missing_scene:
+            pieces.append("sem cena: " + ", ".join(missing_scene))
         raise ValueError("Fontes legadas inconsistentes: " + "; ".join(pieces))
-    return q_by_id, s_by_id, narrations, audio
+    return q_by_id, s_by_id, narrations, audio, scene_map
 
 
 def _segments_for(content_id: str, narrations: dict, audio: dict) -> list[dict]:
@@ -61,6 +94,7 @@ def build_manifest(
     spec: dict,
     narrations: dict,
     audio: dict,
+    compatibility: dict,
     *,
     status: str = "draft",
 ) -> dict:
@@ -114,9 +148,12 @@ def build_manifest(
         },
         "visuals": visuals,
         "render": {
+            "production_engine": "compatibility",
             "formats": ["vertical", "horizontal"],
+            "native_formats": ["vertical", "horizontal"],
             "default_format": "vertical",
-            "engine": "unified-v2",
+            "native_engine": "unified-v2",
+            "compatibility": compatibility,
         },
         "narration": {
             "enabled": bool((narrations.get(content_id) or {}).get("segments")),
@@ -136,8 +173,8 @@ def migrate_legacy_enem(
     status: str = "draft",
     only: Iterable[str] = (),
 ) -> dict:
-    """Migra o ENEM legado para uma raiz equivalente ao diretório content."""
-    q_by_id, s_by_id, narrations, audio = _load_sources()
+    """Migra o ENEM legado preservando paridade visual como engine de produção."""
+    q_by_id, s_by_id, narrations, audio, scene_map = _load_sources()
     selected = set(map(str, only))
     ids = sorted(q_by_id)
     if selected:
@@ -163,6 +200,7 @@ def migrate_legacy_enem(
             s_by_id[content_id],
             narrations,
             audio,
+            scene_map[content_id],
             status=status,
         )
         destination.mkdir(parents=True, exist_ok=True)
