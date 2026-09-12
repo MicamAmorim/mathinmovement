@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 from pathlib import Path
 import unittest
 
@@ -36,15 +37,29 @@ class NativeParityContractTests(unittest.TestCase):
         import mathinmovement.engine.scene as scene_module
 
         source = Path(scene_module.__file__).read_text(encoding="utf-8")
-        forbidden = [
-            "from common import",
-            "from specs import",
-            "enem.common",
-            "enem.visuals",
-            "questions.json",
-        ]
-        for marker in forbidden:
-            self.assertNotIn(marker, source)
+        tree = ast.parse(source)
+
+        imported_modules: set[str] = set()
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                imported_modules.update(alias.name for alias in node.names)
+            elif isinstance(node, ast.ImportFrom):
+                # Relative imports inside mathinmovement are expected. We only
+                # reject direct imports from the legacy top-level packages.
+                if node.level == 0 and node.module:
+                    imported_modules.add(node.module)
+
+        forbidden_roots = {"common", "specs", "enem", "videos"}
+        offenders = sorted(
+            module
+            for module in imported_modules
+            if module.split(".", 1)[0] in forbidden_roots
+        )
+        self.assertEqual(
+            offenders,
+            [],
+            f"Engine nativo ainda importa módulos legados: {offenders}",
+        )
 
 
 if __name__ == "__main__":

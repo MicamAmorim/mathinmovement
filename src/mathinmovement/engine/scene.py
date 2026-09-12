@@ -92,8 +92,7 @@ class UnifiedContentScene(Scene):
     """Native v2 scene engine.
 
     It reads only v2 manifests/registry. Visual behavior is ported from the
-    approved renderers, but no legacy common.py/specs.py/questions.json scene
-    module is imported at render time.
+    approved renderers without importing legacy scene or data modules at runtime.
     """
 
     def wait(self, duration=1, **kwargs):
