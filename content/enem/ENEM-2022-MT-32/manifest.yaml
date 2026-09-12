@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "ENEM-2022-MT-32",
   "type": "qenem",
-  "status": "draft",
+  "status": "production",
   "title": "ENEM 2022 — Q167",
   "tags": [
     "enem",
@@ -84,7 +84,7 @@
     }
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical",
       "horizontal"
