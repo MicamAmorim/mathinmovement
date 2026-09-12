@@ -6,7 +6,6 @@ from pathlib import Path
 
 from manim import (
     DOWN,
-    GREEN,
     LEFT,
     RIGHT,
     UP,

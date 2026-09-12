@@ -4,17 +4,12 @@ from typing import Any
 
 import numpy as np
 from manim import (
-    CYAN as MANIM_CYAN,
-    DOWN,
-    GOLD_A,
     LEFT,
     PI,
     RIGHT,
     UP,
-    Arc,
     Create,
     DashedLine,
-    Dot,
     FadeOut,
     Line,
     MathTex,
@@ -57,7 +52,7 @@ def build_visual(name: str, *, horizontal: bool = False):
         c2 = P(2.0, 1.5)
         tri = Polygon(a2, b2, c2, color=CYAN, fill_opacity=0.08)
         alt = DashedLine(c2, P(2, -1.1), color=GOLD)
-        g = VGroup(
+        return VGroup(
             Text("Figura 1", font_size=20, color=MUTED).move_to(P(-2, 2.25)),
             instrument,
             Text("Figura 2", font_size=20, color=MUTED).move_to(P(2, 2.25)),
@@ -65,12 +60,16 @@ def build_visual(name: str, *, horizontal: bool = False):
             alt,
             _math(r"8\,\mathrm{cm}", 24, GOLD).next_to(alt, RIGHT, buff=0.12),
         )
-        return g
 
     if name == "equilateral":
         width = 4.3 if horizontal else 4.0
-        height = 3.4
-        tri = Polygon(P(-width / 2, -1.3), P(width / 2, -1.3), P(0, 2.1), color=CYAN, fill_opacity=0.15)
+        tri = Polygon(
+            P(-width / 2, -1.3),
+            P(width / 2, -1.3),
+            P(0, 2.1),
+            color=CYAN,
+            fill_opacity=0.15,
+        )
         alt = DashedLine(P(0, -1.3), P(0, 2.1), color=GOLD)
         return VGroup(
             tri,
