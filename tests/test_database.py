@@ -19,6 +19,10 @@ class DatabaseTests(unittest.TestCase):
             self.assertEqual(stats["by_type"].get("demo"), 1)
             self.assertEqual(stats["by_type"].get("qenem"), 1)
 
+            # Regressão Windows: nenhuma conexão pode manter o arquivo aberto.
+            db_path.unlink()
+            self.assertFalse(db_path.exists())
+
 
 if __name__ == "__main__":
     unittest.main()

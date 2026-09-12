@@ -18,6 +18,8 @@ class LegacyEnemMigrationTests(unittest.TestCase):
                 status="draft",
             )
             self.assertEqual(result["created"], ["ENEM-2021-MT-11"])
+            self.assertTrue((root / "enem" / "ENEM-2021-MT-11" / "manifest.yaml").exists())
+
             registry = Registry(root, database_path=None).rebuild()
             q = registry.get("ENEM-2021-MT-11")
             self.assertEqual(q.manifest["question"]["answer"], "D")

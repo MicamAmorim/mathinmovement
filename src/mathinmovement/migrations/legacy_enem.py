@@ -7,7 +7,7 @@ from typing import Iterable
 
 import yaml
 
-from ..config import ENEM_CONTENT, PROJECT_ROOT
+from ..config import CONTENT_ROOT, PROJECT_ROOT
 from ..registry import Registry, validate_manifest
 
 
@@ -131,11 +131,12 @@ def build_manifest(
 
 def migrate_legacy_enem(
     *,
-    output_root: Path = ENEM_CONTENT,
+    output_root: Path = CONTENT_ROOT,
     replace: bool = False,
     status: str = "draft",
     only: Iterable[str] = (),
 ) -> dict:
+    """Migra o ENEM legado para uma raiz equivalente ao diretório content."""
     q_by_id, s_by_id, narrations, audio = _load_sources()
     selected = set(map(str, only))
     ids = sorted(q_by_id)
@@ -145,10 +146,13 @@ def migrate_legacy_enem(
             raise ValueError("IDs não encontrados no legado: " + ", ".join(unknown))
         ids = [cid for cid in ids if cid in selected]
 
+    output_root = Path(output_root)
+    enem_root = output_root / "enem"
+
     created = []
     skipped = []
     for content_id in ids:
-        destination = Path(output_root) / content_id
+        destination = enem_root / content_id
         manifest_path = destination / "manifest.yaml"
         if manifest_path.exists() and not replace:
             skipped.append(content_id)
@@ -173,7 +177,7 @@ def migrate_legacy_enem(
         )
         created.append(content_id)
 
-    if Path(output_root).resolve() == ENEM_CONTENT.resolve():
+    if output_root.resolve() == CONTENT_ROOT.resolve():
         Registry().rebuild()
 
     return {

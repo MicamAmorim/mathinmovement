@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import sqlite3
+from contextlib import closing
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
@@ -62,39 +63,44 @@ def connect(path: Path) -> sqlite3.Connection:
 
 
 def rebuild_database(records: Iterable[ContentRecord], path: Path) -> None:
+    """Reconstrói o índice e fecha explicitamente o arquivo SQLite."""
     records = list(records)
     now = datetime.now(timezone.utc).isoformat()
-    with connect(path) as conn:
-        conn.execute("BEGIN")
-        conn.execute("DELETE FROM content_tags")
-        conn.execute("DELETE FROM contents")
-        for record in records:
-            manifest_json = canonical_manifest_json(record)
-            status = str(record.manifest.get("status", "production"))
-            conn.execute(
-                """
-                INSERT INTO contents (
-                    id, type, title, year, status,
-                    manifest_path, manifest_json, fingerprint, indexed_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """,
-                (
-                    record.id,
-                    record.type,
-                    record.title,
-                    record.year,
-                    status,
-                    str(record.path / "manifest.yaml"),
-                    manifest_json,
-                    manifest_fingerprint(record),
-                    now,
-                ),
-            )
-            conn.executemany(
-                "INSERT INTO content_tags(content_id, tag) VALUES (?, ?)",
-                [(record.id, tag) for tag in record.tags],
-            )
-        conn.commit()
+    with closing(connect(path)) as conn:
+        try:
+            conn.execute("BEGIN")
+            conn.execute("DELETE FROM content_tags")
+            conn.execute("DELETE FROM contents")
+            for record in records:
+                manifest_json = canonical_manifest_json(record)
+                status = str(record.manifest.get("status", "production"))
+                conn.execute(
+                    """
+                    INSERT INTO contents (
+                        id, type, title, year, status,
+                        manifest_path, manifest_json, fingerprint, indexed_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (
+                        record.id,
+                        record.type,
+                        record.title,
+                        record.year,
+                        status,
+                        str(record.path / "manifest.yaml"),
+                        manifest_json,
+                        manifest_fingerprint(record),
+                        now,
+                    ),
+                )
+                conn.executemany(
+                    "INSERT INTO content_tags(content_id, tag) VALUES (?, ?)",
+                    [(record.id, tag) for tag in record.tags],
+                )
+            conn.commit()
+        except Exception:
+            conn.rollback()
+            raise
 
 
 def database_stats(path: Path) -> dict:
@@ -108,7 +114,7 @@ def database_stats(path: Path) -> dict:
             "tags": 0,
         }
 
-    with connect(path) as conn:
+    with closing(connect(path)) as conn:
         total = conn.execute("SELECT COUNT(*) FROM contents").fetchone()[0]
         by_type = {
             row["type"]: row["n"]
