@@ -74,7 +74,19 @@ content/
 └── enem/
 ```
 
-Cada item possui um `manifest.yaml`. O SQLite em `cache/registry.sqlite` é apenas um índice reconstruível.
+Cada item possui um `manifest.yaml`. Assets pertencentes ao conteúdo ficam dentro do próprio diretório, por exemplo:
+
+```text
+content/enem/ENEM-2021-MT-11/
+├── manifest.yaml
+└── assets/
+    └── audio/
+        ├── source.mp3
+        ├── statement_01.mp3
+        └── ...
+```
+
+O SQLite em `cache/registry.sqlite` é apenas um índice reconstruível.
 
 Pacotes podem ser importados e exportados:
 
@@ -85,17 +97,18 @@ python -m mathinmovement export area-triangulo
 python -m mathinmovement export ENEM-2021-MT-11
 ```
 
+Como os assets ficam junto do conteúdo, um pacote `.qenem` exportado leva consigo também sua narração disponível.
+
 ## Estrutura principal
 
 ```text
-content/                 conteúdo canônico
+content/                 conteúdo canônico + assets
 src/mathinmovement/      engine, CLI, registry e renderers
 schemas/                 contratos dos manifests
 tests/                   testes automatizados
 cache/                   SQLite reconstruível
 media/                   saída de produção
 media_native/            saída isolada para inspeção do engine
-enem/audio/              assets de narração ainda referenciados pelas qENEM
 ```
 
 O código legado foi removido da linha principal após a migração para o engine unificado. O snapshot histórico completo permanece preservado na branch `backup`.

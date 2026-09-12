@@ -10,11 +10,16 @@ Não há runtime de compatibilidade na linha principal. O sistema legado complet
 
 ```text
 content/
-├── demos/<id>/manifest.yaml
-└── enem/<id>/manifest.yaml
+├── demos/<id>/
+│   ├── manifest.yaml
+│   └── assets/
+└── enem/<id>/
+    ├── manifest.yaml
+    └── assets/
+        └── audio/
 ```
 
-Os manifests são versionáveis e autoritativos. `cache/registry.sqlite` é um índice derivado e pode ser reconstruído a qualquer momento.
+Os manifests e seus assets são versionáveis e autoritativos. `cache/registry.sqlite` é um índice derivado e pode ser reconstruído a qualquer momento.
 
 ## Engine
 
@@ -40,11 +45,13 @@ src/mathinmovement/
 - `production` → `media/`;
 - `native` → `media_native/`, útil para inspeção isolada.
 
-Não existe mais renderer `compatibility`.
+Não existe renderer `compatibility`.
 
 ## Formatos de conteúdo
 
 `.demo` e `.qenem` são containers ZIP com `manifest.yaml` e assets opcionais.
+
+Como os assets ficam dentro do diretório do conteúdo, exportar um qENEM inclui também seus arquivos de narração.
 
 O fluxo esperado para conteúdo novo é:
 
@@ -73,15 +80,22 @@ O próximo marco arquitetural é ampliar uma DSL/timeline visual para reduzir ai
 
 ## Áudio
 
-A narração qENEM é segmentada no manifest. Os MP3s existentes ainda vivem em `enem/audio/`.
+A narração qENEM é segmentada no manifest.
 
-Essa é a única pasta residual com nome legado mantida por necessidade de assets. Ela não contém código executável e será migrada posteriormente para assets dos próprios conteúdos.
+Cada segmento referencia um MP3 pertencente ao próprio conteúdo:
+
+```text
+content/enem/<id>/assets/audio/<segmento>.mp3
+```
+
+Isso mantém manifesto e assets juntos e torna os pacotes `.qenem` autocontidos.
 
 ## Branches
 
 - `main`: linha estável do engine unificado;
-- `backup`: snapshot integral do sistema anterior;
-- `cleanup-legacy`: branch temporária desta limpeza.
+- `backup`: snapshot integral do sistema anterior.
+
+Branches de migração/limpeza podem ser mantidas temporariamente para auditoria, mas não fazem parte do runtime.
 
 ## Critério atual de integridade
 
@@ -89,4 +103,5 @@ Essa é a única pasta residual com nome legado mantida por necessidade de asset
 - 30 demos + 30 qENEM;
 - todos `production`;
 - todos com `production_engine: native`;
+- áudio qENEM colocalizado com os próprios conteúdos;
 - SQLite totalmente reconstruível a partir de `content/`.

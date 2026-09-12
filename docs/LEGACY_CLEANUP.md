@@ -4,7 +4,7 @@
 
 Após a validação visual e estrutural dos 60 conteúdos, o engine unificado passou a ser a implementação de produção.
 
-O sistema anterior já está preservado integralmente na branch `backup` no commit `4dfd345e2a12a29d3970f0ce97d4bb7b6edde22e`.
+O sistema anterior está preservado integralmente na branch `backup` no commit `4dfd345e2a12a29d3970f0ce97d4bb7b6edde22e`.
 
 ## Removido da linha principal
 
@@ -27,6 +27,7 @@ O sistema anterior já está preservado integralmente na branch `backup` no comm
 - runners e validadores antigos;
 - `enem/data/`;
 - `enem/narrations/`;
+- `enem/audio/`;
 - logs e backup local de código.
 
 ### Camada transitória v2
@@ -38,17 +39,32 @@ O sistema anterior já está preservado integralmente na branch `backup` no comm
 - módulos `src/mathinmovement/migrations/`;
 - testes dedicados à migração/compatibilidade.
 
-## Mantido
+## Migração dos assets de áudio
 
-- `content/`: fonte canônica;
-- `src/mathinmovement/`: engine;
+Os 422 MP3s de narração foram movidos, sem regravação ou recompressão, de:
+
+```text
+enem/audio/<id>/<segmento>.mp3
+```
+
+para:
+
+```text
+content/enem/<id>/assets/audio/<segmento>.mp3
+```
+
+Os manifests foram atualizados para os novos caminhos. Dois arquivos auxiliares antigos de `enem/audio/` foram removidos.
+
+## Estado final
+
+A linha principal não possui mais o diretório `enem/` na raiz.
+
+Tudo que é necessário para reconstruir, validar, empacotar e renderizar os conteúdos atuais está em:
+
+- `content/`;
+- `src/mathinmovement/`;
 - `schemas/`;
 - `tests/`;
-- `manim.cfg`;
-- `enem/audio/`: temporariamente, porque é referenciado pelos manifests.
+- configuração de projeto.
 
-## Próxima dívida técnica
-
-Migrar `enem/audio/<id>/...` para assets pertencentes a cada item em `content/enem/<id>/assets/audio/`.
-
-Depois disso, o diretório `enem/` poderá desaparecer por completo.
+O histórico anterior permanece acessível na branch `backup`.
