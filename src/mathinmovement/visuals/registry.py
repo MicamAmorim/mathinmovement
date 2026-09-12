@@ -6,12 +6,18 @@ from manim import (
     PI,
     RIGHT,
     UP,
+    Arc,
+    Arrow,
     Circle,
     DashedLine,
+    DoubleArrow,
+    Ellipse,
     Line,
     MathTex,
     Polygon,
     Rectangle,
+    RegularPolygon,
+    Square,
     Text,
     VGroup,
 )
@@ -74,6 +80,78 @@ def source_figure(kind: str):
             math_label(r"8\,\mathrm{cm}", 24, GOLD).next_to(alt, RIGHT, buff=0.12),
         )
 
+    if kind == "cup_frustum":
+        trap = Polygon(
+            P(-1.8, -1.6),
+            P(1.8, -1.6),
+            P(2.4, 1.6),
+            P(-2.4, 1.6),
+            color=CYAN,
+            fill_opacity=0.12,
+        )
+        handle = Arc(
+            radius=1.25,
+            start_angle=-PI / 2,
+            angle=PI,
+            color=GOLD,
+        ).shift(RIGHT * 2.1)
+        height = DoubleArrow(
+            P(-2.8, -1.6),
+            P(-2.8, 1.6),
+            buff=0,
+            color=GOLD,
+            tip_length=0.12,
+        )
+        return VGroup(
+            trap,
+            handle,
+            height,
+            math_label("12", 22, GOLD).next_to(height, LEFT),
+            math_label(r"D=10", 22).move_to(P(0, 2.0)),
+            math_label(r"d=8", 22).move_to(P(0, -2.0)),
+        )
+
+    if kind == "castle_scale":
+        castle = VGroup(
+            Rectangle(
+                width=3.4,
+                height=2.1,
+                color=CYAN,
+                fill_opacity=0.08,
+            ).shift(UP * 0.25),
+            Polygon(
+                P(-1.7, 1.3),
+                P(-1.05, 2.0),
+                P(-0.4, 1.3),
+                color=CYAN,
+            ),
+            Polygon(
+                P(0.4, 1.3),
+                P(1.05, 2.0),
+                P(1.7, 1.3),
+                color=CYAN,
+            ),
+        )
+        bridge = Line(
+            P(-3, -1.8),
+            P(3, -1.8),
+            color=GOLD,
+            stroke_width=7,
+        )
+        return VGroup(
+            castle,
+            bridge,
+            math_label(
+                r"38{,}4\,m\to160\,cm",
+                24,
+                GOLD,
+            ).next_to(bridge, DOWN),
+            math_label(
+                r"1{,}68\,m\to7\,cm",
+                24,
+            ).move_to(P(0, -2.8)),
+        )
+
     return VGroup(
         Rectangle(width=5.5, height=3.5, color=CYAN),
         Text("Figura", font=ENEM_TEXT_FONT, font_size=22, color=MUTED),
@@ -95,6 +173,86 @@ def concept_diagram(kind: str):
             alt,
             math_label(r"8\,cm", 25, GOLD).next_to(alt, RIGHT),
             math_label(r"\ell/2", 25).move_to(P(-1, -1.65)),
+        )
+
+    if kind in ("cone_frustum", "trapezoid_spin"):
+        trap = Polygon(
+            P(-2, -1.5),
+            P(2, -1.5),
+            P(1, 1.7),
+            P(-1, 1.7),
+            color=CYAN,
+            fill_opacity=0.18,
+        )
+        axis = DashedLine(P(0, -2.1), P(0, 2.3), color=GOLD)
+        return VGroup(
+            trap,
+            axis,
+            math_label("R", 25, GOLD).move_to(P(1, -1.85)),
+            math_label("r", 25).move_to(P(0.5, 2.05)),
+        )
+
+    if kind == "shape_areas":
+        return VGroup(
+            RegularPolygon(3, radius=0.9, color=CYAN),
+            Square(1.5, color=GOLD),
+            Circle(0.85, color=GREEN),
+        ).arrange(RIGHT, buff=0.7)
+
+    if kind in ("box", "pool", "stairs"):
+        rect = Rectangle(
+            width=5.5,
+            height=3.3,
+            color=CYAN,
+            fill_opacity=0.12,
+        )
+        lines = VGroup(
+            *[
+                Line(
+                    P(-2.75 + i * 1.1, -1.65),
+                    P(-2.75 + i * 1.1, 1.65),
+                    color=MUTED,
+                )
+                for i in range(1, 5)
+            ]
+        )
+        return VGroup(
+            rect,
+            lines,
+            math_label("A_b", 28, GOLD).move_to(P(0, -2)),
+            math_label("h", 28, GOLD).move_to(P(3.2, 0)),
+        )
+
+    if kind in (
+        "cylinder",
+        "cylinder_compare",
+        "cylinder_sphere",
+        "cylinders_sheet",
+    ):
+        top = Ellipse(width=4, height=1, color=CYAN).shift(UP * 1.5)
+        bottom = top.copy().shift(DOWN * 3)
+        sides = VGroup(
+            Line(P(-2, 1.5), P(-2, -1.5), color=CYAN),
+            Line(P(2, 1.5), P(2, -1.5), color=CYAN),
+        )
+        radius = Line(ORIGIN, P(2, 0), color=GOLD)
+        return VGroup(
+            top,
+            bottom,
+            sides,
+            radius,
+            math_label("r", 25, GOLD).next_to(radius, UP),
+            math_label("h", 25, GOLD).move_to(P(2.4, 0)),
+        )
+
+    if kind == "scale":
+        small = Square(1.4, color=GOLD).shift(LEFT * 2)
+        large = Square(3, color=CYAN).shift(RIGHT * 1.2)
+        return VGroup(
+            small,
+            large,
+            Arrow(small.get_right(), large.get_left(), color=WHITE),
+            math_label("k", 30, GREEN),
         )
 
     return VGroup(
