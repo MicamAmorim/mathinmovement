@@ -16,7 +16,7 @@ def _choose(candidates: list[str], fallback: str = "Sans") -> str:
     for candidate in candidates:
         if candidate and candidate.casefold() in available:
             return available[candidate.casefold()]
-    return next((x for x in candidates if x), fallback)
+    return fallback
 
 
 def choose_demo_font() -> str:
@@ -26,7 +26,7 @@ def choose_demo_font() -> str:
         "DejaVu Sans",
         "Arial",
         "Liberation Sans",
-    ])
+    ], "sans-serif")
 
 
 def choose_enem_font() -> str:
