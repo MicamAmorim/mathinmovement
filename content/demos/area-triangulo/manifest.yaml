@@ -1,0 +1,45 @@
+schema_version: 1
+id: area-triangulo
+type: demo
+title: Área do triângulo
+tags:
+  - geometria
+  - areas
+  - triangulo
+
+lesson:
+  objective: Demonstrar visualmente por que a área do triângulo é metade do produto entre base e altura.
+  hook: Por que aparece o fator um meio na fórmula da área?
+  steps:
+    - narration: Identifique uma base e a altura perpendicular correspondente.
+      visual:
+        action: create
+        target: triangle
+    - narration: Faça uma segunda cópia congruente do triângulo.
+      visual:
+        action: duplicate
+        target: triangle
+    - narration: Gire e translade a cópia até completar um paralelogramo.
+      visual:
+        action: transform
+        target: parallelogram
+      math: 2A=bh
+    - narration: Como os dois triângulos são congruentes, cada um ocupa metade da área do paralelogramo.
+      math: A=\frac{bh}{2}
+
+result:
+  math: A=\frac{bh}{2}
+
+render:
+  formats:
+    - vertical
+  default_format: vertical
+  adapter:
+    kind: legacy_manim_scene
+    source: videos/01_area_triangulo.py
+    scene: AreaTriangulo
+    cwd: .
+
+narration:
+  enabled: false
+  status: legacy-demo-without-tts

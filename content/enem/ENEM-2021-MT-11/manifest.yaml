@@ -1,0 +1,89 @@
+schema_version: 1
+id: ENEM-2021-MT-11
+type: qenem
+title: ENEM 2021 — Q146 — Triângulo equilátero
+tags:
+  - enem
+  - geometria
+  - triangulo-equilatero
+  - perimetro
+
+exam:
+  name: ENEM
+  year: 2021
+  canonical_id: ENEM-2021-MT-11
+  question_number: 146
+  booklet: Caderno 5 Amarelo - digital
+
+question:
+  stem: |
+    O instrumento de percussão conhecido como triângulo é composto por uma barra fina de aço,
+    dobrada em um formato que se assemelha a um triângulo, com uma abertura e uma haste.
+
+    Uma empresa de brindes promocionais contrata uma fundição para produzir miniaturas.
+    A fundição produz inicialmente peças com o formato de um triângulo equilátero de altura
+    h = 8 cm. Assuma que não ocorram perdas de material, de forma que o comprimento da barra
+    utilizada seja igual ao perímetro do triângulo equilátero.
+
+    Considere 1,7 como valor aproximado para √3.
+
+    Nessas condições, qual valor mais se aproxima do comprimento da barra, em centímetro?
+  options:
+    A: "9,07."
+    B: "13,60."
+    C: "20,40."
+    D: "27,18."
+    E: "36,24."
+  answer: D
+
+solution:
+  data:
+    - Triângulo equilátero
+    - altura h = 8 cm, indicada na figura
+    - usar √3 ≈ 1,7
+    - a barra tem o comprimento do perímetro
+  goal: Encontrar o comprimento total da barra.
+  hook: "Do desenho para a fórmula: a altura de 8 cm é a chave."
+  strategy:
+    - Relacionar a altura h com o lado ℓ do equilátero.
+    - Isolar ℓ sem arredondar cedo demais.
+    - Calcular P=3ℓ e só então usar √3≈1,7.
+  steps:
+    - label: A altura divide a base ao meio
+      math: "8^2+(\\ell/2)^2=\\ell^2"
+    - label: Desenvolva o quadrado
+      math: "64+{\\ell^2\\over4}=\\ell^2"
+    - label: Isole o termo com o lado
+      math: "64={3\\ell^2\\over4}"
+    - label: Resolva para o lado positivo
+      math: "\\ell^2={256\\over3}\\quad\\Rightarrow\\quad\\ell={16\\over\\sqrt3}"
+    - label: Calcule o perímetro sem arredondar
+      math: "P=3\\ell={48\\over\\sqrt3}=16\\sqrt3"
+    - label: Só agora use √3≈1,7
+      math: "P\\approx16\\cdot1{,}7=27{,}2\\ \\mathrm{cm}"
+  final_answer: D
+
+visuals:
+  statement:
+    renderer: triangle_instrument
+    description: Instrumento triangular e triângulo equilátero com altura de 8 cm.
+  concept:
+    renderer: equilateral
+    note: A altura divide o equilátero em dois triângulos retângulos congruentes.
+
+render:
+  formats:
+    - vertical
+    - horizontal
+  default_format: vertical
+  adapter:
+    kind: legacy_manim_scene
+    source: enem/videos/01_2021_q146_triangulo_equilatero.py
+    scene: Resolucao01
+    cwd: enem
+
+narration:
+  enabled: true
+  language: pt-BR
+  source: legacy-segmented-audio
+  voice: pt-BR-AntonioNeural
