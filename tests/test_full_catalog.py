@@ -48,27 +48,25 @@ class FullCatalogTests(unittest.TestCase):
                 "relacoes-metricas-triangulo-retangulo",
                 "razoes-trigonometricas-semelhanca",
                 "lei-senos",
+                "lei-cossenos",
+                "area-triangulo-seno",
+                "escalas-comprimentos-areas-volumes",
+                "relacao-euler-poliedros",
+                "diagonal-paralelepipedo",
                 "ENEM-2021-MT-11",
             },
         )
-        self.assertEqual(len(drafts), 44)
+        self.assertEqual(len(drafts), 39)
 
         for record in production:
             render = record.manifest["render"]
             self.assertEqual(render["production_engine"], "native")
             self.assertTrue(render["native_ready"])
 
-        candidate_ids = {
-            "lei-cossenos",
-            "area-triangulo-seno",
-            "escalas-comprimentos-areas-volumes",
-            "relacao-euler-poliedros",
-            "diagonal-paralelepipedo",
-        }
         for record in drafts:
             render = record.manifest["render"]
             self.assertEqual(render["production_engine"], "compatibility")
-            self.assertEqual(render["native_ready"], record.id in candidate_ids)
+            self.assertFalse(render["native_ready"])
 
     def test_every_compatibility_source_and_scene_exists(self):
         for record in self.records:

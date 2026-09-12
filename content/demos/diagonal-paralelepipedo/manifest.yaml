@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "diagonal-paralelepipedo",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Diagonal do paralelepípedo",
   "tags": [
     "demo",
@@ -40,7 +40,7 @@
     "math": "D=\\sqrt{a^2+b^2+c^2}"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

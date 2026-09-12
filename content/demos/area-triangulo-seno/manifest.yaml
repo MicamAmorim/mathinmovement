@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-triangulo-seno",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área do triângulo usando seno",
   "tags": [
     "demo",
@@ -40,7 +40,7 @@
     "math": "A_{\\triangle}=\\frac12bc\\sin A"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

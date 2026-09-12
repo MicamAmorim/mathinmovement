@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "lei-cossenos",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Lei dos cossenos",
   "tags": [
     "demo",
@@ -46,7 +46,7 @@
     "math": "a^2=b^2+c^2-2bc\\cos A"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

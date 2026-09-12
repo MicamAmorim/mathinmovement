@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "escalas-comprimentos-areas-volumes",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Escalas: comprimentos, áreas e volumes",
   "tags": [
     "demo",
@@ -46,7 +46,7 @@
     "math": "L:k\\qquad A:k^2\\qquad V:k^3"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

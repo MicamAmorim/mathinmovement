@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "relacao-euler-poliedros",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Relação de Euler",
   "tags": [
     "demo",
@@ -45,7 +45,7 @@
     "math": "V-E+F=1+1=2"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],
