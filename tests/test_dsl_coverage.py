@@ -60,6 +60,21 @@ class DSLCoverageTests(unittest.TestCase):
                 with self.subTest(content_id=content_id, visual=name):
                     validate_program(spec["program"])
 
+    def test_every_shadow_program_in_catalog_validates(self):
+        registry = Registry().rebuild()
+        count = 0
+        for record in registry.all():
+            shadow = record.manifest.get("dsl_shadow") or {}
+            if shadow.get("visual_program"):
+                validate_program(shadow["visual_program"])
+                count += 1
+            for name, spec in (shadow.get("visuals") or {}).items():
+                if isinstance(spec, dict) and spec.get("program"):
+                    with self.subTest(content_id=record.id, visual=name):
+                        validate_program(spec["program"])
+                    count += 1
+        self.assertGreaterEqual(count, 27)
+
     def test_common_qenem_profile_is_explicit(self):
         self.assertIn("replacement_transform", QENEM_COMMON)
         self.assertIn("rounded_rectangle", QENEM_COMMON)
