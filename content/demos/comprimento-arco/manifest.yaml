@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "comprimento-arco",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Comprimento de arco",
   "tags": [
     "demo",
@@ -43,7 +43,7 @@
     "math": "L=r\\theta\\quad(\\theta\\ \\text{em radianos})"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

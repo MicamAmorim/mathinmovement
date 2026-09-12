@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-setor-circular",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área do setor circular",
   "tags": [
     "demo",
@@ -43,7 +43,7 @@
     "math": "A_s=\\frac12r^2\\theta\\quad(\\theta\\ \\mathrm{em\\ radianos})"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-poligonos-regulares",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área de polígonos regulares",
   "tags": [
     "demo",
@@ -42,7 +42,7 @@
     "math": "A=\\frac{Pa}{2}"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

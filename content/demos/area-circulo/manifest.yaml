@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-circulo",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área do círculo",
   "tags": [
     "demo",
@@ -38,7 +38,7 @@
     "math": "A=(\\pi r)r=\\pi r^2"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

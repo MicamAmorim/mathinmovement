@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "comprimento-circunferencia-pi",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Circunferência e π",
   "tags": [
     "demo",
@@ -42,7 +42,7 @@
     "math": "C=\\pi d=2\\pi r"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],
