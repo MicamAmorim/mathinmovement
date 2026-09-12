@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import unittest
 
+from manim import Text
+
 from mathinmovement.engine.renderer import render_record
 from mathinmovement.registry import Registry
 from mathinmovement.visuals.registry import concept_diagram, source_figure
@@ -25,13 +27,33 @@ CANDIDATES = {
         "statement": "castle_scale",
         "concept": "scale",
     },
+    "ENEM-2022-MT-07": {
+        "concept": "cylinder_compare",
+    },
+    "ENEM-2022-MT-10": {
+        "statement": "roads",
+        "concept": "reflection",
+    },
+    "ENEM-2022-MT-12": {
+        "concept": "sphere_scale",
+    },
+    "ENEM-2022-MT-13": {
+        "statement": "cone_dims",
+        "concept": "cone",
+    },
+    "ENEM-2022-MT-25": {
+        "concept": "scale",
+    },
 }
 
 
-class QENEMBatch0206CandidateTests(unittest.TestCase):
+class QENEMBatch0211CandidateTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.registry = Registry().rebuild()
+
+    def test_batch_has_exactly_ten_candidates(self):
+        self.assertEqual(len(CANDIDATES), 10)
 
     def test_batch_is_native_ready_but_not_promoted(self):
         for content_id in CANDIDATES:
@@ -64,15 +86,15 @@ class QENEMBatch0206CandidateTests(unittest.TestCase):
                 self.assertIn("media_native", native.parts)
                 self.assertIn("media_compatibility", legacy.parts)
 
-    def test_visual_catalog_entries_are_real_ported_diagrams(self):
+    def test_visual_catalog_entries_are_ported_not_fallbacks(self):
         for content_id, visuals in CANDIDATES.items():
             with self.subTest(content_id=content_id):
                 if "statement" in visuals:
                     fig = source_figure(visuals["statement"])
-                    self.assertGreater(len(fig), 2)
+                    self.assertFalse(any(isinstance(x, Text) for x in fig))
                 if "concept" in visuals:
                     fig = concept_diagram(visuals["concept"])
-                    self.assertGreater(len(fig), 2)
+                    self.assertFalse(any(isinstance(x, Text) for x in fig))
 
 
 if __name__ == "__main__":

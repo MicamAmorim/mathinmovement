@@ -79,6 +79,11 @@ class FullCatalogTests(unittest.TestCase):
             "ENEM-2021-MT-17",
             "ENEM-2021-MT-18",
             "ENEM-2021-MT-28",
+            "ENEM-2022-MT-07",
+            "ENEM-2022-MT-10",
+            "ENEM-2022-MT-12",
+            "ENEM-2022-MT-13",
+            "ENEM-2022-MT-25",
         }
         for record in drafts:
             render = record.manifest["render"]

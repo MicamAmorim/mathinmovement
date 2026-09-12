@@ -82,7 +82,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "enem/videos/10_2022_q148_volume_cone.py",
       "scene": "Resolucao10",
@@ -91,7 +91,11 @@
         "vertical",
         "horizontal"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical",
+      "horizontal"
+    ]
   },
   "narration": {
     "enabled": true,
