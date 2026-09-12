@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-piramides-regulares",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área de pirâmides regulares",
   "tags": [
     "demo",
@@ -42,7 +42,7 @@
     "math": "A_T=A_b+\\frac{P_bg}{2}"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "volume-prismas",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Volume de prismas",
   "tags": [
     "demo",
@@ -39,7 +39,7 @@
     "math": "V=A_bh"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

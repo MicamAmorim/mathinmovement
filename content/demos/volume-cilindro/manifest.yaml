@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "volume-cilindro",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Volume do cilindro",
   "tags": [
     "demo",
@@ -43,7 +43,7 @@
     "math": "V=\\pi r^2h"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

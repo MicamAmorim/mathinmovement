@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-cilindro",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área do cilindro",
   "tags": [
     "demo",
@@ -42,7 +42,7 @@
     "math": "A_T=2\\pi rh+2\\pi r^2"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

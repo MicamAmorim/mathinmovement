@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-prismas-planificacao",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área de prismas retos",
   "tags": [
     "demo",
@@ -42,7 +42,7 @@
     "math": "A_T=P_bh+2A_b"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],
