@@ -21,7 +21,7 @@ class FullCatalogTests(unittest.TestCase):
         self.assertEqual(len(demos), 30)
         self.assertEqual(len(qenem), 30)
 
-    def test_catalog_promotion_state_is_explicit(self):
+    def test_catalog_is_fully_native_production(self):
         production = [
             r for r in self.records
             if r.manifest.get("status") == "production"
@@ -30,58 +30,20 @@ class FullCatalogTests(unittest.TestCase):
             r for r in self.records
             if r.manifest.get("status") == "draft"
         ]
-        self.assertEqual(
-            {r.id for r in production},
-            {
-                "area-triangulo",
-                "area-paralelogramo",
-                "area-trapezio",
-                "area-losango",
-                "area-triangulo-equilatero",
-                "area-poligonos-regulares",
-                "comprimento-circunferencia-pi",
-                "area-circulo",
-                "comprimento-arco",
-                "area-setor-circular",
-                "area-coroa-circular",
-                "teorema-pitagoras",
-                "relacoes-metricas-triangulo-retangulo",
-                "razoes-trigonometricas-semelhanca",
-                "lei-senos",
-                "lei-cossenos",
-                "area-triangulo-seno",
-                "escalas-comprimentos-areas-volumes",
-                "relacao-euler-poliedros",
-                "diagonal-paralelepipedo",
-                "area-prismas-planificacao",
-                "volume-prismas",
-                "area-cilindro",
-                "volume-cilindro",
-                "area-piramides-regulares",
-                "volume-piramide",
-                "area-cone",
-                "volume-cone",
-                "volume-esfera",
-                "area-esfera",
-                "ENEM-2021-MT-11",
-            },
-        )
-        self.assertEqual(len(drafts), 29)
+
+        self.assertEqual(len(production), 60)
+        self.assertEqual(drafts, [])
 
         for record in production:
             render = record.manifest["render"]
-            self.assertEqual(render["production_engine"], "native")
-            self.assertTrue(render["native_ready"])
-
-        for record in drafts:
-            render = record.manifest["render"]
-            self.assertEqual(record.type, "qenem")
-            self.assertEqual(render["production_engine"], "compatibility")
-            self.assertTrue(render["native_ready"])
-            self.assertEqual(
-                render["native_formats"],
-                ["vertical", "horizontal"],
-            )
+            self.assertEqual(render["production_engine"], "native", record.id)
+            self.assertTrue(render["native_ready"], record.id)
+            if record.type == "qenem":
+                self.assertEqual(
+                    render["native_formats"],
+                    ["vertical", "horizontal"],
+                    record.id,
+                )
 
     def test_every_compatibility_source_and_scene_exists(self):
         for record in self.records:

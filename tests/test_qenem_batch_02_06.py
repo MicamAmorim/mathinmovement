@@ -47,7 +47,7 @@ CANDIDATES = {
 }
 
 
-class QENEMBatch0211CandidateTests(unittest.TestCase):
+class QENEMBatch0211PromotedTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.registry = Registry().rebuild()
@@ -55,12 +55,12 @@ class QENEMBatch0211CandidateTests(unittest.TestCase):
     def test_batch_has_exactly_ten_candidates(self):
         self.assertEqual(len(CANDIDATES), 10)
 
-    def test_batch_is_native_ready_but_not_promoted(self):
+    def test_batch_is_native_production(self):
         for content_id in CANDIDATES:
             record = self.registry.get(content_id)
             render = record.manifest["render"]
-            self.assertEqual(record.manifest["status"], "draft")
-            self.assertEqual(render["production_engine"], "compatibility")
+            self.assertEqual(record.manifest["status"], "production")
+            self.assertEqual(render["production_engine"], "native")
             self.assertTrue(render["native_ready"])
             self.assertEqual(
                 render["native_formats"],
