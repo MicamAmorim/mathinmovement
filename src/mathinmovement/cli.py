@@ -11,6 +11,7 @@ from .package_io import export_package, import_package
 from .production import produce
 from .registry import Registry
 from .tts import prepare_narration
+from .verify import verify_local
 from .dsl.coverage import (
     DEMO_USAGE,
     DEMO_VALIDATION_SET,
@@ -106,6 +107,13 @@ def _print_voice_result(result) -> None:
         f"{result.cached} em cache, "
         f"{result.planned} planejado(s) · "
         f"voz {result.voice}"
+    )
+
+
+def cmd_verify(args: argparse.Namespace) -> int:
+    return verify_local(
+        render_dsl=args.render_dsl,
+        keep_going=args.keep_going,
     )
 
 
@@ -398,6 +406,22 @@ def build_parser() -> argparse.ArgumentParser:
     p_dsl_regress.add_argument("--dry-run", action="store_true")
     p_dsl_regress.add_argument("--keep-going", action="store_true")
     p_dsl_regress.set_defaults(func=cmd_dsl_regress)
+
+    p_verify = sub.add_parser(
+        "verify",
+        help="Executa o quality gate local do projeto.",
+    )
+    p_verify.add_argument(
+        "--render-dsl",
+        action="store_true",
+        help="Além do dry-run, renderiza todos os shadow ports em qualidade draft.",
+    )
+    p_verify.add_argument(
+        "--keep-going",
+        action="store_true",
+        help="Continua a regressão DSL após uma falha para listar as demais.",
+    )
+    p_verify.set_defaults(func=cmd_verify)
 
     p_voice = sub.add_parser(
         "voice",
