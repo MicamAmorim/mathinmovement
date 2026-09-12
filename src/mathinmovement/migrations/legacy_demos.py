@@ -62,23 +62,30 @@ def _extract_scene_metadata(source_path: Path, expected_scene: str) -> dict:
         raise ValueError(f"{source_path}: método construct() não encontrado.")
 
     header = None
-    ordered: list[tuple[str, str]] = []
+    ordered_with_position: list[tuple[int, int, str, str]] = []
     for node in ast.walk(construct):
         if not isinstance(node, ast.Call):
             continue
         name = _call_name(node)
         if name == "header" and header is None:
             header = node
-        elif name == "caption":
+        elif name in {"caption", "equation"}:
             try:
-                ordered.append(("caption", _literal_arg(node, 0)))
+                ordered_with_position.append(
+                    (
+                        int(getattr(node, "lineno", 0)),
+                        int(getattr(node, "col_offset", 0)),
+                        name,
+                        _literal_arg(node, 0),
+                    )
+                )
             except Exception:
                 pass
-        elif name == "equation":
-            try:
-                ordered.append(("equation", _literal_arg(node, 0)))
-            except Exception:
-                pass
+
+    ordered = [
+        (kind, value)
+        for _, _, kind, value in sorted(ordered_with_position)
+    ]
 
     if header is None:
         raise ValueError(f"{source_path}: self.header(...) não encontrado.")

@@ -1,0 +1,80 @@
+from __future__ import annotations
+
+import ast
+from pathlib import Path
+import unittest
+
+from mathinmovement.config import PROJECT_ROOT
+from mathinmovement.registry import Registry
+
+
+class FullCatalogTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.registry = Registry().rebuild()
+        cls.records = cls.registry.all()
+
+    def test_catalog_contains_exactly_30_demos_and_30_qenem(self):
+        demos = [r for r in self.records if r.type == "demo"]
+        qenem = [r for r in self.records if r.type == "qenem"]
+        self.assertEqual(len(self.records), 60)
+        self.assertEqual(len(demos), 30)
+        self.assertEqual(len(qenem), 30)
+
+    def test_catalog_promotion_state_is_explicit(self):
+        production = [
+            r for r in self.records
+            if r.manifest.get("status") == "production"
+        ]
+        drafts = [
+            r for r in self.records
+            if r.manifest.get("status") == "draft"
+        ]
+        self.assertEqual(
+            {r.id for r in production},
+            {"area-triangulo", "ENEM-2021-MT-11"},
+        )
+        self.assertEqual(len(drafts), 58)
+
+        for record in production:
+            render = record.manifest["render"]
+            self.assertEqual(render["production_engine"], "native")
+            self.assertTrue(render["native_ready"])
+
+        for record in drafts:
+            render = record.manifest["render"]
+            self.assertEqual(render["production_engine"], "compatibility")
+            self.assertFalse(render["native_ready"])
+
+    def test_every_compatibility_source_and_scene_exists(self):
+        for record in self.records:
+            compat = (record.manifest.get("render") or {}).get("compatibility")
+            self.assertIsInstance(compat, dict, record.id)
+
+            source = PROJECT_ROOT / compat["source"]
+            self.assertTrue(source.exists(), f"{record.id}: fonte ausente {source}")
+
+            tree = ast.parse(source.read_text(encoding="utf-8"), filename=str(source))
+            classes = {
+                node.name for node in tree.body
+                if isinstance(node, ast.ClassDef)
+            }
+            self.assertIn(
+                compat["scene"],
+                classes,
+                f"{record.id}: cena {compat['scene']!r} ausente em {source}",
+            )
+
+    def test_qenem_answers_match_solution(self):
+        for record in self.records:
+            if record.type != "qenem":
+                continue
+            self.assertEqual(
+                record.manifest["question"]["answer"],
+                record.manifest["solution"]["final_answer"],
+                record.id,
+            )
+
+
+if __name__ == "__main__":
+    unittest.main()
