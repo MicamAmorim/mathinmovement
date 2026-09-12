@@ -99,85 +99,85 @@
         "key": "source",
         "text": "ENEM 2023, questão 166. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.824,
-        "audio": "enem/audio/ENEM-2023-MT-31/source.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "A água utilizada pelos 75 moradores de um vilarejo provém de um reservatório de formato cilíndrico circular reto cujo raio da base mede 5 metros, sempre abastecido no primeiro dia de cada mês por caminhões-pipa. Cada morador desse vilarejo consome, em média, 200 litros de água por dia. No mês de junho de um determinado ano, o vilarejo festejou o dia do seu padroeiro e houve um gasto extra de água nos primeiros 20 dias.",
         "duration": 27.048,
-        "audio": "enem/audio/ENEM-2023-MT-31/statement_01.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "Passado esse período, as pessoas verificaram a quantidade de água presente no reservatório e constataram que o nível da coluna de água estava em 1,5 metro. Decidiram, então, fazer um racionamento de água durante os 10 dias seguintes. Considere 3 como aproximação para pi.",
         "duration": 18.192,
-        "audio": "enem/audio/ENEM-2023-MT-31/statement_02.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/statement_02.mp3"
       },
       {
         "key": "statement_03",
         "text": "Qual é a quantidade mínima de água, em litro, que cada morador, em média, deverá economizar por dia, de modo que o reservatório não fique sem água nos próximos 10 dias?",
         "duration": 10.872,
-        "audio": "enem/audio/ENEM-2023-MT-31/statement_03.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/statement_03.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: 50; B: 60; C: 80; D: 140; E: 150.",
         "duration": 10.296,
-        "audio": "enem/audio/ENEM-2023-MT-31/options.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: 75 moradores; consumo habitual 200 L dividido por pessoa dividido por dia; água restante: cilindro de r é igual a 5 metros e h é igual a 1,5 metros; racionamento por 10 dias; pi aproximadamente 3.",
         "duration": 18.552,
-        "audio": "enem/audio/ENEM-2023-MT-31/data.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Descubra quanto cada morador pode gastar por dia e compare com os 200 litros habituais. O plano é: 1, Calcular a água restante. 2, Distribuir por morador e por dia. 3, Comparar com o consumo habitual.",
         "duration": 16.416,
-        "audio": "enem/audio/ENEM-2023-MT-31/strategy.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "A coluna de 1,5 metros determina diretamente o volume ainda disponível.",
         "duration": 5.472,
-        "audio": "enem/audio/ENEM-2023-MT-31/visual.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Volume restante. Na tela, V é igual a pi r ao quadradoh é igual a 3 vezes 5 ao quadrado vezes 1,5 é igual a 112,5 metros cúbicos.",
         "duration": 11.568,
-        "audio": "enem/audio/ENEM-2023-MT-31/step_01.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Converta em litros. Na tela, 112,5 metros cúbicos é igual a 112500 mathrm L.",
         "duration": 8.472,
-        "audio": "enem/audio/ENEM-2023-MT-31/step_02.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Pessoas-dia. Na tela, 75 vezes 10 é igual a 750.",
         "duration": 6.768,
-        "audio": "enem/audio/ENEM-2023-MT-31/step_03.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Consumo diário possível. Na tela, 112500 dividido por 750 é igual a 150 mathrm L.",
         "duration": 9.192,
-        "audio": "enem/audio/ENEM-2023-MT-31/step_04.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/step_04.mp3"
       },
       {
         "key": "step_05",
         "text": "Economia mínima. Na tela, 200 menos 150 é igual a 50 L dividido por pessoa dividido por dia.",
         "duration": 8.736,
-        "audio": "enem/audio/ENEM-2023-MT-31/step_05.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/step_05.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa A: 50",
         "duration": 4.104,
-        "audio": "enem/audio/ENEM-2023-MT-31/answer.mp3"
+        "audio": "content/enem/ENEM-2023-MT-31/assets/audio/answer.mp3"
       }
     ]
   }

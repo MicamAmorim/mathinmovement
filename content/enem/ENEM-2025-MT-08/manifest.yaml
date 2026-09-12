@@ -102,85 +102,85 @@
         "key": "source",
         "text": "ENEM 2025, questão 143. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.8,
-        "audio": "enem/audio/ENEM-2025-MT-08/source.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "No entorno de uma lagoa circular, cujo raio mede 1 quilômetro, há uma ciclovia. Devido aos frequentes roubos de bicicleta, a prefeitura planeja alocar policiais em posições estratégicas para patrulhar essa ciclovia, de forma a torná-la totalmente protegida. Um ponto da ciclovia é considerado protegido se houver pelo menos um policial a, no máximo, 200 metros de distância daquele ponto, posicionado sobre a ciclovia.",
         "duration": 25.992,
-        "audio": "enem/audio/ENEM-2025-MT-08/statement_01.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "A figura ilustra um ponto P sobre a ciclovia, que estará protegido se houver pelo menos um policial posicionado sobre a região de cor cinza-escuro. Desconsidere a largura da pista da ciclovia e utilize 3 como aproximação para pi. Nessas condições, a quantidade mínima necessária de policiais a serem alocados ao longo dessa ciclovia para torná-la protegida é",
         "duration": 22.104,
-        "audio": "enem/audio/ENEM-2025-MT-08/statement_02.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/statement_02.mp3"
       },
       {
         "key": "figure",
         "text": "Observe a reconstrução esquemática da figura da questão. Ciclovia circular com um ponto P no centro de um arco protegido de 400 metros: 200 metros para cada lado ao longo da ciclovia.",
         "duration": 12.744,
-        "audio": "enem/audio/ENEM-2025-MT-08/figure.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/figure.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: 4.; B: 8.; C: 15.; D: 30.; E: 60..",
         "duration": 8.832,
-        "audio": "enem/audio/ENEM-2025-MT-08/options.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: lagoa circular de raio 1 quilômetros; pi aproximadamente 3; cada policial protege até 200 metros para cada lado; cada policial cobre um arco total de 400 metros.",
         "duration": 14.136,
-        "audio": "enem/audio/ENEM-2025-MT-08/data.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Cada policial cobre um arco de 400 metros; falta descobrir quantos desses arcos fecham a circunferência. O plano é: 1, Calcular o comprimento da ciclovia. 2, Dividir pelo trecho coberto por um policial. 3, Verificar se é necessário arredondar para cima.",
         "duration": 19.176,
-        "audio": "enem/audio/ENEM-2025-MT-08/strategy.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "Os arcos protegidos devem cobrir toda a circunferência, sem lacunas.",
         "duration": 5.04,
-        "audio": "enem/audio/ENEM-2025-MT-08/visual.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Comprimento da ciclovia. Na tela, C é igual a 2 pi r é igual a 2 vezes 3 vezes 1 é igual a 6 quilômetros.",
         "duration": 8.808,
-        "audio": "enem/audio/ENEM-2025-MT-08/step_01.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Converta em metros. Na tela, 6 quilômetros é igual a 6000 mathrm m.",
         "duration": 6.192,
-        "audio": "enem/audio/ENEM-2025-MT-08/step_02.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Cobertura por policial. Na tela, 200 mais 200 é igual a 400 mathrm m.",
         "duration": 7.272,
-        "audio": "enem/audio/ENEM-2025-MT-08/step_03.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Quantidade. Na tela, n é igual a 6000 dividido por 400 é igual a 15.",
         "duration": 6.792,
-        "audio": "enem/audio/ENEM-2025-MT-08/step_04.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/step_04.mp3"
       },
       {
         "key": "step_05",
         "text": "A divisão é exata; não há resto. Na tela, 15 vezes 400 é igual a 6000.",
         "duration": 7.296,
-        "audio": "enem/audio/ENEM-2025-MT-08/step_05.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/step_05.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa C: 15.",
         "duration": 4.008,
-        "audio": "enem/audio/ENEM-2025-MT-08/answer.mp3"
+        "audio": "content/enem/ENEM-2025-MT-08/assets/audio/answer.mp3"
       }
     ]
   }
