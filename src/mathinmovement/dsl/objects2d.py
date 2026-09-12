@@ -392,6 +392,22 @@ def make_polyline(runtime, spec):
     return apply_layout(runtime, mob, spec)
 
 
+@object_type("2d.axes_polyline", aliases=("axes_polyline",))
+def make_axes_polyline(runtime, spec):
+    axes_id = str(spec.get("axes", ""))
+    if not axes_id:
+        raise DSLError("axes_polyline exige referência axes.")
+    axes = runtime.object(axes_id)
+    data_points = runtime.resolve(spec.get("points", []))
+    if len(data_points) < 2:
+        raise DSLError("axes_polyline exige ao menos 2 pontos.")
+    mob = VMobject(**style(spec))
+    mob.set_points_as_corners(
+        [axes.c2p(float(p[0]), float(p[1])) for p in data_points]
+    )
+    return apply_layout(runtime, mob, spec)
+
+
 @object_type("2d.graph", aliases=("graph",))
 def make_graph(runtime, spec):
     axes_id = str(spec.get("axes", ""))
