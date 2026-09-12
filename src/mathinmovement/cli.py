@@ -6,6 +6,7 @@ import sys
 from .config import REGISTRY_DB
 from .database import database_stats
 from .engine import RenderError, render_record
+from .migrations import migrate_legacy_enem
 from .models import ManifestError
 from .package_io import export_package, import_package
 from .registry import Registry
@@ -70,6 +71,22 @@ def cmd_db_rebuild(_: argparse.Namespace) -> int:
     registry = Registry().rebuild()
     print(f"SQLite reconstruído: {REGISTRY_DB}")
     print(f"Conteúdos indexados: {len(registry)}")
+    return 0
+
+
+def cmd_migrate_legacy_enem(args: argparse.Namespace) -> int:
+    result = migrate_legacy_enem(
+        replace=args.replace,
+        status=args.status,
+        only=args.id or (),
+    )
+    print(f"Legado ENEM detectado: {result['total_legacy']}")
+    print(f"Gerados/atualizados: {len(result['created'])}")
+    for content_id in result["created"]:
+        print(f"  + {content_id}")
+    if result["skipped"]:
+        print(f"Preservados por já existirem: {len(result['skipped'])}")
+    print(f"SQLite sincronizado: {REGISTRY_DB}")
     return 0
 
 
@@ -149,6 +166,25 @@ def build_parser() -> argparse.ArgumentParser:
     p_db_rebuild = db_sub.add_parser("rebuild")
     p_db_rebuild.set_defaults(func=cmd_db_rebuild)
 
+    p_migrate = sub.add_parser("migrate", help="Ferramentas de migração do código legado.")
+    migrate_sub = p_migrate.add_subparsers(dest="migration", required=True)
+    p_legacy_enem = migrate_sub.add_parser(
+        "legacy-enem",
+        help="Converte questions.json + specs.py + narração legados em manifests qenem.",
+    )
+    p_legacy_enem.add_argument("--replace", action="store_true")
+    p_legacy_enem.add_argument(
+        "--status",
+        choices=["draft", "validated", "production", "deprecated"],
+        default="draft",
+    )
+    p_legacy_enem.add_argument(
+        "--id",
+        action="append",
+        help="Migra somente este canonical_id; pode ser repetido.",
+    )
+    p_legacy_enem.set_defaults(func=cmd_migrate_legacy_enem)
+
     p_render = sub.add_parser("render", help="Renderiza conteúdo pelo engine v2.")
     p_render.add_argument("id", nargs="?", help="ID do conteúdo.")
     p_render.add_argument("--all", action="store_true", help="Renderiza todos os conteúdos selecionados.")
@@ -170,7 +206,7 @@ def main() -> None:
     args = parser.parse_args()
     try:
         code = int(args.func(args) or 0)
-    except (ManifestError, RenderError, KeyError) as exc:
+    except (ManifestError, RenderError, KeyError, ValueError) as exc:
         print(f"ERRO: {exc}", file=sys.stderr)
         raise SystemExit(2)
     raise SystemExit(code)
