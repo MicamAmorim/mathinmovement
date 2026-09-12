@@ -50,6 +50,13 @@ jobs:
           python -m mathinmovement dsl audit
           python -m mathinmovement dsl ops
 
+      - name: Check DSL shadow render paths
+        run: |
+          python -m mathinmovement render area-triangulo --engine dsl --dry-run
+          python -m mathinmovement render comprimento-circunferencia-pi --engine dsl --dry-run
+          python -m mathinmovement render ENEM-2023-MT-29 --engine dsl --dry-run
+          python -m mathinmovement render ENEM-2024-MT-30 --engine dsl --format horizontal --dry-run
+
       - name: Check voice and produce orchestration
         run: |
           python -m mathinmovement voice ENEM-2021-MT-11 --dry-run

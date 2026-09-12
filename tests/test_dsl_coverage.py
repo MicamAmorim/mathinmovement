@@ -42,6 +42,7 @@ class DSLCoverageTests(unittest.TestCase):
                     record.manifest["render"]["production_engine"],
                     "native",
                 )
+                self.assertIn("dsl_shadow", record.manifest)
 
     def test_common_qenem_profile_is_explicit(self):
         self.assertIn("replacement_transform", QENEM_COMMON)

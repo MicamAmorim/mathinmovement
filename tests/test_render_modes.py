@@ -50,6 +50,32 @@ class RenderModeTests(unittest.TestCase):
         )
         self.assertIn("media_dsl", output.parts)
 
+    def test_catalog_shadow_ports_use_media_dsl(self):
+        for content_id in (
+            "area-triangulo",
+            "area-losango",
+            "comprimento-circunferencia-pi",
+            "relacoes-metricas-triangulo-retangulo",
+            "area-prismas-planificacao",
+            "volume-prismas",
+            "volume-piramide",
+            "area-cone",
+            "ENEM-2021-MT-11",
+            "ENEM-2023-MT-06",
+            "ENEM-2023-MT-07",
+            "ENEM-2023-MT-29",
+            "ENEM-2023-MT-44",
+            "ENEM-2024-MT-30",
+        ):
+            with self.subTest(content_id=content_id):
+                record = self.registry.get(content_id)
+                output = render_record(
+                    record,
+                    dry_run=True,
+                    render_engine="dsl",
+                )
+                self.assertIn("media_dsl", output.parts)
+
     def test_qenem_supports_both_approved_formats(self):
         record = self.registry.get("ENEM-2021-MT-11")
         for video_format in ("vertical", "horizontal"):

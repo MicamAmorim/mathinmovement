@@ -79,14 +79,6 @@ def _native_command(
     build_dir: Path,
 ) -> tuple[list[str], dict[str, str], Path]:
     render = record.manifest.get("render") or {}
-    shadow = record.manifest.get("dsl_shadow") or {}
-    if render_engine == "dsl":
-        shadow_formats = shadow.get("formats") or render.get("native_formats") or render.get("formats") or ["vertical"]
-        if video_format not in shadow_formats:
-            raise ManifestError(
-                f"{record.id}: shadow DSL não suporta {video_format!r}. "
-                f"Disponíveis: {', '.join(map(str, shadow_formats))}."
-            )
     if render.get("native_ready") is False:
         raise ManifestError(
             f"{record.id}: renderer nativo ainda não foi validado."
@@ -171,6 +163,19 @@ def render_record(
     output = output_dir / f"{safe_id}.mp4"
 
     render = record.manifest.get("render") or {}
+    if render_engine == "dsl":
+        shadow = record.manifest.get("dsl_shadow") or {}
+        shadow_formats = (
+            shadow.get("formats")
+            or render.get("native_formats")
+            or render.get("formats")
+            or ["vertical"]
+        )
+        if video_format not in shadow_formats:
+            raise ManifestError(
+                f"{record.id}: shadow DSL não suporta {video_format!r}. "
+                f"Disponíveis: {', '.join(map(str, shadow_formats))}."
+            )
     if render.get("native_ready") is False:
         raise ManifestError(
             f"{record.id}: renderer nativo ainda não foi validado."
