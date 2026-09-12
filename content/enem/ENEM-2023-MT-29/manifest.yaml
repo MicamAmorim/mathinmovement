@@ -183,5 +183,612 @@
         "audio": "assets/audio/answer.mp3"
       }
     ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "statement": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "wheel",
+              "type": "circle",
+              "radius": 2.5,
+              "color": "cyan"
+            },
+            {
+              "id": "sp0",
+              "type": "line",
+              "start": [
+                0,
+                0
+              ],
+              "end": [
+                2.5,
+                0
+              ],
+              "color": "#334568"
+            },
+            {
+              "id": "sp1",
+              "type": "line",
+              "start": [
+                0,
+                0
+              ],
+              "end": [
+                1.767767,
+                1.767767
+              ],
+              "color": "#334568"
+            },
+            {
+              "id": "sp2",
+              "type": "line",
+              "start": [
+                0,
+                0
+              ],
+              "end": [
+                0,
+                2.5
+              ],
+              "color": "#334568"
+            },
+            {
+              "id": "sp3",
+              "type": "line",
+              "start": [
+                0,
+                0
+              ],
+              "end": [
+                -1.767767,
+                1.767767
+              ],
+              "color": "#334568"
+            },
+            {
+              "id": "sp4",
+              "type": "line",
+              "start": [
+                0,
+                0
+              ],
+              "end": [
+                -2.5,
+                0
+              ],
+              "color": "#334568"
+            },
+            {
+              "id": "sp5",
+              "type": "line",
+              "start": [
+                0,
+                0
+              ],
+              "end": [
+                -1.767767,
+                -1.767767
+              ],
+              "color": "#334568"
+            },
+            {
+              "id": "sp6",
+              "type": "line",
+              "start": [
+                0,
+                0
+              ],
+              "end": [
+                0,
+                -2.5
+              ],
+              "color": "#334568"
+            },
+            {
+              "id": "sp7",
+              "type": "line",
+              "start": [
+                0,
+                0
+              ],
+              "end": [
+                1.767767,
+                -1.767767
+              ],
+              "color": "#334568"
+            },
+            {
+              "id": "hub",
+              "type": "dot",
+              "point": [
+                0,
+                0
+              ],
+              "color": "muted"
+            },
+            {
+              "id": "p",
+              "type": "dot",
+              "point": [
+                0,
+                2.5
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "P",
+              "type": "math",
+              "tex": "P",
+              "font_size": 22,
+              "color": "gold",
+              "next_to": {
+                "target": "p",
+                "direction": "UP",
+                "buff": 0.12
+              }
+            },
+            {
+              "id": "ground",
+              "type": "line",
+              "start": [
+                -3,
+                -3
+              ],
+              "end": [
+                3,
+                -3
+              ],
+              "color": "muted"
+            },
+            {
+              "id": "dir",
+              "type": "curved_arrow",
+              "start": [
+                0.8,
+                2.7
+              ],
+              "end": [
+                2.6,
+                0.6
+              ],
+              "angle": -0.6,
+              "color": "pink"
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "wheel",
+          "sp0",
+          "sp1",
+          "sp2",
+          "sp3",
+          "sp4",
+          "sp5",
+          "sp6",
+          "sp7",
+          "hub",
+          "p",
+          "P",
+          "ground",
+          "dir"
+        ]
+      },
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "wheel",
+              "type": "circle",
+              "radius": 2,
+              "color": "cyan",
+              "at": [
+                -2.2,
+                1.2
+              ]
+            },
+            {
+              "id": "p",
+              "type": "dot",
+              "point": [
+                -2.2,
+                3.2
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "r",
+              "type": "line",
+              "start": [
+                -2.2,
+                1.2
+              ],
+              "end": [
+                -2.2,
+                3.2
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "ax",
+              "type": "axes",
+              "x_range": [
+                0,
+                6,
+                1
+              ],
+              "y_range": [
+                0,
+                3,
+                1
+              ],
+              "x_length": 4,
+              "y_length": 2.2,
+              "at": [
+                2,
+                -1.8
+              ],
+              "axis_config": {
+                "color": "muted"
+              }
+            },
+            {
+              "id": "graph",
+              "type": "graph",
+              "axes": "ax",
+              "expression": "1.5+cos(x)",
+              "x_range": [
+                0,
+                6
+              ],
+              "color": "green"
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "wheel",
+          "p",
+          "r",
+          "ax",
+          "graph"
+        ]
+      },
+      "options": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "labA",
+              "type": "text",
+              "text": "A",
+              "font_size": 19,
+              "color": "gold",
+              "at": [
+                -2.65,
+                0
+              ]
+            },
+            {
+              "id": "axA",
+              "type": "axes",
+              "x_range": [
+                0,
+                4,
+                1
+              ],
+              "y_range": [
+                0,
+                2.6,
+                1
+              ],
+              "x_length": 4.6,
+              "y_length": 1.35,
+              "axis_config": {
+                "color": "#52617C"
+              }
+            },
+            {
+              "id": "curveA",
+              "type": "graph",
+              "axes": "axA",
+              "expression": "1.5+0.75*cos(pi*x)",
+              "x_range": [
+                0,
+                4
+              ],
+              "color": "cyan",
+              "stroke_width": 3
+            },
+            {
+              "id": "choiceA",
+              "type": "group",
+              "children": [
+                "labA",
+                "axA",
+                "curveA"
+              ]
+            },
+            {
+              "id": "labB",
+              "type": "text",
+              "text": "B",
+              "font_size": 19,
+              "color": "gold",
+              "at": [
+                -2.65,
+                0
+              ]
+            },
+            {
+              "id": "axB",
+              "type": "axes",
+              "x_range": [
+                0,
+                4,
+                1
+              ],
+              "y_range": [
+                0,
+                2.6,
+                1
+              ],
+              "x_length": 4.6,
+              "y_length": 1.35,
+              "axis_config": {
+                "color": "#52617C"
+              }
+            },
+            {
+              "id": "curveB",
+              "type": "axes_polyline",
+              "axes": "axB",
+              "points": [
+                [
+                  0,
+                  2.25
+                ],
+                [
+                  1,
+                  0.75
+                ],
+                [
+                  2,
+                  2.25
+                ],
+                [
+                  3,
+                  0.75
+                ],
+                [
+                  4,
+                  2.25
+                ]
+              ],
+              "color": "cyan",
+              "stroke_width": 3
+            },
+            {
+              "id": "choiceB",
+              "type": "group",
+              "children": [
+                "labB",
+                "axB",
+                "curveB"
+              ]
+            },
+            {
+              "id": "labC",
+              "type": "text",
+              "text": "C",
+              "font_size": 19,
+              "color": "gold",
+              "at": [
+                -2.65,
+                0
+              ]
+            },
+            {
+              "id": "axC",
+              "type": "axes",
+              "x_range": [
+                0,
+                4,
+                1
+              ],
+              "y_range": [
+                0,
+                2.6,
+                1
+              ],
+              "x_length": 4.6,
+              "y_length": 1.35,
+              "axis_config": {
+                "color": "#52617C"
+              }
+            },
+            {
+              "id": "curveC",
+              "type": "axes_polyline",
+              "axes": "axC",
+              "points": [
+                [
+                  0,
+                  2.25
+                ],
+                [
+                  0.6,
+                  0.8
+                ],
+                [
+                  1.1,
+                  0.8
+                ],
+                [
+                  1.7,
+                  2.25
+                ],
+                [
+                  2.3,
+                  2.25
+                ],
+                [
+                  2.9,
+                  0.8
+                ],
+                [
+                  3.4,
+                  0.8
+                ],
+                [
+                  4,
+                  2.25
+                ]
+              ],
+              "color": "cyan",
+              "stroke_width": 3
+            },
+            {
+              "id": "choiceC",
+              "type": "group",
+              "children": [
+                "labC",
+                "axC",
+                "curveC"
+              ]
+            },
+            {
+              "id": "labD",
+              "type": "text",
+              "text": "D",
+              "font_size": 19,
+              "color": "gold",
+              "at": [
+                -2.65,
+                0
+              ]
+            },
+            {
+              "id": "axD",
+              "type": "axes",
+              "x_range": [
+                0,
+                4,
+                1
+              ],
+              "y_range": [
+                0,
+                2.6,
+                1
+              ],
+              "x_length": 4.6,
+              "y_length": 1.35,
+              "axis_config": {
+                "color": "#52617C"
+              }
+            },
+            {
+              "id": "curveD",
+              "type": "graph",
+              "axes": "axD",
+              "expression": "0.8+1.35*(1-(2*((x%1.33)/1.33)-1)**2)",
+              "x_range": [
+                0,
+                4
+              ],
+              "color": "cyan",
+              "stroke_width": 3
+            },
+            {
+              "id": "choiceD",
+              "type": "group",
+              "children": [
+                "labD",
+                "axD",
+                "curveD"
+              ]
+            },
+            {
+              "id": "labE",
+              "type": "text",
+              "text": "E",
+              "font_size": 19,
+              "color": "gold",
+              "at": [
+                -2.65,
+                0
+              ]
+            },
+            {
+              "id": "axE",
+              "type": "axes",
+              "x_range": [
+                0,
+                4,
+                1
+              ],
+              "y_range": [
+                0,
+                2.6,
+                1
+              ],
+              "x_length": 4.6,
+              "y_length": 1.35,
+              "axis_config": {
+                "color": "#52617C"
+              }
+            },
+            {
+              "id": "curveE",
+              "type": "graph",
+              "axes": "axE",
+              "expression": "0.75+1.35*(2*((x%2)/2)-1)**2",
+              "x_range": [
+                0,
+                4
+              ],
+              "color": "cyan",
+              "stroke_width": 3
+            },
+            {
+              "id": "choiceE",
+              "type": "group",
+              "children": [
+                "labE",
+                "axE",
+                "curveE"
+              ]
+            },
+            {
+              "id": "choices",
+              "type": "group",
+              "children": [
+                "choiceA",
+                "choiceB",
+                "choiceC",
+                "choiceD",
+                "choiceE"
+              ],
+              "arrange": {
+                "direction": "DOWN",
+                "buff": 0.25
+              }
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "choices"
+        ]
+      }
+    }
   }
 }

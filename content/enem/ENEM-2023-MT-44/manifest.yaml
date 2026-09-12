@@ -209,5 +209,187 @@
         "audio": "assets/audio/answer.mp3"
       }
     ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "statement": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "tri",
+              "type": "polygon",
+              "points": [
+                [
+                  -2.4,
+                  -1.6
+                ],
+                [
+                  2.1,
+                  -1.6
+                ],
+                [
+                  0.9,
+                  1.4
+                ]
+              ],
+              "color": "white"
+            },
+            {
+              "id": "a1",
+              "type": "arc_between_points",
+              "start": [
+                -2.4,
+                -1.6
+              ],
+              "end": [
+                2.1,
+                -1.6
+              ],
+              "angle": "=-pi",
+              "color": "cyan"
+            },
+            {
+              "id": "a2",
+              "type": "arc_between_points",
+              "start": [
+                -2.4,
+                -1.6
+              ],
+              "end": [
+                0.9,
+                1.4
+              ],
+              "angle": "=pi",
+              "color": "gold"
+            },
+            {
+              "id": "a3",
+              "type": "arc_between_points",
+              "start": [
+                0.9,
+                1.4
+              ],
+              "end": [
+                2.1,
+                -1.6
+              ],
+              "angle": "=pi",
+              "color": "pink"
+            },
+            {
+              "id": "alpha",
+              "type": "math",
+              "tex": "\\alpha",
+              "font_size": 24,
+              "color": "gold",
+              "at": [
+                0.75,
+                1.05
+              ]
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "tri",
+          "a1",
+          "a2",
+          "a3",
+          "alpha"
+        ]
+      },
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "tri",
+              "type": "polygon",
+              "points": [
+                [
+                  -2.4,
+                  -1.6
+                ],
+                [
+                  2.1,
+                  -1.6
+                ],
+                [
+                  0.9,
+                  1.4
+                ]
+              ],
+              "color": "white"
+            },
+            {
+              "id": "a1",
+              "type": "arc_between_points",
+              "start": [
+                -2.4,
+                -1.6
+              ],
+              "end": [
+                2.1,
+                -1.6
+              ],
+              "angle": "=-pi",
+              "color": "cyan"
+            },
+            {
+              "id": "a2",
+              "type": "arc_between_points",
+              "start": [
+                -2.4,
+                -1.6
+              ],
+              "end": [
+                0.9,
+                1.4
+              ],
+              "angle": "=pi",
+              "color": "gold"
+            },
+            {
+              "id": "a3",
+              "type": "arc_between_points",
+              "start": [
+                0.9,
+                1.4
+              ],
+              "end": [
+                2.1,
+                -1.6
+              ],
+              "angle": "=pi",
+              "color": "pink"
+            },
+            {
+              "id": "alpha",
+              "type": "math",
+              "tex": "\\alpha",
+              "font_size": 24,
+              "color": "gold",
+              "at": [
+                0.75,
+                1.05
+              ]
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "tri",
+          "a1",
+          "a2",
+          "a3",
+          "alpha"
+        ]
+      }
+    }
   }
 }

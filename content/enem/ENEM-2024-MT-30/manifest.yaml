@@ -183,5 +183,301 @@
         "audio": "assets/audio/answer.mp3"
       }
     ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "statement": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "rect1",
+              "type": "rectangle",
+              "width": 2.2,
+              "height": 4.4,
+              "color": "gold",
+              "at": [
+                -2.7,
+                0.3
+              ],
+              "scale": 0.72
+            },
+            {
+              "id": "c1top",
+              "type": "ellipse",
+              "width": 1.4,
+              "height": 0.45,
+              "color": "cyan",
+              "at": [
+                -0.7,
+                1.05
+              ],
+              "scale": 0.65
+            },
+            {
+              "id": "c1l",
+              "type": "line",
+              "start": [
+                -1.155,
+                1.05
+              ],
+              "end": [
+                -1.155,
+                -0.575
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "c1r",
+              "type": "line",
+              "start": [
+                -0.245,
+                1.05
+              ],
+              "end": [
+                -0.245,
+                -0.575
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "c1bot",
+              "type": "ellipse",
+              "width": 1.4,
+              "height": 0.45,
+              "color": "cyan",
+              "at": [
+                -0.7,
+                -0.575
+              ],
+              "scale": 0.65
+            },
+            {
+              "id": "rect2",
+              "type": "rectangle",
+              "width": 4.4,
+              "height": 2.2,
+              "color": "gold",
+              "at": [
+                2.1,
+                1.25
+              ],
+              "scale": 0.72
+            },
+            {
+              "id": "c2top",
+              "type": "ellipse",
+              "width": 2.5,
+              "height": 0.55,
+              "color": "cyan",
+              "at": [
+                2.1,
+                -0.35
+              ],
+              "scale": 0.65
+            },
+            {
+              "id": "c2l",
+              "type": "line",
+              "start": [
+                1.2875,
+                -0.35
+              ],
+              "end": [
+                1.2875,
+                -1.26
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "c2r",
+              "type": "line",
+              "start": [
+                2.9125,
+                -0.35
+              ],
+              "end": [
+                2.9125,
+                -1.26
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "c2bot",
+              "type": "ellipse",
+              "width": 2.5,
+              "height": 0.55,
+              "color": "cyan",
+              "at": [
+                2.1,
+                -1.26
+              ],
+              "scale": 0.65
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "rect1",
+          "c1top",
+          "c1l",
+          "c1r",
+          "c1bot",
+          "rect2",
+          "c2top",
+          "c2l",
+          "c2r",
+          "c2bot"
+        ]
+      },
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "rect1",
+              "type": "rectangle",
+              "width": 2.2,
+              "height": 4.4,
+              "color": "gold",
+              "at": [
+                -2.7,
+                0.3
+              ],
+              "scale": 0.72
+            },
+            {
+              "id": "c1top",
+              "type": "ellipse",
+              "width": 1.4,
+              "height": 0.45,
+              "color": "cyan",
+              "at": [
+                -0.7,
+                1.05
+              ],
+              "scale": 0.65
+            },
+            {
+              "id": "c1l",
+              "type": "line",
+              "start": [
+                -1.155,
+                1.05
+              ],
+              "end": [
+                -1.155,
+                -0.575
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "c1r",
+              "type": "line",
+              "start": [
+                -0.245,
+                1.05
+              ],
+              "end": [
+                -0.245,
+                -0.575
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "c1bot",
+              "type": "ellipse",
+              "width": 1.4,
+              "height": 0.45,
+              "color": "cyan",
+              "at": [
+                -0.7,
+                -0.575
+              ],
+              "scale": 0.65
+            },
+            {
+              "id": "rect2",
+              "type": "rectangle",
+              "width": 4.4,
+              "height": 2.2,
+              "color": "gold",
+              "at": [
+                2.1,
+                1.25
+              ],
+              "scale": 0.72
+            },
+            {
+              "id": "c2top",
+              "type": "ellipse",
+              "width": 2.5,
+              "height": 0.55,
+              "color": "cyan",
+              "at": [
+                2.1,
+                -0.35
+              ],
+              "scale": 0.65
+            },
+            {
+              "id": "c2l",
+              "type": "line",
+              "start": [
+                1.2875,
+                -0.35
+              ],
+              "end": [
+                1.2875,
+                -1.26
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "c2r",
+              "type": "line",
+              "start": [
+                2.9125,
+                -0.35
+              ],
+              "end": [
+                2.9125,
+                -1.26
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "c2bot",
+              "type": "ellipse",
+              "width": 2.5,
+              "height": 0.55,
+              "color": "cyan",
+              "at": [
+                2.1,
+                -1.26
+              ],
+              "scale": 0.65
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "rect1",
+          "c1top",
+          "c1l",
+          "c1r",
+          "c1bot",
+          "rect2",
+          "c2top",
+          "c2l",
+          "c2r",
+          "c2bot"
+        ]
+      }
+    }
   }
 }

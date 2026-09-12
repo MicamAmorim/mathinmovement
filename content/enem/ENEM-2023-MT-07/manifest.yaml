@@ -176,5 +176,165 @@
         "audio": "assets/audio/answer.mp3"
       }
     ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "statement": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "outer",
+              "type": "square",
+              "side": 5.5,
+              "color": "gold",
+              "fill_opacity": 0.08
+            },
+            {
+              "id": "inner",
+              "type": "square",
+              "side": 3.5,
+              "color": "cyan",
+              "fill_opacity": 0.15
+            },
+            {
+              "id": "width",
+              "type": "double_arrow",
+              "start": [
+                1.75,
+                0
+              ],
+              "end": [
+                2.75,
+                0
+              ],
+              "color": "gold",
+              "buff": 0
+            },
+            {
+              "id": "lab",
+              "type": "math",
+              "tex": "5\\,m",
+              "font_size": 22,
+              "color": "gold",
+              "at": [
+                2.25,
+                0.35
+              ]
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "outer",
+          "inner",
+          "width",
+          "lab"
+        ]
+      },
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "rect",
+              "type": "rectangle",
+              "width": 5.5,
+              "height": 3.3,
+              "color": "cyan",
+              "fill_opacity": 0.12
+            },
+            {
+              "id": "g1",
+              "type": "line",
+              "start": [
+                -1.65,
+                -1.65
+              ],
+              "end": [
+                -1.65,
+                1.65
+              ],
+              "color": "muted"
+            },
+            {
+              "id": "g2",
+              "type": "line",
+              "start": [
+                -0.55,
+                -1.65
+              ],
+              "end": [
+                -0.55,
+                1.65
+              ],
+              "color": "muted"
+            },
+            {
+              "id": "g3",
+              "type": "line",
+              "start": [
+                0.55,
+                -1.65
+              ],
+              "end": [
+                0.55,
+                1.65
+              ],
+              "color": "muted"
+            },
+            {
+              "id": "g4",
+              "type": "line",
+              "start": [
+                1.65,
+                -1.65
+              ],
+              "end": [
+                1.65,
+                1.65
+              ],
+              "color": "muted"
+            },
+            {
+              "id": "Ab",
+              "type": "math",
+              "tex": "A_b",
+              "font_size": 28,
+              "color": "gold",
+              "at": [
+                0,
+                -2
+              ]
+            },
+            {
+              "id": "h",
+              "type": "math",
+              "tex": "h",
+              "font_size": 28,
+              "color": "gold",
+              "at": [
+                3.2,
+                0
+              ]
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "rect",
+          "g1",
+          "g2",
+          "g3",
+          "g4",
+          "Ab",
+          "h"
+        ]
+      }
+    }
   }
 }
