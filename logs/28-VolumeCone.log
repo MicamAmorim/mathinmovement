@@ -1,246 +1,0 @@
-Manim Community v0.19.0
-
-[09/11/26 23:25:45] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 0: FadeIn(Text('28  /  CONE')):   0%|          | 0/19 [00:00<?, ?it/s]Animation 0: FadeIn(Text('28  /  CONE')):  89%|########9 | 17/19 [00:00<00:00, 167.90it/s]                                                                                                              INFO     Animation 0 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00000.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 1: Write(Text('Volume do cone')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 1: Write(Text('Volume do cone')):  46%|####5     | 16/35 [00:00<00:00, 154.47it/s]Animation 1: Write(Text('Volume do cone')):  91%|#########1| 32/35 [00:00<00:00, 147.07it/s]                                                                                            [09/11/26 23:25:46] INFO     Animation 1 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00001.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 2: Write(MathTex('V=\\frac13\\pi r^2h')):   0%|          | 0/44 [00:00<?, ?it/s]Animation 2: Write(MathTex('V=\\frac13\\pi r^2h')):  36%|###6      | 16/44 [00:00<00:00, 155.12it/s]Animation 2: Write(MathTex('V=\\frac13\\pi r^2h')):  75%|#######5  | 33/44 [00:00<00:00, 160.13it/s]                                                                                                    [09/11/26 23:25:47] INFO     Animation 2 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00002.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 3 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00003.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 4: FadeIn(Text('Aproxime o cone por pirâmides regulares com\nmais e mais lados.')):   0%|          | 0/15 [00:00<?, ?it/s]Animation 4: FadeIn(Text('Aproxime o cone por pirâmides regulares com\nmais e mais lados.')):  53%|#####3    | 8/15 [00:00<00:00, 79.33it/s]                                                                                                                                            [09/11/26 23:25:48] INFO     Animation 4 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00004.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 5 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00005.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 6: LaggedStart(Group):   0%|          | 0/56 [00:00<?, ?it/s]Animation 6: LaggedStart(Group):  29%|##8       | 16/56 [00:00<00:00, 156.99it/s]Animation 6: LaggedStart(Group):  57%|#####7    | 32/56 [00:00<00:00, 136.97it/s]Animation 6: LaggedStart(Group):  82%|########2 | 46/56 [00:00<00:00, 130.75it/s]                                                                                 [09/11/26 23:25:49] INFO     Animation 6 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00006.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 7: FadeOut(MathTex('V=\\frac13\\pi r^2h')):   0%|          | 0/16 [00:00<?, ?it/s]Animation 7: FadeOut(MathTex('V=\\frac13\\pi r^2h')):  38%|###7      | 6/16 [00:00<00:00, 48.35it/s]Animation 7: FadeOut(MathTex('V=\\frac13\\pi r^2h')):  81%|########1 | 13/16 [00:00<00:00, 56.54it/s]                                                                                                                         INFO     Animation 7 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00007.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 8: FadeOut(Text('Aproxime o cone por pirâmides regulares com\nmais e mais lados.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 8: FadeOut(Text('Aproxime o cone por pirâmides regulares com\nmais e mais lados.')), etc.:  40%|####      | 6/15 [00:00<00:00, 52.39it/s]Animation 8: FadeOut(Text('Aproxime o cone por pirâmides regulares com\nmais e mais lados.')), etc.:  80%|########  | 12/15 [00:00<00:00, 51.94it/s]                                                                                                                                                    [09/11/26 23:25:50] INFO     Animation 8 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00008.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 9 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00009.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 10: Write(MathTex('V_n=\\frac13A_{b,n}h')):   0%|          | 0/33 [00:00<?, ?it/s]Animation 10: Write(MathTex('V_n=\\frac13A_{b,n}h')):  52%|#####1    | 17/33 [00:00<00:00, 161.79it/s]                                                                                                      [09/11/26 23:25:51] INFO     Animation 10 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00010.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 11 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00011.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 12: FadeOut(Text('Toda pirâmide da sequência satisfaz V = A_b h /\n3.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 12: FadeOut(Text('Toda pirâmide da sequência satisfaz V = A_b h /\n3.')), etc.:  40%|####      | 6/15 [00:00<00:00, 55.88it/s]Animation 12: FadeOut(Text('Toda pirâmide da sequência satisfaz V = A_b h /\n3.')), etc.:  80%|########  | 12/15 [00:00<00:00, 55.50it/s]                                                                                                                                         [09/11/26 23:25:52] INFO     Animation 12 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00012.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 13 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00013.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 14: Create(Ellipse):   0%|          | 0/25 [00:00<?, ?it/s]Animation 14: Create(Ellipse):  84%|########4 | 21/25 [00:00<00:00, 207.79it/s]                                                                               [09/11/26 23:25:53] INFO     Animation 14 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00014.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 15: ReplacementTransform(MathTex('V_n=\\frac13A_{b,n}h')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 15: ReplacementTransform(MathTex('V_n=\\frac13A_{b,n}h')):  22%|##1       | 8/37 [00:00<00:00, 79.08it/s]Animation 15: ReplacementTransform(MathTex('V_n=\\frac13A_{b,n}h')):  46%|####5     | 17/37 [00:00<00:00, 79.29it/s]Animation 15: ReplacementTransform(MathTex('V_n=\\frac13A_{b,n}h')):  70%|#######   | 26/37 [00:00<00:00, 80.31it/s]Animation 15: ReplacementTransform(MathTex('V_n=\\frac13A_{b,n}h')):  95%|#########4| 35/37 [00:00<00:00, 79.35it/s]                                                                                                                                        INFO     Animation 15 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00015.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:25:54] INFO     Animation 16 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00016.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 17: FadeOut(Text('Quando n cresce, a base poligonal tende ao\ncírculo.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 17: FadeOut(Text('Quando n cresce, a base poligonal tende ao\ncírculo.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 64.91it/s]Animation 17: FadeOut(Text('Quando n cresce, a base poligonal tende ao\ncírculo.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 64.31it/s]                                                                                                                                                              INFO     Animation 17 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00017.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:25:55] INFO     Animation 18 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00018.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 19: ReplacementTransform(MathTex('A_{b,n}\\longrightarrow \\pi r^2')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 19: ReplacementTransform(MathTex('A_{b,n}\\longrightarrow \\pi r^2')):  24%|##4       | 9/37 [00:00<00:00, 89.14it/s]Animation 19: ReplacementTransform(MathTex('A_{b,n}\\longrightarrow \\pi r^2')):  49%|####8     | 18/37 [00:00<00:00, 89.30it/s]Animation 19: ReplacementTransform(MathTex('A_{b,n}\\longrightarrow \\pi r^2')):  76%|#######5  | 28/37 [00:00<00:00, 90.07it/s]                                                                                                                                [09/11/26 23:25:56] INFO     Animation 19 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00019.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 20 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00020.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 21: Indicate(MathTex('V=\\frac13\\pi r^2h')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 21: Indicate(MathTex('V=\\frac13\\pi r^2h')):  26%|##5       | 9/35 [00:00<00:00, 89.95it/s]Animation 21: Indicate(MathTex('V=\\frac13\\pi r^2h')):  51%|#####1    | 18/35 [00:00<00:00, 88.30it/s]Animation 21: Indicate(MathTex('V=\\frac13\\pi r^2h')):  77%|#######7  | 27/35 [00:00<00:00, 85.89it/s]                                                                                                       [09/11/26 23:25:57] INFO     Animation 21 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00021.mp4'                                       
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 22 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\partial_movie_                         
-                             files\VolumeCone\uncached                         
-                             _00022.mp4'                                       
-                    INFO     Combining to Movie file.  scene_file_writer.py:739
-                    INFO                               scene_file_writer.py:886
-                             File ready at                                     
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\28_volume_co                         
-                             ne\1920p30\VolumeCone.mp4                         
-                             '                                                 
-                                                                               
-                    INFO     Rendered VolumeCone                   scene.py:255
-                             Played 23 animations                              
-You are using manim version v0.19.0, but version v0.21.0 is available.
-You should consider upgrading via pip install -U manim

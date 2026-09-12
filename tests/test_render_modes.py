@@ -11,46 +11,29 @@ class RenderModeTests(unittest.TestCase):
     def setUpClass(cls):
         cls.registry = Registry().rebuild()
 
-    def test_demo_production_now_uses_native_engine(self):
-        record = self.registry.get("area-triangulo")
-        self.assertEqual(record.manifest["render"]["production_engine"], "native")
-        output = render_record(record, dry_run=True)
-        self.assertIn("media", output.parts)
-        self.assertNotIn("media_native", output.parts)
+    def test_production_uses_native_engine_and_media_root(self):
+        for content_id in ("area-triangulo", "ENEM-2021-MT-11"):
+            record = self.registry.get(content_id)
+            self.assertEqual(
+                record.manifest["render"]["production_engine"],
+                "native",
+            )
+            output = render_record(record, dry_run=True)
+            self.assertIn("media", output.parts)
+            self.assertNotIn("media_native", output.parts)
 
-    def test_demo_native_isolated_when_explicitly_requested(self):
-        record = self.registry.get("area-triangulo")
-        output = render_record(record, dry_run=True, render_engine="native")
-        self.assertIn("media_native", output.parts)
+    def test_explicit_native_uses_isolated_media_root(self):
+        for content_id in ("area-triangulo", "ENEM-2021-MT-11"):
+            record = self.registry.get(content_id)
+            output = render_record(
+                record,
+                dry_run=True,
+                render_engine="native",
+            )
+            self.assertIn("media_native", output.parts)
 
-    def test_demo_horizontal_is_available_in_native_production(self):
-        record = self.registry.get("area-triangulo")
-        output = render_record(
-            record,
-            dry_run=True,
-            video_format="horizontal",
-        )
-        self.assertIn("media", output.parts)
-        explicit = render_record(
-            record,
-            dry_run=True,
-            video_format="horizontal",
-            render_engine="native",
-        )
-        self.assertIn("media_native", explicit.parts)
-
-    def test_demo_legacy_reference_remains_available_vertical_only(self):
-        record = self.registry.get("area-triangulo")
-        output = render_record(
-            record,
-            dry_run=True,
-            render_engine="compatibility",
-        )
-        self.assertIn("media_compatibility", output.parts)
-
-    def test_qenem_production_now_uses_native_both_formats(self):
+    def test_qenem_supports_both_approved_formats(self):
         record = self.registry.get("ENEM-2021-MT-11")
-        self.assertEqual(record.manifest["render"]["production_engine"], "native")
         for video_format in ("vertical", "horizontal"):
             output = render_record(
                 record,
@@ -58,17 +41,6 @@ class RenderModeTests(unittest.TestCase):
                 video_format=video_format,
             )
             self.assertIn("media", output.parts)
-
-    def test_qenem_legacy_reference_remains_available(self):
-        record = self.registry.get("ENEM-2021-MT-11")
-        for video_format in ("vertical", "horizontal"):
-            output = render_record(
-                record,
-                dry_run=True,
-                video_format=video_format,
-                render_engine="compatibility",
-            )
-            self.assertIn("media_compatibility", output.parts)
 
 
 if __name__ == "__main__":

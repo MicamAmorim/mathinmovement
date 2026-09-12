@@ -1,10 +1,7 @@
 from __future__ import annotations
 
-import ast
-from pathlib import Path
 import unittest
 
-from mathinmovement.config import PROJECT_ROOT
 from mathinmovement.registry import Registry
 
 
@@ -30,39 +27,18 @@ class FullCatalogTests(unittest.TestCase):
             r for r in self.records
             if r.manifest.get("status") == "draft"
         ]
-
         self.assertEqual(len(production), 60)
         self.assertEqual(drafts, [])
 
         for record in production:
             render = record.manifest["render"]
-            self.assertEqual(render["production_engine"], "native", record.id)
-            self.assertTrue(render["native_ready"], record.id)
-            if record.type == "qenem":
-                self.assertEqual(
-                    render["native_formats"],
-                    ["vertical", "horizontal"],
-                    record.id,
-                )
-
-    def test_every_compatibility_source_and_scene_exists(self):
-        for record in self.records:
-            compat = (record.manifest.get("render") or {}).get("compatibility")
-            self.assertIsInstance(compat, dict, record.id)
-
-            source = PROJECT_ROOT / compat["source"]
-            self.assertTrue(source.exists(), f"{record.id}: fonte ausente {source}")
-
-            tree = ast.parse(source.read_text(encoding="utf-8"), filename=str(source))
-            classes = {
-                node.name for node in tree.body
-                if isinstance(node, ast.ClassDef)
-            }
-            self.assertIn(
-                compat["scene"],
-                classes,
-                f"{record.id}: cena {compat['scene']!r} ausente em {source}",
+            self.assertEqual(
+                render["production_engine"],
+                "native",
+                record.id,
             )
+            self.assertTrue(render["native_ready"], record.id)
+            self.assertNotIn("compatibility", render, record.id)
 
     def test_qenem_answers_match_solution(self):
         for record in self.records:

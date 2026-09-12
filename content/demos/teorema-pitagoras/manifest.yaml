@@ -49,14 +49,6 @@
     "default_format": "vertical",
     "native_engine": "unified-v2",
     "native_ready": true,
-    "compatibility": {
-      "source": "videos/12_teorema_pitagoras.py",
-      "scene": "TeoremaPitagoras",
-      "cwd": ".",
-      "formats": [
-        "vertical"
-      ]
-    },
     "native_formats": [
       "vertical"
     ],

@@ -42,14 +42,6 @@
     "default_format": "vertical",
     "native_engine": "unified-v2",
     "native_ready": true,
-    "compatibility": {
-      "source": "videos/11_area_coroa_circular.py",
-      "scene": "AreaCoroaCircular",
-      "cwd": ".",
-      "formats": [
-        "vertical"
-      ]
-    },
     "native_formats": [
       "vertical"
     ],

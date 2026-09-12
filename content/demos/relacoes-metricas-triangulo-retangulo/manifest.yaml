@@ -65,14 +65,6 @@
     "default_format": "vertical",
     "native_engine": "unified-v2",
     "native_ready": true,
-    "compatibility": {
-      "source": "videos/13_relacoes_metricas_triangulo_retangulo.py",
-      "scene": "RelacoesMetricasTrianguloRetangulo",
-      "cwd": ".",
-      "formats": [
-        "vertical"
-      ]
-    },
     "native_formats": [
       "vertical"
     ],

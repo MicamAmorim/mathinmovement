@@ -1,406 +1,0 @@
-Manim Community v0.19.0
-
-[09/11/26 23:22:10] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 0: FadeIn(Text('18  /  SEMELHANÇA')):   0%|          | 0/19 [00:00<?, ?it/s]Animation 0: FadeIn(Text('18  /  SEMELHANÇA')):  84%|########4 | 16/19 [00:00<00:00, 158.82it/s]                                                                                                [09/11/26 23:22:11] INFO     Animation 0 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00000                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 1: Write(Text('Escalas: comprimentos, áreas e volumes')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 1: Write(Text('Escalas: comprimentos, áreas e volumes')):  34%|###4      | 12/35 [00:00<00:00, 112.99it/s]Animation 1: Write(Text('Escalas: comprimentos, áreas e volumes')):  69%|######8   | 24/35 [00:00<00:00, 97.99it/s] Animation 1: Write(Text('Escalas: comprimentos, áreas e volumes')):  97%|#########7| 34/35 [00:00<00:00, 90.44it/s]                                                                                                                                       INFO     Animation 1 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00001                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 2: Write(MathTex('L\\to kL,\\ A\\to k^2A,\\ V\\to k^3V')):   0%|          | 0/44 [00:00<?, ?it/s]Animation 2: Write(MathTex('L\\to kL,\\ A\\to k^2A,\\ V\\to k^3V')):  36%|###6      | 16/44 [00:00<00:00, 148.54it/s]Animation 2: Write(MathTex('L\\to kL,\\ A\\to k^2A,\\ V\\to k^3V')):  70%|#######   | 31/44 [00:00<00:00, 136.77it/s]                                                                                                                     [09/11/26 23:22:12] INFO     Animation 2 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00002                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:22:13] INFO     Animation 3 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00003                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 4: FadeIn(Text('Se todos os comprimentos dobram, k = 2.')):   0%|          | 0/15 [00:00<?, ?it/s]Animation 4: FadeIn(Text('Se todos os comprimentos dobram, k = 2.')):  67%|######6   | 10/15 [00:00<00:00, 94.19it/s]                                                                                                                                         INFO     Animation 4 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00004                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 5 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00005                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 6: Create(Square):   0%|          | 0/28 [00:00<?, ?it/s]Animation 6: Create(Square):  75%|#######5  | 21/28 [00:00<00:00, 207.76it/s]                                                                             [09/11/26 23:22:14] INFO     Animation 6 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00006                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 7: TransformFromCopy(Square):   0%|          | 0/38 [00:00<?, ?it/s]Animation 7: TransformFromCopy(Square):  53%|#####2    | 20/38 [00:00<00:00, 189.57it/s]                                                                                        [09/11/26 23:22:15] INFO     Animation 7 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00007                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 8: Write(VGroup of 2 submobjects):   0%|          | 0/21 [00:00<?, ?it/s]Animation 8: Write(VGroup of 2 submobjects):  90%|######### | 19/21 [00:00<00:00, 186.06it/s]                                                                                                                 INFO     Animation 8 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00008                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 9: FadeOut(MathTex('L\\to kL,\\ A\\to k^2A,\\ V\\to k^3V')):   0%|          | 0/16 [00:00<?, ?it/s]Animation 9: FadeOut(MathTex('L\\to kL,\\ A\\to k^2A,\\ V\\to k^3V')):  50%|#####     | 8/16 [00:00<00:00, 72.22it/s]Animation 9: FadeOut(MathTex('L\\to kL,\\ A\\to k^2A,\\ V\\to k^3V')): 100%|##########| 16/16 [00:00<00:00, 70.30it/s]                                                                                                                                          INFO     Animation 9 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00009                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 10: FadeOut(Text('Se todos os comprimentos dobram, k = 2.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 10: FadeOut(Text('Se todos os comprimentos dobram, k = 2.')), etc.:  53%|#####3    | 8/15 [00:00<00:00, 69.38it/s]Animation 10: FadeOut(Text('Se todos os comprimentos dobram, k = 2.')), etc.: 100%|##########| 15/15 [00:00<00:00, 68.63it/s]                                                                                                                             [09/11/26 23:22:16] INFO     Animation 10 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00010                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 11 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00011                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 12: Create(VGroup of 2 submobjects):   0%|          | 0/25 [00:00<?, ?it/s]Animation 12: Create(VGroup of 2 submobjects):  88%|########8 | 22/25 [00:00<00:00, 216.25it/s]                                                                                               [09/11/26 23:22:17] INFO     Animation 12 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00012                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 13: Write(MathTex("A'=(2L)^2=4L^2=2^2A")):   0%|          | 0/33 [00:00<?, ?it/s]Animation 13: Write(MathTex("A'=(2L)^2=4L^2=2^2A")):  45%|####5     | 15/33 [00:00<00:00, 143.72it/s]Animation 13: Write(MathTex("A'=(2L)^2=4L^2=2^2A")):  91%|######### | 30/33 [00:00<00:00, 140.10it/s]                                                                                                                         INFO     Animation 13 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00013                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:22:18] INFO     Animation 14 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00014                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 15: FadeOut(Text('A área recebe o fator duas vezes.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 15: FadeOut(Text('A área recebe o fator duas vezes.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 61.82it/s]Animation 15: FadeOut(Text('A área recebe o fator duas vezes.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 60.82it/s]                                                                                                                                           INFO     Animation 15 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00015                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:22:19] INFO     Animation 16 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00016                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 17: FadeOut(Square), etc.:   0%|          | 0/28 [00:00<?, ?it/s]Animation 17: FadeOut(Square), etc.:  29%|##8       | 8/28 [00:00<00:00, 72.48it/s]Animation 17: FadeOut(Square), etc.:  57%|#####7    | 16/28 [00:00<00:00, 73.91it/s]Animation 17: FadeOut(Square), etc.:  86%|########5 | 24/28 [00:00<00:00, 74.90it/s]                                                                                                        INFO     Animation 17 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00017                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 18: FadeOut(VGroup of 2 submobjects), etc.:   0%|          | 0/35 [00:00<?, ?it/s]Animation 18: FadeOut(VGroup of 2 submobjects), etc.:  23%|##2       | 8/35 [00:00<00:00, 75.99it/s]Animation 18: FadeOut(VGroup of 2 submobjects), etc.:  46%|####5     | 16/35 [00:00<00:00, 76.45it/s]Animation 18: FadeOut(VGroup of 2 submobjects), etc.:  69%|######8   | 24/35 [00:00<00:00, 76.64it/s]Animation 18: FadeOut(VGroup of 2 submobjects), etc.:  91%|#########1| 32/35 [00:00<00:00, 77.54it/s]                                                                                                     [09/11/26 23:22:20] INFO     Animation 18 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00018                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 19: FadeOut(Text('No volume, o fator aparece em três dimensões.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 19: FadeOut(Text('No volume, o fator aparece em três dimensões.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 63.16it/s]Animation 19: FadeOut(Text('No volume, o fator aparece em três dimensões.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 60.38it/s]                                                                                                                                                       INFO     Animation 19 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00019                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:22:21] INFO     Animation 20 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00020                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 21: LaggedStart(Group):   0%|          | 0/138 [00:00<?, ?it/s]Animation 21: LaggedStart(Group):  12%|#1        | 16/138 [00:00<00:00, 155.65it/s]Animation 21: LaggedStart(Group):  23%|##3       | 32/138 [00:00<00:00, 156.87it/s]Animation 21: LaggedStart(Group):  35%|###4      | 48/138 [00:00<00:00, 155.02it/s]Animation 21: LaggedStart(Group):  46%|####6     | 64/138 [00:00<00:00, 152.22it/s]Animation 21: LaggedStart(Group):  58%|#####7    | 80/138 [00:00<00:00, 148.74it/s]Animation 21: LaggedStart(Group):  69%|######8   | 95/138 [00:00<00:00, 145.49it/s]Animation 21: LaggedStart(Group):  80%|#######9  | 110/138 [00:00<00:00, 139.12it/s]Animation 21: LaggedStart(Group):  90%|########9 | 124/138 [00:00<00:00, 134.59it/s]Animation 21: LaggedStart(Group): 100%|##########| 138/138 [00:00<00:00, 126.07it/s]                                                                                    [09/11/26 23:22:23] INFO     Animation 21 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00021                         
-                             .mp4'                                             
-                    INFO     Writing                    tex_file_writing.py:111
-                             V'=2\cdot2\cdot2\,V=8V to                         
-                             media\Tex\b67cb3b1dad2ae11                        
-                             .tex                                              
-[09/11/26 23:22:24] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 22: ReplacementTransform(MathTex("A'=(2L)^2=4L^2=2^2A")):   0%|          | 0/37 [00:00<?, ?it/s]Animation 22: ReplacementTransform(MathTex("A'=(2L)^2=4L^2=2^2A")):  19%|#8        | 7/37 [00:00<00:00, 69.64it/s]Animation 22: ReplacementTransform(MathTex("A'=(2L)^2=4L^2=2^2A")):  38%|###7      | 14/37 [00:00<00:00, 66.53it/s]Animation 22: ReplacementTransform(MathTex("A'=(2L)^2=4L^2=2^2A")):  57%|#####6    | 21/37 [00:00<00:00, 67.15it/s]Animation 22: ReplacementTransform(MathTex("A'=(2L)^2=4L^2=2^2A")):  76%|#######5  | 28/37 [00:00<00:00, 67.82it/s]Animation 22: ReplacementTransform(MathTex("A'=(2L)^2=4L^2=2^2A")):  95%|#########4| 35/37 [00:00<00:00, 67.30it/s]                                                                                                                                       INFO     Animation 22 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00022                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:22:25] INFO     Animation 23 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00023                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 24: ReplacementTransform(MathTex("V'=2\\cdot2\\cdot2\\,V=8V")):   0%|          | 0/37 [00:00<?, ?it/s]Animation 24: ReplacementTransform(MathTex("V'=2\\cdot2\\cdot2\\,V=8V")):  22%|##1       | 8/37 [00:00<00:00, 71.76it/s]Animation 24: ReplacementTransform(MathTex("V'=2\\cdot2\\cdot2\\,V=8V")):  43%|####3     | 16/37 [00:00<00:00, 70.57it/s]Animation 24: ReplacementTransform(MathTex("V'=2\\cdot2\\cdot2\\,V=8V")):  65%|######4   | 24/37 [00:00<00:00, 70.03it/s]Animation 24: ReplacementTransform(MathTex("V'=2\\cdot2\\cdot2\\,V=8V")):  86%|########6 | 32/37 [00:00<00:00, 69.79it/s]                                                                                                                         [09/11/26 23:22:26] INFO     Animation 24 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00024                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 25 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00025                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 26: FadeOut(Text('Duas unidades em cada direção: 2 × 2 × 2\ncubinhos.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 26: FadeOut(Text('Duas unidades em cada direção: 2 × 2 × 2\ncubinhos.')), etc.:  40%|####      | 6/15 [00:00<00:00, 56.44it/s]Animation 26: FadeOut(Text('Duas unidades em cada direção: 2 × 2 × 2\ncubinhos.')), etc.:  80%|########  | 12/15 [00:00<00:00, 55.59it/s]                                                                                                                                         [09/11/26 23:22:27] INFO     Animation 26 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00026                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 27 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00027                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 28: ReplacementTransform(MathTex("V'=(kL)^3=k^3V")):   0%|          | 0/37 [00:00<?, ?it/s]Animation 28: ReplacementTransform(MathTex("V'=(kL)^3=k^3V")):  22%|##1       | 8/37 [00:00<00:00, 72.18it/s]Animation 28: ReplacementTransform(MathTex("V'=(kL)^3=k^3V")):  43%|####3     | 16/37 [00:00<00:00, 72.24it/s]Animation 28: ReplacementTransform(MathTex("V'=(kL)^3=k^3V")):  65%|######4   | 24/37 [00:00<00:00, 70.92it/s]Animation 28: ReplacementTransform(MathTex("V'=(kL)^3=k^3V")):  86%|########6 | 32/37 [00:00<00:00, 71.33it/s]                                                                                                              [09/11/26 23:22:28] INFO     Animation 28 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00028                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 29 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00029                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 30: Indicate(MathTex('L:k\\qquad A:k^2\\qquad V:k^3')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 30: Indicate(MathTex('L:k\\qquad A:k^2\\qquad V:k^3')):  23%|##2       | 8/35 [00:00<00:00, 73.52it/s]Animation 30: Indicate(MathTex('L:k\\qquad A:k^2\\qquad V:k^3')):  46%|####5     | 16/35 [00:00<00:00, 74.67it/s]Animation 30: Indicate(MathTex('L:k\\qquad A:k^2\\qquad V:k^3')):  69%|######8   | 24/35 [00:00<00:00, 74.81it/s]Animation 30: Indicate(MathTex('L:k\\qquad A:k^2\\qquad V:k^3')):  91%|#########1| 32/35 [00:00<00:00, 74.36it/s]                                                                                                                 [09/11/26 23:22:29] INFO     Animation 30 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00030                         
-                             .mp4'                                             
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 31 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\partial_movie_fi                         
-                             les\EscalasComprimentosAr                         
-                             easVolumes\uncached_00031                         
-                             .mp4'                                             
-                    INFO     Combining to Movie file.  scene_file_writer.py:739
-[09/11/26 23:22:30] INFO                               scene_file_writer.py:886
-                             File ready at                                     
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\18_escalas_c                         
-                             omprimentos_areas_volumes                         
-                             \1920p30\EscalasComprimen                         
-                             tosAreasVolumes.mp4'                              
-                                                                               
-                    INFO     Rendered                              scene.py:255
-                             EscalasComprimentosAreasVolumes                   
-                             Played 32 animations                              
-You are using manim version v0.19.0, but version v0.21.0 is available.
-You should consider upgrading via pip install -U manim

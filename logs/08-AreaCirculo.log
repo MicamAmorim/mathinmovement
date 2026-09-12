@@ -1,414 +1,0 @@
-Manim Community v0.19.0
-
-[09/11/26 23:18:40] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 0: FadeIn(Text('08  /  CÍRCULO')):   0%|          | 0/19 [00:00<?, ?it/s]Animation 0: FadeIn(Text('08  /  CÍRCULO')):  84%|########4 | 16/19 [00:00<00:00, 156.11it/s]                                                                                             [09/11/26 23:18:41] INFO     Animation 0 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00000.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 1: Write(Text('Área do círculo')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 1: Write(Text('Área do círculo')):  46%|####5     | 16/35 [00:00<00:00, 159.29it/s]Animation 1: Write(Text('Área do círculo')):  91%|#########1| 32/35 [00:00<00:00, 143.78it/s]                                                                                                                 INFO     Animation 1 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00001.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 2: Write(MathTex('A=\\pi r^2')):   0%|          | 0/44 [00:00<?, ?it/s]Animation 2: Write(MathTex('A=\\pi r^2')):  43%|####3     | 19/44 [00:00<00:00, 185.94it/s]Animation 2: Write(MathTex('A=\\pi r^2')):  86%|########6 | 38/44 [00:00<00:00, 163.17it/s]                                                                                           [09/11/26 23:18:42] INFO     Animation 2 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00002.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 3 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00003.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 4: FadeOut(MathTex('A=\\pi r^2')):   0%|          | 0/16 [00:00<?, ?it/s]Animation 4: FadeOut(MathTex('A=\\pi r^2')):  88%|########7 | 14/16 [00:00<00:00, 136.73it/s]                                                                                             [09/11/26 23:18:43] INFO     Animation 4 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00004.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 5: FadeIn(Text('Divida o círculo em 8 setores iguais.')):   0%|          | 0/15 [00:00<?, ?it/s]Animation 5: FadeIn(Text('Divida o círculo em 8 setores iguais.')):  60%|######    | 9/15 [00:00<00:00, 87.83it/s]                                                                                                                                      INFO     Animation 5 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00005.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 6 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00006.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 7: LaggedStart(Group):   0%|          | 0/69 [00:00<?, ?it/s]Animation 7: LaggedStart(Group):  26%|##6       | 18/69 [00:00<00:00, 179.55it/s]Animation 7: LaggedStart(Group):  54%|#####3    | 37/69 [00:00<00:00, 183.62it/s]Animation 7: LaggedStart(Group):  81%|########1 | 56/69 [00:00<00:00, 165.72it/s]                                                                                 [09/11/26 23:18:44] INFO     Animation 7 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00007.mp4'                                     
-[09/11/26 23:18:45] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 8: FadeOut(Text('Divida o círculo em 8 setores iguais.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 8: FadeOut(Text('Divida o círculo em 8 setores iguais.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 61.67it/s]Animation 8: FadeOut(Text('Divida o círculo em 8 setores iguais.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 61.48it/s]                                                                                                                                              INFO     Animation 8 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00008.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 9 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00009.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 10: UpdateFromAlphaFunc(Sector), etc.:   0%|          | 0/173 [00:00<?, ?it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:   5%|4         | 8/173 [00:00<00:02, 75.18it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:   9%|9         | 16/173 [00:00<00:02, 72.22it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  14%|#3        | 24/173 [00:00<00:02, 71.46it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  18%|#8        | 32/173 [00:00<00:01, 72.88it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  23%|##3       | 40/173 [00:00<00:01, 73.70it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  28%|##7       | 48/173 [00:00<00:01, 71.57it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  32%|###2      | 56/173 [00:00<00:01, 67.88it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  36%|###6      | 63/173 [00:00<00:01, 65.04it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  40%|####      | 70/173 [00:01<00:01, 63.55it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  45%|####4     | 77/173 [00:01<00:01, 63.06it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  49%|####8     | 84/173 [00:01<00:01, 63.95it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  53%|#####2    | 91/173 [00:01<00:01, 63.97it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  57%|#####6    | 98/173 [00:01<00:01, 64.24it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  61%|######    | 105/173 [00:01<00:01, 62.76it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  65%|######4   | 112/173 [00:01<00:00, 62.27it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  69%|######8   | 119/173 [00:01<00:00, 61.89it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  73%|#######2  | 126/173 [00:01<00:00, 62.49it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  77%|#######6  | 133/173 [00:02<00:00, 62.69it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  81%|########  | 140/173 [00:02<00:00, 62.42it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  85%|########4 | 147/173 [00:02<00:00, 61.68it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  89%|########9 | 154/173 [00:02<00:00, 62.79it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  93%|#########3| 161/173 [00:02<00:00, 63.02it/s]Animation 10: UpdateFromAlphaFunc(Sector), etc.:  97%|#########7| 168/173 [00:02<00:00, 63.01it/s]                                                                                                  [09/11/26 23:18:48] INFO     Animation 10 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00010.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 11: FadeOut(Text('Gire e alterne as peças, sem deformá-las.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 11: FadeOut(Text('Gire e alterne as peças, sem deformá-las.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 64.08it/s]Animation 11: FadeOut(Text('Gire e alterne as peças, sem deformá-las.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 62.58it/s]                                                                                                                               [09/11/26 23:18:49] INFO     Animation 11 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00011.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 12 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00012.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 13: FadeOut(VGroup of 8 submobjects):   0%|          | 0/35 [00:00<?, ?it/s]Animation 13: FadeOut(VGroup of 8 submobjects):  40%|####      | 14/35 [00:00<00:00, 138.67it/s]Animation 13: FadeOut(VGroup of 8 submobjects):  80%|########  | 28/35 [00:00<00:00, 136.15it/s]                                                                                                [09/11/26 23:18:50] INFO     Animation 13 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00013.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 14: FadeOut(Text('As bordas curvas ficam cada vez mais planas.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 14: FadeOut(Text('As bordas curvas ficam cada vez mais planas.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 64.50it/s]Animation 14: FadeOut(Text('As bordas curvas ficam cada vez mais planas.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 64.81it/s]                                                                                                                                                      INFO     Animation 14 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00014.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:18:51] INFO     Animation 15 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00015.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 16: LaggedStart(Group):   0%|          | 0/69 [00:00<?, ?it/s]Animation 16: LaggedStart(Group):  28%|##7       | 19/69 [00:00<00:00, 185.82it/s]Animation 16: LaggedStart(Group):  55%|#####5    | 38/69 [00:00<00:00, 166.60it/s]Animation 16: LaggedStart(Group):  80%|#######9  | 55/69 [00:00<00:00, 140.79it/s]                                                                                  [09/11/26 23:18:52] INFO     Animation 16 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00016.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 17: FadeOut(Text('Divida o círculo em 16 setores iguais.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 17: FadeOut(Text('Divida o círculo em 16 setores iguais.')), etc.:  40%|####      | 6/15 [00:00<00:00, 53.01it/s]Animation 17: FadeOut(Text('Divida o círculo em 16 setores iguais.')), etc.:  80%|########  | 12/15 [00:00<00:00, 52.08it/s]                                                                                                                            [09/11/26 23:18:53] INFO     Animation 17 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00017.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 18 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00018.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 19: UpdateFromAlphaFunc(Sector), etc.:   0%|          | 0/173 [00:00<?, ?it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:   4%|4         | 7/173 [00:00<00:02, 63.33it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:   8%|8         | 14/173 [00:00<00:02, 59.96it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  12%|#2        | 21/173 [00:00<00:02, 60.55it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  16%|#6        | 28/173 [00:00<00:02, 60.69it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  20%|##        | 35/173 [00:00<00:02, 61.13it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  24%|##4       | 42/173 [00:00<00:02, 60.14it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  28%|##8       | 49/173 [00:00<00:02, 56.95it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  32%|###1      | 55/173 [00:00<00:02, 54.68it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  35%|###5      | 61/173 [00:01<00:02, 54.63it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  39%|###8      | 67/173 [00:01<00:01, 54.49it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  42%|####2     | 73/173 [00:01<00:01, 54.34it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  46%|####5     | 79/173 [00:01<00:01, 54.51it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  49%|####9     | 85/173 [00:01<00:01, 54.20it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  53%|#####2    | 91/173 [00:01<00:01, 54.46it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  56%|#####6    | 97/173 [00:01<00:01, 54.55it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  60%|#####9    | 103/173 [00:01<00:01, 54.93it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  63%|######3   | 109/173 [00:01<00:01, 54.94it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  66%|######6   | 115/173 [00:02<00:01, 55.64it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  70%|######9   | 121/173 [00:02<00:00, 55.22it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  73%|#######3  | 127/173 [00:02<00:00, 55.02it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  77%|#######6  | 133/173 [00:02<00:00, 54.53it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  80%|########  | 139/173 [00:02<00:00, 54.05it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  84%|########3 | 145/173 [00:02<00:00, 53.98it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  87%|########7 | 151/173 [00:02<00:00, 54.61it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  91%|######### | 157/173 [00:02<00:00, 54.70it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  94%|#########4| 163/173 [00:02<00:00, 53.82it/s]Animation 19: UpdateFromAlphaFunc(Sector), etc.:  98%|#########7| 169/173 [00:03<00:00, 48.85it/s]                                                                                                  [09/11/26 23:18:56] INFO     Animation 19 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00019.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 20: FadeOut(Text('Gire e alterne as peças, sem deformá-las.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 20: FadeOut(Text('Gire e alterne as peças, sem deformá-las.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 62.60it/s]Animation 20: FadeOut(Text('Gire e alterne as peças, sem deformá-las.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 61.80it/s]                                                                                                                               [09/11/26 23:18:57] INFO     Animation 20 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00020.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 21 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00021.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 22: FadeOut(VGroup of 16 submobjects):   0%|          | 0/35 [00:00<?, ?it/s]Animation 22: FadeOut(VGroup of 16 submobjects):  29%|##8       | 10/35 [00:00<00:00, 96.14it/s]Animation 22: FadeOut(VGroup of 16 submobjects):  60%|######    | 21/35 [00:00<00:00, 99.42it/s]Animation 22: FadeOut(VGroup of 16 submobjects):  91%|#########1| 32/35 [00:00<00:00, 100.44it/s]                                                                                                 [09/11/26 23:18:58] INFO     Animation 22 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00022.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 23: FadeOut(Text('As bordas curvas ficam cada vez mais planas.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 23: FadeOut(Text('As bordas curvas ficam cada vez mais planas.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 65.36it/s]Animation 23: FadeOut(Text('As bordas curvas ficam cada vez mais planas.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 64.40it/s]                                                                                                                                  [09/11/26 23:18:59] INFO     Animation 23 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00023.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 24 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00024.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 25: LaggedStart(Group):   0%|          | 0/69 [00:00<?, ?it/s]Animation 25: LaggedStart(Group):  25%|##4       | 17/69 [00:00<00:00, 165.49it/s]Animation 25: LaggedStart(Group):  49%|####9     | 34/69 [00:00<00:00, 142.49it/s]Animation 25: LaggedStart(Group):  71%|#######1  | 49/69 [00:00<00:00, 108.76it/s]Animation 25: LaggedStart(Group):  88%|########8 | 61/69 [00:00<00:00, 98.02it/s]                                                                                  [09/11/26 23:19:00] INFO     Animation 25 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00025.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 26: FadeOut(Text('Divida o círculo em 32 setores iguais.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 26: FadeOut(Text('Divida o círculo em 32 setores iguais.')), etc.:  40%|####      | 6/15 [00:00<00:00, 50.27it/s]Animation 26: FadeOut(Text('Divida o círculo em 32 setores iguais.')), etc.:  80%|########  | 12/15 [00:00<00:00, 49.66it/s]                                                                                                                            [09/11/26 23:19:01] INFO     Animation 26 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00026.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 27 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00027.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 28: UpdateFromAlphaFunc(Sector), etc.:   0%|          | 0/173 [00:00<?, ?it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:   3%|2         | 5/173 [00:00<00:03, 47.81it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:   6%|5         | 10/173 [00:00<00:03, 46.51it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:   9%|8         | 15/173 [00:00<00:03, 44.81it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  12%|#1        | 20/173 [00:00<00:03, 45.37it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  14%|#4        | 25/173 [00:00<00:03, 45.85it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  17%|#7        | 30/173 [00:00<00:03, 45.84it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  20%|##        | 35/173 [00:00<00:03, 45.56it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  23%|##3       | 40/173 [00:00<00:02, 45.43it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  26%|##6       | 45/173 [00:01<00:02, 43.58it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  29%|##8       | 50/173 [00:01<00:03, 40.93it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  32%|###1      | 55/173 [00:01<00:02, 41.12it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  35%|###4      | 60/173 [00:01<00:02, 41.49it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  38%|###7      | 65/173 [00:01<00:02, 41.42it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  40%|####      | 70/173 [00:01<00:02, 41.62it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  43%|####3     | 75/173 [00:01<00:02, 41.86it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  46%|####6     | 80/173 [00:01<00:02, 41.68it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  49%|####9     | 85/173 [00:01<00:02, 41.79it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  52%|#####2    | 90/173 [00:02<00:01, 42.13it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  55%|#####4    | 95/173 [00:02<00:01, 42.52it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  58%|#####7    | 100/173 [00:02<00:01, 41.70it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  61%|######    | 105/173 [00:02<00:01, 42.00it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  64%|######3   | 110/173 [00:02<00:01, 41.83it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  66%|######6   | 115/173 [00:02<00:01, 41.94it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  69%|######9   | 120/173 [00:02<00:01, 41.80it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  72%|#######2  | 125/173 [00:02<00:01, 41.87it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  75%|#######5  | 130/173 [00:03<00:01, 42.03it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  78%|#######8  | 135/173 [00:03<00:00, 42.07it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  81%|########  | 140/173 [00:03<00:00, 41.91it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  84%|########3 | 145/173 [00:03<00:00, 42.06it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  87%|########6 | 150/173 [00:03<00:00, 42.16it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  90%|########9 | 155/173 [00:03<00:00, 42.72it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  92%|#########2| 160/173 [00:03<00:00, 42.78it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  95%|#########5| 165/173 [00:03<00:00, 42.19it/s]Animation 28: UpdateFromAlphaFunc(Sector), etc.:  98%|#########8| 170/173 [00:03<00:00, 42.63it/s]                                                                                                  [09/11/26 23:19:06] INFO     Animation 28 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00028.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 29: FadeOut(Text('Gire e alterne as peças, sem deformá-las.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 29: FadeOut(Text('Gire e alterne as peças, sem deformá-las.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 63.53it/s]Animation 29: FadeOut(Text('Gire e alterne as peças, sem deformá-las.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 62.60it/s]                                                                                                                                                   INFO     Animation 29 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00029.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:19:07] INFO     Animation 30 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00030.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 31: FadeOut(Text('As bordas curvas ficam cada vez mais planas.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 31: FadeOut(Text('As bordas curvas ficam cada vez mais planas.')), etc.:  40%|####      | 6/15 [00:00<00:00, 56.67it/s]Animation 31: FadeOut(Text('As bordas curvas ficam cada vez mais planas.')), etc.:  80%|########  | 12/15 [00:00<00:00, 57.81it/s]                                                                                                                                                      INFO     Animation 31 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00031.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:19:08] INFO     Animation 32 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00032.mp4'                                     
-                    INFO     Writing b\to C/2=\pi       tex_file_writing.py:111
-                             r,\quad h\to r to                                 
-                             media\Tex\a7b81e25ab270788                        
-                             .tex                                              
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 33: Write(MathTex('b\\to C/2=\\pi r,\\quad h\\to r')):   0%|          | 0/33 [00:00<?, ?it/s]Animation 33: Write(MathTex('b\\to C/2=\\pi r,\\quad h\\to r')):  48%|####8     | 16/33 [00:00<00:00, 155.57it/s]Animation 33: Write(MathTex('b\\to C/2=\\pi r,\\quad h\\to r')):  97%|#########6| 32/33 [00:00<00:00, 151.15it/s]                                                                                                                 [09/11/26 23:19:09] INFO     Animation 33 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00033.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 34 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00034.mp4'                                     
-                    INFO     Writing A=(\pi r)r=\pi r^2 tex_file_writing.py:111
-                             to                                                
-                             media\Tex\45feaf575e74a97a                        
-                             .tex                                              
-[09/11/26 23:19:10] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 35: ReplacementTransform(MathTex('b\\to C/2=\\pi r,\\quad h\\to r')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 35: ReplacementTransform(MathTex('b\\to C/2=\\pi r,\\quad h\\to r')):  41%|####      | 15/37 [00:00<00:00, 144.44it/s]Animation 35: ReplacementTransform(MathTex('b\\to C/2=\\pi r,\\quad h\\to r')):  81%|########1 | 30/37 [00:00<00:00, 137.18it/s]                                                                                                                                [09/11/26 23:19:11] INFO     Animation 35 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00035.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 36 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00036.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 37: Indicate(MathTex('A=(\\pi r)r=\\pi r^2')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 37: Indicate(MathTex('A=(\\pi r)r=\\pi r^2')):  46%|####5     | 16/35 [00:00<00:00, 158.75it/s]Animation 37: Indicate(MathTex('A=(\\pi r)r=\\pi r^2')):  91%|#########1| 32/35 [00:00<00:00, 155.11it/s]                                                                                                         [09/11/26 23:19:12] INFO     Animation 37 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00037.mp4'                                     
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 38 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\partial_movie                         
-                             _files\AreaCirculo\uncach                         
-                             ed_00038.mp4'                                     
-                    INFO     Combining to Movie file.  scene_file_writer.py:739
-                    INFO                               scene_file_writer.py:886
-                             File ready at                                     
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\08_area_circ                         
-                             ulo\1920p30\AreaCirculo.m                         
-                             p4'                                               
-                                                                               
-                    INFO     Rendered AreaCirculo                  scene.py:255
-                             Played 39 animations                              
-You are using manim version v0.19.0, but version v0.21.0 is available.
-You should consider upgrading via pip install -U manim

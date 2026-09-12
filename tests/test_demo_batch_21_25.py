@@ -30,23 +30,23 @@ class DemoBatch2125PromotedTests(unittest.TestCase):
             self.assertEqual(render["native_formats"], ["vertical"])
             self.assertEqual(render["native_renderer"], renderer)
 
-    def test_batch_supports_native_and_legacy_dry_runs(self):
+    def test_batch_supports_production_and_explicit_native_dry_runs(self):
         for content_id in CANDIDATES:
             record = self.registry.get(content_id)
+            production = render_record(
+                record,
+                dry_run=True,
+                render_engine="production",
+                video_format="vertical",
+            )
             native = render_record(
                 record,
                 dry_run=True,
                 render_engine="native",
                 video_format="vertical",
             )
-            legacy = render_record(
-                record,
-                dry_run=True,
-                render_engine="compatibility",
-                video_format="vertical",
-            )
+            self.assertIn("media", production.parts)
             self.assertIn("media_native", native.parts)
-            self.assertIn("media_compatibility", legacy.parts)
 
 
 if __name__ == "__main__":

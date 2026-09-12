@@ -88,15 +88,6 @@
     "default_format": "vertical",
     "native_engine": "unified-v2",
     "native_ready": true,
-    "compatibility": {
-      "source": "enem/videos/30_2025_q143_ciclovia.py",
-      "scene": "Resolucao30",
-      "cwd": "enem",
-      "formats": [
-        "vertical",
-        "horizontal"
-      ]
-    },
     "native_formats": [
       "vertical",
       "horizontal"

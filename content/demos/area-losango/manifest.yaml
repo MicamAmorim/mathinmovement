@@ -48,14 +48,6 @@
     "default_format": "vertical",
     "native_engine": "unified-v2",
     "native_ready": true,
-    "compatibility": {
-      "source": "videos/04_area_losango.py",
-      "scene": "AreaLosango",
-      "cwd": ".",
-      "formats": [
-        "vertical"
-      ]
-    },
     "native_formats": [
       "vertical"
     ],

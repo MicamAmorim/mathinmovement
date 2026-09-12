@@ -83,15 +83,6 @@
     "default_format": "vertical",
     "native_engine": "unified-v2",
     "native_ready": true,
-    "compatibility": {
-      "source": "enem/videos/13_2022_q169_cilindro_em_esferas.py",
-      "scene": "Resolucao13",
-      "cwd": "enem",
-      "formats": [
-        "vertical",
-        "horizontal"
-      ]
-    },
     "native_formats": [
       "vertical",
       "horizontal"

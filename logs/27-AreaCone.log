@@ -1,297 +1,0 @@
-Manim Community v0.19.0
-
-[09/11/26 23:25:26] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 0: FadeIn(Text('27  /  CONE')):   0%|          | 0/19 [00:00<?, ?it/s]Animation 0: FadeIn(Text('27  /  CONE')):  89%|########9 | 17/19 [00:00<00:00, 169.32it/s]                                                                                                              INFO     Animation 0 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             00.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 1: Write(Text('Área do cone')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 1: Write(Text('Área do cone')):  43%|####2     | 15/35 [00:00<00:00, 148.89it/s]Animation 1: Write(Text('Área do cone')):  86%|########5 | 30/35 [00:00<00:00, 144.09it/s]                                                                                          [09/11/26 23:25:27] INFO     Animation 1 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             01.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 2: Write(MathTex('A_T=\\pi rg+\\pi r^2')):   0%|          | 0/44 [00:00<?, ?it/s]Animation 2: Write(MathTex('A_T=\\pi rg+\\pi r^2')):  36%|###6      | 16/44 [00:00<00:00, 153.41it/s]Animation 2: Write(MathTex('A_T=\\pi rg+\\pi r^2')):  73%|#######2  | 32/44 [00:00<00:00, 154.39it/s]                                                                                                     [09/11/26 23:25:28] INFO     Animation 2 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             02.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 3 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             03.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 4: FadeIn(Text('Ao abrir a lateral, surge um setor circular de\nraio g.')):   0%|          | 0/15 [00:00<?, ?it/s]Animation 4: FadeIn(Text('Ao abrir a lateral, surge um setor circular de\nraio g.')):  60%|######    | 9/15 [00:00<00:00, 86.71it/s]                                                                                                                                    [09/11/26 23:25:29] INFO     Animation 4 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             04.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 5 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             05.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 6: Create(Ellipse), etc.:   0%|          | 0/49 [00:00<?, ?it/s]Animation 6: Create(Ellipse), etc.:  41%|####      | 20/49 [00:00<00:00, 199.35it/s]Animation 6: Create(Ellipse), etc.:  84%|########3 | 41/49 [00:00<00:00, 202.05it/s]                                                                                    [09/11/26 23:25:30] INFO     Animation 6 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             06.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 7: FadeOut(MathTex('A_T=\\pi rg+\\pi r^2')):   0%|          | 0/16 [00:00<?, ?it/s]Animation 7: FadeOut(MathTex('A_T=\\pi rg+\\pi r^2')):  50%|#####     | 8/16 [00:00<00:00, 72.03it/s]Animation 7: FadeOut(MathTex('A_T=\\pi rg+\\pi r^2')): 100%|##########| 16/16 [00:00<00:00, 70.81it/s]                                                                                                                          INFO     Animation 7 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             07.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 8: FadeOut(VGroup of 2 submobjects), etc.:   0%|          | 0/32 [00:00<?, ?it/s]Animation 8: FadeOut(VGroup of 2 submobjects), etc.:  50%|#####     | 16/32 [00:00<00:00, 156.47it/s]                                                                                                     [09/11/26 23:25:31] INFO     Animation 8 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             08.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 9: Create(Line), etc.:   0%|          | 0/23 [00:00<?, ?it/s]Animation 9: Create(Line), etc.:  87%|########6 | 20/23 [00:00<00:00, 195.02it/s]                                                                                                     INFO     Animation 9 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             09.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 10: FadeOut(Text('Ao abrir a lateral, surge um setor circular de\nraio g.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 10: FadeOut(Text('Ao abrir a lateral, surge um setor circular de\nraio g.')), etc.:  40%|####      | 6/15 [00:00<00:00, 51.13it/s]Animation 10: FadeOut(Text('Ao abrir a lateral, surge um setor circular de\nraio g.')), etc.:  80%|########  | 12/15 [00:00<00:00, 49.99it/s]                                                                                                                                             [09/11/26 23:25:32] INFO     Animation 10 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             10.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 11 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             11.mp4'                                           
-                    INFO     Writing L_{arco}=2\pi r to tex_file_writing.py:111
-                             media\Tex\94d002573bf8c541                        
-                             .tex                                              
-[09/11/26 23:25:33] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 12: Write(MathTex('L_{arco}=2\\pi r')):   0%|          | 0/33 [00:00<?, ?it/s]Animation 12: Write(MathTex('L_{arco}=2\\pi r')):  48%|####8     | 16/33 [00:00<00:00, 152.79it/s]Animation 12: Write(MathTex('L_{arco}=2\\pi r')): 100%|##########| 33/33 [00:00<00:00, 160.86it/s]                                                                                                                      INFO     Animation 12 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             12.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:25:34] INFO     Animation 13 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             13.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 14: Create(Arc):   0%|          | 0/35 [00:00<?, ?it/s]Animation 14: Create(Arc):  57%|#####7    | 20/35 [00:00<00:00, 198.52it/s]                                                                                               INFO     Animation 14 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             14.mp4'                                           
-                    INFO     Writing \frac{A_L}{\pi     tex_file_writing.py:111
-                             g^2}=\frac{2\pi r}{2\pi g}                        
-                             to                                                
-                             media\Tex\f284c0285d6d7ded                        
-                             .tex                                              
-[09/11/26 23:25:35] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 15: ReplacementTransform(MathTex('L_{arco}=2\\pi r')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 15: ReplacementTransform(MathTex('L_{arco}=2\\pi r')):  35%|###5      | 13/37 [00:00<00:00, 122.46it/s]Animation 15: ReplacementTransform(MathTex('L_{arco}=2\\pi r')):  70%|#######   | 26/37 [00:00<00:00, 126.17it/s]                                                                                                                 [09/11/26 23:25:36] INFO     Animation 15 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             15.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 16 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             16.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 17: FadeOut(Text('O arco do setor tem o mesmo comprimento da\ncircunferência da base.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 17: FadeOut(Text('O arco do setor tem o mesmo comprimento da\ncircunferência da base.')), etc.:  40%|####      | 6/15 [00:00<00:00, 55.71it/s]Animation 17: FadeOut(Text('O arco do setor tem o mesmo comprimento da\ncircunferência da base.')), etc.:  80%|########  | 12/15 [00:00<00:00, 55.29it/s]                                                                                                                                                         [09/11/26 23:25:37] INFO     Animation 17 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             17.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 18 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             18.mp4'                                           
-                    INFO     Writing A_L=\frac{(2\pi    tex_file_writing.py:111
-                             r)g}{2}=\pi rg to                                 
-                             media\Tex\89a2a4b31ca696c4                        
-                             .tex                                              
-[09/11/26 23:25:38] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 19: ReplacementTransform(MathTex('\\frac{A_L}{\\pi g^2}=\\frac{2\\pi r}{2\\pi g}')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 19: ReplacementTransform(MathTex('\\frac{A_L}{\\pi g^2}=\\frac{2\\pi r}{2\\pi g}')):  24%|##4       | 9/37 [00:00<00:00, 86.13it/s]Animation 19: ReplacementTransform(MathTex('\\frac{A_L}{\\pi g^2}=\\frac{2\\pi r}{2\\pi g}')):  49%|####8     | 18/37 [00:00<00:00, 85.98it/s]Animation 19: ReplacementTransform(MathTex('\\frac{A_L}{\\pi g^2}=\\frac{2\\pi r}{2\\pi g}')):  73%|#######2  | 27/37 [00:00<00:00, 87.45it/s]Animation 19: ReplacementTransform(MathTex('\\frac{A_L}{\\pi g^2}=\\frac{2\\pi r}{2\\pi g}')):  97%|#########7| 36/37 [00:00<00:00, 85.10it/s]                                                                                                                                              [09/11/26 23:25:39] INFO     Animation 19 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             19.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 20 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             20.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 21: FadeOut(Text('Área de setor = arco × raio ÷ 2.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 21: FadeOut(Text('Área de setor = arco × raio ÷ 2.')), etc.:  60%|######    | 9/15 [00:00<00:00, 85.70it/s]                                                                                                                     [09/11/26 23:25:40] INFO     Animation 21 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             21.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 22 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             22.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 23: ReplacementTransform(MathTex('A_L=\\frac{(2\\pi r)g}{2}=\\pi rg')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 23: ReplacementTransform(MathTex('A_L=\\frac{(2\\pi r)g}{2}=\\pi rg')):  24%|##4       | 9/37 [00:00<00:00, 89.03it/s]Animation 23: ReplacementTransform(MathTex('A_L=\\frac{(2\\pi r)g}{2}=\\pi rg')):  49%|####8     | 18/37 [00:00<00:00, 87.44it/s]Animation 23: ReplacementTransform(MathTex('A_L=\\frac{(2\\pi r)g}{2}=\\pi rg')):  73%|#######2  | 27/37 [00:00<00:00, 86.82it/s]Animation 23: ReplacementTransform(MathTex('A_L=\\frac{(2\\pi r)g}{2}=\\pi rg')):  97%|#########7| 36/37 [00:00<00:00, 86.60it/s]                                                                                                                                 [09/11/26 23:25:41] INFO     Animation 23 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             23.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 24 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             24.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 25: Indicate(MathTex('A_T=\\pi rg+\\pi r^2')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 25: Indicate(MathTex('A_T=\\pi rg+\\pi r^2')):  29%|##8       | 10/35 [00:00<00:00, 96.86it/s]Animation 25: Indicate(MathTex('A_T=\\pi rg+\\pi r^2')):  60%|######    | 21/35 [00:00<00:00, 100.29it/s]Animation 25: Indicate(MathTex('A_T=\\pi rg+\\pi r^2')):  91%|#########1| 32/35 [00:00<00:00, 97.52it/s]                                                                                                         [09/11/26 23:25:42] INFO     Animation 25 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             25.mp4'                                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 26 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\partial_movie_fi                         
-                             les\AreaCone\uncached_000                         
-                             26.mp4'                                           
-                    INFO     Combining to Movie file.  scene_file_writer.py:739
-                    INFO                               scene_file_writer.py:886
-                             File ready at                                     
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\27_area_cone                         
-                             \1920p30\AreaCone.mp4'                            
-                                                                               
-                    INFO     Rendered AreaCone                     scene.py:255
-                             Played 27 animations                              
-You are using manim version v0.19.0, but version v0.21.0 is available.
-You should consider upgrading via pip install -U manim

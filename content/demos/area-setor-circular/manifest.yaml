@@ -50,14 +50,6 @@
     "default_format": "vertical",
     "native_engine": "unified-v2",
     "native_ready": true,
-    "compatibility": {
-      "source": "videos/10_area_setor_circular.py",
-      "scene": "AreaSetorCircular",
-      "cwd": ".",
-      "formats": [
-        "vertical"
-      ]
-    },
     "native_formats": [
       "vertical"
     ],

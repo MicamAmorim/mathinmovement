@@ -88,15 +88,6 @@
     "default_format": "vertical",
     "native_engine": "unified-v2",
     "native_ready": true,
-    "compatibility": {
-      "source": "enem/videos/14_2023_q139_area_escada.py",
-      "scene": "Resolucao14",
-      "cwd": "enem",
-      "formats": [
-        "vertical",
-        "horizontal"
-      ]
-    },
     "native_formats": [
       "vertical",
       "horizontal"

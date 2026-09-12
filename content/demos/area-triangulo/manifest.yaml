@@ -50,12 +50,5 @@ render:
   native_engine: unified-v2
   native_ready: true
   native_renderer: area_triangle_parallelogram_v1
-  compatibility:
-    source: videos/01_area_triangulo.py
-    scene: AreaTriangulo
-    cwd: .
-    formats:
-      - vertical
-
 narration:
   enabled: false

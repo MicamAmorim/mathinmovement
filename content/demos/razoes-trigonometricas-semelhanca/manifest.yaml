@@ -50,14 +50,6 @@
     "default_format": "vertical",
     "native_engine": "unified-v2",
     "native_ready": true,
-    "compatibility": {
-      "source": "videos/14_razoes_trigonometricas_semelhanca.py",
-      "scene": "RazoesTrigonometricasSemelhanca",
-      "cwd": ".",
-      "formats": [
-        "vertical"
-      ]
-    },
     "native_formats": [
       "vertical"
     ],

@@ -85,15 +85,6 @@
     "default_format": "vertical",
     "native_engine": "unified-v2",
     "native_ready": true,
-    "compatibility": {
-      "source": "enem/videos/19_2023_q166_reservatorio.py",
-      "scene": "Resolucao19",
-      "cwd": "enem",
-      "formats": [
-        "vertical",
-        "horizontal"
-      ]
-    },
     "native_formats": [
       "vertical",
       "horizontal"

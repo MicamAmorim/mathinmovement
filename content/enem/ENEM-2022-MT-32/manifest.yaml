@@ -92,15 +92,6 @@
     "default_format": "vertical",
     "native_engine": "unified-v2",
     "native_ready": true,
-    "compatibility": {
-      "source": "enem/videos/12_2022_q167_area_piscina.py",
-      "scene": "Resolucao12",
-      "cwd": "enem",
-      "formats": [
-        "vertical",
-        "horizontal"
-      ]
-    },
     "native_formats": [
       "vertical",
       "horizontal"

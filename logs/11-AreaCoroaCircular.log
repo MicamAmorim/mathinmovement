@@ -1,247 +1,0 @@
-Manim Community v0.19.0
-
-[09/11/26 23:19:57] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 0: FadeIn(Text('11  /  CÍRCULO')):   0%|          | 0/19 [00:00<?, ?it/s]Animation 0: FadeIn(Text('11  /  CÍRCULO')):  84%|########4 | 16/19 [00:00<00:00, 156.83it/s]                                                                                                                 INFO     Animation 0 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00000.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 1: Write(Text('Área da coroa circular')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 1: Write(Text('Área da coroa circular')):  40%|####      | 14/35 [00:00<00:00, 131.01it/s]Animation 1: Write(Text('Área da coroa circular')):  80%|########  | 28/35 [00:00<00:00, 123.67it/s]                                                                                                    [09/11/26 23:19:58] INFO     Animation 1 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00001.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 2: Write(MathTex('A=\\pi(R^2-r^2)')):   0%|          | 0/44 [00:00<?, ?it/s]Animation 2: Write(MathTex('A=\\pi(R^2-r^2)')):  39%|###8      | 17/44 [00:00<00:00, 164.74it/s]Animation 2: Write(MathTex('A=\\pi(R^2-r^2)')):  77%|#######7  | 34/44 [00:00<00:00, 160.75it/s]                                                                                                                    INFO     Animation 2 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00002.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:19:59] INFO     Animation 3 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00003.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 4: FadeIn(Text('A coroa é o que sobra do círculo maior.')):   0%|          | 0/15 [00:00<?, ?it/s]Animation 4: FadeIn(Text('A coroa é o que sobra do círculo maior.')):  67%|######6   | 10/15 [00:00<00:00, 93.70it/s]                                                                                                                                         INFO     Animation 4 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00004.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:20:00] INFO     Animation 5 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00005.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 6: Create(Circle):   0%|          | 0/35 [00:00<?, ?it/s]Animation 6: Create(Circle):  60%|######    | 21/35 [00:00<00:00, 206.57it/s]                                                                                                 INFO     Animation 6 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00006.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 7: Create(Circle):   0%|          | 0/32 [00:00<?, ?it/s]Animation 7: Create(Circle):  56%|#####6    | 18/32 [00:00<00:00, 175.34it/s]                                                                             [09/11/26 23:20:01] INFO     Animation 7 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00007.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 8: Create(Line), etc.:   0%|          | 0/28 [00:00<?, ?it/s]Animation 8: Create(Line), etc.:  68%|######7   | 19/28 [00:00<00:00, 184.79it/s]                                                                                                     INFO     Animation 8 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00008.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 9: FadeOut(MathTex('A=\\pi(R^2-r^2)')):   0%|          | 0/16 [00:00<?, ?it/s]Animation 9: FadeOut(MathTex('A=\\pi(R^2-r^2)')):  50%|#####     | 8/16 [00:00<00:00, 73.55it/s]Animation 9: FadeOut(MathTex('A=\\pi(R^2-r^2)')): 100%|##########| 16/16 [00:00<00:00, 65.82it/s]                                                                                                                     INFO     Animation 9 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00009.mp4                         
-                             '                                                 
-[09/11/26 23:20:02] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 10: FadeOut(Text('A coroa é o que sobra do círculo maior.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 10: FadeOut(Text('A coroa é o que sobra do círculo maior.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 60.54it/s]Animation 10: FadeOut(Text('A coroa é o que sobra do círculo maior.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 60.62it/s]                                                                                                                                                 INFO     Animation 10 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00010.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 11 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00011.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 12: Write(MathTex('A=\\pi R^2-\\pi r^2')):   0%|          | 0/33 [00:00<?, ?it/s]Animation 12: Write(MathTex('A=\\pi R^2-\\pi r^2')):  52%|#####1    | 17/33 [00:00<00:00, 165.43it/s]                                                                                                     [09/11/26 23:20:03] INFO     Animation 12 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00012.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 13 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00013.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 14: Indicate(Circle):   0%|          | 0/28 [00:00<?, ?it/s]Animation 14: Indicate(Circle):  32%|###2      | 9/28 [00:00<00:00, 83.21it/s]Animation 14: Indicate(Circle):  64%|######4   | 18/28 [00:00<00:00, 81.77it/s]Animation 14: Indicate(Circle):  96%|#########6| 27/28 [00:00<00:00, 82.91it/s]                                                                               [09/11/26 23:20:04] INFO     Animation 14 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00014.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 15: FadeOut(Text('Subtraia a área retirada do disco maior.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 15: FadeOut(Text('Subtraia a área retirada do disco maior.')), etc.:  53%|#####3    | 8/15 [00:00<00:00, 70.21it/s]                                                                                                                                                 INFO     Animation 15 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00015.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:20:05] INFO     Animation 16 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00016.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 17: ReplacementTransform(MathTex('A=\\pi R^2-\\pi r^2')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 17: ReplacementTransform(MathTex('A=\\pi R^2-\\pi r^2')):  30%|##9       | 11/37 [00:00<00:00, 100.94it/s]Animation 17: ReplacementTransform(MathTex('A=\\pi R^2-\\pi r^2')):  59%|#####9    | 22/37 [00:00<00:00, 105.85it/s]Animation 17: ReplacementTransform(MathTex('A=\\pi R^2-\\pi r^2')):  89%|########9 | 33/37 [00:00<00:00, 103.32it/s]                                                                                                                    [09/11/26 23:20:06] INFO     Animation 17 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00017.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 18 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00018.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 19: Indicate(MathTex('A=\\pi(R^2-r^2)')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 19: Indicate(MathTex('A=\\pi(R^2-r^2)')):  31%|###1      | 11/35 [00:00<00:00, 105.86it/s]Animation 19: Indicate(MathTex('A=\\pi(R^2-r^2)')):  63%|######2   | 22/35 [00:00<00:00, 107.26it/s]Animation 19: Indicate(MathTex('A=\\pi(R^2-r^2)')):  94%|#########4| 33/35 [00:00<00:00, 104.88it/s]                                                                                                    [09/11/26 23:20:07] INFO     Animation 19 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00019.mp4                         
-                             '                                                 
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 20 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\partia                         
-                             l_movie_files\AreaCoroaCi                         
-                             rcular\uncached_00020.mp4                         
-                             '                                                 
-                    INFO     Combining to Movie file.  scene_file_writer.py:739
-                    INFO                               scene_file_writer.py:886
-                             File ready at                                     
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\11_area_coro                         
-                             a_circular\1920p30\AreaCo                         
-                             roaCircular.mp4'                                  
-                                                                               
-                    INFO     Rendered AreaCoroaCircular            scene.py:255
-                             Played 21 animations                              
-You are using manim version v0.19.0, but version v0.21.0 is available.
-You should consider upgrading via pip install -U manim

@@ -1,313 +1,0 @@
-Manim Community v0.19.0
-
-[09/11/26 23:23:07] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 0: FadeIn(Text('20  /  POLIEDROS')):   0%|          | 0/19 [00:00<?, ?it/s]Animation 0: FadeIn(Text('20  /  POLIEDROS')):  79%|#######8  | 15/19 [00:00<00:00, 145.80it/s]                                                                                               [09/11/26 23:23:08] INFO     Animation 0 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00000.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 1: Write(Text('Diagonal do paralelepípedo')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 1: Write(Text('Diagonal do paralelepípedo')):  37%|###7      | 13/35 [00:00<00:00, 124.89it/s]Animation 1: Write(Text('Diagonal do paralelepípedo')):  74%|#######4  | 26/35 [00:00<00:00, 115.51it/s]                                                                                                                            INFO     Animation 1 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00001.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 2: Write(MathTex('D=\\sqrt{a^2+b^2+c^2}')):   0%|          | 0/44 [00:00<?, ?it/s]Animation 2: Write(MathTex('D=\\sqrt{a^2+b^2+c^2}')):  36%|###6      | 16/44 [00:00<00:00, 159.76it/s]Animation 2: Write(MathTex('D=\\sqrt{a^2+b^2+c^2}')):  73%|#######2  | 32/44 [00:00<00:00, 158.40it/s]                                                                                                      [09/11/26 23:23:09] INFO     Animation 2 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00002.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:23:10] INFO     Animation 3 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00003.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 4: FadeIn(Text('Primeiro encontre a diagonal da base.')):   0%|          | 0/15 [00:00<?, ?it/s]Animation 4: FadeIn(Text('Primeiro encontre a diagonal da base.')):  67%|######6   | 10/15 [00:00<00:00, 91.88it/s]                                                                                                                                       INFO     Animation 4 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00004.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 5 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00005.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 6: Create(Polygon), etc.:   0%|          | 0/52 [00:00<?, ?it/s]Animation 6: Create(Polygon), etc.:  38%|###8      | 20/52 [00:00<00:00, 198.40it/s]Animation 6: Create(Polygon), etc.:  81%|########  | 42/52 [00:00<00:00, 208.75it/s]                                                                                    [09/11/26 23:23:11] INFO     Animation 6 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00006.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 7: Create(Line):   0%|          | 0/25 [00:00<?, ?it/s]Animation 7: Create(Line):  88%|########8 | 22/25 [00:00<00:00, 210.49it/s]                                                                           [09/11/26 23:23:12] INFO     Animation 7 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00007.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 8: FadeIn(Polygon):   0%|          | 0/35 [00:00<?, ?it/s]Animation 8: FadeIn(Polygon):  60%|######    | 21/35 [00:00<00:00, 208.20it/s]                                                                                                  INFO     Animation 8 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00008.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 9: Write(VGroup of 3 submobjects):   0%|          | 0/35 [00:00<?, ?it/s]Animation 9: Write(VGroup of 3 submobjects):  54%|#####4    | 19/35 [00:00<00:00, 188.37it/s]                                                                                             [09/11/26 23:23:13] INFO     Animation 9 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00009.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 10: FadeOut(MathTex('D=\\sqrt{a^2+b^2+c^2}')):   0%|          | 0/16 [00:00<?, ?it/s]Animation 10: FadeOut(MathTex('D=\\sqrt{a^2+b^2+c^2}')):  44%|####3     | 7/16 [00:00<00:00, 69.59it/s]Animation 10: FadeOut(MathTex('D=\\sqrt{a^2+b^2+c^2}')):  94%|#########3| 15/16 [00:00<00:00, 73.28it/s]                                                                                                                            INFO     Animation 10 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00010.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 11: Write(MathTex('d_b^2=a^2+b^2')):   0%|          | 0/33 [00:00<?, ?it/s]Animation 11: Write(MathTex('d_b^2=a^2+b^2')):  52%|#####1    | 17/33 [00:00<00:00, 168.90it/s]                                                                                               [09/11/26 23:23:14] INFO     Animation 11 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00011.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 12 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00012.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 13: FadeOut(Text('Primeiro encontre a diagonal da base.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 13: FadeOut(Text('Primeiro encontre a diagonal da base.')), etc.:  40%|####      | 6/15 [00:00<00:00, 51.57it/s]Animation 13: FadeOut(Text('Primeiro encontre a diagonal da base.')), etc.:  80%|########  | 12/15 [00:00<00:00, 51.00it/s]                                                                                                                           [09/11/26 23:23:15] INFO     Animation 13 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00013.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 14 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00014.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 15: Create(Line):   0%|          | 0/32 [00:00<?, ?it/s]Animation 15: Create(Line):  66%|######5   | 21/32 [00:00<00:00, 205.49it/s]                                                                            [09/11/26 23:23:16] INFO     Animation 15 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00015.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 16: FadeOut(Polygon), etc.:   0%|          | 0/35 [00:00<?, ?it/s]Animation 16: FadeOut(Polygon), etc.:  23%|##2       | 8/35 [00:00<00:00, 78.69it/s]Animation 16: FadeOut(Polygon), etc.:  46%|####5     | 16/35 [00:00<00:00, 76.87it/s]Animation 16: FadeOut(Polygon), etc.:  69%|######8   | 24/35 [00:00<00:00, 75.63it/s]Animation 16: FadeOut(Polygon), etc.:  91%|#########1| 32/35 [00:00<00:00, 76.83it/s]                                                                                                         INFO     Animation 16 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00016.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 17: ReplacementTransform(MathTex('d_b^2=a^2+b^2')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 17: ReplacementTransform(MathTex('d_b^2=a^2+b^2')):  24%|##4       | 9/37 [00:00<00:00, 82.73it/s]Animation 17: ReplacementTransform(MathTex('d_b^2=a^2+b^2')):  49%|####8     | 18/37 [00:00<00:00, 80.75it/s]Animation 17: ReplacementTransform(MathTex('d_b^2=a^2+b^2')):  73%|#######2  | 27/37 [00:00<00:00, 80.00it/s]Animation 17: ReplacementTransform(MathTex('d_b^2=a^2+b^2')):  97%|#########7| 36/37 [00:00<00:00, 80.07it/s]                                                                                                             [09/11/26 23:23:17] INFO     Animation 17 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00017.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 18 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00018.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 19: FadeOut(Text('Agora use outro triângulo retângulo com a\naltura c.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 19: FadeOut(Text('Agora use outro triângulo retângulo com a\naltura c.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 60.59it/s]Animation 19: FadeOut(Text('Agora use outro triângulo retângulo com a\naltura c.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 61.81it/s]                                                                                                                                          [09/11/26 23:23:18] INFO     Animation 19 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00019.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 20 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00020.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 21: ReplacementTransform(MathTex('D^2=d_b^2+c^2')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 21: ReplacementTransform(MathTex('D^2=d_b^2+c^2')):  24%|##4       | 9/37 [00:00<00:00, 84.23it/s]Animation 21: ReplacementTransform(MathTex('D^2=d_b^2+c^2')):  49%|####8     | 18/37 [00:00<00:00, 84.74it/s]Animation 21: ReplacementTransform(MathTex('D^2=d_b^2+c^2')):  73%|#######2  | 27/37 [00:00<00:00, 82.71it/s]Animation 21: ReplacementTransform(MathTex('D^2=d_b^2+c^2')):  97%|#########7| 36/37 [00:00<00:00, 83.54it/s]                                                                                                             [09/11/26 23:23:19] INFO     Animation 21 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00021.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 22 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00022.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 23: ReplacementTransform(MathTex('D^2=a^2+b^2+c^2')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 23: ReplacementTransform(MathTex('D^2=a^2+b^2+c^2')):  24%|##4       | 9/37 [00:00<00:00, 86.82it/s]Animation 23: ReplacementTransform(MathTex('D^2=a^2+b^2+c^2')):  49%|####8     | 18/37 [00:00<00:00, 84.60it/s]Animation 23: ReplacementTransform(MathTex('D^2=a^2+b^2+c^2')):  73%|#######2  | 27/37 [00:00<00:00, 82.91it/s]Animation 23: ReplacementTransform(MathTex('D^2=a^2+b^2+c^2')):  97%|#########7| 36/37 [00:00<00:00, 83.34it/s]                                                                                                               [09/11/26 23:23:20] INFO     Animation 23 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00023.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:23:21] INFO     Animation 24 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00024.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 25: Indicate(MathTex('D=\\sqrt{a^2+b^2+c^2}')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 25: Indicate(MathTex('D=\\sqrt{a^2+b^2+c^2}')):  26%|##5       | 9/35 [00:00<00:00, 89.27it/s]Animation 25: Indicate(MathTex('D=\\sqrt{a^2+b^2+c^2}')):  51%|#####1    | 18/35 [00:00<00:00, 87.57it/s]Animation 25: Indicate(MathTex('D=\\sqrt{a^2+b^2+c^2}')):  77%|#######7  | 27/35 [00:00<00:00, 86.74it/s]                                                                                                                             INFO     Animation 25 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00025.mp4'                                        
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:23:22] INFO     Animation 26 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\pa                         
-                             rtial_movie_files\Diagona                         
-                             lParalelepipedo\uncached_                         
-                             00026.mp4'                                        
-                    INFO     Combining to Movie file.  scene_file_writer.py:739
-                    INFO                               scene_file_writer.py:886
-                             File ready at                                     
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\20_diagonal_                         
-                             paralelepipedo\1920p30\Di                         
-                             agonalParalelepipedo.mp4'                         
-                                                                               
-                    INFO     Rendered DiagonalParalelepipedo       scene.py:255
-                             Played 27 animations                              
-You are using manim version v0.19.0, but version v0.21.0 is available.
-You should consider upgrading via pip install -U manim

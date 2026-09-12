@@ -53,14 +53,6 @@
     "default_format": "vertical",
     "native_engine": "unified-v2",
     "native_ready": true,
-    "compatibility": {
-      "source": "videos/18_escalas_comprimentos_areas_volumes.py",
-      "scene": "EscalasComprimentosAreasVolumes",
-      "cwd": ".",
-      "formats": [
-        "vertical"
-      ]
-    },
     "native_formats": [
       "vertical"
     ],

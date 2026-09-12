@@ -6,8 +6,6 @@ import sys
 from .config import REGISTRY_DB
 from .database import database_stats
 from .engine import RenderError, render_record
-from .engine.renderer import probe_duration
-from .migrations import migrate_legacy_demos, migrate_legacy_enem
 from .models import ManifestError
 from .package_io import export_package, import_package
 from .registry import Registry
@@ -27,21 +25,33 @@ def cmd_list(args: argparse.Namespace) -> int:
     for record in records:
         year = f" · {record.year}" if record.year is not None else ""
         status = str(record.manifest.get("status", "production"))
-        formats = ",".join((record.manifest.get("render") or {}).get("formats") or ["vertical"])
-        print(f"{record.id} [{record.type}] [{status}]{year} · {record.title} · {formats}")
+        formats = ",".join(
+            (record.manifest.get("render") or {}).get("formats")
+            or ["vertical"]
+        )
+        print(
+            f"{record.id} [{record.type}] [{status}]"
+            f"{year} · {record.title} · {formats}"
+        )
     print(f"\nTotal: {len(records)}")
     return 0
 
 
 def cmd_validate(_: argparse.Namespace) -> int:
     registry = Registry().rebuild()
-    print(f"PASS: {len(registry)} conteúdo(s) válido(s), sem IDs duplicados.")
+    print(
+        f"PASS: {len(registry)} conteúdo(s) válido(s), "
+        "sem IDs duplicados."
+    )
     print(f"SQLite sincronizado: {REGISTRY_DB}")
     return 0
 
 
 def cmd_import(args: argparse.Namespace) -> int:
-    destination = import_package(args.package, replace=args.replace)
+    destination = import_package(
+        args.package,
+        replace=args.replace,
+    )
     print(f"Importado: {destination}")
     print(f"SQLite sincronizado: {REGISTRY_DB}")
     return 0
@@ -75,74 +85,6 @@ def cmd_db_rebuild(_: argparse.Namespace) -> int:
     return 0
 
 
-def cmd_migrate_legacy_demos(args: argparse.Namespace) -> int:
-    result = migrate_legacy_demos(
-        replace=args.replace,
-        status=args.status,
-        only=args.id or (),
-    )
-    print(f"Legado demos detectado: {result['total_legacy']}")
-    print(f"Gerados/atualizados: {len(result['created'])}")
-    for content_id in result["created"]:
-        print(f"  + {content_id}")
-    if result["skipped"]:
-        print(f"Preservados por já existirem: {len(result['skipped'])}")
-    print(f"SQLite sincronizado: {REGISTRY_DB}")
-    return 0
-
-
-def cmd_migrate_legacy_enem(args: argparse.Namespace) -> int:
-    result = migrate_legacy_enem(
-        replace=args.replace,
-        status=args.status,
-        only=args.id or (),
-    )
-    print(f"Legado ENEM detectado: {result['total_legacy']}")
-    print(f"Gerados/atualizados: {len(result['created'])}")
-    for content_id in result["created"]:
-        print(f"  + {content_id}")
-    if result["skipped"]:
-        print(f"Preservados por já existirem: {len(result['skipped'])}")
-    print(f"SQLite sincronizado: {REGISTRY_DB}")
-    return 0
-
-
-def cmd_parity(args: argparse.Namespace) -> int:
-    registry = Registry().rebuild()
-    record = registry.get(args.id)
-
-    reference = render_record(
-        record,
-        video_format=args.format,
-        quality=args.quality,
-        dry_run=args.dry_run,
-        render_engine="compatibility",
-    )
-    candidate = render_record(
-        record,
-        video_format=args.format,
-        quality=args.quality,
-        dry_run=args.dry_run,
-        render_engine="native",
-    )
-
-    print("\nParidade:")
-    print(f"  referência: {reference}")
-    print(f"  nativo:     {candidate}")
-
-    if not args.dry_run:
-        d_ref = probe_duration(reference)
-        d_native = probe_duration(candidate)
-        if d_ref is not None and d_native is not None:
-            delta = abs(d_ref - d_native)
-            print(f"  duração referência: {d_ref:.3f}s")
-            print(f"  duração nativo:     {d_native:.3f}s")
-            print(f"  Δ duração:          {delta:.3f}s")
-        else:
-            print("  duração: ffprobe indisponível; compare os dois MP4s visualmente.")
-    return 0
-
-
 def cmd_render(args: argparse.Namespace) -> int:
     registry = Registry().rebuild()
 
@@ -160,7 +102,8 @@ def cmd_render(args: argparse.Namespace) -> int:
         records = [registry.get(args.id)]
         if args.type and records[0].type != args.type:
             raise ManifestError(
-                f"{records[0].id} é do tipo {records[0].type!r}, não {args.type!r}."
+                f"{records[0].id} é do tipo "
+                f"{records[0].type!r}, não {args.type!r}."
             )
 
     failures: list[tuple[str, str]] = []
@@ -192,104 +135,128 @@ def cmd_render(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="mathinmovement",
-        description="CLI v2 do Math in Movement.",
+        description="CLI do Math in Movement.",
     )
     sub = parser.add_subparsers(dest="command", required=True)
 
-    p_list = sub.add_parser("list", help="Lista conteúdos do registry.")
+    p_list = sub.add_parser(
+        "list",
+        help="Lista conteúdos do registry.",
+    )
     p_list.add_argument("--type", choices=["qenem", "demo"])
     p_list.add_argument("--year", type=int)
-    p_list.add_argument("--tag", action="append", help="Pode ser repetido.")
-    p_list.add_argument("--status", choices=["draft", "validated", "production", "deprecated"])
+    p_list.add_argument(
+        "--tag",
+        action="append",
+        help="Pode ser repetido.",
+    )
+    p_list.add_argument(
+        "--status",
+        choices=[
+            "draft",
+            "validated",
+            "production",
+            "deprecated",
+        ],
+    )
     p_list.set_defaults(func=cmd_list)
 
-    p_validate = sub.add_parser("validate", help="Valida manifestos e sincroniza o SQLite.")
+    p_validate = sub.add_parser(
+        "validate",
+        help="Valida manifestos e sincroniza o SQLite.",
+    )
     p_validate.set_defaults(func=cmd_validate)
 
-    p_import = sub.add_parser("import", help="Importa um pacote .qenem ou .demo.")
+    p_import = sub.add_parser(
+        "import",
+        help="Importa um pacote .qenem ou .demo.",
+    )
     p_import.add_argument("package")
     p_import.add_argument("--replace", action="store_true")
     p_import.set_defaults(func=cmd_import)
 
-    p_export = sub.add_parser("export", help="Empacota um conteúdo do registry como .qenem/.demo.")
+    p_export = sub.add_parser(
+        "export",
+        help="Empacota um conteúdo como .qenem/.demo.",
+    )
     p_export.add_argument("id")
     p_export.add_argument("-o", "--output")
     p_export.set_defaults(func=cmd_export)
 
-    p_db = sub.add_parser("db", help="Inspeciona ou reconstrói o índice SQLite.")
-    db_sub = p_db.add_subparsers(dest="db_command", required=True)
+    p_db = sub.add_parser(
+        "db",
+        help="Inspeciona ou reconstrói o índice SQLite.",
+    )
+    db_sub = p_db.add_subparsers(
+        dest="db_command",
+        required=True,
+    )
     p_db_status = db_sub.add_parser("status")
     p_db_status.set_defaults(func=cmd_db_status)
     p_db_rebuild = db_sub.add_parser("rebuild")
     p_db_rebuild.set_defaults(func=cmd_db_rebuild)
 
-    p_migrate = sub.add_parser("migrate", help="Ferramentas de migração do código legado.")
-    migrate_sub = p_migrate.add_subparsers(dest="migration", required=True)
-    p_legacy_demos = migrate_sub.add_parser(
-        "legacy-demos",
-        help="Converte as 30 cenas demo legadas em manifests demo.",
+    p_render = sub.add_parser(
+        "render",
+        help="Renderiza conteúdo pelo engine unificado.",
     )
-    p_legacy_demos.add_argument("--replace", action="store_true")
-    p_legacy_demos.add_argument(
-        "--status",
-        choices=["draft", "validated", "production", "deprecated"],
-        default="draft",
+    p_render.add_argument(
+        "id",
+        nargs="?",
+        help="ID do conteúdo.",
     )
-    p_legacy_demos.add_argument(
-        "--id",
-        action="append",
-        help="Migra somente este ID de demo; pode ser repetido.",
+    p_render.add_argument(
+        "--all",
+        action="store_true",
+        help="Renderiza todos os conteúdos selecionados.",
     )
-    p_legacy_demos.set_defaults(func=cmd_migrate_legacy_demos)
-
-    p_legacy_enem = migrate_sub.add_parser(
-        "legacy-enem",
-        help="Converte questions.json + specs.py + narração legados em manifests qenem.",
+    p_render.add_argument(
+        "--type",
+        choices=["qenem", "demo"],
+        help="Filtra o lote por tipo.",
     )
-    p_legacy_enem.add_argument("--replace", action="store_true")
-    p_legacy_enem.add_argument(
-        "--status",
-        choices=["draft", "validated", "production", "deprecated"],
-        default="draft",
-    )
-    p_legacy_enem.add_argument(
-        "--id",
-        action="append",
-        help="Migra somente este canonical_id; pode ser repetido.",
-    )
-    p_legacy_enem.set_defaults(func=cmd_migrate_legacy_enem)
-
-    p_parity = sub.add_parser(
-        "parity",
-        help="Renderiza referência legada e candidato nativo para comparação.",
-    )
-    p_parity.add_argument("id")
-    p_parity.add_argument("--format", choices=["vertical", "horizontal"], default="vertical")
-    p_parity.add_argument("--quality", choices=["draft", "final"], default="draft")
-    p_parity.add_argument("--dry-run", action="store_true")
-    p_parity.set_defaults(func=cmd_parity)
-
-    p_render = sub.add_parser("render", help="Renderiza conteúdo pelo engine v2.")
-    p_render.add_argument("id", nargs="?", help="ID do conteúdo.")
-    p_render.add_argument("--all", action="store_true", help="Renderiza todos os conteúdos selecionados.")
-    p_render.add_argument("--type", choices=["qenem", "demo"], help="Filtra o lote por tipo.")
     p_render.add_argument(
         "--status",
-        choices=["all", "draft", "validated", "production", "deprecated"],
+        choices=[
+            "all",
+            "draft",
+            "validated",
+            "production",
+            "deprecated",
+        ],
         default="production",
-        help="Filtra por status; use 'all' para incluir todos os status.",
+        help="Filtra por status; use 'all' para todos.",
     )
-    p_render.add_argument("--format", choices=["vertical", "horizontal"], default="vertical")
-    p_render.add_argument("--quality", choices=["draft", "final"], default="draft")
+    p_render.add_argument(
+        "--format",
+        choices=["vertical", "horizontal"],
+        default="vertical",
+    )
+    p_render.add_argument(
+        "--quality",
+        choices=["draft", "final"],
+        default="draft",
+    )
     p_render.add_argument(
         "--engine",
-        choices=["production", "native", "compatibility"],
+        choices=["production", "native"],
         default="production",
-        help="production usa o renderer aprovado; native testa o engine v2; compatibility força a cena anterior.",
+        help=(
+            "production grava em media/; native força o mesmo engine "
+            "em media_native/ para inspeção."
+        ),
     )
     p_render.add_argument("--preview", action="store_true")
-    p_render.add_argument("--fast", action="store_true", help="Prévia rápida: reduz esperas e não toca áudio.")
-    p_render.add_argument("--dry-run", action="store_true", help="Mostra o comando sem executar o Manim.")
+    p_render.add_argument(
+        "--fast",
+        action="store_true",
+        help="Prévia rápida: reduz esperas e não toca áudio.",
+    )
+    p_render.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Mostra o comando sem executar o Manim.",
+    )
     p_render.add_argument("--keep-going", action="store_true")
     p_render.set_defaults(func=cmd_render)
 
@@ -301,7 +268,12 @@ def main() -> None:
     args = parser.parse_args()
     try:
         code = int(args.func(args) or 0)
-    except (ManifestError, RenderError, KeyError, ValueError) as exc:
+    except (
+        ManifestError,
+        RenderError,
+        KeyError,
+        ValueError,
+    ) as exc:
         print(f"ERRO: {exc}", file=sys.stderr)
         raise SystemExit(2)
     raise SystemExit(code)

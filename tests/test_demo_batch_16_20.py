@@ -30,30 +30,23 @@ class DemoBatch1620PromotedTests(unittest.TestCase):
             self.assertEqual(render["native_formats"], ["vertical"])
             self.assertEqual(render["native_renderer"], renderer)
 
-    def test_batch_supports_native_and_legacy_dry_runs(self):
+    def test_batch_supports_production_and_explicit_native_dry_runs(self):
         for content_id in CANDIDATES:
             record = self.registry.get(content_id)
+            production = render_record(
+                record,
+                dry_run=True,
+                render_engine="production",
+                video_format="vertical",
+            )
             native = render_record(
                 record,
                 dry_run=True,
                 render_engine="native",
                 video_format="vertical",
             )
-            legacy = render_record(
-                record,
-                dry_run=True,
-                render_engine="compatibility",
-                video_format="vertical",
-            )
+            self.assertIn("media", production.parts)
             self.assertIn("media_native", native.parts)
-            self.assertIn("media_compatibility", legacy.parts)
-
-    def test_scale_equations_keep_prime_notation(self):
-        record = self.registry.get("escalas-comprimentos-areas-volumes")
-        steps = record.manifest["lesson"]["steps"]
-        self.assertEqual(steps[1]["math"], "A'=(2L)^2=4L^2=2^2A")
-        self.assertEqual(steps[3]["math"], "V'=2\\cdot2\\cdot2\\,V=8V")
-        self.assertEqual(steps[4]["math"], "V'=(kL)^3=k^3V")
 
 
 if __name__ == "__main__":

@@ -39,16 +39,23 @@ class DemoNativePromotedTests(unittest.TestCase):
             )
             self.assertIn("media", output.parts)
 
-    def test_legacy_reference_remains_available(self):
-        for content_id in PROMOTED:
+    def test_batch_supports_production_and_explicit_native_dry_runs(self):
+        for content_id in CANDIDATES:
             record = self.registry.get(content_id)
-            output = render_record(
+            production = render_record(
                 record,
                 dry_run=True,
-                render_engine="compatibility",
+                render_engine="production",
                 video_format="vertical",
             )
-            self.assertIn("media_compatibility", output.parts)
+            native = render_record(
+                record,
+                dry_run=True,
+                render_engine="native",
+                video_format="vertical",
+            )
+            self.assertIn("media", production.parts)
+            self.assertIn("media_native", native.parts)
 
 
 if __name__ == "__main__":

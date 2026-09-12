@@ -1,286 +1,0 @@
-Manim Community v0.19.0
-
-[09/11/26 23:20:10] INFO     Caching disabled.             cairo_renderer.py:79
-Animation 0: FadeIn(Text('12  /  TRIÂNGULOS')):   0%|          | 0/19 [00:00<?, ?it/s]Animation 0: FadeIn(Text('12  /  TRIÂNGULOS')):  79%|#######8  | 15/19 [00:00<00:00, 149.69it/s]                                                                                                                    INFO     Animation 0 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00000.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 1: Write(Text('Teorema de Pitágoras')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 1: Write(Text('Teorema de Pitágoras')):  43%|####2     | 15/35 [00:00<00:00, 142.85it/s]Animation 1: Write(Text('Teorema de Pitágoras')):  86%|########5 | 30/35 [00:00<00:00, 127.90it/s]                                                                                                  [09/11/26 23:20:11] INFO     Animation 1 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00001.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 2: Write(MathTex('a^2+b^2=c^2')):   0%|          | 0/44 [00:00<?, ?it/s]Animation 2: Write(MathTex('a^2+b^2=c^2')):  39%|###8      | 17/44 [00:00<00:00, 163.45it/s]Animation 2: Write(MathTex('a^2+b^2=c^2')):  77%|#######7  | 34/44 [00:00<00:00, 161.56it/s]                                                                                                                INFO     Animation 2 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00002.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:20:12] INFO     Animation 3 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00003.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 4: FadeIn(Text('Quatro triângulos iguais cabem num quadrado de\nlado a+b.')):   0%|          | 0/15 [00:00<?, ?it/s]Animation 4: FadeIn(Text('Quatro triângulos iguais cabem num quadrado de\nlado a+b.')):  60%|######    | 9/15 [00:00<00:00, 80.33it/s]                                                                                                                                                          INFO     Animation 4 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00004.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:20:13] INFO     Animation 5 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00005.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 6: Create(Square), etc.:   0%|          | 0/59 [00:00<?, ?it/s]Animation 6: Create(Square), etc.:  31%|###       | 18/59 [00:00<00:00, 178.60it/s]Animation 6: Create(Square), etc.:  61%|######1   | 36/59 [00:00<00:00, 170.85it/s]Animation 6: Create(Square), etc.:  92%|#########1| 54/59 [00:00<00:00, 168.06it/s]                                                                                   [09/11/26 23:20:14] INFO     Animation 6 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00006.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 7: FadeOut(MathTex('a^2+b^2=c^2')):   0%|          | 0/16 [00:00<?, ?it/s]Animation 7: FadeOut(MathTex('a^2+b^2=c^2')):  44%|####3     | 7/16 [00:00<00:00, 67.87it/s]Animation 7: FadeOut(MathTex('a^2+b^2=c^2')):  88%|########7 | 14/16 [00:00<00:00, 66.72it/s]                                                                                                                 INFO     Animation 7 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00007.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 8: Write(VGroup of 2 submobjects):   0%|          | 0/35 [00:00<?, ?it/s]Animation 8: Write(VGroup of 2 submobjects):  57%|#####7    | 20/35 [00:00<00:00, 197.66it/s]                                                                                             [09/11/26 23:20:15] INFO     Animation 8 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00008.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 9: Write(MathTex('(a+b)^2=4\\left(\\frac{ab}{2}\\right)+c^2')):   0%|          | 0/33 [00:00<?, ?it/s]Animation 9: Write(MathTex('(a+b)^2=4\\left(\\frac{ab}{2}\\right)+c^2')):  45%|####5     | 15/33 [00:00<00:00, 145.69it/s]Animation 9: Write(MathTex('(a+b)^2=4\\left(\\frac{ab}{2}\\right)+c^2')):  91%|######### | 30/33 [00:00<00:00, 133.13it/s]                                                                                                                                              INFO     Animation 9 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00009.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:20:16] INFO     Animation 10 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00010.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 11: FadeOut(Text('Quatro triângulos iguais cabem num quadrado de\nlado a+b.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 11: FadeOut(Text('Quatro triângulos iguais cabem num quadrado de\nlado a+b.')), etc.:  40%|####      | 6/15 [00:00<00:00, 55.65it/s]Animation 11: FadeOut(Text('Quatro triângulos iguais cabem num quadrado de\nlado a+b.')), etc.:  80%|########  | 12/15 [00:00<00:00, 55.74it/s]                                                                                                                                                                   INFO     Animation 11 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00011.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:20:17] INFO     Animation 12 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00012.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 13: Create(Polygon):   0%|          | 0/32 [00:00<?, ?it/s]Animation 13: Create(Polygon):  66%|######5   | 21/32 [00:00<00:00, 204.43it/s]                                                                                                   INFO     Animation 13 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00013.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 14: FadeOut(Text('A área central é c².')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 14: FadeOut(Text('A área central é c².')), etc.:  53%|#####3    | 8/15 [00:00<00:00, 75.29it/s]                                                                                                         [09/11/26 23:20:18] INFO     Animation 14 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00014.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 15 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00015.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 16: Write(MathTex('c')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 16: Write(MathTex('c')):  63%|######2   | 22/35 [00:00<00:00, 216.07it/s]                                                                                   [09/11/26 23:20:19] INFO     Animation 16 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00016.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 17: FadeOut(Text('Cada lado central é uma hipotenusa c.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 17: FadeOut(Text('Cada lado central é uma hipotenusa c.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 62.51it/s]Animation 17: FadeOut(Text('Cada lado central é uma hipotenusa c.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 60.81it/s]                                                                                                                                               INFO     Animation 17 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00017.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:20:20] INFO     Animation 18 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00018.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 19: ReplacementTransform(MathTex('(a+b)^2=4\\left(\\frac{ab}{2}\\right)+c^2')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 19: ReplacementTransform(MathTex('(a+b)^2=4\\left(\\frac{ab}{2}\\right)+c^2')):  19%|#8        | 7/37 [00:00<00:00, 69.88it/s]Animation 19: ReplacementTransform(MathTex('(a+b)^2=4\\left(\\frac{ab}{2}\\right)+c^2')):  38%|###7      | 14/37 [00:00<00:00, 68.45it/s]Animation 19: ReplacementTransform(MathTex('(a+b)^2=4\\left(\\frac{ab}{2}\\right)+c^2')):  57%|#####6    | 21/37 [00:00<00:00, 68.50it/s]Animation 19: ReplacementTransform(MathTex('(a+b)^2=4\\left(\\frac{ab}{2}\\right)+c^2')):  76%|#######5  | 28/37 [00:00<00:00, 68.63it/s]Animation 19: ReplacementTransform(MathTex('(a+b)^2=4\\left(\\frac{ab}{2}\\right)+c^2')):  95%|#########4| 35/37 [00:00<00:00, 67.95it/s]                                                                                                                                                             INFO     Animation 19 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00019.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:20:21] INFO     Animation 20 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00020.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 21: FadeOut(Text('Os ângulos agudos somam 90°: o centro é um\nquadrado.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 21: FadeOut(Text('Os ângulos agudos somam 90°: o centro é um\nquadrado.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 63.99it/s]Animation 21: FadeOut(Text('Os ângulos agudos somam 90°: o centro é um\nquadrado.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 63.97it/s]                                                                                                                                                               INFO     Animation 21 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00021.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-[09/11/26 23:20:22] INFO     Animation 22 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00022.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 23: ReplacementTransform(MathTex('a^2+2ab+b^2=2ab+c^2')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 23: ReplacementTransform(MathTex('a^2+2ab+b^2=2ab+c^2')):  24%|##4       | 9/37 [00:00<00:00, 86.62it/s]Animation 23: ReplacementTransform(MathTex('a^2+2ab+b^2=2ab+c^2')):  49%|####8     | 18/37 [00:00<00:00, 81.60it/s]Animation 23: ReplacementTransform(MathTex('a^2+2ab+b^2=2ab+c^2')):  73%|#######2  | 27/37 [00:00<00:00, 83.59it/s]Animation 23: ReplacementTransform(MathTex('a^2+2ab+b^2=2ab+c^2')):  97%|#########7| 36/37 [00:00<00:00, 83.44it/s]                                                                                                                   [09/11/26 23:20:23] INFO     Animation 23 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00023.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 24 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00024.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-Animation 25: Indicate(MathTex('a^2+b^2=c^2')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 25: Indicate(MathTex('a^2+b^2=c^2')):  26%|##5       | 9/35 [00:00<00:00, 87.44it/s]Animation 25: Indicate(MathTex('a^2+b^2=c^2')):  51%|#####1    | 18/35 [00:00<00:00, 87.43it/s]Animation 25: Indicate(MathTex('a^2+b^2=c^2')):  77%|#######7  | 27/35 [00:00<00:00, 88.57it/s]                                                                                               [09/11/26 23:20:24] INFO     Animation 25 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00025.mp4'                           
-                    INFO     Caching disabled.             cairo_renderer.py:79
-                    INFO     Animation 26 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\partial_                         
-                             movie_files\TeoremaPitago                         
-                             ras\uncached_00026.mp4'                           
-                    INFO     Combining to Movie file.  scene_file_writer.py:739
-                    INFO                               scene_file_writer.py:886
-                             File ready at                                     
-                             'C:\Users\Windows                                 
-                             11\Documents\Instagram\ma                         
-                             tematica_em_movimento_30\                         
-                             media\videos\12_teorema_p                         
-                             itagoras\1920p30\TeoremaP                         
-                             itagoras.mp4'                                     
-                                                                               
-                    INFO     Rendered TeoremaPitagoras             scene.py:255
-                             Played 27 animations                              
-You are using manim version v0.19.0, but version v0.21.0 is available.
-You should consider upgrading via pip install -U manim

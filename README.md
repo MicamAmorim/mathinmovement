@@ -1,65 +1,101 @@
-# Matemática em Movimento — 30 cenas revisadas
+# Math in Movement
 
-Pacote de código, não de vídeos renderizados. Leia REVISAO.md sobre correções e limites dos testes.
+Engine unificado em Python/Manim para demonstrações matemáticas e resoluções comentadas do ENEM.
+
+O projeto possui hoje **60 conteúdos de produção**:
+
+- 30 demonstrações matemáticas;
+- 30 questões ENEM comentadas;
+- todos renderizados pelo engine nativo unificado.
 
 ## Instalação
 
-Extraia em pasta nova; não misture common.py antigo com as cenas revisadas.
-Use Python 3.11 ou 3.12 e o ambiente anterior que já renderizava, se disponível.
+Python 3.11 ou 3.12:
 
-Windows PowerShell:
+```powershell
+python -m pip install -e .
+python -m pip install -e ".[render]"
+```
 
-    py -m venv .venv
-    .\.venv\Scripts\Activate.ps1
-    python -m pip install -r requirements.txt
+Para renderização também são necessários os requisitos de sistema do Manim, incluindo FFmpeg e uma instalação LaTeX compatível.
 
-Também são necessários LaTeX (ex.: MiKTeX), dvisvgm e FFmpeg. Linux pode precisar de bibliotecas de desenvolvimento Cairo/Pango e pkg-config. requirements.txt não instala dependências do sistema.
+## Validação
 
-## Verificar
+```powershell
+python -m unittest discover -s tests -v
+python -m mathinmovement validate
+python -m mathinmovement db rebuild
+python -m mathinmovement db status
+```
 
-    python validate.py
-    python render_all.py --smoke --quality draft --keep-going
+## Listar conteúdo
 
-O primeiro verifica sintaxe e geometria sem Manim. O segundo executa cada cena e salva só o quadro final. É necessário também assistir às animações intermediárias.
+```powershell
+python -m mathinmovement list --type demo
+python -m mathinmovement list --type qenem
+```
 
-## Renderizar
+## Renderização
 
-    python render_all.py --from 7 --to 8 --quality draft
-    python render_all.py --quality draft --keep-going
-    python render_all.py --quality final --keep-going
+Um conteúdo:
 
-Draft: 360 × 640, 15 fps. Final: 1080 × 1920, 30 fps.
-Vídeos em media/videos; logs e relatório JSON em logs.
---preview abre o resultado. --timeout 3600 permite uma hora por cena.
---dry-run somente imprime comandos. Atalhos .bat/.sh aceitam os mesmos argumentos.
+```powershell
+python -m mathinmovement render area-triangulo
+python -m mathinmovement render ENEM-2021-MT-11
+```
 
-Cena individual:
+Formato horizontal:
 
-    python -m manim --format mp4 -r 1080,1920 --fps 30 videos/07_comprimento_circunferencia_pi.py ComprimentoCircunferenciaPi
+```powershell
+python -m mathinmovement render ENEM-2021-MT-11 --format horizontal
+```
 
-## Ritmo e fonte
+Lotes:
 
-Há pausas de leitura automáticas. MANIM_PACE altera apenas durações de animação; padrão 1.15. Exemplo PowerShell:
+```powershell
+python -m mathinmovement render --all --type demo --status production --keep-going
+python -m mathinmovement render --all --type qenem --status production --format vertical --keep-going
+python -m mathinmovement render --all --type qenem --status production --format horizontal --keep-going
+```
 
-    $env:MANIM_PACE="1.25"
-    $env:MANIM_FONT="Arial"
-    python render_all.py --from 7 --to 7 --quality draft
+Simular sem executar o Manim:
 
-Linux/WSL:
+```powershell
+python -m mathinmovement render --all --type qenem --dry-run
+```
 
-    MANIM_PACE=1.25 MANIM_FONT="DejaVu Sans" python render_all.py --from 7 --to 7 --quality draft
+## Conteúdo declarativo
 
-A fonte deve existir. Sem escolha explícita, são procuradas DejaVu Sans, Arial e Liberation Sans. Fórmulas usam MathTex/LaTeX.
+A fonte canônica está em:
 
-## Conteúdo
+```text
+content/
+├── demos/
+└── enem/
+```
 
-- videos/: 30 cenas.
-- common.py: identidade, movimentos rígidos, texto, ritmo.
-- planejamento.md: roteiro revisado por episódio.
-- planejamento-original.md: referência histórica, não especificação atual.
-- REVISAO.md: diagnóstico e validações.
-- validate.py: testes reproduzíveis sem render.
-- render_all.py e atalhos: render em lote.
+Cada item possui um `manifest.yaml`. O SQLite em `cache/registry.sqlite` é apenas um índice reconstruível.
 
-Não inclui novas músicas ou narração.
+Pacotes podem ser importados e exportados:
 
+```powershell
+python -m mathinmovement import arquivo.demo
+python -m mathinmovement import arquivo.qenem
+python -m mathinmovement export area-triangulo
+python -m mathinmovement export ENEM-2021-MT-11
+```
+
+## Estrutura principal
+
+```text
+content/                 conteúdo canônico
+src/mathinmovement/      engine, CLI, registry e renderers
+schemas/                 contratos dos manifests
+tests/                   testes automatizados
+cache/                   SQLite reconstruível
+media/                   saída de produção
+media_native/            saída isolada para inspeção do engine
+enem/audio/              assets de narração ainda referenciados pelas qENEM
+```
+
+O código legado foi removido da linha principal após a migração para o engine unificado. O snapshot histórico completo permanece preservado na branch `backup`.

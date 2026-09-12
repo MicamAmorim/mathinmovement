@@ -1,9 +1,10 @@
-# Conteúdo v2
+# Conteúdo
 
-Este diretório será a fonte de verdade declarativa do Math in Movement v2.
+Este diretório é a fonte de verdade declarativa do Math in Movement.
 
-- `content/enem/<id>/manifest.yaml`: questões/resoluções ENEM;
+- `content/enem/<id>/manifest.yaml`: questões e resoluções ENEM;
 - `content/demos/<id>/manifest.yaml`: demonstrações matemáticas.
 
-Durante a migração, os conteúdos legados continuam funcionando nos diretórios atuais.
-O registry v2 ignora diretórios sem `manifest.yaml`.
+O registry percorre esses manifests, valida os schemas e reconstrói `cache/registry.sqlite`.
+
+Nenhum conteúdo de produção depende de scripts Python antigos, listas hardcoded ou arquivos de compatibilidade.
