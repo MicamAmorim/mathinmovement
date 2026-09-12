@@ -29,10 +29,12 @@ class PilotContentTests(unittest.TestCase):
             self.assertEqual(render["native_engine"], "unified-v2")
             self.assertIn("compatibility", render)
 
-    def test_both_pilots_support_horizontal(self):
-        for content_id in ("area-triangulo", "ENEM-2021-MT-11"):
-            record = self.registry.get(content_id)
-            self.assertIn("horizontal", record.manifest["render"]["formats"])
+    def test_native_format_policy_matches_reference_coverage(self):
+        demo = self.registry.get("area-triangulo").manifest["render"]
+        qenem = self.registry.get("ENEM-2021-MT-11").manifest["render"]
+        self.assertEqual(demo["native_formats"], ["vertical"])
+        self.assertIn("vertical", qenem["native_formats"])
+        self.assertIn("horizontal", qenem["native_formats"])
 
 
 if __name__ == "__main__":

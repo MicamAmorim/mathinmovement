@@ -23,17 +23,17 @@ class RenderModeTests(unittest.TestCase):
         output = render_record(record, dry_run=True, render_engine="native")
         self.assertIn("media_native", output.parts)
 
-    def test_demo_horizontal_requires_native_until_parity_is_approved(self):
+    def test_demo_horizontal_is_not_claimed_before_reference_parity(self):
         record = self.registry.get("area-triangulo")
         with self.assertRaises(ManifestError):
             render_record(record, dry_run=True, video_format="horizontal")
-        output = render_record(
-            record,
-            dry_run=True,
-            video_format="horizontal",
-            render_engine="native",
-        )
-        self.assertIn("media_native", output.parts)
+        with self.assertRaises(ManifestError):
+            render_record(
+                record,
+                dry_run=True,
+                video_format="horizontal",
+                render_engine="native",
+            )
 
     def test_qenem_production_supports_both_formats_via_compatibility(self):
         record = self.registry.get("ENEM-2021-MT-11")
@@ -44,6 +44,17 @@ class RenderModeTests(unittest.TestCase):
                 video_format=video_format,
             )
             self.assertIn("media", output.parts)
+
+    def test_qenem_native_supports_both_approved_reference_formats(self):
+        record = self.registry.get("ENEM-2021-MT-11")
+        for video_format in ("vertical", "horizontal"):
+            output = render_record(
+                record,
+                dry_run=True,
+                video_format=video_format,
+                render_engine="native",
+            )
+            self.assertIn("media_native", output.parts)
 
 
 if __name__ == "__main__":
