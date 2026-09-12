@@ -257,6 +257,39 @@ def cmd_dsl_validate(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_dsl_regress(args: argparse.Namespace) -> int:
+    registry = Registry().rebuild()
+    if args.type == "demo":
+        ids = DEMO_VALIDATION_SET
+    elif args.type == "qenem":
+        ids = QENEM_VALIDATION_SET
+    else:
+        ids = DEMO_VALIDATION_SET + QENEM_VALIDATION_SET
+
+    failures = []
+    for content_id in ids:
+        record = registry.get(content_id)
+        try:
+            render_record(
+                record,
+                video_format=args.format,
+                quality=args.quality,
+                preview=args.preview,
+                dry_run=args.dry_run,
+                fast_preview=args.fast,
+                render_engine="dsl",
+            )
+        except (ManifestError, RenderError) as exc:
+            failures.append((content_id, str(exc)))
+            print(f"ERRO: {exc}", file=sys.stderr)
+            if not args.keep_going:
+                return 2
+    if failures:
+        return 1
+    print(f"PASS: {len(ids)} shadow port(s) DSL processado(s).")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="mathinmovement",
@@ -339,6 +372,19 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p_dsl_validate.add_argument("id")
     p_dsl_validate.set_defaults(func=cmd_dsl_validate)
+
+    p_dsl_regress = dsl_sub.add_parser(
+        "regress",
+        help="Renderiza o conjunto mínimo de regressão em media_dsl/.",
+    )
+    p_dsl_regress.add_argument("--type", choices=["all", "demo", "qenem"], default="all")
+    p_dsl_regress.add_argument("--format", choices=["vertical", "horizontal"], default="vertical")
+    p_dsl_regress.add_argument("--quality", choices=["draft", "final"], default="draft")
+    p_dsl_regress.add_argument("--preview", action="store_true")
+    p_dsl_regress.add_argument("--fast", action="store_true")
+    p_dsl_regress.add_argument("--dry-run", action="store_true")
+    p_dsl_regress.add_argument("--keep-going", action="store_true")
+    p_dsl_regress.set_defaults(func=cmd_dsl_regress)
 
     p_voice = sub.add_parser(
         "voice",
