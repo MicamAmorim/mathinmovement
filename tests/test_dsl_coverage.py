@@ -60,6 +60,16 @@ class DSLCoverageTests(unittest.TestCase):
                 with self.subTest(content_id=content_id, visual=name):
                     validate_program(spec["program"])
 
+    def test_every_demo_has_valid_shadow_program(self):
+        registry = Registry().rebuild()
+        demos = registry.find(content_type="demo")
+        self.assertEqual(len(demos), 30)
+        for record in demos:
+            with self.subTest(content_id=record.id):
+                shadow = record.manifest.get("dsl_shadow") or {}
+                self.assertIn("visual_program", shadow)
+                validate_program(shadow["visual_program"])
+
     def test_every_shadow_program_in_catalog_validates(self):
         registry = Registry().rebuild()
         count = 0
