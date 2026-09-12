@@ -55,5 +55,400 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "whole",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              1.8
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              -1.8
+            ],
+            [
+              -3,
+              0
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "dh",
+          "type": "line",
+          "start": [
+            -3,
+            0
+          ],
+          "end": [
+            3,
+            0
+          ],
+          "color": "cyan",
+          "stroke_width": 4
+        },
+        {
+          "id": "dv",
+          "type": "line",
+          "start": [
+            0,
+            -1.8
+          ],
+          "end": [
+            0,
+            1.8
+          ],
+          "color": "gold",
+          "stroke_width": 4
+        },
+        {
+          "id": "D_label",
+          "type": "math",
+          "tex": "D",
+          "font_size": 36,
+          "color": "cyan",
+          "at": [
+            0,
+            -0.42
+          ]
+        },
+        {
+          "id": "d_label",
+          "type": "math",
+          "tex": "d",
+          "font_size": 36,
+          "color": "gold",
+          "at": [
+            0.38,
+            0.22
+          ]
+        },
+        {
+          "id": "t0",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              0,
+              1.8
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "t1",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1.8
+            ],
+            [
+              -3,
+              0
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "t2",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              -3,
+              0
+            ],
+            [
+              0,
+              -1.8
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "t3",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              -1.8
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "outline",
+          "type": "rectangle",
+          "width": 6,
+          "height": 1.8,
+          "color": "white"
+        },
+        {
+          "id": "braceD",
+          "type": "brace",
+          "start": [
+            -3,
+            -1.05
+          ],
+          "end": [
+            3,
+            -1.05
+          ],
+          "direction": "DOWN",
+          "color": "cyan"
+        },
+        {
+          "id": "braceDlabel",
+          "type": "math",
+          "tex": "D",
+          "font_size": 34,
+          "color": "cyan",
+          "at": [
+            0,
+            -1.55
+          ]
+        },
+        {
+          "id": "braced",
+          "type": "brace",
+          "start": [
+            3.15,
+            -0.9
+          ],
+          "end": [
+            3.15,
+            0.9
+          ],
+          "direction": "RIGHT",
+          "color": "gold"
+        },
+        {
+          "id": "bracedlabel",
+          "type": "math",
+          "tex": "\\frac d2",
+          "font_size": 34,
+          "color": "gold",
+          "at": [
+            3.75,
+            0
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "create",
+          "target": "whole",
+          "run_time": 1.8
+        },
+        {
+          "op": "parallel",
+          "run_time": 1.1,
+          "actions": [
+            {
+              "op": "create",
+              "target": "dh"
+            },
+            {
+              "op": "create",
+              "target": "dv"
+            },
+            {
+              "op": "write",
+              "target": "D_label"
+            },
+            {
+              "op": "write",
+              "target": "d_label"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "remove",
+          "target": "whole"
+        },
+        {
+          "op": "add",
+          "target": "t0"
+        },
+        {
+          "op": "add",
+          "target": "t1"
+        },
+        {
+          "op": "add",
+          "target": "t2"
+        },
+        {
+          "op": "add",
+          "target": "t3"
+        },
+        {
+          "op": "wait",
+          "duration": 0.8
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.4,
+          "actions": [
+            {
+              "op": "fade_out",
+              "target": "dh"
+            },
+            {
+              "op": "fade_out",
+              "target": "dv"
+            },
+            {
+              "op": "fade_out",
+              "target": "D_label"
+            },
+            {
+              "op": "fade_out",
+              "target": "d_label"
+            }
+          ]
+        },
+        {
+          "op": "rigid_motion",
+          "target": "t0",
+          "angle": 0,
+          "shift": [
+            -3,
+            -0.9
+          ],
+          "run_time": 1.6
+        },
+        {
+          "op": "rigid_motion",
+          "target": "t2",
+          "angle": 0,
+          "shift": [
+            0,
+            0.9
+          ],
+          "run_time": 1.6
+        },
+        {
+          "op": "rigid_motion",
+          "target": "t1",
+          "angle": "=pi",
+          "shift": [
+            0,
+            0.9
+          ],
+          "run_time": 1.6
+        },
+        {
+          "op": "rigid_motion",
+          "target": "t3",
+          "angle": "=pi",
+          "shift": [
+            3,
+            -0.9
+          ],
+          "run_time": 1.6
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.85,
+          "actions": [
+            {
+              "op": "create",
+              "target": "outline"
+            },
+            {
+              "op": "fade_in",
+              "target": "braceD"
+            },
+            {
+              "op": "fade_in",
+              "target": "braceDlabel"
+            },
+            {
+              "op": "fade_in",
+              "target": "braced"
+            },
+            {
+              "op": "fade_in",
+              "target": "bracedlabel"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 4
+        },
+        {
+          "op": "end"
+        }
+      ]
+    }
   }
 }

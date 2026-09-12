@@ -74,5 +74,381 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "front",
+          "type": "square",
+          "side": 3.3,
+          "at": [
+            -0.55,
+            -0.35
+          ],
+          "color": "white"
+        },
+        {
+          "id": "back",
+          "type": "square",
+          "side": 3.3,
+          "at": [
+            0.45,
+            0.45
+          ],
+          "color": "white"
+        },
+        {
+          "id": "c1",
+          "type": "line",
+          "start": [
+            -2.2,
+            -2
+          ],
+          "end": [
+            -1.2,
+            -1.2
+          ],
+          "color": "white"
+        },
+        {
+          "id": "c2",
+          "type": "line",
+          "start": [
+            1.1,
+            -2
+          ],
+          "end": [
+            2.1,
+            -1.2
+          ],
+          "color": "white"
+        },
+        {
+          "id": "c3",
+          "type": "line",
+          "start": [
+            1.1,
+            1.3
+          ],
+          "end": [
+            2.1,
+            2.1
+          ],
+          "color": "white"
+        },
+        {
+          "id": "c4",
+          "type": "line",
+          "start": [
+            -2.2,
+            1.3
+          ],
+          "end": [
+            -1.2,
+            2.1
+          ],
+          "color": "white"
+        },
+        {
+          "id": "p1",
+          "type": "polygon",
+          "points": [
+            [
+              -1.2,
+              -1.2
+            ],
+            [
+              2.1,
+              -1.2
+            ],
+            [
+              2.1,
+              2.1
+            ],
+            [
+              -1.2,
+              2.1
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.15
+        },
+        {
+          "id": "p2",
+          "type": "polygon",
+          "points": [
+            [
+              1.1,
+              -2
+            ],
+            [
+              1.1,
+              1.3
+            ],
+            [
+              2.1,
+              2.1
+            ],
+            [
+              2.1,
+              -1.2
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0.14
+        },
+        {
+          "id": "p3",
+          "type": "polygon",
+          "points": [
+            [
+              -2.2,
+              1.3
+            ],
+            [
+              1.1,
+              1.3
+            ],
+            [
+              2.1,
+              2.1
+            ],
+            [
+              -1.2,
+              2.1
+            ]
+          ],
+          "color": "green",
+          "fill_opacity": 0.13
+        },
+        {
+          "id": "ray1",
+          "type": "line",
+          "start": [
+            -2.2,
+            -2
+          ],
+          "end": [
+            1.1,
+            1.3
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "ray2",
+          "type": "line",
+          "start": [
+            -2.2,
+            -2
+          ],
+          "end": [
+            2.1,
+            -1.2
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "ray3",
+          "type": "line",
+          "start": [
+            -2.2,
+            -2
+          ],
+          "end": [
+            2.1,
+            2.1
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "ray4",
+          "type": "line",
+          "start": [
+            -2.2,
+            -2
+          ],
+          "end": [
+            -1.2,
+            2.1
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "origin",
+          "type": "dot",
+          "point": [
+            -2.2,
+            -2
+          ],
+          "color": "red"
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "parallel",
+          "run_time": 1.4,
+          "actions": [
+            {
+              "op": "create",
+              "target": "front"
+            },
+            {
+              "op": "create",
+              "target": "back"
+            },
+            {
+              "op": "create",
+              "target": "c1"
+            },
+            {
+              "op": "create",
+              "target": "c2"
+            },
+            {
+              "op": "create",
+              "target": "c3"
+            },
+            {
+              "op": "create",
+              "target": "c4"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.8,
+          "actions": [
+            {
+              "op": "fade_in",
+              "target": "p1"
+            },
+            {
+              "op": "fade_in",
+              "target": "p2"
+            },
+            {
+              "op": "fade_in",
+              "target": "p3"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "run_time": 2,
+          "actions": [
+            {
+              "op": "create",
+              "target": "ray1"
+            },
+            {
+              "op": "create",
+              "target": "ray2"
+            },
+            {
+              "op": "create",
+              "target": "ray3"
+            },
+            {
+              "op": "create",
+              "target": "ray4"
+            },
+            {
+              "op": "fade_in",
+              "target": "origin"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "highlight",
+          "target": "p1"
+        },
+        {
+          "op": "highlight",
+          "target": "p2"
+        },
+        {
+          "op": "highlight",
+          "target": "p3"
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "caption",
+          "step": 4
+        },
+        {
+          "op": "equation",
+          "step": 4
+        },
+        {
+          "op": "caption",
+          "step": 5
+        },
+        {
+          "op": "caption",
+          "step": 6
+        },
+        {
+          "op": "caption",
+          "step": 7
+        },
+        {
+          "op": "equation",
+          "step": 7
+        },
+        {
+          "op": "caption",
+          "step": 8
+        },
+        {
+          "op": "equation",
+          "step": 8
+        },
+        {
+          "op": "caption",
+          "step": 9
+        },
+        {
+          "op": "equation",
+          "step": 9
+        },
+        {
+          "op": "end"
+        }
+      ]
+    }
   }
 }

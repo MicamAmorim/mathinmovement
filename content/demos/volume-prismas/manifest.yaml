@@ -53,5 +53,281 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "layer0",
+          "type": "regular_polygon",
+          "n": 6,
+          "radius": 1.8,
+          "start_angle": "=pi/6",
+          "at": [
+            0,
+            -1.4
+          ],
+          "stretch": {
+            "factor": 0.3,
+            "dim": 1
+          },
+          "color": "cyan",
+          "fill_opacity": 0.18,
+          "opacity": 1
+        },
+        {
+          "id": "layer1",
+          "type": "regular_polygon",
+          "n": 6,
+          "radius": 1.8,
+          "start_angle": "=pi/6",
+          "at": [
+            0,
+            -0.98
+          ],
+          "stretch": {
+            "factor": 0.3,
+            "dim": 1
+          },
+          "color": "cyan",
+          "fill_opacity": 0.18,
+          "opacity": 0.22
+        },
+        {
+          "id": "layer2",
+          "type": "regular_polygon",
+          "n": 6,
+          "radius": 1.8,
+          "start_angle": "=pi/6",
+          "at": [
+            0,
+            -0.5599999999999999
+          ],
+          "stretch": {
+            "factor": 0.3,
+            "dim": 1
+          },
+          "color": "cyan",
+          "fill_opacity": 0.18,
+          "opacity": 0.26
+        },
+        {
+          "id": "layer3",
+          "type": "regular_polygon",
+          "n": 6,
+          "radius": 1.8,
+          "start_angle": "=pi/6",
+          "at": [
+            0,
+            -0.1399999999999999
+          ],
+          "stretch": {
+            "factor": 0.3,
+            "dim": 1
+          },
+          "color": "cyan",
+          "fill_opacity": 0.18,
+          "opacity": 0.3
+        },
+        {
+          "id": "layer4",
+          "type": "regular_polygon",
+          "n": 6,
+          "radius": 1.8,
+          "start_angle": "=pi/6",
+          "at": [
+            0,
+            0.28
+          ],
+          "stretch": {
+            "factor": 0.3,
+            "dim": 1
+          },
+          "color": "cyan",
+          "fill_opacity": 0.18,
+          "opacity": 0.33999999999999997
+        },
+        {
+          "id": "layer5",
+          "type": "regular_polygon",
+          "n": 6,
+          "radius": 1.8,
+          "start_angle": "=pi/6",
+          "at": [
+            0,
+            0.7000000000000002
+          ],
+          "stretch": {
+            "factor": 0.3,
+            "dim": 1
+          },
+          "color": "cyan",
+          "fill_opacity": 0.18,
+          "opacity": 0.38
+        },
+        {
+          "id": "layer6",
+          "type": "regular_polygon",
+          "n": 6,
+          "radius": 1.8,
+          "start_angle": "=pi/6",
+          "at": [
+            0,
+            1.12
+          ],
+          "stretch": {
+            "factor": 0.3,
+            "dim": 1
+          },
+          "color": "cyan",
+          "fill_opacity": 0.18,
+          "opacity": 0.42
+        },
+        {
+          "id": "layer7",
+          "type": "regular_polygon",
+          "n": 6,
+          "radius": 1.8,
+          "start_angle": "=pi/6",
+          "at": [
+            0,
+            1.54
+          ],
+          "stretch": {
+            "factor": 0.3,
+            "dim": 1
+          },
+          "color": "cyan",
+          "fill_opacity": 0.18,
+          "opacity": 0.46
+        },
+        {
+          "id": "hbrace",
+          "type": "brace",
+          "start": [
+            2.2,
+            -1.4
+          ],
+          "end": [
+            2.2,
+            1.54
+          ],
+          "direction": "RIGHT",
+          "color": "gold"
+        },
+        {
+          "id": "hlabel",
+          "type": "math",
+          "tex": "h",
+          "font_size": 34,
+          "color": "gold",
+          "at": [
+            2.75,
+            0.07
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "create",
+          "target": "layer0",
+          "run_time": 1
+        },
+        {
+          "op": "lagged",
+          "run_time": 1.5,
+          "lag_ratio": 0.08,
+          "actions": [
+            {
+              "op": "transform_from_copy",
+              "target": "layer0",
+              "to": "layer1"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "layer0",
+              "to": "layer2"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "layer0",
+              "to": "layer3"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "layer0",
+              "to": "layer4"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "layer0",
+              "to": "layer5"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "layer0",
+              "to": "layer6"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "layer0",
+              "to": "layer7"
+            }
+          ]
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "equation",
+          "step": 1
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.7,
+          "actions": [
+            {
+              "op": "fade_in",
+              "target": "hbrace"
+            },
+            {
+              "op": "write",
+              "target": "hlabel"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 2,
+          "size": 42
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "end"
+        }
+      ]
+    }
   }
 }

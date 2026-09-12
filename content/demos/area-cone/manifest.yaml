@@ -57,5 +57,206 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "base",
+          "type": "ellipse",
+          "width": 3.4,
+          "height": 0.8,
+          "at": [
+            0,
+            -1.2
+          ],
+          "color": "cyan"
+        },
+        {
+          "id": "s1",
+          "type": "line",
+          "start": [
+            0,
+            0.701315
+          ],
+          "end": [
+            -1.7,
+            -1.2
+          ],
+          "color": "cyan"
+        },
+        {
+          "id": "s2",
+          "type": "line",
+          "start": [
+            0,
+            0.701315
+          ],
+          "end": [
+            1.7,
+            -1.2
+          ],
+          "color": "cyan"
+        },
+        {
+          "id": "sector",
+          "type": "sector",
+          "radius": 2.55,
+          "angle": "=4*pi/3",
+          "start_angle": "=-pi/6",
+          "at": [
+            0,
+            0.15
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.18,
+          "stroke_width": 3
+        },
+        {
+          "id": "radius",
+          "type": "line",
+          "start": [
+            0,
+            0.15
+          ],
+          "end": [
+            2.208365,
+            -1.125
+          ],
+          "color": "gold",
+          "stroke_width": 3
+        },
+        {
+          "id": "g",
+          "type": "math",
+          "tex": "g",
+          "font_size": 34,
+          "color": "gold",
+          "at": [
+            1.25,
+            -0.25
+          ]
+        },
+        {
+          "id": "arc",
+          "type": "arc",
+          "radius": 2.55,
+          "start_angle": "=-pi/6",
+          "angle": "=4*pi/3",
+          "center": [
+            0,
+            0.15
+          ],
+          "color": "gold",
+          "stroke_width": 6
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "parallel",
+          "run_time": 1.4,
+          "actions": [
+            {
+              "op": "create",
+              "target": "base"
+            },
+            {
+              "op": "create",
+              "target": "s1"
+            },
+            {
+              "op": "create",
+              "target": "s2"
+            }
+          ]
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.9,
+          "actions": [
+            {
+              "op": "fade_out",
+              "target": "base"
+            },
+            {
+              "op": "fade_out",
+              "target": "s1"
+            },
+            {
+              "op": "fade_out",
+              "target": "s2"
+            },
+            {
+              "op": "fade_in",
+              "target": "sector"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.65,
+          "actions": [
+            {
+              "op": "create",
+              "target": "radius"
+            },
+            {
+              "op": "write",
+              "target": "g"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "equation",
+          "step": 1
+        },
+        {
+          "op": "create",
+          "target": "arc"
+        },
+        {
+          "op": "equation",
+          "step": 2,
+          "size": 42
+        },
+        {
+          "op": "caption",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "caption",
+          "step": 4
+        },
+        {
+          "op": "equation",
+          "step": 4
+        },
+        {
+          "op": "end"
+        }
+      ]
+    }
   }
 }

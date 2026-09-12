@@ -56,5 +56,345 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "t",
+          "type": "tracker",
+          "value": 0
+        },
+        {
+          "id": "wheel",
+          "type": "circle",
+          "radius": 1,
+          "at": [
+            "=-pi+t",
+            0
+          ],
+          "color": "cyan",
+          "dynamic": true
+        },
+        {
+          "id": "spoke",
+          "type": "line",
+          "start": [
+            "=-pi+t",
+            0
+          ],
+          "end": [
+            "=-pi+t-sin(t)",
+            "=-cos(t)"
+          ],
+          "color": "gold",
+          "stroke_width": 5,
+          "dynamic": true
+        },
+        {
+          "id": "floor",
+          "type": "line",
+          "start": [
+            "=-pi-0.2",
+            -1
+          ],
+          "end": [
+            "=pi+0.2",
+            -1
+          ],
+          "color": "muted"
+        },
+        {
+          "id": "diameter",
+          "type": "line",
+          "start": [
+            "=-pi-1",
+            0
+          ],
+          "end": [
+            "=-pi+1",
+            0
+          ],
+          "color": "gold"
+        },
+        {
+          "id": "dlabel",
+          "type": "math",
+          "tex": "d=2r",
+          "font_size": 30,
+          "color": "gold",
+          "at": [
+            "=-pi",
+            0.5
+          ]
+        },
+        {
+          "id": "trail",
+          "type": "line",
+          "start": [
+            "=-pi",
+            -1
+          ],
+          "end": [
+            "=-pi+max(0.001,t)",
+            -1
+          ],
+          "color": "cyan",
+          "stroke_width": 6,
+          "dynamic": true
+        },
+        {
+          "id": "u1",
+          "type": "line",
+          "start": [
+            "=-pi",
+            -0.3
+          ],
+          "end": [
+            "=-pi+2",
+            -0.3
+          ],
+          "color": "gold",
+          "stroke_width": 6
+        },
+        {
+          "id": "u2",
+          "type": "line",
+          "start": [
+            "=-pi+2",
+            -0.3
+          ],
+          "end": [
+            "=-pi+4",
+            -0.3
+          ],
+          "color": "gold",
+          "stroke_width": 6
+        },
+        {
+          "id": "u3",
+          "type": "line",
+          "start": [
+            "=-pi+4",
+            -0.3
+          ],
+          "end": [
+            "=-pi+6",
+            -0.3
+          ],
+          "color": "gold",
+          "stroke_width": 6
+        },
+        {
+          "id": "ul1",
+          "type": "math",
+          "tex": "d",
+          "font_size": 32,
+          "color": "gold",
+          "at": [
+            "=-pi+1",
+            0.15
+          ]
+        },
+        {
+          "id": "ul2",
+          "type": "math",
+          "tex": "d",
+          "font_size": 32,
+          "color": "gold",
+          "at": [
+            "=-pi+3",
+            0.15
+          ]
+        },
+        {
+          "id": "ul3",
+          "type": "math",
+          "tex": "d",
+          "font_size": 32,
+          "color": "gold",
+          "at": [
+            "=-pi+5",
+            0.15
+          ]
+        },
+        {
+          "id": "rem",
+          "type": "line",
+          "start": [
+            "=-pi+6",
+            -0.3
+          ],
+          "end": [
+            "=pi",
+            -0.3
+          ],
+          "color": "pink",
+          "stroke_width": 6
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "parallel",
+          "run_time": 2,
+          "actions": [
+            {
+              "op": "create",
+              "target": "wheel"
+            },
+            {
+              "op": "create",
+              "target": "spoke"
+            },
+            {
+              "op": "create",
+              "target": "floor"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "create",
+              "target": "diameter"
+            },
+            {
+              "op": "write",
+              "target": "dlabel"
+            }
+          ]
+        },
+        {
+          "op": "wait",
+          "duration": 2
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "fade_out",
+              "target": "diameter"
+            },
+            {
+              "op": "fade_out",
+              "target": "dlabel"
+            }
+          ]
+        },
+        {
+          "op": "add",
+          "target": "trail"
+        },
+        {
+          "op": "animate_value",
+          "target": "t",
+          "value": "=tau",
+          "run_time": 7,
+          "rate_func": "linear"
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "fade_out",
+              "target": "wheel"
+            },
+            {
+              "op": "fade_out",
+              "target": "spoke"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "create",
+              "target": "u1"
+            },
+            {
+              "op": "write",
+              "target": "ul1"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "create",
+              "target": "u2"
+            },
+            {
+              "op": "write",
+              "target": "ul2"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "create",
+              "target": "u3"
+            },
+            {
+              "op": "write",
+              "target": "ul3"
+            }
+          ]
+        },
+        {
+          "op": "create",
+          "target": "rem"
+        },
+        {
+          "op": "equation",
+          "step": 2
+        },
+        {
+          "op": "caption",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "caption",
+          "step": 4
+        },
+        {
+          "op": "equation",
+          "step": 4
+        },
+        {
+          "op": "end"
+        }
+      ]
+    }
   }
 }

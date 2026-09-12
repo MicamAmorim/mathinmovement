@@ -56,5 +56,451 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "f0",
+          "type": "polygon",
+          "points": [
+            [
+              1.26,
+              -0.7
+            ],
+            [
+              1.019711,
+              -0.466173
+            ],
+            [
+              1.019711,
+              1.033827
+            ],
+            [
+              1.26,
+              0.8
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "f1",
+          "type": "polygon",
+          "points": [
+            [
+              1.019711,
+              -0.466173
+            ],
+            [
+              -0.240289,
+              -0.466173
+            ],
+            [
+              -0.240289,
+              1.033827
+            ],
+            [
+              1.019711,
+              1.033827
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "f2",
+          "type": "polygon",
+          "points": [
+            [
+              -0.240289,
+              -0.466173
+            ],
+            [
+              -1.26,
+              -0.7
+            ],
+            [
+              -1.26,
+              0.8
+            ],
+            [
+              -0.240289,
+              1.033827
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "f3",
+          "type": "polygon",
+          "points": [
+            [
+              -1.26,
+              -0.7
+            ],
+            [
+              -1.019711,
+              -0.933827
+            ],
+            [
+              -1.019711,
+              0.566173
+            ],
+            [
+              -1.26,
+              0.8
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "f4",
+          "type": "polygon",
+          "points": [
+            [
+              -1.019711,
+              -0.933827
+            ],
+            [
+              0.240289,
+              -0.933827
+            ],
+            [
+              0.240289,
+              0.566173
+            ],
+            [
+              -1.019711,
+              0.566173
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "f5",
+          "type": "polygon",
+          "points": [
+            [
+              0.240289,
+              -0.933827
+            ],
+            [
+              1.26,
+              -0.7
+            ],
+            [
+              1.26,
+              0.8
+            ],
+            [
+              0.240289,
+              0.566173
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "r0",
+          "type": "rectangle",
+          "width": 0.9,
+          "height": 1.5,
+          "at": [
+            -2.25,
+            0
+          ],
+          "color": "gold",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "r1",
+          "type": "rectangle",
+          "width": 0.9,
+          "height": 1.5,
+          "at": [
+            -1.35,
+            0
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "r2",
+          "type": "rectangle",
+          "width": 0.9,
+          "height": 1.5,
+          "at": [
+            -0.44999999999999996,
+            0
+          ],
+          "color": "gold",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "r3",
+          "type": "rectangle",
+          "width": 0.9,
+          "height": 1.5,
+          "at": [
+            0.4500000000000002,
+            0
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "r4",
+          "type": "rectangle",
+          "width": 0.9,
+          "height": 1.5,
+          "at": [
+            1.35,
+            0
+          ],
+          "color": "gold",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "r5",
+          "type": "rectangle",
+          "width": 0.9,
+          "height": 1.5,
+          "at": [
+            2.25,
+            0
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "bbase",
+          "type": "brace",
+          "start": [
+            -2.7,
+            -0.87
+          ],
+          "end": [
+            2.7,
+            -0.87
+          ],
+          "direction": "DOWN",
+          "color": "cyan"
+        },
+        {
+          "id": "bbase_label",
+          "type": "math",
+          "tex": "P_b",
+          "font_size": 34,
+          "color": "cyan",
+          "at": [
+            0,
+            -1.38
+          ]
+        },
+        {
+          "id": "bh",
+          "type": "brace",
+          "start": [
+            2.85,
+            -0.75
+          ],
+          "end": [
+            2.85,
+            0.75
+          ],
+          "direction": "RIGHT",
+          "color": "gold"
+        },
+        {
+          "id": "bh_label",
+          "type": "math",
+          "tex": "h",
+          "font_size": 34,
+          "color": "gold",
+          "at": [
+            3.4,
+            0
+          ]
+        },
+        {
+          "id": "base1",
+          "type": "regular_polygon",
+          "n": 6,
+          "radius": 0.9,
+          "start_angle": "=pi/2",
+          "at": [
+            -1.5,
+            2
+          ],
+          "color": "gold",
+          "fill_opacity": 0.25
+        },
+        {
+          "id": "base2",
+          "type": "regular_polygon",
+          "n": 6,
+          "radius": 0.9,
+          "start_angle": "=pi/2",
+          "at": [
+            1.5,
+            2
+          ],
+          "color": "gold",
+          "fill_opacity": 0.25
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "lagged",
+          "run_time": 3,
+          "lag_ratio": 0.15,
+          "actions": [
+            {
+              "op": "create",
+              "target": "f0"
+            },
+            {
+              "op": "create",
+              "target": "f1"
+            },
+            {
+              "op": "create",
+              "target": "f2"
+            },
+            {
+              "op": "create",
+              "target": "f3"
+            },
+            {
+              "op": "create",
+              "target": "f4"
+            },
+            {
+              "op": "create",
+              "target": "f5"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "transform",
+          "target": "f0",
+          "to": "r0",
+          "run_time": 0.8
+        },
+        {
+          "op": "transform",
+          "target": "f1",
+          "to": "r1",
+          "run_time": 0.8
+        },
+        {
+          "op": "transform",
+          "target": "f2",
+          "to": "r2",
+          "run_time": 0.8
+        },
+        {
+          "op": "transform",
+          "target": "f3",
+          "to": "r3",
+          "run_time": 0.8
+        },
+        {
+          "op": "transform",
+          "target": "f4",
+          "to": "r4",
+          "run_time": 0.8
+        },
+        {
+          "op": "transform",
+          "target": "f5",
+          "to": "r5",
+          "run_time": 0.8
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 2,
+          "size": 40
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.75,
+          "actions": [
+            {
+              "op": "fade_in",
+              "target": "bbase"
+            },
+            {
+              "op": "write",
+              "target": "bbase_label"
+            },
+            {
+              "op": "fade_in",
+              "target": "bh"
+            },
+            {
+              "op": "write",
+              "target": "bh_label"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 3
+        },
+        {
+          "op": "lagged",
+          "run_time": 2,
+          "lag_ratio": 0.5,
+          "actions": [
+            {
+              "op": "create",
+              "target": "base1"
+            },
+            {
+              "op": "create",
+              "target": "base2"
+            }
+          ]
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 4
+        },
+        {
+          "op": "end"
+        }
+      ]
+    }
   }
 }
