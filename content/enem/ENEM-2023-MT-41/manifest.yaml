@@ -92,7 +92,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "enem/videos/21_2023_q176_cabos_mastro.py",
       "scene": "Resolucao21",
@@ -101,7 +101,11 @@
         "vertical",
         "horizontal"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical",
+      "horizontal"
+    ]
   },
   "narration": {
     "enabled": true,

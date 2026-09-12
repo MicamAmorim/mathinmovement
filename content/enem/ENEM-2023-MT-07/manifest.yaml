@@ -86,7 +86,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "enem/videos/16_2023_q142_area_calcada.py",
       "scene": "Resolucao16",
@@ -95,7 +95,11 @@
         "vertical",
         "horizontal"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical",
+      "horizontal"
+    ]
   },
   "narration": {
     "enabled": true,
