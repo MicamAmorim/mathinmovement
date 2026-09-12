@@ -48,7 +48,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/07_comprimento_circunferencia_pi.py",
       "scene": "ComprimentoCircunferenciaPi",
@@ -56,7 +56,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "circumference_roll_pi_v1"
   },
   "narration": {
     "enabled": false

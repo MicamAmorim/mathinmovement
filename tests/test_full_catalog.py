@@ -48,10 +48,17 @@ class FullCatalogTests(unittest.TestCase):
             self.assertEqual(render["production_engine"], "native")
             self.assertTrue(render["native_ready"])
 
+        candidate_ids = {
+            "area-poligonos-regulares",
+            "comprimento-circunferencia-pi",
+            "area-circulo",
+            "comprimento-arco",
+            "area-setor-circular",
+        }
         for record in drafts:
             render = record.manifest["render"]
             self.assertEqual(render["production_engine"], "compatibility")
-            self.assertFalse(render["native_ready"])
+            self.assertEqual(render["native_ready"], record.id in candidate_ids)
 
     def test_every_compatibility_source_and_scene_exists(self):
         for record in self.records:

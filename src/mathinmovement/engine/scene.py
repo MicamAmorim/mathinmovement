@@ -92,6 +92,21 @@ def polygon_xy(points, color=CYAN, fill_opacity=0.22, stroke_width=3):
     )
 
 
+def regular_polygon_points(n, radius=2.5, center=P(0, 0), start_angle=PI / 2):
+    return [
+        center
+        + radius
+        * np.array(
+            [
+                np.cos(start_angle - k * TAU / n),
+                np.sin(start_angle - k * TAU / n),
+                0,
+            ]
+        )
+        for k in range(n)
+    ]
+
+
 def safe_mathtex(tex, font_size=50, color=WHITE, max_width=7.4):
     obj = MathTex(tex, font_size=font_size, color=color)
     if obj.width > max_width:
@@ -250,6 +265,12 @@ class UnifiedContentScene(Scene):
         lab = safe_mathtex(label, 34, GOLD).next_to(d, label_side, buff=0.10)
         return VGroup(d, lab)
 
+    def pulse(self, mob, color=GOLD, scale_factor=1.03):
+        self.play(
+            Indicate(mob, color=color, scale_factor=scale_factor),
+            run_time=0.9,
+        )
+
     def demo_steps(self):
         return list((self.manifest.get("lesson") or {}).get("steps") or [])
 
@@ -277,6 +298,11 @@ class UnifiedContentScene(Scene):
             "area_trapezoid_double_v1": self.render_demo_area_trapezoid,
             "area_rhombus_rearrange_v1": self.render_demo_area_rhombus,
             "area_equilateral_height_v1": self.render_demo_area_equilateral,
+            "regular_polygon_apothem_v1": self.render_demo_regular_polygon,
+            "circumference_roll_pi_v1": self.render_demo_circumference_pi,
+            "circle_sector_rearrange_v1": self.render_demo_circle_area,
+            "arc_fraction_v1": self.render_demo_arc_length,
+            "sector_fraction_v1": self.render_demo_sector_area,
         }
         handler = dispatch.get(renderer)
         if handler is None:
@@ -515,6 +541,374 @@ class UnifiedContentScene(Scene):
 
         self.demo_caption(steps[5]["narration"])
         self.demo_equation(str(steps[5]["math"]))
+        self.demo_end()
+
+    def render_demo_regular_polygon(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("area_poligonos_regulares nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        pts = regular_polygon_points(6, 2.3, start_angle=PI / 6)
+        sectors = VGroup(
+            *[
+                Polygon(
+                    ORIGIN,
+                    pts[i],
+                    pts[(i + 1) % 6],
+                    color=CYAN if i % 2 else GOLD,
+                    fill_opacity=0.22,
+                )
+                for i in range(6)
+            ]
+        )
+        self.demo_caption(steps[0]["narration"])
+        self.play(
+            LaggedStart(*[Create(s) for s in sectors], lag_ratio=0.2),
+            run_time=3,
+        )
+        mid = (pts[0] + pts[1]) / 2
+        apo = Line(ORIGIN, mid, color=GOLD)
+        self.play(
+            Create(apo),
+            Write(safe_mathtex("a", 34, GOLD).next_to(apo, LEFT)),
+            Write(
+                safe_mathtex(r"\ell", 34).next_to(
+                    Line(pts[0], pts[1]),
+                    UP,
+                )
+            ),
+        )
+        self.demo_hide_intro_formula()
+
+        self.demo_caption(steps[1]["narration"])
+        self.pulse(sectors[0])
+        self.demo_equation(str(steps[1]["math"]))
+
+        self.demo_caption(steps[2]["narration"])
+        for i, sector in enumerate(sectors):
+            self.pulse(sector)
+            self.demo_equation(
+                str(i + 1) + r"\cdot\frac{\ell a}{2}",
+                size=44,
+            )
+
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]))
+        self.play(
+            LaggedStart(
+                *[
+                    Create(
+                        Line(
+                            pts[i],
+                            pts[(i + 1) % 6],
+                            color=GREEN,
+                            stroke_width=6,
+                        )
+                    )
+                    for i in range(6)
+                ],
+                lag_ratio=0.2,
+            ),
+            run_time=2,
+        )
+        self.demo_caption(steps[4]["narration"])
+        self.demo_equation(str(steps[4]["math"]))
+        self.demo_end()
+
+    def render_demo_circumference_pi(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError(
+                "comprimento_circunferencia_pi nativo ainda é somente vertical."
+            )
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+        self.demo_hide_intro_formula()
+
+        start = P(-PI, -1)
+        wheel = Circle(radius=1, color=CYAN).move_to(start + UP)
+        spoke = Line(start + UP, start, color=GOLD, stroke_width=5)
+        floor = Line(
+            start + LEFT * 0.2,
+            start + RIGHT * (TAU + 0.2),
+            color=MUTED,
+        )
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(wheel), Create(spoke), Create(floor), run_time=2)
+
+        diameter = Line(start + P(-1, 1), start + P(1, 1), color=GOLD)
+        dlabel = safe_mathtex("d=2r", 30, GOLD).next_to(diameter, UP)
+        self.play(Create(diameter), Write(dlabel))
+        self.wait(2)
+        self.play(FadeOut(diameter), FadeOut(dlabel))
+
+        tracker = ValueTracker(0)
+        wheel.add_updater(
+            lambda m: m.move_to(start + P(tracker.get_value(), 1))
+        )
+        spoke.add_updater(
+            lambda m: m.put_start_and_end_on(
+                start + P(tracker.get_value(), 1),
+                start
+                + P(
+                    tracker.get_value() - np.sin(tracker.get_value()),
+                    1 - np.cos(tracker.get_value()),
+                ),
+            )
+        )
+        trail = always_redraw(
+            lambda: Line(
+                start,
+                start + RIGHT * max(0.001, tracker.get_value()),
+                color=CYAN,
+                stroke_width=6,
+            )
+        )
+        self.add(trail)
+        self.play(
+            tracker.animate.set_value(TAU),
+            run_time=7,
+            rate_func=linear,
+        )
+        for mob in (wheel, spoke, trail):
+            mob.clear_updaters()
+
+        self.demo_caption(steps[1]["narration"])
+        self.play(FadeOut(wheel), FadeOut(spoke))
+
+        self.demo_caption(steps[2]["narration"])
+        for i in range(3):
+            unit = Line(
+                start + P(2 * i, 0.7),
+                start + P(2 * i + 2, 0.7),
+                color=GOLD,
+                stroke_width=6,
+            )
+            self.play(
+                Create(unit),
+                Write(safe_mathtex("d", 32, GOLD).next_to(unit, UP)),
+                run_time=1,
+            )
+        self.play(
+            Create(
+                Line(
+                    start + P(6, 0.7),
+                    start + P(TAU, 0.7),
+                    color=PINK,
+                    stroke_width=6,
+                )
+            )
+        )
+        self.demo_equation(str(steps[2]["math"]))
+
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_caption(steps[4]["narration"])
+        self.demo_equation(str(steps[4]["math"]))
+        self.demo_end()
+
+    def render_demo_circle_area(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("area_circulo nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+        self.demo_hide_intro_formula()
+
+        radius = 1.65
+        sectors = None
+        for n in (8, 16, 32):
+            if sectors is not None:
+                self.play(FadeOut(sectors))
+            alpha = TAU / n
+            sectors = VGroup(
+                *[
+                    Sector(
+                        radius=radius,
+                        angle=alpha,
+                        start_angle=i * alpha,
+                        color=CYAN if i % 2 == 0 else GOLD,
+                        fill_opacity=0.35,
+                        stroke_width=1,
+                    )
+                    for i in range(n)
+                ]
+            )
+            self.demo_caption(f"Divida o círculo em {n} setores iguais.")
+            self.play(
+                LaggedStart(
+                    *[Create(s) for s in sectors],
+                    lag_ratio=0.04,
+                ),
+                run_time=2,
+            )
+            self.demo_caption(steps[0]["narration"])
+            chord = 2 * radius * np.sin(alpha / 2)
+            self.play(
+                *[
+                    rigid_motion(
+                        sector,
+                        (
+                            PI / 2 - alpha / 2
+                            if i % 2 == 0
+                            else -PI / 2 - alpha / 2
+                        )
+                        - i * alpha,
+                        P(
+                            (i // 2) * chord
+                            + (chord / 2 if i % 2 else 0)
+                            - ((n / 2 - 0.5) * chord) / 2,
+                            -0.8 + (radius * np.cos(alpha / 2) if i % 2 else 0),
+                        ),
+                    )
+                    for i, sector in enumerate(sectors)
+                ],
+                run_time=5,
+            )
+            self.demo_caption(steps[1]["narration"])
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]), size=44)
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_end()
+
+    def render_demo_arc_length(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("comprimento_arco nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        radius = 2.3
+        theta = 120 * DEGREES
+        circle = Circle(radius, color=MUTED, stroke_width=2)
+        arc = Arc(
+            radius=radius,
+            start_angle=0,
+            angle=theta,
+            color=CYAN,
+            stroke_width=7,
+        )
+        radii = VGroup(
+            Line(P(0, 0), P(radius, 0), color=GOLD),
+            Line(
+                P(0, 0),
+                P(radius * np.cos(theta), radius * np.sin(theta)),
+                color=GOLD,
+            ),
+        )
+        angle = Arc(
+            radius=0.65,
+            start_angle=0,
+            angle=theta,
+            color=GOLD,
+            stroke_width=4,
+        )
+        self.demo_caption(steps[0]["narration"])
+        self.play(
+            Create(circle),
+            Create(radii),
+            Create(arc),
+            Create(angle),
+            run_time=1.8,
+        )
+        self.play(
+            Write(
+                safe_mathtex(r"\theta", 34, GOLD).move_to(P(0.55, 0.48))
+            ),
+            run_time=0.45,
+        )
+        self.demo_hide_intro_formula()
+
+        self.demo_caption(steps[1]["narration"])
+        copies = VGroup(
+            *[
+                arc.copy()
+                .rotate(i * theta, about_point=ORIGIN)
+                .set_color(GOLD)
+                for i in (1, 2)
+            ]
+        )
+        self.play(
+            LaggedStart(*[Create(s) for s in copies], lag_ratio=0.5),
+            run_time=2,
+        )
+        self.demo_equation(str(steps[1]["math"]))
+        self.play(FadeOut(copies))
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]))
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_caption(steps[4]["narration"])
+        self.demo_equation(str(steps[4]["math"]))
+        self.demo_end()
+
+    def render_demo_sector_area(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("area_setor_circular nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        radius = 2.4
+        theta = 120 * DEGREES
+        circle = Circle(radius, color=MUTED, stroke_width=2)
+        sector = Sector(
+            radius=radius,
+            angle=theta,
+            start_angle=0,
+            color=CYAN,
+            fill_color=CYAN,
+            fill_opacity=0.32,
+            stroke_width=4,
+        )
+        angle = Arc(
+            radius=0.7,
+            start_angle=0,
+            angle=theta,
+            color=GOLD,
+            stroke_width=4,
+        )
+        self.demo_caption(steps[0]["narration"])
+        self.play(
+            Create(circle),
+            FadeIn(sector),
+            Create(angle),
+            run_time=1.7,
+        )
+        self.play(
+            Write(
+                safe_mathtex(r"\theta", 34, GOLD).move_to(P(0.6, 0.5))
+            ),
+            run_time=0.45,
+        )
+        self.demo_hide_intro_formula()
+
+        self.demo_caption(steps[1]["narration"])
+        copies = VGroup(
+            *[
+                sector.copy()
+                .rotate(i * theta, about_point=ORIGIN)
+                .set_color(GOLD)
+                for i in (1, 2)
+            ]
+        )
+        self.play(
+            LaggedStart(*[FadeIn(s) for s in copies], lag_ratio=0.5),
+            run_time=2,
+        )
+        self.demo_equation(str(steps[1]["math"]))
+        self.play(FadeOut(copies))
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]))
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_caption(steps[4]["narration"])
+        self.demo_equation(str(steps[4]["math"]), size=40)
         self.demo_end()
 
     def render_demo_horizontal(self):
