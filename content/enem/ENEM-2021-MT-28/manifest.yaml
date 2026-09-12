@@ -98,79 +98,79 @@
         "key": "source",
         "text": "ENEM 2021, questão 163. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.656,
-        "audio": "enem/audio/ENEM-2021-MT-28/source.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "Um parque temático brasileiro construiu uma réplica em miniatura do castelo de Liechtenstein. O castelo original, representado na imagem, está situado na Alemanha e foi reconstruído entre os anos de 1840 e 1842, após duas destruições causadas por guerras. O castelo possui uma ponte de 38,4 metros de comprimento e 1,68 metros de largura. O artesão que trabalhou para o parque produziu a réplica do castelo, em escala.",
         "duration": 30.36,
-        "audio": "enem/audio/ENEM-2021-MT-28/statement_01.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "Nessa obra, as medidas do comprimento e da largura da ponte eram, respectivamente, 160 centímetros e 7 centímetros. A escala utilizada para fazer a réplica é",
         "duration": 11.976,
-        "audio": "enem/audio/ENEM-2021-MT-28/statement_02.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/statement_02.mp3"
       },
       {
         "key": "figure",
         "text": "Observe a reconstrução esquemática da figura da questão. Imagem do castelo usada como contexto visual; os dados relevantes da ponte são 38,4 metros por 1,68 metros no original e 160 centímetros por 7 centímetros na réplica.",
         "duration": 16.92,
-        "audio": "enem/audio/ENEM-2021-MT-28/figure.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/figure.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: 1 : 576; B: 1 : 240; C: 1 : 24; D: 1 : 4,2; E: 1 : 2,4.",
         "duration": 13.824,
-        "audio": "enem/audio/ENEM-2021-MT-28/options.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: ponte real: 38,4 metros; ponte na réplica: 160 centímetros; largura real: 1,68 metros; largura na réplica: 7 centímetros.",
         "duration": 15.24,
-        "audio": "enem/audio/ENEM-2021-MT-28/data.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Escala só funciona depois que as duas medidas estão na mesma unidade. O plano é: 1, Colocar real e desenho na mesma unidade. 2, Formar desenho dividido por real. 3, Simplificar a razão.",
         "duration": 14.52,
-        "audio": "enem/audio/ENEM-2021-MT-28/strategy.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "Uma escala 1:n significa que uma unidade no desenho representa n unidades reais.",
         "duration": 5.52,
-        "audio": "enem/audio/ENEM-2021-MT-28/visual.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Converta 38,4 metros para centímetros. Na tela, 38,4 mathrm m é igual a 3840 centímetros.",
         "duration": 10.536,
-        "audio": "enem/audio/ENEM-2021-MT-28/step_01.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Razão desenho sobre real. Na tela, E é igual a 160 dividido por 3840.",
         "duration": 8.016,
-        "audio": "enem/audio/ENEM-2021-MT-28/step_02.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Divida numerador e denominador por 160. Na tela, E é igual a 1 dividido por 24 é igual a 1:24.",
         "duration": 9.144,
-        "audio": "enem/audio/ENEM-2021-MT-28/step_03.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Conferência pela largura. Na tela, 7 dividido por 168 é igual a 1 dividido por 24.",
         "duration": 8.016,
-        "audio": "enem/audio/ENEM-2021-MT-28/step_04.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/step_04.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa C: 1 : 24",
         "duration": 4.728,
-        "audio": "enem/audio/ENEM-2021-MT-28/answer.mp3"
+        "audio": "content/enem/ENEM-2021-MT-28/assets/audio/answer.mp3"
       }
     ]
   }

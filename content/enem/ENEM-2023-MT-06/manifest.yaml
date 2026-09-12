@@ -94,73 +94,73 @@
         "key": "source",
         "text": "ENEM 2023, questão 141. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.632,
-        "audio": "enem/audio/ENEM-2023-MT-06/source.mp3"
+        "audio": "content/enem/ENEM-2023-MT-06/assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "As figuras pintadas no quadro da sala de estar de uma residência representam as silhuetas de parte das torres de um castelo e, ao fundo, a de uma lua cheia. A lua foi pintada na forma de um círculo, e o telhado da torre mais alta, na forma de triângulo equilátero, foi pintado sobrepondo parte da lua. O centro da lua coincide com um dos vértices do telhado da torre mais alta.",
         "duration": 23.4,
-        "audio": "enem/audio/ENEM-2023-MT-06/statement_01.mp3"
+        "audio": "content/enem/ENEM-2023-MT-06/assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "Nesse quadro, a parte da lua escondida atrás da torre mais alta do castelo pode ser representada por um",
         "duration": 6.432,
-        "audio": "enem/audio/ENEM-2023-MT-06/statement_02.mp3"
+        "audio": "content/enem/ENEM-2023-MT-06/assets/audio/statement_02.mp3"
       },
       {
         "key": "figure",
         "text": "Observe a reconstrução esquemática da figura da questão. Silhueta de castelo diante de uma lua circular. O telhado da torre mais alta é um triângulo equilátero com um vértice no centro da lua.",
         "duration": 12.864,
-        "audio": "enem/audio/ENEM-2023-MT-06/figure.mp3"
+        "audio": "content/enem/ENEM-2023-MT-06/assets/audio/figure.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: cone.; B: setor circular.; C: segmento circular.; D: triângulo isósceles.; E: arco de circunferência..",
         "duration": 11.136,
-        "audio": "enem/audio/ENEM-2023-MT-06/options.mp3"
+        "audio": "content/enem/ENEM-2023-MT-06/assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: lua representada por um círculo; telhado é um triângulo equilátero; um vértice do telhado coincide com o centro da lua; a parte escondida é a interseção das figuras.",
         "duration": 12.96,
-        "audio": "enem/audio/ENEM-2023-MT-06/data.mp3"
+        "audio": "content/enem/ENEM-2023-MT-06/assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Observe apenas a região escondida: dois raios e um arco. O plano é: 1, Identificar as fronteiras da região. 2, Observar que dois lados saem do centro. 3, Comparar com as definições das alternativas.",
         "duration": 16.32,
-        "audio": "enem/audio/ENEM-2023-MT-06/strategy.mp3"
+        "audio": "content/enem/ENEM-2023-MT-06/assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "A região é limitada por dois raios e pelo arco entre eles.",
         "duration": 4.128,
-        "audio": "enem/audio/ENEM-2023-MT-06/visual.mp3"
+        "audio": "content/enem/ENEM-2023-MT-06/assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Dois lados do telhado partem do centro. Na tela, SA é igual a SB é igual a R.",
         "duration": 7.272,
-        "audio": "enem/audio/ENEM-2023-MT-06/step_01.mp3"
+        "audio": "content/enem/ENEM-2023-MT-06/assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "A terceira fronteira é um arco. Na tela, widehat AB subsetcircunferência.",
         "duration": 6.312,
-        "audio": "enem/audio/ENEM-2023-MT-06/step_02.mp3"
+        "audio": "content/enem/ENEM-2023-MT-06/assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Definição. Na tela, dois raios mais um arco é igual a setor circular.",
         "duration": 6.096,
-        "audio": "enem/audio/ENEM-2023-MT-06/step_03.mp3"
+        "audio": "content/enem/ENEM-2023-MT-06/assets/audio/step_03.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa B: setor circular.",
         "duration": 4.44,
-        "audio": "enem/audio/ENEM-2023-MT-06/answer.mp3"
+        "audio": "content/enem/ENEM-2023-MT-06/assets/audio/answer.mp3"
       }
     ]
   }

@@ -106,91 +106,91 @@
         "key": "source",
         "text": "ENEM 2022, questão 145. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.656,
-        "audio": "enem/audio/ENEM-2022-MT-10/source.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "O governo de um estado pretende realizar uma obra para integrar duas cidades e facilitar o escoamento da produção agrícola. O projeto interliga diretamente as cidades A e B à Rodovia 003 por duas rodovias retas, 001 e 002, que devem chegar ao mesmo ponto da Rodovia 003. A figura indica as posições das cidades e cinco localizações sugeridas, de I a V, para esse ponto de conexão.",
         "duration": 26.568,
-        "audio": "enem/audio/ENEM-2022-MT-10/statement_01.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "Pretende-se que a distância percorrida entre as duas cidades, passando pelo ponto de conexão, seja a menor possível. Qual das localizações sugeridas deve ser escolhida?",
         "duration": 11.016,
-        "audio": "enem/audio/ENEM-2022-MT-10/statement_02.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/statement_02.mp3"
       },
       {
         "key": "figure",
         "text": "Observe a reconstrução esquemática da figura da questão. Plano cartesiano com a Rodovia 003 sobre o eixo x, cidade A em (20,40), cidade B em (50,20) e pontos candidatos I a V sobre o eixo x; IV está em x é igual a 40.",
         "duration": 18.504,
-        "audio": "enem/audio/ENEM-2022-MT-10/figure.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/figure.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: I; B: II; C: III; D: IV; E: V.",
         "duration": 8.856,
-        "audio": "enem/audio/ENEM-2022-MT-10/options.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: cidade A em (20,40); cidade B em (50,20); a Rodovia 003 coincide com o eixo x; candidatos I–V; o ponto IV está em x é igual a 40.",
         "duration": 15.456,
-        "audio": "enem/audio/ENEM-2022-MT-10/data.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Um truque de reflexão transforma duas distâncias em uma única reta. O plano é: 1, Refletir B em relação ao eixo x. 2, Trocar o caminho A–X–B pelo segmento reto A–B′. 3, Achar a interseção desse segmento com o eixo x.",
         "duration": 17.64,
-        "audio": "enem/audio/ENEM-2022-MT-10/strategy.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "Como XB é igual a XB′, qualquer caminho A–X–B tem o mesmo comprimento de A–X–B′; a menor soma ocorre quando A, X e B′ ficam alinhados.",
         "duration": 10.968,
-        "audio": "enem/audio/ENEM-2022-MT-10/visual.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Reflita B é igual a (50,20) no eixo x. Na tela, B' é igual a (50, menos 20).",
         "duration": 9.24,
-        "audio": "enem/audio/ENEM-2022-MT-10/step_01.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Coeficiente angular de A até B′. Na tela, m é igual a menos 20 menos 40 dividido por 50 menos 20 é igual a menos 2.",
         "duration": 9.456,
-        "audio": "enem/audio/ENEM-2022-MT-10/step_02.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Equação da reta passando por A. Na tela, y menos 40 é igual a menos 2(x menos 20).",
         "duration": 8.088,
-        "audio": "enem/audio/ENEM-2022-MT-10/step_03.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "No ponto de conexão, y é igual a 0. Na tela, 0 menos 40 é igual a menos 2(x menos 20).",
         "duration": 8.832,
-        "audio": "enem/audio/ENEM-2022-MT-10/step_04.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/step_04.mp3"
       },
       {
         "key": "step_05",
         "text": "Resolva a equação. Na tela, 40 é igual a 2x menos 40; portanto, x é igual a 40.",
         "duration": 8.28,
-        "audio": "enem/audio/ENEM-2022-MT-10/step_05.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/step_05.mp3"
       },
       {
         "key": "step_06",
         "text": "O candidato em x é igual a 40 é IV. Na tela, X é igual a (40,0); portanto, IV.",
         "duration": 8.88,
-        "audio": "enem/audio/ENEM-2022-MT-10/step_06.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/step_06.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa D: IV",
         "duration": 3.96,
-        "audio": "enem/audio/ENEM-2022-MT-10/answer.mp3"
+        "audio": "content/enem/ENEM-2022-MT-10/assets/audio/answer.mp3"
       }
     ]
   }

@@ -102,79 +102,79 @@
         "key": "source",
         "text": "ENEM 2023, questão 139. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.608,
-        "audio": "enem/audio/ENEM-2023-MT-04/source.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "A figura representa uma escada com três degraus, construída em concreto maciço, com suas medidas especificadas. Nessa escada, pisos e espelhos têm formato retangular, e as paredes laterais têm formato de um polígono cujos lados adjacentes são perpendiculares. Pisos, espelhos e paredes laterais serão revestidos em cerâmica. A área a ser revestida em cerâmica, em metro quadrado, mede",
         "duration": 25.704,
-        "audio": "enem/audio/ENEM-2023-MT-04/statement_01.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/statement_01.mp3"
       },
       {
         "key": "figure",
         "text": "Observe a reconstrução esquemática da figura da questão. Escada com três degraus; cada piso mede 1,0 metros por 0,25 metros e cada espelho 1,0 metros por 0,20 metros. As laterais formam três retângulos empilhados.",
         "duration": 17.424,
-        "audio": "enem/audio/ENEM-2023-MT-04/figure.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/figure.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: 1,20.; B: 1,35.; C: 1,65.; D: 1,80.; E: 1,95..",
         "duration": 11.688,
-        "audio": "enem/audio/ENEM-2023-MT-04/options.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: 3 pisos de 1,0 vezes 0,25 metros; 3 espelhos de 1,0 vezes 0,20 metros; cada lateral: retângulos 0,25 vezes 0,20; 0,25 vezes 0,40; 0,25 vezes 0,60; duas paredes laterais.",
         "duration": 22.92,
-        "audio": "enem/audio/ENEM-2023-MT-04/data.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "A estratégia é desmontar a escada em retângulos sem contar nenhuma face duas vezes. O plano é: 1, Somar as áreas dos pisos. 2, Somar as áreas dos espelhos. 3, Calcular duas laterais e totalizar.",
         "duration": 15.984,
-        "audio": "enem/audio/ENEM-2023-MT-04/strategy.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "Separe a superfície em retângulos sem sobreposição.",
         "duration": 3.84,
-        "audio": "enem/audio/ENEM-2023-MT-04/visual.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Três pisos. Na tela, A índice p é igual a 3(1 vezes 0,25) é igual a 0,75.",
         "duration": 9.528,
-        "audio": "enem/audio/ENEM-2023-MT-04/step_01.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Três espelhos. Na tela, A índice e é igual a 3(1 vezes 0,20) é igual a 0,60.",
         "duration": 8.832,
-        "audio": "enem/audio/ENEM-2023-MT-04/step_02.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Uma lateral. Na tela, A índice l é igual a 0,25(0,20 mais 0,40 mais 0,60) é igual a 0,30.",
         "duration": 11.52,
-        "audio": "enem/audio/ENEM-2023-MT-04/step_03.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Duas laterais. Na tela, 2A índice l é igual a 2(0,30) é igual a 0,60.",
         "duration": 8.688,
-        "audio": "enem/audio/ENEM-2023-MT-04/step_04.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/step_04.mp3"
       },
       {
         "key": "step_05",
         "text": "Área total. Na tela, A é igual a 0,75 mais 0,60 mais 0,60 é igual a 1,95 metros quadrados.",
         "duration": 10.608,
-        "audio": "enem/audio/ENEM-2023-MT-04/step_05.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/step_05.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa E: 1,95.",
         "duration": 4.632,
-        "audio": "enem/audio/ENEM-2023-MT-04/answer.mp3"
+        "audio": "content/enem/ENEM-2023-MT-04/assets/audio/answer.mp3"
       }
     ]
   }

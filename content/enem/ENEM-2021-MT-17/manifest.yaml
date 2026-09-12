@@ -102,97 +102,97 @@
         "key": "source",
         "text": "ENEM 2021, questão 152. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.68,
-        "audio": "enem/audio/ENEM-2021-MT-17/source.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "O projeto de um contêiner, em forma de paralelepípedo reto retangular, previa a pintura dos dois lados (interno e externo) de cada uma das quatro paredes com tinta acrílica e a pintura do piso interno com tinta epóxi.",
         "duration": 13.104,
-        "audio": "enem/audio/ENEM-2021-MT-17/statement_01.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "O construtor havia pedido, a cinco fornecedores diferentes, orçamentos das tintas necessárias, mas, antes de iniciar a obra, resolveu mudar o projeto original, alterando o comprimento e a largura para o dobro do originalmente previsto, mantendo inalterada a altura. Ao pedir novos orçamentos aos fornecedores, para as novas dimensões, cada um deu uma resposta diferente sobre as novas quantidades de tinta necessárias.",
         "duration": 25.608,
-        "audio": "enem/audio/ENEM-2021-MT-17/statement_02.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/statement_02.mp3"
       },
       {
         "key": "statement_03",
         "text": "Em relação ao previsto para o projeto original, as novas quantidades de tinta necessárias informadas pelos fornecedores foram as seguintes: Fornecedor I: “O dobro, tanto para as paredes quanto para o piso.” Fornecedor II: “O dobro para as paredes e quatro vezes para o piso.” Fornecedor III: “Quatro vezes, tanto para as paredes quanto para o piso.” Fornecedor IV: “Quatro vezes para as paredes e o dobro para o piso.” Fornecedor",
         "duration": 28.752,
-        "audio": "enem/audio/ENEM-2021-MT-17/statement_03.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/statement_03.mp3"
       },
       {
         "key": "statement_04",
         "text": "V: “Oito vezes para as paredes e quatro vezes para o piso.” Analisando as informações dos fornecedores, o construtor providenciará a quantidade adequada de material. Considere a porta de acesso do contêiner como parte de uma das paredes. Qual dos fornecedores prestou as informações adequadas, devendo ser o escolhido pelo construtor para a aquisição do material?",
         "duration": 22.2,
-        "audio": "enem/audio/ENEM-2021-MT-17/statement_04.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/statement_04.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: I; B: II; C: III; D: IV; E: V.",
         "duration": 8.856,
-        "audio": "enem/audio/ENEM-2021-MT-17/options.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: contêiner retangular; comprimento e largura dobram; altura permanece igual; paredes pintadas nos dois lados; piso apenas internamente.",
         "duration": 11.856,
-        "audio": "enem/audio/ENEM-2021-MT-17/data.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Dobrar comprimentos não multiplica todas as áreas pelo mesmo fator. O plano é: 1, Escrever a área das paredes. 2, Aplicar L para 2L e W para 2W. 3, Fazer o mesmo com o piso.",
         "duration": 15.936,
-        "audio": "enem/audio/ENEM-2021-MT-17/strategy.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "A altura não muda: as paredes recebem apenas um fator 2; o piso recebe dois.",
         "duration": 6.024,
-        "audio": "enem/audio/ENEM-2021-MT-17/visual.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Área das quatro paredes, em um lado. Na tela, A índice p é igual a 2Lh mais 2Wh é igual a 2h(L mais W).",
         "duration": 10.032,
-        "audio": "enem/audio/ENEM-2021-MT-17/step_01.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Dobrar L e W. Na tela, A' índice p é igual a 2h(2L mais 2W).",
         "duration": 7.56,
-        "audio": "enem/audio/ENEM-2021-MT-17/step_02.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Coloque 2 em evidência. Na tela, A' índice p é igual a 2 [2h(L mais W)] é igual a 2A índice p.",
         "duration": 9.576,
-        "audio": "enem/audio/ENEM-2021-MT-17/step_03.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Área do piso. Na tela, A índice f é igual a LW.",
         "duration": 5.28,
-        "audio": "enem/audio/ENEM-2021-MT-17/step_04.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/step_04.mp3"
       },
       {
         "key": "step_05",
         "text": "Dobrar as duas dimensões do piso. Na tela, A' índice f é igual a (2L)(2W) é igual a 4LW é igual a 4A índice f.",
         "duration": 11.304,
-        "audio": "enem/audio/ENEM-2021-MT-17/step_05.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/step_05.mp3"
       },
       {
         "key": "step_06",
         "text": "Resultado. Na tela, paredes: dobro; piso: quádruplo.",
         "duration": 6.12,
-        "audio": "enem/audio/ENEM-2021-MT-17/step_06.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/step_06.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa B: II",
         "duration": 4.08,
-        "audio": "enem/audio/ENEM-2021-MT-17/answer.mp3"
+        "audio": "content/enem/ENEM-2021-MT-17/assets/audio/answer.mp3"
       }
     ]
   }

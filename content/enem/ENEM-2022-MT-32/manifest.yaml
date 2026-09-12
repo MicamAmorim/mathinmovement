@@ -106,97 +106,97 @@
         "key": "source",
         "text": "ENEM 2022, questão 167. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.8,
-        "audio": "enem/audio/ENEM-2022-MT-32/source.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "Um casal planeja construir em sua chácara uma piscina com o formato de um paralelepípedo reto retângulo com capacidade para 90 000 L de água. O casal contratou uma empresa de construções que apresentou cinco projetos com diferentes combinações nas dimensões internas de profundidade, largura e comprimento.",
         "duration": 18.312,
-        "audio": "enem/audio/ENEM-2022-MT-32/statement_01.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "A piscina a ser construída terá revestimento interno em suas paredes e fundo com uma mesma cerâmica, e o casal irá escolher o projeto que exija a menor área de revestimento.",
         "duration": 9.744,
-        "audio": "enem/audio/ENEM-2022-MT-32/statement_02.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/statement_02.mp3"
       },
       {
         "key": "statement_03",
         "text": "As dimensões internas de profundidade, largura e comprimento, respectivamente, para cada um dos projetos, são: • projeto I: 1,8 metros, 2,0 metros e 25,0 metros; • projeto II: 2,0 metros, 5,0 metros e 9,0 metros; • projeto III: 1,0 metros, 6,0 metros e 15,0 metros; • projeto IV: 1,5 metros, 15,0 metros e 4,0 metros; • projeto V: 2,5 metros, 3,0 metros e 12,0 metros. O projeto que o casal deverá escolher será o",
         "duration": 41.112,
-        "audio": "enem/audio/ENEM-2022-MT-32/statement_03.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/statement_03.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: I.; B: II.; C: III.; D: IV.; E: V..",
         "duration": 8.928,
-        "audio": "enem/audio/ENEM-2022-MT-32/options.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: piscina retangular sem tampa; volume fixo: 90 000 L é igual a 90 metros cúbicos; cinco projetos (h, largura, comprimento); revestir fundo e quatro paredes.",
         "duration": 15.84,
-        "audio": "enem/audio/ENEM-2022-MT-32/data.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "O volume é fixo; vence o projeto que gastar menos área de revestimento. O plano é: 1, Usar A é igual a LW+2h(L+W). 2, Calcular a área dos cinco projetos. 3, Selecionar o menor valor.",
         "duration": 17.4,
-        "audio": "enem/audio/ENEM-2022-MT-32/strategy.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "Não há tampa: revestimos o fundo e as quatro paredes.",
         "duration": 4.272,
-        "audio": "enem/audio/ENEM-2022-MT-32/visual.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Fórmula da área interna. Na tela, A é igual a LW mais 2hL mais 2hW é igual a LW mais 2h(L mais W).",
         "duration": 10.104,
-        "audio": "enem/audio/ENEM-2022-MT-32/step_01.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Projeto I: (1,8;2;25). Na tela, A índice I é igual a 50 mais 3,6(27) é igual a 147,2.",
         "duration": 12.576,
-        "audio": "enem/audio/ENEM-2022-MT-32/step_02.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Projeto II: (2;5;9). Na tela, A índice II é igual a 45 mais 4(14) é igual a 101.",
         "duration": 10.752,
-        "audio": "enem/audio/ENEM-2022-MT-32/step_03.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Projeto III: (1;6;15). Na tela, A índice III é igual a 90 mais 2(21) é igual a 132.",
         "duration": 10.464,
-        "audio": "enem/audio/ENEM-2022-MT-32/step_04.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/step_04.mp3"
       },
       {
         "key": "step_05",
         "text": "Projeto IV: (1,5;15;4). Na tela, A índice IV é igual a 60 mais 3(19) é igual a 117.",
         "duration": 10.968,
-        "audio": "enem/audio/ENEM-2022-MT-32/step_05.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/step_05.mp3"
       },
       {
         "key": "step_06",
         "text": "Projeto V: (2,5;3;12). Na tela, A índice V é igual a 36 mais 5(15) é igual a 111.",
         "duration": 10.464,
-        "audio": "enem/audio/ENEM-2022-MT-32/step_06.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/step_06.mp3"
       },
       {
         "key": "step_07",
         "text": "Menor área. Na tela, 101 é menor que 111 é menor que 117 é menor que 132 é menor que 147,2, ; portanto, II.",
         "duration": 12.144,
-        "audio": "enem/audio/ENEM-2022-MT-32/step_07.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/step_07.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa B: II.",
         "duration": 4.08,
-        "audio": "enem/audio/ENEM-2022-MT-32/answer.mp3"
+        "audio": "content/enem/ENEM-2022-MT-32/assets/audio/answer.mp3"
       }
     ]
   }

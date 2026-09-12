@@ -103,91 +103,91 @@
         "key": "source",
         "text": "ENEM 2022, questão 142. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.728,
-        "audio": "enem/audio/ENEM-2022-MT-07/source.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "Uma loja comercializa cinco modelos de caixas-d’água (I, II, III, IV e V), todos em formato de cilindro reto de base circular.",
         "duration": 9.984,
-        "audio": "enem/audio/ENEM-2022-MT-07/statement_01.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "Os modelos II, III, IV e V têm as especificações de suas dimensões dadas em relação às dimensões do modelo I, cuja profundidade é P e área da base é , como segue: • modelo II: o dobro da profundidade e a metade da área da base do modelo I; • modelo III: o dobro da profundidade e a metade do raio da base do modelo I; • modelo IV: a metade da profundidade e o dobro da área da base do modelo I; • modelo V: a metade da",
         "duration": 28.152,
-        "audio": "enem/audio/ENEM-2022-MT-07/statement_02.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/statement_02.mp3"
       },
       {
         "key": "statement_03",
         "text": "profundidade e o dobro do raio da base do modelo I. Uma pessoa pretende comprar nessa loja o modelo de caixa-d’água que ofereça a maior capacidade volumétrica. O modelo escolhido deve ser o",
         "duration": 12.624,
-        "audio": "enem/audio/ENEM-2022-MT-07/statement_03.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/statement_03.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: I.; B: II.; C: III.; D: IV.; E: V..",
         "duration": 8.928,
-        "audio": "enem/audio/ENEM-2022-MT-07/options.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: modelo I: área da base A e profundidade P; II: 2P e A dividido por 2; III: 2P e raio r dividido por 2; IV: P dividido por 2 e área 2A; V: P dividido por 2 e raio 2r.",
         "duration": 18.336,
-        "audio": "enem/audio/ENEM-2022-MT-07/data.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Aqui a armadilha é confundir dobrar o raio com dobrar a área. O plano é: 1, Usar V é igual a A_bh. 2, Lembrar que a área varia com r ao quadrado. 3, Comparar todos com AP.",
         "duration": 15.288,
-        "audio": "enem/audio/ENEM-2022-MT-07/strategy.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "Dobrar o raio quadruplica a área da base; isso é diferente de dobrar a própria área.",
         "duration": 5.424,
-        "audio": "enem/audio/ENEM-2022-MT-07/visual.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Modelo I. Na tela, V índice I é igual a AP.",
         "duration": 5.088,
-        "audio": "enem/audio/ENEM-2022-MT-07/step_01.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Modelo II. Na tela, V índice II é igual a (A dividido por 2)(2P) é igual a AP.",
         "duration": 8.424,
-        "audio": "enem/audio/ENEM-2022-MT-07/step_02.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Modelo III: metade do raio dá 1 dividido por 4 da área. Na tela, V índice III é igual a (A dividido por 4)(2P) é igual a AP dividido por 2.",
         "duration": 12.336,
-        "audio": "enem/audio/ENEM-2022-MT-07/step_03.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Modelo IV. Na tela, V índice IV é igual a (2A)(P dividido por 2) é igual a AP.",
         "duration": 8.184,
-        "audio": "enem/audio/ENEM-2022-MT-07/step_04.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/step_04.mp3"
       },
       {
         "key": "step_05",
         "text": "Modelo V: dobro do raio dá 4A. Na tela, V índice V é igual a (4A)(P dividido por 2) é igual a 2AP.",
         "duration": 10.248,
-        "audio": "enem/audio/ENEM-2022-MT-07/step_05.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/step_05.mp3"
       },
       {
         "key": "step_06",
         "text": "Compare. Na tela, 2AP é maior que AP é maior que AP dividido por 2; portanto, V.",
         "duration": 7.872,
-        "audio": "enem/audio/ENEM-2022-MT-07/step_06.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/step_06.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa E: V. dividido por",
         "duration": 4.344,
-        "audio": "enem/audio/ENEM-2022-MT-07/answer.mp3"
+        "audio": "content/enem/ENEM-2022-MT-07/assets/audio/answer.mp3"
       }
     ]
   }
