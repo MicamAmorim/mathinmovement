@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "volume-cone",
+  "type": "demo",
+  "status": "draft",
+  "title": "Volume do cone",
+  "tags": [
+    "demo",
+    "cone"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "28",
+    "category": "CONE",
+    "formula": "V=\\frac13\\pi r^2h",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente volume do cone.",
+    "steps": [
+      {
+        "narration": "Aproxime o cone por pirâmides regulares com mais e mais lados."
+      },
+      {
+        "narration": "Toda pirâmide da sequência satisfaz V = A_b h / 3.",
+        "math": "V_n=\\frac13A_{b,n}h"
+      },
+      {
+        "narration": "Quando n cresce, a base poligonal tende ao círculo.",
+        "math": "A_{b,n}\\longrightarrow \\pi r^2"
+      },
+      {
+        "narration": "No limite, a pirâmide torna-se um cone.",
+        "math": "V=\\frac13\\pi r^2h"
+      }
+    ]
+  },
+  "result": {
+    "math": "V=\\frac13\\pi r^2h"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/28_volume_cone.py",
+      "scene": "VolumeCone",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

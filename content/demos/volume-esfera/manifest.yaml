@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "volume-esfera",
+  "type": "demo",
+  "status": "draft",
+  "title": "Volume da esfera",
+  "tags": [
+    "demo",
+    "esfera"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "29",
+    "category": "ESFERA",
+    "formula": "V=\\frac43\\pi R^3",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente volume da esfera.",
+    "steps": [
+      {
+        "narration": "Cortes axiais: semiesfera e cilindro menos cone."
+      },
+      {
+        "narration": "O cone tem vértice na base: seu raio na altura y é y.",
+        "math": "\\rho^2+y^2=R^2"
+      },
+      {
+        "narration": "Ao girar: disco à esquerda, coroa à direita.",
+        "math": "A_{\\rm disco}=\\pi(R^2-y^2)"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "A_{\\rm coroa}=\\pi R^2-\\pi y^2"
+      },
+      {
+        "narration": "Áreas iguais em toda altura: Cavalieri iguala os volumes.",
+        "math": "V_{\\rm hemi}=\\pi R^2R-\\frac13\\pi R^2R"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "V_{\\rm hemi}=\\frac23\\pi R^3"
+      },
+      {
+        "narration": "Duas metades formam a esfera.",
+        "math": "V=2V_{\\rm hemi}=\\frac43\\pi R^3"
+      }
+    ]
+  },
+  "result": {
+    "math": "V=2V_{\\rm hemi}=\\frac43\\pi R^3"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/29_volume_esfera.py",
+      "scene": "VolumeEsfera",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

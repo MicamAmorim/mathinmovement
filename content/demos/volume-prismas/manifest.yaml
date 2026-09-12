@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "volume-prismas",
+  "type": "demo",
+  "status": "draft",
+  "title": "Volume de prismas",
+  "tags": [
+    "demo",
+    "prismas"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "22",
+    "category": "PRISMAS",
+    "formula": "V=A_bh",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente volume de prismas.",
+    "steps": [
+      {
+        "narration": "Pense no prisma como uma pilha de bases idênticas."
+      },
+      {
+        "narration": "Cada camada tem a mesma área A_b.",
+        "math": "\\Delta V=A_b\\,\\Delta h"
+      },
+      {
+        "narration": "Somando todas as camadas ao longo da altura h.",
+        "math": "V=nA_b\\Delta h,\\quad n\\Delta h=h"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "V=A_bh"
+      }
+    ]
+  },
+  "result": {
+    "math": "V=A_bh"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/22_volume_prismas.py",
+      "scene": "VolumePrismas",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

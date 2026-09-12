@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "volume-piramide",
+  "type": "demo",
+  "status": "draft",
+  "title": "Volume da pirâmide",
+  "tags": [
+    "demo",
+    "piramides"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "26",
+    "category": "PIRÂMIDES",
+    "formula": "V=\\frac13A_bh",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente volume da pirâmide.",
+    "steps": [
+      {
+        "narration": "Um cubo pode ser particionado em três pirâmides congruentes."
+      },
+      {
+        "narration": "As três bases têm o mesmo vértice comum O."
+      },
+      {
+        "narration": "As três têm a mesma base s² e altura s, por simetria.",
+        "math": "V_{cubo}=3V_{pir}"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "s^3=3V_{pir}"
+      },
+      {
+        "narration": "Logo, numa pirâmide de base quadrada: V = s²·s/3.",
+        "math": "V_{pir}=\\frac{s^3}{3}=\\frac{A_bh}{3}"
+      },
+      {
+        "narration": "O mesmo fator 1/3 vale para qualquer base, por Cavalieri."
+      },
+      {
+        "narration": "Esticar a altura multiplica os dois volumes pelo mesmo fator."
+      },
+      {
+        "narration": "A uma fração t da altura, cada seção tem escala linear t.",
+        "math": "A(t)=t^2 A_b,\\quad 0\\leq t\\leq1"
+      },
+      {
+        "narration": "Bases de mesma área e alturas iguais dão seções iguais.",
+        "math": "A_1(t)=t^2A_b=A_2(t)"
+      },
+      {
+        "narration": "Cavalieri permite trocar a base, mantendo área e altura.",
+        "math": "V=\\frac13A_bh"
+      }
+    ]
+  },
+  "result": {
+    "math": "V=\\frac13A_bh"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/26_volume_piramide.py",
+      "scene": "VolumePiramide",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

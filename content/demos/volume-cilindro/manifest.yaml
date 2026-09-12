@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "volume-cilindro",
+  "type": "demo",
+  "status": "draft",
+  "title": "Volume do cilindro",
+  "tags": [
+    "demo",
+    "cilindro"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "24",
+    "category": "CILINDRO",
+    "formula": "V=\\pi r^2h",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente volume do cilindro.",
+    "steps": [
+      {
+        "narration": "Empilhe discos de mesma área."
+      },
+      {
+        "narration": "Cada seção tem área πr².",
+        "math": "A_b=\\pi r^2"
+      },
+      {
+        "narration": "Área constante em cada altura: some as camadas.",
+        "math": "V=n\\pi r^2\\Delta h,\\quad n\\Delta h=h"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "V=A_bh"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "V=\\pi r^2h"
+      }
+    ]
+  },
+  "result": {
+    "math": "V=\\pi r^2h"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/24_volume_cilindro.py",
+      "scene": "VolumeCilindro",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

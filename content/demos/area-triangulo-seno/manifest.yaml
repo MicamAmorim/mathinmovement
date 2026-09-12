@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "area-triangulo-seno",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área do triângulo usando seno",
+  "tags": [
+    "demo",
+    "trigonometria"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "17",
+    "category": "TRIGONOMETRIA",
+    "formula": "A=\\frac12bc\\sin A",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área do triângulo usando seno.",
+    "steps": [
+      {
+        "narration": "A fórmula comum usa base c e altura h.",
+        "math": "A_{\\triangle}=\\frac{ch}{2}"
+      },
+      {
+        "narration": "No triângulo retângulo, h = b sen A.",
+        "math": "\\sin A=\\frac{h}{b}\\Rightarrow h=b\\sin A"
+      },
+      {
+        "narration": "Substitua a altura.",
+        "math": "A_{\\triangle}=\\frac{c(b\\sin A)}{2}"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "A_{\\triangle}=\\frac12bc\\sin A"
+      }
+    ]
+  },
+  "result": {
+    "math": "A_{\\triangle}=\\frac12bc\\sin A"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/17_area_triangulo_seno.py",
+      "scene": "AreaTrianguloSeno",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

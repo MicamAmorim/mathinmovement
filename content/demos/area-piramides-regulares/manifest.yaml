@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "area-piramides-regulares",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área de pirâmides regulares",
+  "tags": [
+    "demo",
+    "piramides"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "25",
+    "category": "PIRÂMIDES",
+    "formula": "A_T=A_b+\\frac{P_bg}{2}",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área de pirâmides regulares.",
+    "steps": [
+      {
+        "narration": "Cada face lateral é um triângulo de altura g."
+      },
+      {
+        "narration": "Ao planificar, as faces triangulares ficam lado a lado."
+      },
+      {
+        "narration": "A altura g pertence à face, não ao interior da pirâmide.",
+        "math": "A_{\\rm face}=\\frac{\\ell g}{2}"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "A_L=n\\cdot\\frac{\\ell g}{2}=\\frac{P_bg}{2}"
+      },
+      {
+        "narration": "Some a área da base.",
+        "math": "A_T=A_b+\\frac{P_bg}{2}"
+      }
+    ]
+  },
+  "result": {
+    "math": "A_T=A_b+\\frac{P_bg}{2}"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/25_area_piramides_regulares.py",
+      "scene": "AreaPiramidesRegulares",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

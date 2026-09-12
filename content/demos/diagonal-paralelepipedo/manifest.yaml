@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "diagonal-paralelepipedo",
+  "type": "demo",
+  "status": "draft",
+  "title": "Diagonal do paralelepípedo",
+  "tags": [
+    "demo",
+    "poliedros"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "20",
+    "category": "POLIEDROS",
+    "formula": "D=\\sqrt{a^2+b^2+c^2}",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente diagonal do paralelepípedo.",
+    "steps": [
+      {
+        "narration": "Primeiro encontre a diagonal da base.",
+        "math": "d_b^2=a^2+b^2"
+      },
+      {
+        "narration": "Agora use outro triângulo retângulo com a altura c.",
+        "math": "D^2=d_b^2+c^2"
+      },
+      {
+        "narration": "Substitua a diagonal da base.",
+        "math": "D^2=a^2+b^2+c^2"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "D=\\sqrt{a^2+b^2+c^2}"
+      }
+    ]
+  },
+  "result": {
+    "math": "D=\\sqrt{a^2+b^2+c^2}"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/20_diagonal_paralelepipedo.py",
+      "scene": "DiagonalParalelepipedo",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

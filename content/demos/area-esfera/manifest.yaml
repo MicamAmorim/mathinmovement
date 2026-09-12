@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "area-esfera",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área da esfera",
+  "tags": [
+    "demo",
+    "esfera"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "30",
+    "category": "ESFERA",
+    "formula": "A=4\\pi R^2",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área da esfera.",
+    "steps": [
+      {
+        "narration": "Uma faixa estreita: raio ρ e largura inclinada Δs.",
+        "math": "\\Delta A\\approx2\\pi\\rho\\,\\Delta s"
+      },
+      {
+        "narration": "O raio diminui, mas a inclinação aumenta a largura."
+      },
+      {
+        "narration": "Triângulos da tangente e do raio são semelhantes.",
+        "math": "\\frac{\\Delta h}{\\Delta s}\\longrightarrow\\frac{\\rho}{R}"
+      },
+      {
+        "narration": "No limite, substitua a largura da faixa.",
+        "math": "dA=2\\pi\\rho\\frac{R}{\\rho}dh=2\\pi R\\,dh"
+      },
+      {
+        "narration": "O fator ρ cancela. Cada altura contribui igualmente."
+      },
+      {
+        "narration": "Some da base ao topo: altura total 2R.",
+        "math": "A=\\int_{-R}^{R}2\\pi R\\,dh"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "A=2\\pi R(2R)=4\\pi R^2"
+      }
+    ]
+  },
+  "result": {
+    "math": "A=2\\pi R(2R)=4\\pi R^2"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/30_area_esfera.py",
+      "scene": "AreaEsfera",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

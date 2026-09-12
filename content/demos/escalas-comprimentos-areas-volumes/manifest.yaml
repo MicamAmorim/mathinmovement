@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "escalas-comprimentos-areas-volumes",
+  "type": "demo",
+  "status": "draft",
+  "title": "Escalas: comprimentos, áreas e volumes",
+  "tags": [
+    "demo",
+    "semelhanca"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "18",
+    "category": "SEMELHANÇA",
+    "formula": "L\\to kL,\\ A\\to k^2A,\\ V\\to k^3V",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente escalas: comprimentos, áreas e volumes.",
+    "steps": [
+      {
+        "narration": "Se todos os comprimentos dobram, k = 2."
+      },
+      {
+        "narration": "A área recebe o fator duas vezes.",
+        "math": "A"
+      },
+      {
+        "narration": "No volume, o fator aparece em três dimensões."
+      },
+      {
+        "narration": "Duas unidades em cada direção: 2 × 2 × 2 cubinhos.",
+        "math": "V"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "V"
+      },
+      {
+        "narration": "Regra geral: expoente = dimensão medida.",
+        "math": "L:k\\qquad A:k^2\\qquad V:k^3"
+      }
+    ]
+  },
+  "result": {
+    "math": "L:k\\qquad A:k^2\\qquad V:k^3"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/18_escalas_comprimentos_areas_volumes.py",
+      "scene": "EscalasComprimentosAreasVolumes",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

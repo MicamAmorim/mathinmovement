@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "area-prismas-planificacao",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área de prismas retos",
+  "tags": [
+    "demo",
+    "prismas"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "21",
+    "category": "PRISMAS",
+    "formula": "A_T=2A_b+P_bh",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área de prismas retos.",
+    "steps": [
+      {
+        "narration": "Cada face lateral vira um retângulo: lado da base × altura."
+      },
+      {
+        "narration": "Da projeção do sólido para as medidas reais das faces."
+      },
+      {
+        "narration": "As larguras somam o perímetro da base.",
+        "math": "A_L=(\\ell_1+\\cdots+\\ell_n)h=P_bh"
+      },
+      {
+        "narration": "Faltam as duas bases congruentes.",
+        "math": "A_T=A_L+A_b+A_b"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "A_T=P_bh+2A_b"
+      }
+    ]
+  },
+  "result": {
+    "math": "A_T=P_bh+2A_b"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/21_area_prismas_planificacao.py",
+      "scene": "AreaPrismasPlanificacao",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

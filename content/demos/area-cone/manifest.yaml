@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "area-cone",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área do cone",
+  "tags": [
+    "demo",
+    "cone"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "27",
+    "category": "CONE",
+    "formula": "A_T=\\pi rg+\\pi r^2",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área do cone.",
+    "steps": [
+      {
+        "narration": "Ao abrir a lateral, surge um setor circular de raio g."
+      },
+      {
+        "narration": "O arco do setor tem o mesmo comprimento da circunferência da base.",
+        "math": "L_{arco}=2\\pi r"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "\\frac{A_L}{\\pi g^2}=\\frac{2\\pi r}{2\\pi g}"
+      },
+      {
+        "narration": "Área de setor = arco × raio ÷ 2.",
+        "math": "A_L=\\frac{(2\\pi r)g}{2}=\\pi rg"
+      },
+      {
+        "narration": "Some a base circular.",
+        "math": "A_T=\\pi rg+\\pi r^2"
+      }
+    ]
+  },
+  "result": {
+    "math": "A_T=\\pi rg+\\pi r^2"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/27_area_cone.py",
+      "scene": "AreaCone",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

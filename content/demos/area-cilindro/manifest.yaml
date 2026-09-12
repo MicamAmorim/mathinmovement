@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "area-cilindro",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área do cilindro",
+  "tags": [
+    "demo",
+    "cilindro"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "23",
+    "category": "CILINDRO",
+    "formula": "A_T=2\\pi r^2+2\\pi rh",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área do cilindro.",
+    "steps": [
+      {
+        "narration": "Corte uma geratriz vertical e abra a lateral."
+      },
+      {
+        "narration": "As linhas verticais mantêm a altura h."
+      },
+      {
+        "narration": "Uma volta na base se torna a largura do retângulo.",
+        "math": "A_L=(2\\pi r)h"
+      },
+      {
+        "narration": "A projeção virou planificação. Acrescente as duas tampas.",
+        "math": "A_T=A_L+\\pi r^2+\\pi r^2"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "A_T=2\\pi rh+2\\pi r^2"
+      }
+    ]
+  },
+  "result": {
+    "math": "A_T=2\\pi rh+2\\pi r^2"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/23_area_cilindro.py",
+      "scene": "AreaCilindro",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

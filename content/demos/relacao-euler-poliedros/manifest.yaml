@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "relacao-euler-poliedros",
+  "type": "demo",
+  "status": "draft",
+  "title": "Relação de Euler",
+  "tags": [
+    "demo",
+    "poliedros"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "19",
+    "category": "POLIEDROS",
+    "formula": "V-E+F=2",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente relação de euler.",
+    "steps": [
+      {
+        "narration": "Retire uma face do cubo e abra a superfície no plano.",
+        "math": "V-E+F_{\\rm int}=8-12+5=1"
+      },
+      {
+        "narration": "Apague uma aresta de um ciclo: uma região desaparece junto."
+      },
+      {
+        "narration": "Restou uma árvore. Remova folhas e suas arestas.",
+        "math": "1-0+0=1"
+      },
+      {
+        "narration": "Cada remoção preserva V − E + F interno."
+      },
+      {
+        "narration": "Em uma superfície convexa, o mesmo processo se aplica."
+      },
+      {
+        "narration": "Devolva a face retirada: o total aumenta em 1.",
+        "math": "V-E+F=1+1=2"
+      }
+    ]
+  },
+  "result": {
+    "math": "V-E+F=1+1=2"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/19_relacao_euler_poliedros.py",
+      "scene": "RelacaoEulerPoliedros",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}
