@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "ENEM-2023-MT-42",
   "type": "qenem",
-  "status": "draft",
+  "status": "production",
   "title": "ENEM 2023 — Q177",
   "tags": [
     "enem",
@@ -76,7 +76,7 @@
     }
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical",
       "horizontal"

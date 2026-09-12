@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "ENEM-2024-MT-02",
   "type": "qenem",
-  "status": "draft",
+  "status": "production",
   "title": "ENEM 2024 — Q137",
   "tags": [
     "enem",
@@ -85,7 +85,7 @@
     }
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical",
       "horizontal"
