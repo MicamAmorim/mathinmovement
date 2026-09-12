@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-paralelogramo",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área do paralelogramo",
   "tags": [
     "demo",
@@ -37,7 +37,7 @@
     "math": "A=b\\cdot h"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

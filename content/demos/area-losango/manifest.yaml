@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-losango",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área do losango",
   "tags": [
     "demo",
@@ -41,7 +41,7 @@
     "math": "A=\\frac{Dd}{2}"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

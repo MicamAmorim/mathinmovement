@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-trapezio",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área do trapézio",
   "tags": [
     "demo",
@@ -38,7 +38,7 @@
     "math": "A=\\frac{(B+b)h}{2}"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

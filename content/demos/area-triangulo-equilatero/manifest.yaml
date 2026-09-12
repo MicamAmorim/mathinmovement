@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-triangulo-equilatero",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área do triângulo equilátero",
   "tags": [
     "demo",
@@ -47,7 +47,7 @@
     "math": "A=\\frac{\\ell h}{2}=\\frac{\\sqrt3}{4}\\ell^2"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],
