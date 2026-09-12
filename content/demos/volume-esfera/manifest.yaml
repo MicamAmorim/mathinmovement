@@ -57,7 +57,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/29_volume_esfera.py",
       "scene": "VolumeEsfera",
@@ -65,7 +65,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "sphere_volume_cavalieri_v1"
   },
   "narration": {
     "enabled": false

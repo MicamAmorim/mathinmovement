@@ -49,7 +49,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/27_area_cone.py",
       "scene": "AreaCone",
@@ -57,7 +57,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "cone_sector_area_v1"
   },
   "narration": {
     "enabled": false

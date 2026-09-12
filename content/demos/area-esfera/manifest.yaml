@@ -56,7 +56,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/30_area_esfera.py",
       "scene": "AreaEsfera",
@@ -64,7 +64,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "sphere_area_bands_v1"
   },
   "narration": {
     "enabled": false

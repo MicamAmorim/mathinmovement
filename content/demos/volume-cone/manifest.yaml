@@ -45,7 +45,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/28_volume_cone.py",
       "scene": "VolumeCone",
@@ -53,7 +53,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "cone_volume_polygon_limit_v1"
   },
   "narration": {
     "enabled": false

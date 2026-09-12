@@ -318,6 +318,11 @@ class UnifiedContentScene(Scene):
             "cylinder_lateral_unwrap_v1": self.render_demo_cylinder_area,
             "cylinder_volume_layers_v1": self.render_demo_cylinder_volume,
             "regular_pyramid_net_area_v1": self.render_demo_pyramid_area,
+            "pyramid_volume_partition_cavalieri_v1": self.render_demo_pyramid_volume,
+            "cone_sector_area_v1": self.render_demo_cone_area,
+            "cone_volume_polygon_limit_v1": self.render_demo_cone_volume,
+            "sphere_volume_cavalieri_v1": self.render_demo_sphere_volume,
+            "sphere_area_bands_v1": self.render_demo_sphere_area,
         }
         handler = dispatch.get(renderer)
         if handler is None:
@@ -1975,6 +1980,437 @@ class UnifiedContentScene(Scene):
 
         self.demo_caption(steps[4]["narration"])
         self.demo_equation(str(steps[4]["math"]))
+        self.demo_end()
+
+    def render_demo_pyramid_volume(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("volume_piramide nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        front = Square(3.3, color=WHITE).move_to(P(-0.55, -0.35))
+        back = front.copy().shift(P(1.0, 0.8))
+        connectors = VGroup(
+            *[
+                Line(
+                    front.get_vertices()[i],
+                    back.get_vertices()[i],
+                    color=WHITE,
+                    stroke_width=2,
+                )
+                for i in range(4)
+            ]
+        )
+
+        self.demo_caption(steps[0]["narration"])
+        self.play(
+            Create(front),
+            Create(back),
+            Create(connectors),
+            run_time=1.4,
+        )
+
+        origin = front.get_vertices()[0]
+        p1 = Polygon(
+            back.get_vertices()[0],
+            back.get_vertices()[1],
+            back.get_vertices()[2],
+            back.get_vertices()[3],
+            color=CYAN,
+            fill_color=CYAN,
+            fill_opacity=0.15,
+        )
+        p2 = Polygon(
+            front.get_vertices()[1],
+            front.get_vertices()[2],
+            back.get_vertices()[2],
+            back.get_vertices()[1],
+            color=GOLD,
+            fill_color=GOLD,
+            fill_opacity=0.14,
+        )
+        p3 = Polygon(
+            front.get_vertices()[3],
+            front.get_vertices()[2],
+            back.get_vertices()[2],
+            back.get_vertices()[3],
+            color=GREEN,
+            fill_color=GREEN,
+            fill_opacity=0.13,
+        )
+        self.play(FadeIn(p1), FadeIn(p2), FadeIn(p3), run_time=0.8)
+
+        rays = VGroup(
+            *[
+                Line(origin, vertex, color=GOLD, stroke_width=2)
+                for vertex in (
+                    front.get_vertices()[2],
+                    back.get_vertices()[1],
+                    back.get_vertices()[2],
+                    back.get_vertices()[3],
+                )
+            ]
+        )
+        self.play(Create(rays), FadeIn(Dot(origin, color=RED)), run_time=2)
+
+        self.demo_caption(steps[1]["narration"])
+        for face in (p1, p2, p3):
+            self.pulse(face)
+
+        self.demo_hide_intro_formula()
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]))
+        self.demo_equation(str(steps[3]["math"]))
+
+        self.demo_caption(steps[4]["narration"])
+        self.demo_equation(str(steps[4]["math"]))
+
+        self.demo_caption(steps[5]["narration"])
+        self.demo_caption(steps[6]["narration"])
+        self.demo_caption(steps[7]["narration"])
+        self.demo_equation(str(steps[7]["math"]))
+        self.demo_caption(steps[8]["narration"])
+        self.demo_equation(str(steps[8]["math"]))
+        self.demo_caption(steps[9]["narration"])
+        self.demo_equation(str(steps[9]["math"]))
+        self.demo_end()
+
+    def render_demo_cone_area(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("area_cone nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        radius_value = 1.7
+        geratrix = 2.55
+        base = Ellipse(
+            width=2 * radius_value,
+            height=0.8,
+            color=CYAN,
+        ).move_to(P(0, -1.2))
+        apex = P(
+            0,
+            -1.2 + np.sqrt(geratrix * geratrix - radius_value * radius_value),
+        )
+        sides = VGroup(
+            Line(apex, P(-radius_value, -1.2), color=CYAN),
+            Line(apex, P(radius_value, -1.2), color=CYAN),
+        )
+
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(base), Create(sides), run_time=1.4)
+        self.demo_hide_intro_formula()
+
+        sector = Sector(
+            radius=2.55,
+            angle=240 * DEGREES,
+            start_angle=-30 * DEGREES,
+            color=CYAN,
+            fill_color=CYAN,
+            fill_opacity=0.18,
+            stroke_width=3,
+        ).shift(UP * 0.15)
+        self.play(
+            FadeOut(VGroup(base, sides)),
+            FadeIn(sector),
+            run_time=0.9,
+        )
+
+        radius_line = Line(
+            P(0, 0.15),
+            P(
+                2.55 * np.cos(-PI / 6),
+                0.15 + 2.55 * np.sin(-PI / 6),
+            ),
+            color=GOLD,
+            stroke_width=3,
+        )
+        self.play(
+            Create(radius_line),
+            Write(
+                safe_mathtex("g", 34, GOLD).next_to(
+                    radius_line, UP, buff=0.08
+                )
+            ),
+            run_time=0.65,
+        )
+
+        self.demo_caption(steps[1]["narration"])
+        self.demo_equation(str(steps[1]["math"]))
+        arc = Arc(
+            radius=2.55,
+            start_angle=-PI / 6,
+            angle=4 * PI / 3,
+            arc_center=P(0, 0.15),
+            color=GOLD,
+            stroke_width=6,
+        )
+        self.play(Create(arc))
+        self.demo_equation(str(steps[2]["math"]), size=42)
+
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]))
+
+        self.demo_caption(steps[4]["narration"])
+        self.demo_equation(str(steps[4]["math"]))
+        self.demo_end()
+
+    def render_demo_cone_volume(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("volume_cone nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        self.demo_caption(steps[0]["narration"])
+        shapes = VGroup()
+        centers = [P(-2.5, -0.6), P(0, -0.6), P(2.5, -0.6)]
+        sides_counts = [4, 6, 14]
+
+        for center, sides_count in zip(centers, sides_counts):
+            points = regular_polygon_points(
+                sides_count,
+                0.95,
+                center=center,
+                start_angle=PI / 2,
+            )
+            points = [
+                center + (vertex - center) * np.array([1, 0.3, 1])
+                for vertex in points
+            ]
+            base = Polygon(
+                *points,
+                color=CYAN,
+                fill_color=CYAN,
+                fill_opacity=0.12,
+                stroke_width=2,
+            )
+            apex = center + UP * 2.25
+            edges = VGroup(
+                *[
+                    Line(apex, vertex, color=GOLD, stroke_width=1.7)
+                    for vertex in points
+                ]
+            )
+            shapes.add(VGroup(base, edges))
+
+        self.play(
+            LaggedStart(*[FadeIn(shape) for shape in shapes], lag_ratio=0.18),
+            run_time=1.6,
+        )
+        self.demo_hide_intro_formula()
+
+        self.demo_caption(steps[1]["narration"])
+        self.demo_equation(str(steps[1]["math"]))
+
+        self.demo_caption(steps[2]["narration"])
+        circle = Ellipse(
+            width=1.9,
+            height=0.57,
+            color=GREEN,
+            stroke_width=4,
+        ).move_to(centers[-1])
+        self.play(Create(circle), run_time=0.7)
+        self.demo_equation(str(steps[2]["math"]))
+
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_end()
+
+    def render_demo_sphere_volume(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("volume_esfera nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+        self.demo_hide_intro_formula()
+
+        radius_value = 1.4
+        left = P(-2, -0.8)
+        right = P(2, -0.8)
+
+        hemisphere = VGroup(
+            Arc(
+                radius=radius_value,
+                start_angle=0,
+                angle=PI,
+                arc_center=left,
+                color=CYAN,
+            ),
+            Line(
+                left + LEFT * radius_value,
+                left + RIGHT * radius_value,
+                color=CYAN,
+            ),
+        )
+        cylinder = Rectangle(
+            width=2 * radius_value,
+            height=radius_value,
+            color=GOLD,
+        ).move_to(right + UP * radius_value / 2)
+        cone = Polygon(
+            right,
+            right + P(-radius_value, radius_value),
+            right + P(radius_value, radius_value),
+            color=RED,
+            fill_opacity=0.18,
+        )
+
+        self.demo_caption(steps[0]["narration"])
+        self.play(
+            Create(hemisphere),
+            Create(cylinder),
+            Create(cone),
+            run_time=2,
+        )
+
+        self.demo_caption(steps[1]["narration"])
+        tracker = ValueTracker(0.55)
+        section = always_redraw(
+            lambda: VGroup(
+                Line(
+                    left
+                    + P(
+                        -np.sqrt(
+                            radius_value * radius_value
+                            - tracker.get_value() ** 2
+                        ),
+                        tracker.get_value(),
+                    ),
+                    left
+                    + P(
+                        np.sqrt(
+                            radius_value * radius_value
+                            - tracker.get_value() ** 2
+                        ),
+                        tracker.get_value(),
+                    ),
+                    color=CYAN,
+                    stroke_width=7,
+                ),
+                Line(
+                    right + P(-radius_value, tracker.get_value()),
+                    right + P(-tracker.get_value(), tracker.get_value()),
+                    color=CYAN,
+                    stroke_width=7,
+                ),
+                Line(
+                    right + P(tracker.get_value(), tracker.get_value()),
+                    right + P(radius_value, tracker.get_value()),
+                    color=CYAN,
+                    stroke_width=7,
+                ),
+            )
+        )
+        self.add(section)
+        self.demo_equation(str(steps[1]["math"]))
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]))
+        self.demo_equation(str(steps[3]["math"]))
+        self.play(tracker.animate.set_value(1.25), run_time=3)
+        self.play(tracker.animate.set_value(0.2), run_time=3)
+        section.clear_updaters()
+
+        self.demo_caption(steps[4]["narration"])
+        self.demo_equation(str(steps[4]["math"]), size=40)
+        self.demo_equation(str(steps[5]["math"]))
+
+        self.demo_caption(steps[6]["narration"])
+        self.demo_equation(str(steps[6]["math"]))
+        self.demo_end()
+
+    def render_demo_sphere_area(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("area_esfera nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+        self.demo_hide_intro_formula()
+
+        radius_value = 2
+        circle = Circle(radius=radius_value, color=CYAN)
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(circle), run_time=2)
+
+        theta = PI / 6
+        point_q = P(
+            radius_value * np.cos(theta),
+            radius_value * np.sin(theta),
+        )
+        radius_line = Line(ORIGIN, point_q, color=GOLD)
+        rho_line = Line(P(0, point_q[1]), point_q, color=GREEN)
+        point_a = point_q + P(
+            0.45 * np.sin(theta),
+            -0.45 * np.cos(theta),
+        )
+        point_b = point_q + P(
+            -0.45 * np.sin(theta),
+            0.45 * np.cos(theta),
+        )
+        tangent = Line(
+            point_a,
+            point_b,
+            color=PINK,
+            stroke_width=6,
+        )
+        labels = VGroup(
+            safe_mathtex("R", 30, GOLD).next_to(radius_line, DOWN),
+            safe_mathtex(r"\rho", 30, GREEN).next_to(rho_line, UP),
+            safe_mathtex(r"\Delta s", 30, PINK).next_to(tangent, RIGHT),
+        )
+        self.play(
+            Create(radius_line),
+            Create(rho_line),
+            Create(tangent),
+            Write(labels),
+        )
+        self.demo_equation(str(steps[0]["math"]))
+
+        self.demo_caption(steps[1]["narration"])
+        point_c = P(point_a[0], point_b[1])
+        aux = VGroup(
+            DashedLine(point_a, point_c, color=WHITE),
+            DashedLine(point_c, point_b, color=WHITE),
+        )
+        dh_label = safe_mathtex(
+            r"\Delta h", 25, WHITE
+        ).next_to(Line(point_a, point_c), RIGHT, buff=0.5)
+        self.play(Create(aux))
+        self.play(Write(dh_label))
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]))
+
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]), size=40)
+
+        self.demo_caption(steps[4]["narration"])
+        self.play(
+            FadeOut(
+                VGroup(
+                    radius_line,
+                    rho_line,
+                    tangent,
+                    labels,
+                    aux,
+                    dh_label,
+                )
+            )
+        )
+        bands = VGroup(
+            *[
+                Line(P(-2, y), P(2, y), color=GOLD, stroke_width=2)
+                for y in np.linspace(-2, 2, 17)
+            ]
+        )
+        self.play(Create(bands), run_time=2)
+
+        self.demo_caption(steps[5]["narration"])
+        self.demo_equation(str(steps[5]["math"]))
+        self.demo_equation(str(steps[6]["math"]))
         self.demo_end()
 
     def render_demo_horizontal(self):
