@@ -48,7 +48,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/21_area_prismas_planificacao.py",
       "scene": "AreaPrismasPlanificacao",
@@ -56,7 +56,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "prism_net_area_v1"
   },
   "narration": {
     "enabled": false

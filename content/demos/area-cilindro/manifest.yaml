@@ -48,7 +48,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/23_area_cilindro.py",
       "scene": "AreaCilindro",
@@ -56,7 +56,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "cylinder_lateral_unwrap_v1"
   },
   "narration": {
     "enabled": false

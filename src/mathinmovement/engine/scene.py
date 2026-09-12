@@ -313,6 +313,11 @@ class UnifiedContentScene(Scene):
             "scale_dimension_exponents_v1": self.render_demo_scale_dimensions,
             "euler_polyhedra_reduction_v1": self.render_demo_euler_polyhedra,
             "cuboid_space_diagonal_v1": self.render_demo_cuboid_diagonal,
+            "prism_net_area_v1": self.render_demo_prism_area_net,
+            "prism_volume_layers_v1": self.render_demo_prism_volume,
+            "cylinder_lateral_unwrap_v1": self.render_demo_cylinder_area,
+            "cylinder_volume_layers_v1": self.render_demo_cylinder_volume,
+            "regular_pyramid_net_area_v1": self.render_demo_pyramid_area,
         }
         handler = dispatch.get(renderer)
         if handler is None:
@@ -1573,6 +1578,403 @@ class UnifiedContentScene(Scene):
         self.demo_caption(steps[2]["narration"])
         self.demo_equation(str(steps[2]["math"]))
         self.demo_equation(str(steps[3]["math"]))
+        self.demo_end()
+
+    def render_demo_prism_area_net(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("area_prismas_planificacao nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+        self.demo_hide_intro_formula()
+
+        side = 0.9
+        height = 1.5
+        self.demo_caption(steps[0]["narration"])
+
+        p3 = [
+            np.array(
+                [
+                    side * np.cos(i * TAU / 6),
+                    side * np.sin(i * TAU / 6),
+                    0,
+                ]
+            )
+            for i in range(6)
+        ]
+
+        def project(point):
+            return P(
+                1.4 * point[0] + 0.5 * point[1],
+                0.3 * point[1] + point[2] - 0.7,
+            )
+
+        faces = VGroup(
+            *[
+                Polygon(
+                    project(p3[i]),
+                    project(p3[(i + 1) % 6]),
+                    project(p3[(i + 1) % 6] + [0, 0, height]),
+                    project(p3[i] + [0, 0, height]),
+                    color=CYAN if i % 2 else GOLD,
+                    fill_opacity=0.18,
+                )
+                for i in range(6)
+            ]
+        )
+        self.play(
+            LaggedStart(*[Create(face) for face in faces], lag_ratio=0.15),
+            run_time=3,
+        )
+
+        self.demo_caption(steps[1]["narration"])
+        targets = [
+            Rectangle(
+                width=side,
+                height=height,
+                color=CYAN if i % 2 else GOLD,
+                fill_opacity=0.18,
+            ).move_to(P(-2.7 + side * (i + 0.5), 0))
+            for i in range(6)
+        ]
+        for face, target in zip(faces, targets):
+            self.play(Transform(face, target), run_time=0.8)
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]), size=40)
+        self.base_height(
+            -2.7,
+            2.7,
+            -height / 2,
+            height / 2,
+            "P_b",
+            "h",
+        )
+
+        self.demo_caption(steps[3]["narration"])
+        bases = VGroup(
+            *[
+                Polygon(
+                    *regular_polygon_points(6, side, center=P(x, 2)),
+                    color=GOLD,
+                    fill_opacity=0.25,
+                )
+                for x in (-1.5, 1.5)
+            ]
+        )
+        self.play(
+            LaggedStart(*[Create(base) for base in bases], lag_ratio=0.5),
+            run_time=2,
+        )
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_equation(str(steps[4]["math"]))
+        self.demo_end()
+
+    def render_demo_prism_volume(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("volume_prismas nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        base = Polygon(
+            *regular_polygon_points(
+                6,
+                1.8,
+                center=P(0, -1.4),
+                start_angle=PI / 6,
+            ),
+            color=CYAN,
+            fill_color=CYAN,
+            fill_opacity=0.18,
+        )
+        base.stretch(0.3, 1, about_point=P(0, -1.4))
+
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(base), run_time=1.0)
+
+        layers = VGroup(base)
+        for i in range(1, 8):
+            layer = (
+                base.copy()
+                .shift(UP * 0.42 * i)
+                .set_opacity(0.18 + 0.04 * i)
+            )
+            layers.add(layer)
+        self.play(
+            LaggedStart(
+                *[
+                    TransformFromCopy(base, layers[i])
+                    for i in range(1, 8)
+                ],
+                lag_ratio=0.08,
+            ),
+            run_time=1.5,
+        )
+        self.demo_hide_intro_formula()
+
+        self.demo_caption(steps[1]["narration"])
+        self.demo_equation(str(steps[1]["math"]))
+
+        hbrace = BraceBetweenPoints(
+            P(2.2, -1.4),
+            P(2.2, 1.54),
+            RIGHT,
+            color=GOLD,
+        )
+        self.play(
+            FadeIn(hbrace),
+            Write(
+                safe_mathtex("h", 34, GOLD).next_to(
+                    hbrace, RIGHT, buff=0.08
+                )
+            ),
+            run_time=0.7,
+        )
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]), size=42)
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_end()
+
+    def render_demo_cylinder_area(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("area_cilindro nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+        self.demo_hide_intro_formula()
+
+        radius = 0.9
+        height = 1.8
+        n = 32
+
+        def point(theta, z):
+            return P(
+                radius * np.cos(theta),
+                0.3 * radius * np.sin(theta) + z,
+            )
+
+        strips = VGroup(
+            *[
+                Polygon(
+                    point(i * TAU / n, -height / 2),
+                    point((i + 1) * TAU / n, -height / 2),
+                    point((i + 1) * TAU / n, height / 2),
+                    point(i * TAU / n, height / 2),
+                    color=CYAN,
+                    fill_opacity=0.15,
+                    stroke_width=1,
+                )
+                for i in range(n)
+            ]
+        )
+
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(strips), run_time=2)
+
+        self.demo_caption(steps[1]["narration"])
+        targets = [
+            Rectangle(
+                width=TAU * radius / n,
+                height=height,
+                color=CYAN,
+                fill_opacity=0.15,
+                stroke_width=1,
+            ).move_to(
+                P(
+                    -PI * radius + (i + 0.5) * TAU * radius / n,
+                    0,
+                )
+            )
+            for i in range(n)
+        ]
+        self.play(
+            *[
+                Transform(strip, target)
+                for strip, target in zip(strips, targets)
+            ],
+            run_time=4,
+        )
+
+        self.demo_caption(steps[2]["narration"])
+        self.base_height(
+            -PI * radius,
+            PI * radius,
+            -height / 2,
+            height / 2,
+            r"2\pi r",
+            "h",
+        )
+        self.demo_equation(str(steps[2]["math"]))
+
+        self.demo_caption(steps[3]["narration"])
+        caps = VGroup(
+            *[
+                Circle(
+                    radius=radius,
+                    color=GOLD,
+                    fill_opacity=0.2,
+                ).move_to(P(x, 2.1))
+                for x in (-1.6, 1.6)
+            ]
+        )
+        self.play(
+            LaggedStart(*[Create(cap) for cap in caps], lag_ratio=0.5),
+            run_time=2,
+        )
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_equation(str(steps[4]["math"]))
+        self.demo_end()
+
+    def render_demo_cylinder_volume(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("volume_cilindro nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        base = Ellipse(
+            width=4.6,
+            height=1.25,
+            color=CYAN,
+            fill_color=CYAN,
+            fill_opacity=0.16,
+        ).move_to(P(0, -1.45))
+
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(base), run_time=0.9)
+
+        disks = VGroup(base)
+        for i in range(1, 9):
+            disk = base.copy().shift(UP * 0.36 * i)
+            disks.add(disk)
+        self.play(
+            LaggedStart(
+                *[
+                    TransformFromCopy(base, disks[i])
+                    for i in range(1, 9)
+                ],
+                lag_ratio=0.07,
+            ),
+            run_time=1.5,
+        )
+
+        side_left = Line(
+            P(-2.3, -1.45),
+            P(-2.3, 1.43),
+            color=WHITE,
+            stroke_width=2,
+        )
+        side_right = Line(
+            P(2.3, -1.45),
+            P(2.3, 1.43),
+            color=WHITE,
+            stroke_width=2,
+        )
+        self.play(
+            Create(side_left),
+            Create(side_right),
+            run_time=0.55,
+        )
+        self.demo_hide_intro_formula()
+
+        self.demo_caption(steps[1]["narration"])
+        self.demo_equation(str(steps[1]["math"]))
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]), size=42)
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_equation(str(steps[4]["math"]))
+        self.demo_end()
+
+    def render_demo_pyramid_area(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError(
+                "area_piramides_regulares nativo ainda é somente vertical."
+            )
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        base = Polygon(
+            P(-2.3, -1.3),
+            P(1.8, -1.3),
+            P(2.6, -0.45),
+            P(-1.5, -0.45),
+            color=CYAN,
+            fill_color=CYAN,
+            fill_opacity=0.13,
+        )
+        apex = P(0.3, 2.15)
+        edges = VGroup(
+            *[
+                Line(apex, vertex, color=GOLD, stroke_width=3)
+                for vertex in base.get_vertices()
+            ]
+        )
+
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(base), Create(edges), run_time=1.5)
+        self.demo_hide_intro_formula()
+
+        self.demo_caption(steps[1]["narration"])
+        n = 4
+        side = 1.35
+        y = -0.75
+        geratrix = 2.0
+        faces = VGroup()
+        for i in range(n):
+            x = -2.9 + i * side
+            color = GOLD if i % 2 == 0 else CYAN
+            faces.add(
+                Polygon(
+                    P(x, y),
+                    P(x + side, y),
+                    P(x + side / 2, y + geratrix),
+                    color=color,
+                    fill_color=color,
+                    fill_opacity=0.16,
+                    stroke_width=2,
+                )
+            )
+        self.play(
+            FadeOut(VGroup(base, edges)),
+            LaggedStart(*[FadeIn(face) for face in faces], lag_ratio=0.08),
+            run_time=1.2,
+        )
+
+        baseline = Line(
+            P(-2.9, y),
+            P(-2.9 + n * side, y),
+            color=CYAN,
+            stroke_width=4,
+        )
+        height_line = DashedLine(
+            P(-2.9 + side / 2, y),
+            P(-2.9 + side / 2, y + geratrix),
+            color=GOLD,
+        )
+        self.play(Create(baseline), Create(height_line), run_time=0.7)
+        self.play(
+            Write(
+                safe_mathtex("g", 30, GOLD).next_to(
+                    height_line, RIGHT
+                )
+            ),
+            Write(
+                safe_mathtex(r"P_b=n\ell", 30, CYAN).next_to(
+                    baseline, DOWN
+                )
+            ),
+        )
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]))
+        self.demo_equation(str(steps[3]["math"]))
+
+        self.demo_caption(steps[4]["narration"])
+        self.demo_equation(str(steps[4]["math"]))
         self.demo_end()
 
     def render_demo_horizontal(self):
