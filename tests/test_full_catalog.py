@@ -73,22 +73,15 @@ class FullCatalogTests(unittest.TestCase):
             self.assertEqual(render["production_engine"], "native")
             self.assertTrue(render["native_ready"])
 
-        candidate_ids = {
-            "ENEM-2021-MT-12",
-            "ENEM-2021-MT-13",
-            "ENEM-2021-MT-17",
-            "ENEM-2021-MT-18",
-            "ENEM-2021-MT-28",
-            "ENEM-2022-MT-07",
-            "ENEM-2022-MT-10",
-            "ENEM-2022-MT-12",
-            "ENEM-2022-MT-13",
-            "ENEM-2022-MT-25",
-        }
         for record in drafts:
             render = record.manifest["render"]
+            self.assertEqual(record.type, "qenem")
             self.assertEqual(render["production_engine"], "compatibility")
-            self.assertEqual(render["native_ready"], record.id in candidate_ids)
+            self.assertTrue(render["native_ready"])
+            self.assertEqual(
+                render["native_formats"],
+                ["vertical", "horizontal"],
+            )
 
     def test_every_compatibility_source_and_scene_exists(self):
         for record in self.records:
