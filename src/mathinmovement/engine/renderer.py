@@ -26,6 +26,32 @@ def _safe_filename(value: str) -> str:
     return "".join(c if c.isalnum() or c in "._-" else "-" for c in value).strip("-")
 
 
+def probe_duration(path: Path) -> float | None:
+    ffprobe = shutil.which("ffprobe")
+    if not ffprobe or not path.exists():
+        return None
+    result = subprocess.run(
+        [
+            ffprobe,
+            "-v",
+            "error",
+            "-show_entries",
+            "format=duration",
+            "-of",
+            "default=noprint_wrappers=1:nokey=1",
+            str(path),
+        ],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode:
+        return None
+    try:
+        return float(result.stdout.strip())
+    except (TypeError, ValueError):
+        return None
+
+
 def _resolve_engine(record: ContentRecord, requested: str) -> tuple[str, str]:
     render = record.manifest.get("render") or {}
     production = str(render.get("production_engine", "native"))

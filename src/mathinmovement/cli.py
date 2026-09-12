@@ -6,6 +6,7 @@ import sys
 from .config import REGISTRY_DB
 from .database import database_stats
 from .engine import RenderError, render_record
+from .engine.renderer import probe_duration
 from .migrations import migrate_legacy_enem
 from .models import ManifestError
 from .package_io import export_package, import_package
@@ -87,6 +88,42 @@ def cmd_migrate_legacy_enem(args: argparse.Namespace) -> int:
     if result["skipped"]:
         print(f"Preservados por já existirem: {len(result['skipped'])}")
     print(f"SQLite sincronizado: {REGISTRY_DB}")
+    return 0
+
+
+def cmd_parity(args: argparse.Namespace) -> int:
+    registry = Registry().rebuild()
+    record = registry.get(args.id)
+
+    reference = render_record(
+        record,
+        video_format=args.format,
+        quality=args.quality,
+        dry_run=args.dry_run,
+        render_engine="production",
+    )
+    candidate = render_record(
+        record,
+        video_format=args.format,
+        quality=args.quality,
+        dry_run=args.dry_run,
+        render_engine="native",
+    )
+
+    print("\nParidade:")
+    print(f"  referência: {reference}")
+    print(f"  nativo:     {candidate}")
+
+    if not args.dry_run:
+        d_ref = probe_duration(reference)
+        d_native = probe_duration(candidate)
+        if d_ref is not None and d_native is not None:
+            delta = abs(d_ref - d_native)
+            print(f"  duração referência: {d_ref:.3f}s")
+            print(f"  duração nativo:     {d_native:.3f}s")
+            print(f"  Δ duração:          {delta:.3f}s")
+        else:
+            print("  duração: ffprobe indisponível; compare os dois MP4s visualmente.")
     return 0
 
 
@@ -185,6 +222,16 @@ def build_parser() -> argparse.ArgumentParser:
         help="Migra somente este canonical_id; pode ser repetido.",
     )
     p_legacy_enem.set_defaults(func=cmd_migrate_legacy_enem)
+
+    p_parity = sub.add_parser(
+        "parity",
+        help="Renderiza referência de produção e candidato nativo para comparação.",
+    )
+    p_parity.add_argument("id")
+    p_parity.add_argument("--format", choices=["vertical", "horizontal"], default="vertical")
+    p_parity.add_argument("--quality", choices=["draft", "final"], default="draft")
+    p_parity.add_argument("--dry-run", action="store_true")
+    p_parity.set_defaults(func=cmd_parity)
 
     p_render = sub.add_parser("render", help="Renderiza conteúdo pelo engine v2.")
     p_render.add_argument("id", nargs="?", help="ID do conteúdo.")
