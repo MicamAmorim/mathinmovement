@@ -3,6 +3,7 @@ from __future__ import annotations
 import unittest
 
 from mathinmovement.registry import Registry
+from mathinmovement.dsl.runtime import validate_program
 from mathinmovement.dsl.coverage import (
     DEMO_USAGE,
     DEMO_VALIDATION_SET,
@@ -43,6 +44,21 @@ class DSLCoverageTests(unittest.TestCase):
                     "native",
                 )
                 self.assertIn("dsl_shadow", record.manifest)
+
+    def test_all_minimum_cover_shadow_programs_validate(self):
+        registry = Registry().rebuild()
+        for content_id in DEMO_VALIDATION_SET:
+            with self.subTest(content_id=content_id):
+                record = registry.get(content_id)
+                validate_program(
+                    record.manifest["dsl_shadow"]["visual_program"]
+                )
+        for content_id in QENEM_VALIDATION_SET:
+            record = registry.get(content_id)
+            visuals = record.manifest["dsl_shadow"]["visuals"]
+            for name, spec in visuals.items():
+                with self.subTest(content_id=content_id, visual=name):
+                    validate_program(spec["program"])
 
     def test_common_qenem_profile_is_explicit(self):
         self.assertIn("replacement_transform", QENEM_COMMON)
