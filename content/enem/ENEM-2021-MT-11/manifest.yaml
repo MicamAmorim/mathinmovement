@@ -82,6 +82,7 @@ render:
     - horizontal
   default_format: vertical
   native_engine: unified-v2
+  native_ready: true
   compatibility:
     source: enem/videos/01_2021_q146_triangulo_equilatero.py
     scene: Resolucao01

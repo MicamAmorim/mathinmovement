@@ -7,7 +7,7 @@ from .config import REGISTRY_DB
 from .database import database_stats
 from .engine import RenderError, render_record
 from .engine.renderer import probe_duration
-from .migrations import migrate_legacy_enem
+from .migrations import migrate_legacy_demos, migrate_legacy_enem
 from .models import ManifestError
 from .package_io import export_package, import_package
 from .registry import Registry
@@ -72,6 +72,22 @@ def cmd_db_rebuild(_: argparse.Namespace) -> int:
     registry = Registry().rebuild()
     print(f"SQLite reconstruído: {REGISTRY_DB}")
     print(f"Conteúdos indexados: {len(registry)}")
+    return 0
+
+
+def cmd_migrate_legacy_demos(args: argparse.Namespace) -> int:
+    result = migrate_legacy_demos(
+        replace=args.replace,
+        status=args.status,
+        only=args.id or (),
+    )
+    print(f"Legado demos detectado: {result['total_legacy']}")
+    print(f"Gerados/atualizados: {len(result['created'])}")
+    for content_id in result["created"]:
+        print(f"  + {content_id}")
+    if result["skipped"]:
+        print(f"Preservados por já existirem: {len(result['skipped'])}")
+    print(f"SQLite sincronizado: {REGISTRY_DB}")
     return 0
 
 
@@ -206,6 +222,23 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_migrate = sub.add_parser("migrate", help="Ferramentas de migração do código legado.")
     migrate_sub = p_migrate.add_subparsers(dest="migration", required=True)
+    p_legacy_demos = migrate_sub.add_parser(
+        "legacy-demos",
+        help="Converte as 30 cenas demo legadas em manifests demo.",
+    )
+    p_legacy_demos.add_argument("--replace", action="store_true")
+    p_legacy_demos.add_argument(
+        "--status",
+        choices=["draft", "validated", "production", "deprecated"],
+        default="draft",
+    )
+    p_legacy_demos.add_argument(
+        "--id",
+        action="append",
+        help="Migra somente este ID de demo; pode ser repetido.",
+    )
+    p_legacy_demos.set_defaults(func=cmd_migrate_legacy_demos)
+
     p_legacy_enem = migrate_sub.add_parser(
         "legacy-enem",
         help="Converte questions.json + specs.py + narração legados em manifests qenem.",

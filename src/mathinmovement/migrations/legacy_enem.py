@@ -153,6 +153,7 @@ def build_manifest(
             "native_formats": ["vertical", "horizontal"],
             "default_format": "vertical",
             "native_engine": "unified-v2",
+            "native_ready": False,
             "compatibility": compatibility,
         },
         "narration": {

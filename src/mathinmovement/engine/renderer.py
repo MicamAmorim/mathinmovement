@@ -73,6 +73,10 @@ def _native_command(
     build_dir: Path,
 ) -> tuple[list[str], dict[str, str], Path]:
     render = record.manifest.get("render") or {}
+    if render.get("native_ready") is False:
+        raise ManifestError(
+            f"{record.id}: renderer nativo ainda não foi portado/validado."
+        )
     allowed = render.get("native_formats") or render.get("formats") or ["vertical"]
     if video_format not in allowed:
         raise ManifestError(
@@ -235,7 +239,12 @@ def render_record(
         else:
             wrapper = build_dir / "_mim_scene.py"
             resolution, fps = RESOLUTIONS[(video_format, quality)]
-            allowed = (record.manifest.get("render") or {}).get("native_formats") or ["vertical"]
+            render = record.manifest.get("render") or {}
+            if render.get("native_ready") is False:
+                raise ManifestError(
+                    f"{record.id}: renderer nativo ainda não foi portado/validado."
+                )
+            allowed = render.get("native_formats") or render.get("formats") or ["vertical"]
             if video_format not in allowed:
                 raise ManifestError(
                     f"{record.id}: renderer nativo não suporta {video_format!r}."
