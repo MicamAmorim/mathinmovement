@@ -41,7 +41,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/11_area_coroa_circular.py",
       "scene": "AreaCoroaCircular",
@@ -49,7 +49,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "annulus_subtraction_v1"
   },
   "narration": {
     "enabled": false

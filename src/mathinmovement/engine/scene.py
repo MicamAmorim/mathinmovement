@@ -303,6 +303,11 @@ class UnifiedContentScene(Scene):
             "circle_sector_rearrange_v1": self.render_demo_circle_area,
             "arc_fraction_v1": self.render_demo_arc_length,
             "sector_fraction_v1": self.render_demo_sector_area,
+            "annulus_subtraction_v1": self.render_demo_annulus_area,
+            "pythagoras_four_triangles_v1": self.render_demo_pythagoras,
+            "right_triangle_metric_relations_v1": self.render_demo_metric_relations,
+            "trig_similarity_ratios_v1": self.render_demo_trig_similarity,
+            "law_of_sines_altitudes_v1": self.render_demo_law_of_sines,
         }
         handler = dispatch.get(renderer)
         if handler is None:
@@ -909,6 +914,341 @@ class UnifiedContentScene(Scene):
         self.demo_equation(str(steps[3]["math"]))
         self.demo_caption(steps[4]["narration"])
         self.demo_equation(str(steps[4]["math"]), size=40)
+        self.demo_end()
+
+    def render_demo_annulus_area(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("area_coroa_circular nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        outer = Circle(
+            2.55,
+            color=CYAN,
+            stroke_width=4,
+            fill_color=CYAN,
+            fill_opacity=0.20,
+        )
+        inner = Circle(
+            1.35,
+            color=GOLD,
+            stroke_width=4,
+            fill_color=BG,
+            fill_opacity=1,
+        )
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(outer), run_time=1.0)
+        self.play(Create(inner), run_time=0.9)
+
+        r_outer = Line(P(0, 0), P(2.55, 0), color=CYAN, stroke_width=3)
+        r_inner = Line(
+            P(0, 0),
+            P(
+                1.35 * np.cos(140 * DEGREES),
+                1.35 * np.sin(140 * DEGREES),
+            ),
+            color=GOLD,
+            stroke_width=3,
+        )
+        labs = VGroup(
+            safe_mathtex("R", 34, CYAN).next_to(r_outer, DOWN, buff=0.08),
+            safe_mathtex("r", 34, GOLD).next_to(r_inner, LEFT, buff=0.08),
+        )
+        self.play(
+            Create(r_outer),
+            Create(r_inner),
+            Write(labs),
+            run_time=0.8,
+        )
+        self.demo_hide_intro_formula()
+
+        self.demo_caption(steps[1]["narration"])
+        self.demo_equation(str(steps[1]["math"]))
+        self.play(Indicate(inner, color=RED), run_time=0.8)
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]))
+        self.demo_end()
+
+    def render_demo_pythagoras(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("teorema_pitagoras nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        a, b = 2.0, 3.0
+        side = a + b
+        outer = Square(side_length=side, color=WHITE).move_to(P(0, 0.2))
+        x0, y0 = -side / 2, -side / 2 + 0.2
+
+        t1 = Polygon(
+            P(x0, y0),
+            P(x0 + b, y0),
+            P(x0, y0 + a),
+            color=CYAN,
+            fill_color=CYAN,
+            fill_opacity=0.25,
+        )
+        center_point = P(0, 0.2)
+        t2 = t1.copy().rotate(PI / 2, about_point=center_point)
+        t3 = t1.copy().rotate(PI, about_point=center_point)
+        t4 = t1.copy().rotate(3 * PI / 2, about_point=center_point)
+        tris = VGroup(t1, t2, t3, t4)
+
+        self.demo_caption(steps[0]["narration"])
+        self.play(
+            Create(outer),
+            LaggedStart(*[FadeIn(t) for t in tris], lag_ratio=0.12),
+            run_time=1.7,
+        )
+        self.demo_hide_intro_formula()
+        side_labels = VGroup(
+            safe_mathtex("b", 32, CYAN).next_to(
+                Line(P(x0, y0), P(x0 + b, y0)),
+                DOWN,
+            ),
+            safe_mathtex("a", 32, GOLD).next_to(
+                Line(P(x0 + b, y0), P(x0 + side, y0)),
+                DOWN,
+            ),
+        )
+        self.play(Write(side_labels))
+        self.demo_equation(str(steps[0]["math"]))
+
+        self.demo_caption(steps[1]["narration"])
+        center = Polygon(
+            P(x0 + b, y0),
+            P(x0 + side, y0 + b),
+            P(x0 + a, y0 + side),
+            P(x0, y0 + a),
+            color=GOLD,
+            fill_color=GOLD,
+            fill_opacity=0.20,
+            stroke_width=4,
+        )
+        self.play(Create(center), run_time=0.9)
+
+        self.demo_caption(steps[2]["narration"])
+        self.play(
+            Write(
+                safe_mathtex("c", 32, GOLD).next_to(
+                    Line(P(x0 + b, y0), P(x0 + side, y0 + b)),
+                    LEFT,
+                )
+            )
+        )
+
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_caption(steps[4]["narration"])
+        self.demo_equation(str(steps[4]["math"]))
+        self.demo_end()
+
+    def render_demo_metric_relations(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError(
+                "relacoes_metricas_triangulo_retangulo nativo ainda é somente vertical."
+            )
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        A = P(-3, -1.0)
+        B = P(3, -1.0)
+        C = P(-0.6, -1 + np.sqrt(2.4 * 3.6))
+        H = P(-0.6, -1.0)
+        tri = Polygon(
+            A,
+            B,
+            C,
+            color=CYAN,
+            fill_color=CYAN,
+            fill_opacity=0.12,
+            stroke_width=3,
+        )
+        alt = DashedLine(C, H, color=GOLD, stroke_width=3)
+
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(tri), Create(alt), run_time=1.6)
+
+        labels = VGroup(
+            safe_mathtex("h", 32, GOLD).next_to(alt, RIGHT, buff=0.08),
+            safe_mathtex("m", 32, CYAN).move_to(P(-1.8, -1.42)),
+            safe_mathtex("n", 32, CYAN).move_to(P(1.2, -1.42)),
+            safe_mathtex("c", 32, WHITE).move_to(P(0, -1.72)),
+            safe_mathtex("a", 32, GREEN).move_to((B + C) / 2 + P(0.3, 0.15)),
+            safe_mathtex("b", 32, GOLD).move_to((A + C) / 2 + P(-0.3, 0.15)),
+        )
+        self.play(Write(labels), run_time=0.8)
+        self.demo_hide_intro_formula()
+
+        left = Polygon(
+            A,
+            H,
+            C,
+            color=GOLD,
+            fill_color=GOLD,
+            fill_opacity=0.16,
+            stroke_width=3,
+        )
+        right = Polygon(
+            H,
+            B,
+            C,
+            color=GREEN,
+            fill_color=GREEN,
+            fill_opacity=0.13,
+            stroke_width=3,
+        )
+        self.play(FadeIn(left), FadeIn(right), run_time=0.7)
+        angles = VGroup(
+            Angle(Line(A, H), Line(A, C), radius=0.45, color=PINK),
+            Angle(Line(C, H), Line(C, B), radius=0.45, color=PINK),
+        )
+        self.play(Create(angles), Create(self.right_angle(H, quadrant=UR)))
+
+        self.demo_caption(steps[1]["narration"])
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]))
+        self.demo_equation(str(steps[3]["math"]))
+
+        self.demo_caption(steps[4]["narration"])
+        self.pulse(right)
+        self.demo_equation(str(steps[4]["math"]))
+        self.demo_equation(str(steps[5]["math"]))
+        self.pulse(left)
+        self.demo_equation(str(steps[6]["math"]))
+        self.demo_equation(str(steps[7]["math"]))
+        self.demo_equation(str(steps[8]["math"]))
+        self.demo_end()
+
+    def render_demo_trig_similarity(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError(
+                "razoes_trigonometricas_semelhanca nativo ainda é somente vertical."
+            )
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        theta = 32 * DEGREES
+        A = P(-3, -1.5)
+        B = P(-0.4, -1.5)
+        C = P(-0.4, -1.5 + 2.6 * np.tan(theta))
+        A2 = P(-3, -1.5)
+        B2 = P(2.5, -1.5)
+        C2 = P(2.5, -1.5 + 5.5 * np.tan(theta))
+        small = Polygon(
+            A,
+            B,
+            C,
+            color=GOLD,
+            fill_color=GOLD,
+            fill_opacity=0.16,
+            stroke_width=3,
+        )
+        large = Polygon(
+            A2,
+            B2,
+            C2,
+            color=CYAN,
+            fill_color=CYAN,
+            fill_opacity=0.10,
+            stroke_width=3,
+        )
+
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(small), run_time=1.0)
+        self.play(TransformFromCopy(small, large), run_time=1.2)
+        arc = Arc(
+            radius=0.65,
+            start_angle=0,
+            angle=theta,
+            arc_center=A,
+            color=WHITE,
+            stroke_width=3,
+        )
+        self.play(
+            Create(arc),
+            Write(
+                safe_mathtex(r"\theta", 30, WHITE).next_to(
+                    arc,
+                    RIGHT,
+                    buff=0.05,
+                )
+            ),
+            run_time=0.6,
+        )
+        self.demo_hide_intro_formula()
+
+        sides = VGroup(
+            safe_mathtex("op", 30, CYAN).next_to(Line(B2, C2), RIGHT),
+            safe_mathtex("adj", 30, CYAN).next_to(Line(A2, B2), DOWN),
+            safe_mathtex("hip", 30, GOLD).next_to(Line(A2, C2), UP),
+        )
+        self.play(Write(sides))
+
+        self.demo_caption(steps[1]["narration"])
+        self.demo_equation(str(steps[1]["math"]))
+        self.demo_equation(str(steps[2]["math"]))
+
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_equation(str(steps[4]["math"]))
+        self.demo_end()
+
+    def render_demo_law_of_sines(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("lei_senos nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        A = P(-3, -1.2)
+        B = P(3, -1.2)
+        C = P(0.8, 2.0)
+        H = P(0.8, -1.2)
+        tri = Polygon(
+            A,
+            B,
+            C,
+            color=CYAN,
+            fill_color=CYAN,
+            fill_opacity=0.12,
+            stroke_width=3,
+        )
+        alt = DashedLine(C, H, color=GOLD, stroke_width=3)
+
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(tri), Create(alt), run_time=1.6)
+        labs = VGroup(
+            safe_mathtex("A", 30, WHITE).next_to(A, LEFT, buff=0.08),
+            safe_mathtex("B", 30, WHITE).next_to(B, RIGHT, buff=0.08),
+            safe_mathtex("C", 30, WHITE).next_to(C, UP, buff=0.08),
+            safe_mathtex("c", 32, CYAN).move_to(P(0, -1.65)),
+            safe_mathtex("a", 32, CYAN).move_to((B + C) / 2 + P(0.25, 0.15)),
+            safe_mathtex("b", 32, CYAN).move_to((A + C) / 2 + P(-0.25, 0.15)),
+            safe_mathtex("h", 32, GOLD).next_to(alt, RIGHT, buff=0.08),
+        )
+        self.play(Write(labs), run_time=0.8)
+        self.demo_hide_intro_formula()
+
+        self.demo_caption(steps[1]["narration"])
+        self.demo_equation(str(steps[1]["math"]))
+        self.demo_equation(str(steps[2]["math"]))
+
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_equation(str(steps[4]["math"]))
+
+        self.demo_caption(steps[5]["narration"])
+        K = A + np.dot(B - A, C - A) / np.dot(C - A, C - A) * (C - A)
+        second = DashedLine(B, K, color=GREEN)
+        self.play(FadeOut(alt), FadeOut(labs[-1]), Create(second))
+        self.demo_equation(str(steps[5]["math"]))
+        self.demo_equation(str(steps[6]["math"]))
+        self.demo_equation(str(steps[7]["math"]))
         self.demo_end()
 
     def render_demo_horizontal(self):

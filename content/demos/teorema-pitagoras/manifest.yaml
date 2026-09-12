@@ -48,7 +48,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/12_teorema_pitagoras.py",
       "scene": "TeoremaPitagoras",
@@ -56,7 +56,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "pythagoras_four_triangles_v1"
   },
   "narration": {
     "enabled": false
