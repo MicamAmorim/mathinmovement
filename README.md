@@ -145,6 +145,10 @@ qENEM podem declarar programas DSL estáticos em `visuals.statement.program` e `
 
 A v1 cobre o vocabulário gráfico já usado nos 60 vídeos aprovados. O conjunto mínimo de regressão possui 8 demos e 6 qENEM. Veja `docs/DSL_COVERAGE.md` e `docs/DSL_SPEC.md`.
 
+## Roadmap
+
+O planejamento de evolução do projeto está em [`docs/ROADMAP.md`](docs/ROADMAP.md).
+
 ## Estrutura principal
 
 ```text
