@@ -1,7 +1,7 @@
-"""Math in Movement v2.
+"""Math in Movement.
 
-A API v2 nasce ao lado do código legado. Durante a migração, nenhum import
-antigo depende deste pacote.
+Engine unificado para conteúdo matemático declarativo, TTS e renderização
+em Manim.
 """
 
-__version__ = "0.2.0.dev0"
+__version__ = "0.3.0.dev0"

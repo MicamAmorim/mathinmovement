@@ -8,7 +8,9 @@ from .database import database_stats
 from .engine import RenderError, render_record
 from .models import ManifestError
 from .package_io import export_package, import_package
+from .production import produce
 from .registry import Registry
+from .tts import prepare_narration
 
 
 def cmd_list(args: argparse.Namespace) -> int:
@@ -82,6 +84,57 @@ def cmd_db_rebuild(_: argparse.Namespace) -> int:
     registry = Registry().rebuild()
     print(f"SQLite reconstruído: {REGISTRY_DB}")
     print(f"Conteúdos indexados: {len(registry)}")
+    return 0
+
+
+def _print_voice_result(result) -> None:
+    if result.total == 0:
+        print("Narração: nenhum segmento TTS aplicável.")
+        return
+    print(
+        "Narração: "
+        f"{result.generated} gerado(s), "
+        f"{result.cached} em cache, "
+        f"{result.planned} planejado(s) · "
+        f"voz {result.voice}"
+    )
+
+
+def cmd_voice(args: argparse.Namespace) -> int:
+    record = Registry().rebuild().get(args.id)
+    result = prepare_narration(
+        record,
+        voice_override=args.voice,
+        force=args.force,
+        dry_run=args.dry_run,
+    )
+    _print_voice_result(result)
+    if result.manifest_updated:
+        Registry().rebuild()
+        print("Manifest atualizado e registry sincronizado.")
+    return 0
+
+
+def cmd_produce(args: argparse.Namespace) -> int:
+    result = produce(
+        args.target,
+        replace=args.replace,
+        video_format=args.format,
+        quality=args.quality,
+        preview=args.preview,
+        fast_preview=args.fast,
+        skip_voice=args.skip_voice,
+        force_voice=args.force_voice,
+        voice=args.voice,
+        dry_run=args.dry_run,
+    )
+    if result.imported:
+        print(f"Importado e registrado: {result.record.id}")
+    else:
+        print(f"Conteúdo selecionado: {result.record.id}")
+    if result.voice is not None:
+        _print_voice_result(result.voice)
+    print(f"Vídeo: {result.output}")
     return 0
 
 
@@ -195,6 +248,52 @@ def build_parser() -> argparse.ArgumentParser:
     p_db_status.set_defaults(func=cmd_db_status)
     p_db_rebuild = db_sub.add_parser("rebuild")
     p_db_rebuild.set_defaults(func=cmd_db_rebuild)
+
+    p_voice = sub.add_parser(
+        "voice",
+        help="Gera/cacheia TTS para os segmentos de um conteúdo.",
+    )
+    p_voice.add_argument("id")
+    p_voice.add_argument("--voice")
+    p_voice.add_argument("--force", action="store_true")
+    p_voice.add_argument("--dry-run", action="store_true")
+    p_voice.set_defaults(func=cmd_voice)
+
+    p_produce = sub.add_parser(
+        "produce",
+        help=(
+            "Importa opcionalmente um .qenem/.demo, prepara voz "
+            "e renderiza em uma única operação."
+        ),
+    )
+    p_produce.add_argument(
+        "target",
+        help="ID existente ou caminho para .qenem/.demo.",
+    )
+    p_produce.add_argument("--replace", action="store_true")
+    p_produce.add_argument(
+        "--format",
+        choices=["vertical", "horizontal"],
+        default=None,
+    )
+    p_produce.add_argument(
+        "--quality",
+        choices=["draft", "final"],
+        default="draft",
+    )
+    p_produce.add_argument("--voice")
+    p_produce.add_argument(
+        "--skip-voice",
+        action="store_true",
+    )
+    p_produce.add_argument(
+        "--force-voice",
+        action="store_true",
+    )
+    p_produce.add_argument("--preview", action="store_true")
+    p_produce.add_argument("--fast", action="store_true")
+    p_produce.add_argument("--dry-run", action="store_true")
+    p_produce.set_defaults(func=cmd_produce)
 
     p_render = sub.add_parser(
         "render",
