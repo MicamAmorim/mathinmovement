@@ -71,6 +71,17 @@ def enem_txt(s, size=26, color=WHITE, width=46, weight=NORMAL):
     )
 
 
+def rigid_motion(mob, angle, shift):
+    """Rigid rotation + translation preserving lengths and area."""
+    original = mob.copy()
+    return UpdateFromAlphaFunc(
+        mob,
+        lambda m, t: m.become(
+            original.copy().rotate(angle * t, about_point=ORIGIN).shift(t * shift)
+        ),
+    )
+
+
 def polygon_xy(points, color=CYAN, fill_opacity=0.22, stroke_width=3):
     return Polygon(
         *[P(x, y) for x, y in points],
@@ -212,12 +223,67 @@ class UnifiedContentScene(Scene):
             fill_opacity=0,
         )
 
+    def base_height(self, x1, x2, y_base, y_top, base_label="b", height_label="h"):
+        b = BraceBetweenPoints(
+            P(x1, y_base - 0.12),
+            P(x2, y_base - 0.12),
+            DOWN,
+            color=CYAN,
+        )
+        h = BraceBetweenPoints(
+            P(x2 + 0.15, y_base),
+            P(x2 + 0.15, y_top),
+            RIGHT,
+            color=GOLD,
+        )
+        group = VGroup(
+            b,
+            safe_mathtex(base_label, 36, CYAN).next_to(b, DOWN, buff=0.08),
+            h,
+            safe_mathtex(height_label, 36, GOLD).next_to(h, RIGHT, buff=0.08),
+        )
+        self.play(FadeIn(group), run_time=0.75)
+        return group
+
+    def dashed_height(self, start, end, label="h", label_side=RIGHT):
+        d = DashedLine(start, end, color=GOLD, stroke_width=3)
+        lab = safe_mathtex(label, 34, GOLD).next_to(d, label_side, buff=0.10)
+        return VGroup(d, lab)
+
+    def demo_steps(self):
+        return list((self.manifest.get("lesson") or {}).get("steps") or [])
+
+    def demo_header_from_manifest(self):
+        presentation = self.manifest.get("presentation") or {}
+        self.demo_header(
+            str(presentation.get("number", "")),
+            self.manifest["title"],
+            str(
+                presentation.get(
+                    "formula",
+                    self.manifest.get("result", {}).get("math", ""),
+                )
+            ),
+            str(presentation.get("category", "GEOMETRIA")),
+        )
+
     def render_demo(self):
         render = self.manifest.get("render") or {}
         renderer = str(render.get("native_renderer", ""))
-        if renderer != "area_triangle_parallelogram_v1":
-            raise RuntimeError(f"Renderer demo nativo ainda não portado: {renderer!r}")
 
+        dispatch = {
+            "area_triangle_parallelogram_v1": self.render_demo_area_triangle,
+            "area_parallelogram_cut_v1": self.render_demo_area_parallelogram,
+            "area_trapezoid_double_v1": self.render_demo_area_trapezoid,
+            "area_rhombus_rearrange_v1": self.render_demo_area_rhombus,
+            "area_equilateral_height_v1": self.render_demo_area_equilateral,
+        }
+        handler = dispatch.get(renderer)
+        if handler is None:
+            raise RuntimeError(f"Renderer demo nativo ainda não portado: {renderer!r}")
+        handler()
+
+    def render_demo_area_triangle(self):
         if IS_HORIZONTAL:
             self.render_demo_horizontal()
             return
@@ -266,6 +332,189 @@ class UnifiedContentScene(Scene):
         self.demo_equation(r"2A=bh")
         self.demo_caption(captions["half"])
         self.demo_equation(r"A=\frac{bh}{2}")
+        self.demo_end()
+
+    def render_demo_area_parallelogram(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("area_paralelogramo nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        whole = polygon_xy([(-3, -1), (1.5, -1), (3, 1.5), (-1.5, 1.5)])
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(whole), run_time=1.8)
+        cut = DashedLine(P(1.5, -1), P(1.5, 1.5), color=GOLD)
+        self.play(Create(cut), run_time=0.9)
+        self.wait(0.8)
+
+        self.demo_caption(steps[1]["narration"])
+        left = polygon_xy([(-3, -1), (-1.5, -1), (-1.5, 1.5)])
+        mid = polygon_xy([(-1.5, -1), (1.5, -1), (1.5, 1.5), (-1.5, 1.5)])
+        moving = polygon_xy([(1.5, -1), (3, 1.5), (1.5, 1.5)], GOLD)
+        self.remove(whole)
+        self.add(left, mid, moving)
+        self.play(FadeOut(cut), run_time=0.35)
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_hide_intro_formula()
+        self.play(moving.animate.shift(UP * 0.55), run_time=0.55)
+        self.play(moving.animate.shift(LEFT * 4.5), run_time=2.2)
+        self.play(moving.animate.shift(DOWN * 0.55), run_time=0.55)
+        outline = Rectangle(width=4.5, height=2.5, color=WHITE).move_to(P(-0.75, 0.25))
+        self.play(Create(outline), run_time=0.8)
+        self.base_height(-3, 1.5, -1, 1.5)
+
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_end()
+
+    def render_demo_area_trapezoid(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("area_trapezio nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        trap = polygon_xy([(-3, -1), (1, -1), (0, 1.3), (-2, 1.3)])
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(trap), run_time=1.8)
+        labs = VGroup(
+            safe_mathtex("B", 36, CYAN).move_to(P(-1, -1.4)),
+            safe_mathtex("b", 36, GOLD).move_to(P(-1, 1.68)),
+        )
+        self.play(Write(labs), run_time=0.8)
+
+        self.demo_caption(steps[1]["narration"])
+        self.demo_hide_intro_formula()
+        copy = trap.copy().set_color(GOLD)
+        self.play(FadeOut(labs), copy.animate.shift(UP * 0.5), run_time=0.75)
+        self.play(Rotate(copy, PI, about_point=copy.get_center()), run_time=1.25)
+        target = polygon_xy([(4, 1.3), (0, 1.3), (1, -1), (3, -1)], GOLD)
+        self.play(copy.animate.shift(target.get_center() - copy.get_center()), run_time=1.35)
+        self.play(VGroup(trap, copy).animate.shift(LEFT * 0.5), run_time=0.55)
+
+        brace = BraceBetweenPoints(P(-3.5, -1.15), P(2.5, -1.15), DOWN, color=CYAN)
+        blab = safe_mathtex("B+b", 36, CYAN).next_to(brace, DOWN, buff=0.08)
+        height = self.dashed_height(P(2.5, -1), P(2.5, 1.3), "h")
+        self.play(FadeIn(brace), Write(blab), FadeIn(height), run_time=0.8)
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]))
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_end()
+
+    def render_demo_area_rhombus(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("area_losango nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        pts = [(0, 1.8), (3, 0), (0, -1.8), (-3, 0)]
+        whole = polygon_xy(pts)
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(whole), run_time=1.8)
+        dh = Line(P(-3, 0), P(3, 0), color=CYAN, stroke_width=4)
+        dv = Line(P(0, -1.8), P(0, 1.8), color=GOLD, stroke_width=4)
+        labs = VGroup(
+            safe_mathtex("D", 36, CYAN).move_to(P(0, -0.42)),
+            safe_mathtex("d", 36, GOLD).move_to(P(0.38, 0.22)),
+        )
+        self.play(Create(dh), Create(dv), Write(labs), run_time=1.1)
+
+        self.demo_caption(steps[1]["narration"])
+        tris = VGroup(
+            polygon_xy([(0, 0), (3, 0), (0, 1.8)], GOLD),
+            polygon_xy([(0, 0), (0, 1.8), (-3, 0)], CYAN),
+            polygon_xy([(0, 0), (-3, 0), (0, -1.8)], GOLD),
+            polygon_xy([(0, 0), (0, -1.8), (3, 0)], CYAN),
+        )
+        self.remove(whole)
+        self.add(*tris, dh, dv, labs)
+        self.wait(0.8)
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_hide_intro_formula()
+        self.play(FadeOut(dh), FadeOut(dv), FadeOut(labs), run_time=0.4)
+        for i, angle, shift in (
+            (0, 0, P(-3, -0.9)),
+            (2, 0, P(0, 0.9)),
+            (1, PI, P(0, 0.9)),
+            (3, PI, P(3, -0.9)),
+        ):
+            self.play(rigid_motion(tris[i], angle, shift), run_time=1.6)
+
+        outline = Rectangle(width=6, height=1.8, color=WHITE)
+        b = BraceBetweenPoints(P(-3, -1.05), P(3, -1.05), DOWN, color=CYAN)
+        h = BraceBetweenPoints(P(3.15, -0.9), P(3.15, 0.9), RIGHT, color=GOLD)
+        dims = VGroup(
+            b,
+            safe_mathtex("D", 34, CYAN).next_to(b, DOWN, buff=0.08),
+            h,
+            safe_mathtex(r"\frac d2", 34, GOLD).next_to(h, RIGHT, buff=0.08),
+        )
+        self.play(Create(outline), FadeIn(dims), run_time=0.85)
+        self.demo_caption(steps[3]["narration"])
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_equation(str(steps[4]["math"]))
+        self.demo_end()
+
+    def render_demo_area_equilateral(self):
+        if IS_HORIZONTAL:
+            raise RuntimeError("area_triangulo_equilatero nativo ainda é somente vertical.")
+
+        steps = self.demo_steps()
+        self.demo_header_from_manifest()
+
+        length = 4.4
+        height_value = np.sqrt(3) * length / 2
+        a = P(-length / 2, -1.45)
+        b = P(length / 2, -1.45)
+        c = P(0, -1.45 + height_value)
+        tri = Polygon(
+            a,
+            b,
+            c,
+            color=CYAN,
+            stroke_width=3,
+            fill_color=CYAN,
+            fill_opacity=0.22,
+        )
+        self.demo_caption(steps[0]["narration"])
+        self.play(Create(tri), run_time=1.8)
+        alt = DashedLine(c, P(0, -1.45), color=GOLD)
+        ra = self.right_angle(P(0, -1.45), quadrant=UR)
+        labels = VGroup(
+            safe_mathtex(r"\ell", 36, CYAN).move_to(P(0, -1.85)),
+            safe_mathtex(r"\ell", 36, CYAN).move_to(P(1.7, 0.7)),
+            safe_mathtex(r"\frac\ell2", 34, GOLD).move_to(P(-1.28, -1.05)),
+            safe_mathtex("h", 34, GOLD).move_to(P(0.32, 0.45)),
+        )
+        self.play(Create(alt), Create(ra), Write(labels), run_time=1.15)
+
+        self.demo_caption(steps[1]["narration"])
+        half = Polygon(
+            a,
+            P(0, -1.45),
+            c,
+            color=GOLD,
+            stroke_width=3,
+            fill_color=GOLD,
+            fill_opacity=0.16,
+        )
+        self.demo_hide_intro_formula()
+        self.play(FadeIn(half), run_time=0.6)
+        self.demo_equation(str(steps[1]["math"]))
+
+        self.demo_caption(steps[2]["narration"])
+        self.demo_equation(str(steps[2]["math"]))
+        self.demo_equation(str(steps[3]["math"]))
+        self.demo_equation(str(steps[4]["math"]))
+
+        self.demo_caption(steps[5]["narration"])
+        self.demo_equation(str(steps[5]["math"]))
         self.demo_end()
 
     def render_demo_horizontal(self):

@@ -53,7 +53,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "videos/05_area_triangulo_equilatero.py",
       "scene": "AreaTrianguloEquilatero",
@@ -61,7 +61,11 @@
       "formats": [
         "vertical"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical"
+    ],
+    "native_renderer": "area_equilateral_height_v1"
   },
   "narration": {
     "enabled": false
