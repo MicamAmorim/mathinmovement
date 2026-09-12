@@ -3,6 +3,8 @@ from __future__ import annotations
 import numpy as np
 from manim import (
     DOWN,
+    LEFT,
+    ORIGIN,
     PI,
     RIGHT,
     UP,
