@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "id": "area-coroa-circular",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área da coroa circular",
+  "tags": [
+    "demo",
+    "circulo"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "11",
+    "category": "CÍRCULO",
+    "formula": "A=\\pi(R^2-r^2)",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área da coroa circular.",
+    "steps": [
+      {
+        "narration": "A coroa é o que sobra do círculo maior."
+      },
+      {
+        "narration": "Subtraia a área retirada do disco maior.",
+        "math": "A=\\pi R^2-\\pi r^2"
+      },
+      {
+        "narration": "Coloque π em evidência.",
+        "math": "A=\\pi(R^2-r^2)"
+      }
+    ]
+  },
+  "result": {
+    "math": "A=\\pi(R^2-r^2)"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/11_area_coroa_circular.py",
+      "scene": "AreaCoroaCircular",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

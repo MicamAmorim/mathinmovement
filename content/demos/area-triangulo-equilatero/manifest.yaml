@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "id": "area-triangulo-equilatero",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área do triângulo equilátero",
+  "tags": [
+    "demo",
+    "areas"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "05",
+    "category": "ÁREAS",
+    "formula": "A=\\frac{\\sqrt3}{4}\\ell^2",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área do triângulo equilátero.",
+    "steps": [
+      {
+        "narration": "A altura também é mediana."
+      },
+      {
+        "narration": "Metade do equilátero é um triângulo retângulo.",
+        "math": "h^2+\\left(\\frac\\ell2\\right)^2=\\ell^2"
+      },
+      {
+        "narration": "Pitágoras fornece a altura.",
+        "math": "h^2=\\ell^2-\\frac{\\ell^2}{4}"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "h^2=\\frac34\\ell^2"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "h=\\frac{\\sqrt3}{2}\\ell"
+      },
+      {
+        "narration": "Substitua na fórmula da área do triângulo.",
+        "math": "A=\\frac{\\ell h}{2}=\\frac{\\sqrt3}{4}\\ell^2"
+      }
+    ]
+  },
+  "result": {
+    "math": "A=\\frac{\\ell h}{2}=\\frac{\\sqrt3}{4}\\ell^2"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/05_area_triangulo_equilatero.py",
+      "scene": "AreaTrianguloEquilatero",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

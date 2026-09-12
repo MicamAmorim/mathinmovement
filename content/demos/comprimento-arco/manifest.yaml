@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "comprimento-arco",
+  "type": "demo",
+  "status": "draft",
+  "title": "Comprimento de arco",
+  "tags": [
+    "demo",
+    "circulo"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "09",
+    "category": "CÍRCULO",
+    "formula": "L=\\frac{\\theta}{360^\\circ}\\,2\\pi r",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente comprimento de arco.",
+    "steps": [
+      {
+        "narration": "O arco ocupa a mesma fração angular da circunferência."
+      },
+      {
+        "narration": "Aqui são 120°: três arcos iguais completam a volta.",
+        "math": "3L=2\\pi r\\quad\\Rightarrow\\quad L=\\frac13\\,2\\pi r"
+      },
+      {
+        "narration": "Para qualquer ângulo, usamos a mesma proporção.",
+        "math": "\\frac{L}{2\\pi r}=\\frac{\\theta}{360^\\circ}"
+      },
+      {
+        "narration": "Multiplique a circunferência total pela fração do ângulo.",
+        "math": "L=\\frac{\\theta}{360^\\circ}\\,2\\pi r"
+      },
+      {
+        "narration": "Em radianos, a relação fica ainda mais simples.",
+        "math": "L=r\\theta\\quad(\\theta\\ \\text{em radianos})"
+      }
+    ]
+  },
+  "result": {
+    "math": "L=r\\theta\\quad(\\theta\\ \\text{em radianos})"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/09_comprimento_arco.py",
+      "scene": "ComprimentoArco",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

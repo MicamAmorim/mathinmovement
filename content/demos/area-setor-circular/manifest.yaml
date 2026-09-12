@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "area-setor-circular",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área do setor circular",
+  "tags": [
+    "demo",
+    "circulo"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "10",
+    "category": "CÍRCULO",
+    "formula": "A_s=\\frac{\\theta}{360^\\circ}\\pi r^2",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área do setor circular.",
+    "steps": [
+      {
+        "narration": "O setor é uma fração angular do círculo inteiro."
+      },
+      {
+        "narration": "Três setores de 120° completam 360°.",
+        "math": "3A_s=\\pi r^2\\quad\\Rightarrow\\quad A_s=\\frac13\\pi r^2"
+      },
+      {
+        "narration": "Para um ângulo qualquer, usamos a fração da volta.",
+        "math": "\\frac{A_s}{\\pi r^2}=\\frac{\\theta}{360^\\circ}"
+      },
+      {
+        "narration": "A mesma proporção vale para as áreas.",
+        "math": "A_s=\\frac{\\theta}{360^\\circ}\\pi r^2"
+      },
+      {
+        "narration": "Em radianos: metade de r² vezes o ângulo.",
+        "math": "A_s=\\frac12r^2\\theta\\quad(\\theta\\ \\mathrm{em\\ radianos})"
+      }
+    ]
+  },
+  "result": {
+    "math": "A_s=\\frac12r^2\\theta\\quad(\\theta\\ \\mathrm{em\\ radianos})"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/10_area_setor_circular.py",
+      "scene": "AreaSetorCircular",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

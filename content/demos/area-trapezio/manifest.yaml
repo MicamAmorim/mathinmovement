@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "area-trapezio",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área do trapézio",
+  "tags": [
+    "demo",
+    "areas"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "03",
+    "category": "ÁREAS",
+    "formula": "A=\\frac{(B+b)h}{2}",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área do trapézio.",
+    "steps": [
+      {
+        "narration": "Duas bases paralelas: B e b."
+      },
+      {
+        "narration": "Gire uma cópia e encaixe ao lado."
+      },
+      {
+        "narration": "As duas peças formam um paralelogramo.",
+        "math": "2A=(B+b)h"
+      },
+      {
+        "narration": "Um trapézio é metade dessa área.",
+        "math": "A=\\frac{(B+b)h}{2}"
+      }
+    ]
+  },
+  "result": {
+    "math": "A=\\frac{(B+b)h}{2}"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/03_area_trapezio.py",
+      "scene": "AreaTrapezio",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

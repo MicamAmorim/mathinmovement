@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "comprimento-circunferencia-pi",
+  "type": "demo",
+  "status": "draft",
+  "title": "Circunferência e π",
+  "tags": [
+    "demo",
+    "circulo"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "07",
+    "category": "CÍRCULO",
+    "formula": "C=\\pi d=2\\pi r",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente circunferência e π.",
+    "steps": [
+      {
+        "narration": "Uma volta completa, sem escorregar."
+      },
+      {
+        "narration": "A distância percorrida é o comprimento C."
+      },
+      {
+        "narration": "Compare com diâmetros de tamanho d = 2r.",
+        "math": "C/d\\approx3{,}14159"
+      },
+      {
+        "narration": "A razão não muda com a escala. Seu nome é π.",
+        "math": "\\pi:=C/d"
+      },
+      {
+        "narration": "O diâmetro mede dois raios.",
+        "math": "C=\\pi d=2\\pi r"
+      }
+    ]
+  },
+  "result": {
+    "math": "C=\\pi d=2\\pi r"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/07_comprimento_circunferencia_pi.py",
+      "scene": "ComprimentoCircunferenciaPi",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

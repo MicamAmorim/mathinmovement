@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "lei-cossenos",
+  "type": "demo",
+  "status": "draft",
+  "title": "Lei dos cossenos",
+  "tags": [
+    "demo",
+    "trigonometria"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "16",
+    "category": "TRIGONOMETRIA",
+    "formula": "a^2=b^2+c^2-2bc\\cos A",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente lei dos cossenos.",
+    "steps": [
+      {
+        "narration": "Projete o lado b sobre o lado c."
+      },
+      {
+        "narration": "A projeção horizontal de b é b cos A."
+      },
+      {
+        "narration": "O outro trecho da base mede c − b cos A.",
+        "math": "AH=b\\cos A,\\quad CH=b\\sin A"
+      },
+      {
+        "narration": "Aplique Pitágoras ao triângulo da direita.",
+        "math": "a^2=(c-b\\cos A)^2+(b\\sin A)^2"
+      },
+      {
+        "narration": "Expanda e use sen²A + cos²A = 1.",
+        "math": "a^2=c^2-2bc\\cos A+b^2(\\cos^2A+\\sin^2A)"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "a^2=b^2+c^2-2bc\\cos A"
+      }
+    ]
+  },
+  "result": {
+    "math": "a^2=b^2+c^2-2bc\\cos A"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/16_lei_cossenos.py",
+      "scene": "LeiCossenos",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "area-paralelogramo",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área do paralelogramo",
+  "tags": [
+    "demo",
+    "areas"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "02",
+    "category": "ÁREAS",
+    "formula": "A=bh",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área do paralelogramo.",
+    "steps": [
+      {
+        "narration": "A inclinação do lado não é a altura."
+      },
+      {
+        "narration": "Corte a ponta direita."
+      },
+      {
+        "narration": "Translade a própria peça para o outro lado."
+      },
+      {
+        "narration": "Mesmas peças. Agora vemos um retângulo.",
+        "math": "A=b\\cdot h"
+      }
+    ]
+  },
+  "result": {
+    "math": "A=b\\cdot h"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/02_area_paralelogramo.py",
+      "scene": "AreaParalelogramo",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

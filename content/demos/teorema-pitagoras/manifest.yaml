@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "teorema-pitagoras",
+  "type": "demo",
+  "status": "draft",
+  "title": "Teorema de Pitágoras",
+  "tags": [
+    "demo",
+    "triangulos"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "12",
+    "category": "TRIÂNGULOS",
+    "formula": "a^2+b^2=c^2",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente teorema de pitágoras.",
+    "steps": [
+      {
+        "narration": "Quatro triângulos iguais cabem num quadrado de lado a+b.",
+        "math": "(a+b)^2=4\\left(\\frac{ab}{2}\\right)+c^2"
+      },
+      {
+        "narration": "A área central é c²."
+      },
+      {
+        "narration": "Cada lado central é uma hipotenusa c."
+      },
+      {
+        "narration": "Os ângulos agudos somam 90°: o centro é um quadrado.",
+        "math": "a^2+2ab+b^2=2ab+c^2"
+      },
+      {
+        "narration": "Cancele 2ab dos dois lados.",
+        "math": "a^2+b^2=c^2"
+      }
+    ]
+  },
+  "result": {
+    "math": "a^2+b^2=c^2"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/12_teorema_pitagoras.py",
+      "scene": "TeoremaPitagoras",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

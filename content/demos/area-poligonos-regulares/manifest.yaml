@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "area-poligonos-regulares",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área de polígonos regulares",
+  "tags": [
+    "demo",
+    "areas"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "06",
+    "category": "ÁREAS",
+    "formula": "A=\\frac{Pa}{2}",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área de polígonos regulares.",
+    "steps": [
+      {
+        "narration": "Do centro aos vértices: seis triângulos iguais."
+      },
+      {
+        "narration": "O apótema é perpendicular ao lado: ele é a altura.",
+        "math": "A_1=\\frac{\\ell a}{2}"
+      },
+      {
+        "narration": "Some a área de cada triângulo, um por vez."
+      },
+      {
+        "narration": "Para n lados, são n parcelas iguais.",
+        "math": "A=n\\frac{\\ell a}{2}=\\frac{(n\\ell)a}{2}"
+      },
+      {
+        "narration": "A soma dos lados é o perímetro: P = nℓ.",
+        "math": "A=\\frac{Pa}{2}"
+      }
+    ]
+  },
+  "result": {
+    "math": "A=\\frac{Pa}{2}"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/06_area_poligonos_regulares.py",
+      "scene": "AreaPoligonosRegulares",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

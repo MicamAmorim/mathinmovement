@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "area-circulo",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área do círculo",
+  "tags": [
+    "demo",
+    "circulo"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "08",
+    "category": "CÍRCULO",
+    "formula": "A=\\pi r^2",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área do círculo.",
+    "steps": [
+      {
+        "narration": "Gire e alterne as peças, sem deformá-las."
+      },
+      {
+        "narration": "As bordas curvas ficam cada vez mais planas."
+      },
+      {
+        "narration": "No limite: altura r e base igual à meia circunferência.",
+        "math": "b\\to C/2=\\pi r,\\quad h\\to r"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "A=(\\pi r)r=\\pi r^2"
+      }
+    ]
+  },
+  "result": {
+    "math": "A=(\\pi r)r=\\pi r^2"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/08_area_circulo.py",
+      "scene": "AreaCirculo",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "lei-senos",
+  "type": "demo",
+  "status": "draft",
+  "title": "Lei dos senos",
+  "tags": [
+    "demo",
+    "trigonometria"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "15",
+    "category": "TRIGONOMETRIA",
+    "formula": "\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente lei dos senos.",
+    "steps": [
+      {
+        "narration": "Trace uma altura e olhe para os dois triângulos retângulos."
+      },
+      {
+        "narration": "A mesma altura pode ser escrita de duas formas.",
+        "math": "h=b\\sin A"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "h=a\\sin B"
+      },
+      {
+        "narration": "Iguale e reorganize.",
+        "math": "b\\sin A=a\\sin B"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "\\frac{a}{\\sin A}=\\frac{b}{\\sin B}"
+      },
+      {
+        "narration": "Repetindo com outra altura, entra o terceiro lado.",
+        "math": "h"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "\\frac{a}{\\sin A}=\\frac{c}{\\sin C}"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}"
+      }
+    ]
+  },
+  "result": {
+    "math": "\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/15_lei_senos.py",
+      "scene": "LeiSenos",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

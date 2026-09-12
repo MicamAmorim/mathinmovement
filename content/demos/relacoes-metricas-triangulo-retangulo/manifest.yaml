@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "id": "relacoes-metricas-triangulo-retangulo",
+  "type": "demo",
+  "status": "draft",
+  "title": "Relações métricas no triângulo retângulo",
+  "tags": [
+    "demo",
+    "triangulos"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "13",
+    "category": "TRIÂNGULOS",
+    "formula": "h^2=mn",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente relações métricas no triângulo retângulo.",
+    "steps": [
+      {
+        "narration": "A altura à hipotenusa cria dois triângulos semelhantes."
+      },
+      {
+        "narration": "Os ângulos em rosa são iguais: o outro par é complementar."
+      },
+      {
+        "narration": "Da semelhança: h/m = n/h.",
+        "math": "\\frac{h}{m}=\\frac{n}{h}"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "h^2=mn"
+      },
+      {
+        "narration": "As projeções também relacionam os catetos à hipotenusa.",
+        "math": "\\frac{n}{a}=\\frac{a}{c}"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "a^2=cn"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "\\frac{m}{b}=\\frac{b}{c}"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "b^2=cm"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "a^2=cn\\qquad b^2=cm"
+      }
+    ]
+  },
+  "result": {
+    "math": "a^2=cn\\qquad b^2=cm"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/13_relacoes_metricas_triangulo_retangulo.py",
+      "scene": "RelacoesMetricasTrianguloRetangulo",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

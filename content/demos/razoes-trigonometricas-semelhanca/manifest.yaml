@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "razoes-trigonometricas-semelhanca",
+  "type": "demo",
+  "status": "draft",
+  "title": "Razões trigonométricas por semelhança",
+  "tags": [
+    "demo",
+    "trigonometria"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "14",
+    "category": "TRIGONOMETRIA",
+    "formula": "\\sin\\theta=\\frac{op}{hip}",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente razões trigonométricas por semelhança.",
+    "steps": [
+      {
+        "narration": "Mude o tamanho, mas preserve o mesmo ângulo θ."
+      },
+      {
+        "narration": "Triângulos semelhantes multiplicam todos os lados pelo mesmo fator.",
+        "math": "\\frac{op_1}{hip_1}=\\frac{op_2}{hip_2}"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "\\frac{k\\,op_1}{k\\,hip_1}=\\frac{op_1}{hip_1}"
+      },
+      {
+        "narration": "Por isso as razões dependem do ângulo, não do tamanho.",
+        "math": "\\sin\\theta=\\frac{op}{hip}\\quad \\cos\\theta=\\frac{adj}{hip}"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "\\tan\\theta=\\frac{op}{adj}"
+      }
+    ]
+  },
+  "result": {
+    "math": "\\tan\\theta=\\frac{op}{adj}"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/14_razoes_trigonometricas_semelhanca.py",
+      "scene": "RazoesTrigonometricasSemelhanca",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}

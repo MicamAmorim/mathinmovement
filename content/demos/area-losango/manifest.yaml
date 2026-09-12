@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "area-losango",
+  "type": "demo",
+  "status": "draft",
+  "title": "Área do losango",
+  "tags": [
+    "demo",
+    "areas"
+  ],
+  "presentation": {
+    "profile": "motion_math_v1",
+    "number": "04",
+    "category": "ÁREAS",
+    "formula": "A=\\frac{Dd}{2}",
+    "signature": "MIQUÉIAS AMORIM"
+  },
+  "lesson": {
+    "objective": "Demonstrar visualmente área do losango.",
+    "steps": [
+      {
+        "narration": "As diagonais se cruzam ao meio."
+      },
+      {
+        "narration": "Elas criam quatro triângulos congruentes em pares."
+      },
+      {
+        "narration": "Rearranje as próprias peças em um retângulo."
+      },
+      {
+        "narration": "O retângulo mede D por d/2.",
+        "math": "A=D\\cdot\\frac d2"
+      },
+      {
+        "narration": "Continue a dedução algébrica indicada na animação.",
+        "math": "A=\\frac{Dd}{2}"
+      }
+    ]
+  },
+  "result": {
+    "math": "A=\\frac{Dd}{2}"
+  },
+  "render": {
+    "production_engine": "compatibility",
+    "formats": [
+      "vertical"
+    ],
+    "default_format": "vertical",
+    "native_engine": "unified-v2",
+    "native_ready": false,
+    "compatibility": {
+      "source": "videos/04_area_losango.py",
+      "scene": "AreaLosango",
+      "cwd": ".",
+      "formats": [
+        "vertical"
+      ]
+    }
+  },
+  "narration": {
+    "enabled": false
+  }
+}
