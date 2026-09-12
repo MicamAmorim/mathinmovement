@@ -224,60 +224,56 @@
           "step": 0
         },
         {
-          "op": "lagged",
-          "run_time": 1.6,
-          "lag_ratio": 0.18,
+          "op": "parallel",
+          "run_time": 0.8,
           "actions": [
             {
               "op": "fade_in",
               "target": "b4"
             },
             {
-              "op": "parallel",
-              "actions": [
-                {
-                  "op": "create",
-                  "target": "a41"
-                },
-                {
-                  "op": "create",
-                  "target": "a42"
-                }
-              ]
+              "op": "create",
+              "target": "a41"
             },
+            {
+              "op": "create",
+              "target": "a42"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.8,
+          "actions": [
             {
               "op": "fade_in",
               "target": "b6"
             },
             {
-              "op": "parallel",
-              "actions": [
-                {
-                  "op": "create",
-                  "target": "a61"
-                },
-                {
-                  "op": "create",
-                  "target": "a62"
-                }
-              ]
+              "op": "create",
+              "target": "a61"
             },
+            {
+              "op": "create",
+              "target": "a62"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.8,
+          "actions": [
             {
               "op": "fade_in",
               "target": "b14"
             },
             {
-              "op": "parallel",
-              "actions": [
-                {
-                  "op": "create",
-                  "target": "a141"
-                },
-                {
-                  "op": "create",
-                  "target": "a142"
-                }
-              ]
+              "op": "create",
+              "target": "a141"
+            },
+            {
+              "op": "create",
+              "target": "a142"
             }
           ]
         },
