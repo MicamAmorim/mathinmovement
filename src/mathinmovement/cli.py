@@ -62,6 +62,7 @@ def cmd_render(args: argparse.Namespace) -> int:
                 quality=args.quality,
                 preview=args.preview,
                 dry_run=args.dry_run,
+                fast_preview=args.fast,
             )
         except (ManifestError, RenderError) as exc:
             failures.append((record.id, str(exc)))
@@ -80,7 +81,7 @@ def cmd_render(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="mathinmovement",
-        description="CLI v2 do Math in Movement. O código legado continua disponível durante a migração.",
+        description="CLI v2 do Math in Movement.",
     )
     sub = parser.add_subparsers(dest="command", required=True)
 
@@ -98,13 +99,14 @@ def build_parser() -> argparse.ArgumentParser:
     p_import.add_argument("--replace", action="store_true")
     p_import.set_defaults(func=cmd_import)
 
-    p_render = sub.add_parser("render", help="Renderiza conteúdo pelo registry v2.")
+    p_render = sub.add_parser("render", help="Renderiza conteúdo pelo engine v2.")
     p_render.add_argument("id", nargs="?", help="ID do conteúdo.")
     p_render.add_argument("--all", action="store_true", help="Renderiza todos os conteúdos selecionados.")
     p_render.add_argument("--type", choices=["qenem", "demo"], help="Filtra o lote por tipo.")
     p_render.add_argument("--format", choices=["vertical", "horizontal"], default="vertical")
     p_render.add_argument("--quality", choices=["draft", "final"], default="draft")
     p_render.add_argument("--preview", action="store_true")
+    p_render.add_argument("--fast", action="store_true", help="Prévia rápida: reduz esperas e não toca áudio.")
     p_render.add_argument("--dry-run", action="store_true", help="Mostra o comando sem executar o Manim.")
     p_render.add_argument("--keep-going", action="store_true")
     p_render.set_defaults(func=cmd_render)

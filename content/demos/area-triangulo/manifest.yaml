@@ -11,20 +11,19 @@ lesson:
   objective: Demonstrar visualmente por que a área do triângulo é metade do produto entre base e altura.
   hook: Por que aparece o fator um meio na fórmula da área?
   steps:
-    - narration: Identifique uma base e a altura perpendicular correspondente.
+    - narration: Uma base e uma altura perpendicular determinam a área.
       visual:
-        action: create
-        target: triangle
-    - narration: Faça uma segunda cópia congruente do triângulo.
+        action: create_triangle
+    - narration: Marcamos a altura perpendicular à base.
       visual:
-        action: duplicate
-        target: triangle
-    - narration: Gire e translade a cópia até completar um paralelogramo.
+        action: show_height
+    - narration: Uma segunda cópia congruente pode ser girada e transladada para completar um paralelogramo.
       visual:
-        action: transform
-        target: parallelogram
+        action: complete_parallelogram
       math: 2A=bh
-    - narration: Como os dois triângulos são congruentes, cada um ocupa metade da área do paralelogramo.
+    - narration: O paralelogramo é formado por dois triângulos congruentes, então cada triângulo ocupa metade da área.
+      visual:
+        action: hold
       math: A=\frac{bh}{2}
 
 result:
@@ -33,13 +32,9 @@ result:
 render:
   formats:
     - vertical
+    - horizontal
   default_format: vertical
-  adapter:
-    kind: legacy_manim_scene
-    source: videos/01_area_triangulo.py
-    scene: AreaTriangulo
-    cwd: .
+  engine: unified-v2
 
 narration:
   enabled: false
-  status: legacy-demo-without-tts

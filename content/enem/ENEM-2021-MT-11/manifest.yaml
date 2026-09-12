@@ -76,14 +76,74 @@ render:
     - vertical
     - horizontal
   default_format: vertical
-  adapter:
-    kind: legacy_manim_scene
-    source: enem/videos/01_2021_q146_triangulo_equilatero.py
-    scene: Resolucao01
-    cwd: enem
+  engine: unified-v2
 
 narration:
   enabled: true
   language: pt-BR
-  source: legacy-segmented-audio
   voice: pt-BR-AntonioNeural
+  segments:
+    - key: source
+      text: ENEM 2021, questão 146. Vamos ler, interpretar e resolver visualmente.
+      duration: 7.656
+      audio: enem/audio/ENEM-2021-MT-11/source.mp3
+    - key: statement_01
+      text: O instrumento de percussão conhecido como triângulo é composto por uma barra fina de aço, dobrada em um formato que se assemelha a um triângulo, com uma abertura e uma haste, conforme ilustra a Figura 1. Uma empresa de brindes promocionais contrata uma fundição para a produção de miniaturas de instrumentos desse tipo.
+      duration: 18.024
+      audio: enem/audio/ENEM-2021-MT-11/statement_01.mp3
+    - key: statement_02
+      text: A fundição produz, inicialmente, peças com o formato de um triângulo equilátero de altura h, conforme ilustra a Figura 2. Após esse processo, cada peça é aquecida, deformando os cantos, e cortada em um dos vértices, dando origem à miniatura. Assuma que não ocorram perdas de material no processo de produção, de forma que o comprimento da barra utilizada seja igual ao perímetro do triângulo equilátero representado na Figura 2.
+      duration: 27.288
+      audio: enem/audio/ENEM-2021-MT-11/statement_02.mp3
+    - key: statement_03
+      text: Considere 1,7 como valor aproximado para raiz de três. Nessas condições, o valor que mais se aproxima da medida do comprimento da barra, em centímetro, é
+      duration: 11.328
+      audio: enem/audio/ENEM-2021-MT-11/statement_03.mp3
+    - key: figure
+      text: Observe a reconstrução esquemática da figura da questão. Figura 1, instrumento triangular com abertura. Figura 2, triângulo equilátero com altura de 8 centímetros.
+      duration: 14.688
+      audio: enem/audio/ENEM-2021-MT-11/figure.mp3
+    - key: options
+      text: As alternativas são A 9,07; B 13,60; C 20,40; D 27,18; E 36,24.
+      duration: 13.248
+      audio: enem/audio/ENEM-2021-MT-11/options.mp3
+    - key: data
+      text: Separe os dados que realmente entram na conta.
+      duration: 13.704
+      audio: enem/audio/ENEM-2021-MT-11/data.mp3
+    - key: strategy
+      text: Do desenho para a fórmula, a altura de 8 centímetros é a chave.
+      duration: 20.616
+      audio: enem/audio/ENEM-2021-MT-11/strategy.mp3
+    - key: visual
+      text: A altura de 8 centímetros divide o equilátero em dois triângulos retângulos congruentes.
+      duration: 8.376
+      audio: enem/audio/ENEM-2021-MT-11/visual.mp3
+    - key: step_01
+      text: A altura divide a base ao meio.
+      duration: 9.216
+      audio: enem/audio/ENEM-2021-MT-11/step_01.mp3
+    - key: step_02
+      text: Desenvolva o quadrado.
+      duration: 8.016
+      audio: enem/audio/ENEM-2021-MT-11/step_02.mp3
+    - key: step_03
+      text: Isole o termo com o lado.
+      duration: 7.752
+      audio: enem/audio/ENEM-2021-MT-11/step_03.mp3
+    - key: step_04
+      text: Resolva para o lado positivo.
+      duration: 11.904
+      audio: enem/audio/ENEM-2021-MT-11/step_04.mp3
+    - key: step_05
+      text: Calcule o perímetro sem arredondar.
+      duration: 11.136
+      audio: enem/audio/ENEM-2021-MT-11/step_05.mp3
+    - key: step_06
+      text: Só agora use raiz de três aproximadamente 1,7.
+      duration: 11.28
+      audio: enem/audio/ENEM-2021-MT-11/step_06.mp3
+    - key: answer
+      text: Logo, a resposta é a alternativa D, 27,18.
+      duration: 4.896
+      audio: enem/audio/ENEM-2021-MT-11/answer.mp3
