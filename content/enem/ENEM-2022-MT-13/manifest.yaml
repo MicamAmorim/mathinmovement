@@ -97,79 +97,79 @@
         "key": "source",
         "text": "ENEM 2022, questão 148. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.68,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/source.mp3"
+        "audio": "assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "Uma empresa produz e vende um tipo de chocolate, maciço, em formato de cone circular reto com as medidas do diâmetro da base e da altura iguais a 8 centímetros e 10 centímetros, respectivamente, como apresenta a figura.",
         "duration": 13.608,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/statement_01.mp3"
+        "audio": "assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "8 centímetros 10 centímetros Devido a um aumento de preço dos ingredientes utilizados na produção desse chocolate, a empresa decide produzir esse mesmo tipo de chocolate com um volume 19% menor, no mesmo formato de cone circular reto com altura de 10 centímetros. Para isso, a empresa produzirá esses novos chocolates com medida do raio da base, em centímetro, igual a",
         "duration": 23.376,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/statement_02.mp3"
+        "audio": "assets/audio/statement_02.mp3"
       },
       {
         "key": "figure",
         "text": "Observe a reconstrução esquemática da figura da questão. Cone circular reto com diâmetro da base 8 centímetros e altura 10 centímetros.",
         "duration": 9.528,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/figure.mp3"
+        "audio": "assets/audio/figure.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: 1,52.; B: 3,24.; C: 3,60.; D: 6,48.; E: 7,20..",
         "duration": 12.432,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/options.mp3"
+        "audio": "assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: cone original: diâmetro 8 centímetros portanto r é igual a 4 centímetros; altura permanece 10 centímetros; novo volume é 19% menor portanto 81% do original.",
         "duration": 15.024,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/data.mp3"
+        "audio": "assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Com a altura fixa, basta acompanhar o quadrado do raio. O plano é: 1, Formar a razão entre os volumes. 2, Cancelar fatores iguais. 3, Extrair a raiz quadrada positiva.",
         "duration": 14.784,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/strategy.mp3"
+        "audio": "assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "Com a altura fixa, o volume do cone é proporcional ao quadrado do raio.",
         "duration": 5.112,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/visual.mp3"
+        "audio": "assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Volumes antigo e novo. Na tela, V é igual a 1 dividido por 3 pi (4) ao quadrado(10),, V' é igual a 1 dividido por 3 pi r' ao quadrado(10).",
         "duration": 12.264,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/step_01.mp3"
+        "audio": "assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Use V′ é igual a 0,81V. Na tela, 1 dividido por 3 pi r' ao quadrado(10) é igual a 0,81 1 dividido por 3 pi (4) ao quadrado(10).",
         "duration": 13.704,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/step_02.mp3"
+        "audio": "assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Cancele pi, 10 e 1 dividido por 3. Na tela, r' ao quadrado é igual a 0,81 vezes 16 é igual a 12,96.",
         "duration": 10.752,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/step_03.mp3"
+        "audio": "assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Raiz positiva. Na tela, r' é igual a raiz quadrada de 12,96 é igual a 3,6 centímetros.",
         "duration": 8.904,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/step_04.mp3"
+        "audio": "assets/audio/step_04.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa C: 3,60.",
         "duration": 4.824,
-        "audio": "content/enem/ENEM-2022-MT-13/assets/audio/answer.mp3"
+        "audio": "assets/audio/answer.mp3"
       }
     ]
   }

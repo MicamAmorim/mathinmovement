@@ -94,73 +94,73 @@
         "key": "source",
         "text": "ENEM 2022, questão 147. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.752,
-        "audio": "content/enem/ENEM-2022-MT-12/assets/audio/source.mp3"
+        "audio": "assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "Uma cozinheira produz docinhos especiais por encomenda. Usando uma receita-base de massa, ela prepara uma porção, com a qual produz 50 docinhos maciços de formato esférico, com 2 centímetros de diâmetro. Um cliente encomenda 150 desses docinhos, mas pede que cada um tenha formato esférico com 4 centímetros de diâmetro.",
         "duration": 21.504,
-        "audio": "content/enem/ENEM-2022-MT-12/assets/audio/statement_01.mp3"
+        "audio": "assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "A cozinheira pretende preparar o número exato de porções da receita-base de massa necessário para produzir os docinhos dessa encomenda. Quantas porções da receita-base de massa ela deve preparar para atender esse cliente?",
         "duration": 13.176,
-        "audio": "content/enem/ENEM-2022-MT-12/assets/audio/statement_02.mp3"
+        "audio": "assets/audio/statement_02.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: 2; B: 3; C: 6; D: 12; E: 24.",
         "duration": 9.312,
-        "audio": "content/enem/ENEM-2022-MT-12/assets/audio/options.mp3"
+        "audio": "assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: receita: 50 esferas de diâmetro 2 centímetros; pedido: 150 esferas de diâmetro 4 centímetros; o diâmetro e o raio dobram; volume de esfera varia com r ao cubo.",
         "duration": 14.688,
-        "audio": "content/enem/ENEM-2022-MT-12/assets/audio/data.mp3"
+        "audio": "assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Dobrar o diâmetro dobra o raio, mas multiplica o volume por oito. O plano é: 1, Calcular o fator de volume de cada doce. 2, Calcular o fator da quantidade de doces. 3, Multiplicar os dois fatores.",
         "duration": 16.104,
-        "audio": "content/enem/ENEM-2022-MT-12/assets/audio/strategy.mp3"
+        "audio": "assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "Dobrar as três dimensões multiplica o volume por 2 ao cubo é igual a 8.",
         "duration": 5.376,
-        "audio": "content/enem/ENEM-2022-MT-12/assets/audio/visual.mp3"
+        "audio": "assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Razão dos raios. Na tela, k é igual a 4 dividido por 2 é igual a 2.",
         "duration": 6.576,
-        "audio": "content/enem/ENEM-2022-MT-12/assets/audio/step_01.mp3"
+        "audio": "assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Fator do volume. Na tela, V' dividido por V é igual a k ao cubo é igual a 2 ao cubo é igual a 8.",
         "duration": 7.992,
-        "audio": "content/enem/ENEM-2022-MT-12/assets/audio/step_02.mp3"
+        "audio": "assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Fator da quantidade. Na tela, 150 dividido por 50 é igual a 3.",
         "duration": 6.624,
-        "audio": "content/enem/ENEM-2022-MT-12/assets/audio/step_03.mp3"
+        "audio": "assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Massa total necessária. Na tela, 3 vezes 8 é igual a 24 receitas.",
         "duration": 6.6,
-        "audio": "content/enem/ENEM-2022-MT-12/assets/audio/step_04.mp3"
+        "audio": "assets/audio/step_04.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa E: 24 dividido por",
         "duration": 4.632,
-        "audio": "content/enem/ENEM-2022-MT-12/assets/audio/answer.mp3"
+        "audio": "assets/audio/answer.mp3"
       }
     ]
   }

@@ -99,79 +99,79 @@
         "key": "source",
         "text": "ENEM 2021, questão 153. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.68,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/source.mp3"
+        "audio": "assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "Um povoado com 100 habitantes está passando por uma situação de seca prolongada e os responsáveis pela administração pública local decidem contratar a construção de um reservatório. Ele deverá ter a forma de um cilindro circular reto, cuja base tenha 5 metros de diâmetro interno, e atender à demanda de água da população por um período de exatamente sete dias consecutivos.",
         "duration": 21.792,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/statement_01.mp3"
+        "audio": "assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "No oitavo dia, o reservatório vazio é completamente reabastecido por carros-pipa. Considere que o consumo médio diário por habitante é de 120 litros de água. Use 3 como aproximação para . Nas condições apresentadas, o reservatório deverá ser construído com uma altura interna mínima, em metro, igual a",
         "duration": 20.952,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/statement_02.mp3"
+        "audio": "assets/audio/statement_02.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: 1,12.; B: 3,10.; C: 4,35.; D: 4,48.; E: 5,60..",
         "duration": 12.288,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/options.mp3"
+        "audio": "assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: 100 habitantes; 120 L por pessoa por dia; autonomia de 7 dias; cilindro com diâmetro 5 metros portanto r é igual a 2,5 metros; pi aproximadamente 3.",
         "duration": 15.048,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/data.mp3"
+        "audio": "assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Transforme a demanda de água em volume e compare com o cilindro. O plano é: 1, Calcular a demanda total. 2, Converter litros em metros cúbicos. 3, Usar V é igual a pir ao quadradoh e isolar h.",
         "duration": 15.672,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/strategy.mp3"
+        "audio": "assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "No cilindro, aumentar a altura aumenta o volume linearmente.",
         "duration": 4.32,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/visual.mp3"
+        "audio": "assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Demanda em litros. Na tela, V é igual a 100 vezes 120 vezes 7 é igual a 84 000 mathrm L.",
         "duration": 8.208,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/step_01.mp3"
+        "audio": "assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Converta: 1 metros cúbicos é igual a 1000 L. Na tela, V é igual a 84 000 dividido por 1000 é igual a 84 metros cúbicos.",
         "duration": 10.176,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/step_02.mp3"
+        "audio": "assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Volume do cilindro. Na tela, 84 é igual a pi r ao quadradoh é igual a 3(2,5) ao quadradoh.",
         "duration": 9.144,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/step_03.mp3"
+        "audio": "assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Calcule o quadrado do raio. Na tela, 84 é igual a 3 vezes 6,25h é igual a 18,75h.",
         "duration": 10.128,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/step_04.mp3"
+        "audio": "assets/audio/step_04.mp3"
       },
       {
         "key": "step_05",
         "text": "Divida ambos os lados por 18,75. Na tela, h é igual a 84 dividido por 18,75 é igual a 4,48 mathrm m.",
         "duration": 11.928,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/step_05.mp3"
+        "audio": "assets/audio/step_05.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa D: 4,48.",
         "duration": 4.992,
-        "audio": "content/enem/ENEM-2021-MT-18/assets/audio/answer.mp3"
+        "audio": "assets/audio/answer.mp3"
       }
     ]
   }
