@@ -92,7 +92,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "enem/videos/24_2024_q137_area_setor.py",
       "scene": "Resolucao24",
@@ -101,7 +101,11 @@
         "vertical",
         "horizontal"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical",
+      "horizontal"
+    ]
   },
   "narration": {
     "enabled": true,

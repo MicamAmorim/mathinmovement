@@ -83,7 +83,7 @@
     ],
     "default_format": "vertical",
     "native_engine": "unified-v2",
-    "native_ready": false,
+    "native_ready": true,
     "compatibility": {
       "source": "enem/videos/22_2023_q177_escala_voo.py",
       "scene": "Resolucao22",
@@ -92,7 +92,11 @@
         "vertical",
         "horizontal"
       ]
-    }
+    },
+    "native_formats": [
+      "vertical",
+      "horizontal"
+    ]
   },
   "narration": {
     "enabled": true,
