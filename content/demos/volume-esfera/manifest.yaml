@@ -65,5 +65,229 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "hemi",
+          "type": "arc",
+          "radius": 1.4,
+          "start_angle": 0,
+          "angle": "=pi",
+          "center": [
+            -2,
+            -0.8
+          ],
+          "color": "cyan"
+        },
+        {
+          "id": "diam",
+          "type": "line",
+          "start": [
+            -3.4,
+            -0.8
+          ],
+          "end": [
+            -0.6,
+            -0.8
+          ],
+          "color": "cyan",
+          "stroke_width": 2
+        },
+        {
+          "id": "cyl",
+          "type": "rectangle",
+          "width": 2.8,
+          "height": 1.4,
+          "at": [
+            2,
+            -0.1
+          ],
+          "color": "gold"
+        },
+        {
+          "id": "cone",
+          "type": "polygon",
+          "points": [
+            [
+              2,
+              -0.8
+            ],
+            [
+              0.6,
+              0.6
+            ],
+            [
+              3.4,
+              0.6
+            ]
+          ],
+          "color": "red",
+          "fill_opacity": 0.18
+        },
+        {
+          "id": "y",
+          "type": "tracker",
+          "value": 0.55
+        },
+        {
+          "id": "secL",
+          "type": "line",
+          "start": [
+            "=-2-sqrt(1.96-y*y)",
+            "=-0.8+y"
+          ],
+          "end": [
+            "=-2+sqrt(1.96-y*y)",
+            "=-0.8+y"
+          ],
+          "color": "cyan",
+          "stroke_width": 7,
+          "dynamic": true
+        },
+        {
+          "id": "secR1",
+          "type": "line",
+          "start": [
+            0.6,
+            "=-0.8+y"
+          ],
+          "end": [
+            "=2-y",
+            "=-0.8+y"
+          ],
+          "color": "cyan",
+          "stroke_width": 7,
+          "dynamic": true
+        },
+        {
+          "id": "secR2",
+          "type": "line",
+          "start": [
+            "=2+y",
+            "=-0.8+y"
+          ],
+          "end": [
+            3.4,
+            "=-0.8+y"
+          ],
+          "color": "cyan",
+          "stroke_width": 7,
+          "dynamic": true
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "parallel",
+          "run_time": 2,
+          "actions": [
+            {
+              "op": "create",
+              "target": "hemi"
+            },
+            {
+              "op": "create",
+              "target": "diam"
+            },
+            {
+              "op": "create",
+              "target": "cyl"
+            },
+            {
+              "op": "create",
+              "target": "cone"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "add",
+              "target": "secL"
+            },
+            {
+              "op": "add",
+              "target": "secR1"
+            },
+            {
+              "op": "add",
+              "target": "secR2"
+            }
+          ]
+        },
+        {
+          "op": "equation",
+          "step": 1
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "animate_value",
+          "target": "y",
+          "value": 1.25,
+          "run_time": 3
+        },
+        {
+          "op": "animate_value",
+          "target": "y",
+          "value": 0.2,
+          "run_time": 3
+        },
+        {
+          "op": "caption",
+          "step": 4
+        },
+        {
+          "op": "equation",
+          "step": 4,
+          "size": 40
+        },
+        {
+          "op": "equation",
+          "step": 5
+        },
+        {
+          "op": "caption",
+          "step": 6
+        },
+        {
+          "op": "equation",
+          "step": 6
+        },
+        {
+          "op": "end"
+        }
+      ]
+    }
   }
 }
