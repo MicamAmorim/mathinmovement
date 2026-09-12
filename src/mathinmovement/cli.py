@@ -259,7 +259,14 @@ def cmd_dsl_validate(args: argparse.Namespace) -> int:
 
 def cmd_dsl_regress(args: argparse.Namespace) -> int:
     registry = Registry().rebuild()
-    if args.type == "demo":
+    if args.scope == "all":
+        records = [
+            record for record in registry.all()
+            if record.manifest.get("dsl_shadow")
+            and (args.type == "all" or record.type == args.type)
+        ]
+        ids = tuple(record.id for record in records)
+    elif args.type == "demo":
         ids = DEMO_VALIDATION_SET
     elif args.type == "qenem":
         ids = QENEM_VALIDATION_SET
@@ -378,6 +385,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="Renderiza o conjunto mínimo de regressão em media_dsl/.",
     )
     p_dsl_regress.add_argument("--type", choices=["all", "demo", "qenem"], default="all")
+    p_dsl_regress.add_argument(
+        "--scope",
+        choices=["cover", "all"],
+        default="cover",
+        help="cover usa os 14 representantes mínimos; all usa todo conteúdo com dsl_shadow.",
+    )
     p_dsl_regress.add_argument("--format", choices=["vertical", "horizontal"], default="vertical")
     p_dsl_regress.add_argument("--quality", choices=["draft", "final"], default="draft")
     p_dsl_regress.add_argument("--preview", action="store_true")
