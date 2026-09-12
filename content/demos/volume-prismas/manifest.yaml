@@ -76,8 +76,7 @@
             "dim": 1
           },
           "color": "cyan",
-          "fill_opacity": 0.18,
-          "opacity": 1
+          "fill_opacity": 0.18
         },
         {
           "id": "layer1",

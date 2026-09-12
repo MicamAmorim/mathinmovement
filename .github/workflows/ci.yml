@@ -18,10 +18,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install core package
+      - name: Install package with render stack
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e .
+          python -m pip install -e ".[render]"
 
       - name: Compile
         run: python -m compileall -q src tests
@@ -56,6 +56,7 @@ jobs:
           python -m mathinmovement render comprimento-circunferencia-pi --engine dsl --dry-run
           python -m mathinmovement render ENEM-2023-MT-29 --engine dsl --dry-run
           python -m mathinmovement render ENEM-2024-MT-30 --engine dsl --format horizontal --dry-run
+          python -m mathinmovement dsl regress --dry-run
 
       - name: Check voice and produce orchestration
         run: |

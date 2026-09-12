@@ -136,6 +136,8 @@ A DSL visual é versionada e usa um registry extensível de capacidades.
 python -m mathinmovement dsl ops
 python -m mathinmovement dsl audit
 python -m mathinmovement dsl validate <id>
+python -m mathinmovement dsl regress --dry-run
+python -m mathinmovement dsl regress --quality draft
 ```
 
 Um demo novo pode declarar `visual_program` com `dsl_version`, `objects` e `timeline`.
