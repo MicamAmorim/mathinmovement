@@ -40,7 +40,7 @@ class DemoNativePromotedTests(unittest.TestCase):
             self.assertIn("media", output.parts)
 
     def test_batch_supports_production_and_explicit_native_dry_runs(self):
-        for content_id in CANDIDATES:
+        for content_id in PROMOTED:
             record = self.registry.get(content_id)
             production = render_record(
                 record,

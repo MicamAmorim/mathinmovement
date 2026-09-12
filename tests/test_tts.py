@@ -114,12 +114,12 @@ class TTSTests(unittest.TestCase):
             self.assertEqual(segment["duration"], 2.75)
             self.assertEqual(
                 segment["audio"],
-                "content/enem/TEST-Q/assets/audio/source.mp3",
+                "assets/audio/source.mp3",
             )
             self.assertTrue(
                 (
                     root
-                    / "content/enem/TEST-Q/assets/audio/source.mp3"
+                    / "assets/audio/source.mp3"
                 ).is_file()
             )
             self.assertEqual(
