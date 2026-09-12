@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathinmovement.local/schemas/qenem.schema.json",
+  "title": "Math in Movement QENEM",
+  "type": "object",
+  "required": ["schema_version", "id", "type", "title", "exam", "question", "solution"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "minLength": 1},
+    "type": {"const": "qenem"},
+    "title": {"type": "string", "minLength": 1},
+    "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "exam": {
+      "type": "object",
+      "required": ["name", "year", "canonical_id", "question_number"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "year": {"type": "integer", "minimum": 1998},
+        "canonical_id": {"type": "string", "minLength": 1},
+        "question_number": {"type": "integer", "minimum": 1},
+        "booklet": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "question": {
+      "type": "object",
+      "required": ["stem", "options", "answer"],
+      "properties": {
+        "stem": {"type": "string", "minLength": 1},
+        "options": {
+          "type": "object",
+          "required": ["A", "B", "C", "D", "E"],
+          "properties": {
+            "A": {}, "B": {}, "C": {}, "D": {}, "E": {}
+          },
+          "additionalProperties": false
+        },
+        "answer": {"enum": ["A", "B", "C", "D", "E"]}
+      },
+      "additionalProperties": true
+    },
+    "solution": {
+      "type": "object",
+      "required": ["goal", "strategy", "steps", "final_answer"],
+      "properties": {
+        "data": {"type": "array"},
+        "goal": {"type": "string", "minLength": 1},
+        "hook": {"type": "string"},
+        "strategy": {"type": "array", "minItems": 1},
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["label"],
+            "properties": {
+              "label": {"type": "string", "minLength": 1},
+              "math": {"type": "string"},
+              "narration": {"type": "string"}
+            },
+            "additionalProperties": true
+          }
+        },
+        "final_answer": {"enum": ["A", "B", "C", "D", "E"]}
+      },
+      "additionalProperties": true
+    },
+    "visuals": {"type": "object"},
+    "render": {"type": "object"},
+    "narration": {"type": "object"}
+  },
+  "additionalProperties": true
+}

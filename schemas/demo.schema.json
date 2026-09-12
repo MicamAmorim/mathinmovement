@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mathinmovement.local/schemas/demo.schema.json",
+  "title": "Math in Movement Demo",
+  "type": "object",
+  "required": ["schema_version", "id", "type", "title", "lesson", "result"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "minLength": 1},
+    "type": {"const": "demo"},
+    "title": {"type": "string", "minLength": 1},
+    "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "lesson": {
+      "type": "object",
+      "required": ["objective", "steps"],
+      "properties": {
+        "objective": {"type": "string", "minLength": 1},
+        "hook": {"type": "string"},
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["narration"],
+            "properties": {
+              "narration": {"type": "string", "minLength": 1},
+              "visual": {"type": "object"},
+              "math": {"type": "string"}
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "result": {
+      "type": "object",
+      "properties": {
+        "math": {"type": "string"},
+        "text": {"type": "string"}
+      },
+      "minProperties": 1,
+      "additionalProperties": true
+    },
+    "render": {"type": "object"},
+    "narration": {"type": "object"}
+  },
+  "additionalProperties": true
+}
