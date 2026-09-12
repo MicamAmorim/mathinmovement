@@ -11,7 +11,6 @@ from .package_io import export_package, import_package
 from .production import produce
 from .registry import Registry
 from .tts import prepare_narration
-from .verify import verify_local
 from .dsl.coverage import (
     DEMO_USAGE,
     DEMO_VALIDATION_SET,
@@ -111,6 +110,8 @@ def _print_voice_result(result) -> None:
 
 
 def cmd_verify(args: argparse.Namespace) -> int:
+    from .verify import verify_local
+
     return verify_local(
         render_dsl=args.render_dsl,
         keep_going=args.keep_going,
