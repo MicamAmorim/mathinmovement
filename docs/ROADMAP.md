@@ -15,6 +15,7 @@ Este roadmap acompanha a evolução do Math in Movement de engine declarativo em
 - [x] Renderização vertical e horizontal.
 - [x] DSL visual v1 e runtime extensível.
 - [x] Testes automatizados e regressão DSL.
+- [x] Validação local como quality gate canônico enquanto CI remota estiver indisponível (`mim verify`).
 - [ ] Concluir migração do catálogo para programas DSL declarativos.
   - Estado em 2026-09-12 na branch `feature-dsl-catalog-migration`: 30/30 demos e 12/30 qENEM possuem shadow ports DSL.
   - Meta: 30/30 demos e 30/30 qENEM auditados, regressados e promovidos quando visualmente equivalentes.
@@ -30,7 +31,7 @@ Prioridade imediata.
 - [ ] Promover os programas validados e reduzir dependência de renderers específicos.
 - [ ] Consolidar a branch de migração na `main`.
 
-Critério de saída: catálogo completo reproduzível pelo contrato declarativo aprovado, com testes de regressão e sem perda visual relevante.
+Critério de saída: catálogo completo reproduzível pelo contrato declarativo aprovado, com testes de regressão e sem perda visual relevante. A validação não depende de GitHub Actions: `mim verify` é o quality gate canônico local, e `mim verify --render-dsl --keep-going` executa a regressão renderizada.
 
 ## M2 — Kit de autoria para LLMs e usuários
 
