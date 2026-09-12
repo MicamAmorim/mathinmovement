@@ -1,0 +1,400 @@
+Manim Community v0.19.0
+
+[09/11/26 23:26:27] INFO     Caching disabled.             cairo_renderer.py:79
+Animation 0: FadeIn(Text('30  /  ESFERA')):   0%|          | 0/19 [00:00<?, ?it/s]Animation 0: FadeIn(Text('30  /  ESFERA')):  84%|########4 | 16/19 [00:00<00:00, 154.40it/s]                                                                                            [09/11/26 23:26:28] INFO     Animation 0 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00000.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 1: Write(Text('Área da esfera')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 1: Write(Text('Área da esfera')):  46%|####5     | 16/35 [00:00<00:00, 151.08it/s]Animation 1: Write(Text('Área da esfera')):  91%|#########1| 32/35 [00:00<00:00, 143.54it/s]                                                                                                                INFO     Animation 1 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00001.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 2: Write(MathTex('A=4\\pi R^2')):   0%|          | 0/44 [00:00<?, ?it/s]Animation 2: Write(MathTex('A=4\\pi R^2')):  41%|####      | 18/44 [00:00<00:00, 177.04it/s]Animation 2: Write(MathTex('A=4\\pi R^2')):  82%|########1 | 36/44 [00:00<00:00, 168.02it/s]                                                                                            [09/11/26 23:26:29] INFO     Animation 2 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00002.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+                    INFO     Animation 3 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00003.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 4: FadeOut(MathTex('A=4\\pi R^2')):   0%|          | 0/16 [00:00<?, ?it/s]Animation 4: FadeOut(MathTex('A=4\\pi R^2')):  88%|########7 | 14/16 [00:00<00:00, 129.49it/s]                                                                                              [09/11/26 23:26:30] INFO     Animation 4 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00004.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 5: FadeIn(Text('Uma faixa estreita: raio \u03c1 e largura inclinada\n\u0394s.')):   0%|          | 0/15 [00:00<?, ?it/s]Animation 5: FadeIn(Text('Uma faixa estreita: raio \u03c1 e largura inclinada\n\u0394s.')):  53%|#####3    | 8/15 [00:00<00:00, 78.14it/s]                                                                                                                                                    INFO     Animation 5 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00005.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:26:31] INFO     Animation 6 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00006.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 7: Create(Circle):   0%|          | 0/69 [00:00<?, ?it/s]Animation 7: Create(Circle):  29%|##8       | 20/69 [00:00<00:00, 193.15it/s]Animation 7: Create(Circle):  61%|######    | 42/69 [00:00<00:00, 203.53it/s]Animation 7: Create(Circle):  91%|#########1| 63/69 [00:00<00:00, 204.95it/s]                                                                             [09/11/26 23:26:32] INFO     Animation 7 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00007.mp4'                                       
+                    INFO     Writing \rho to            tex_file_writing.py:111
+                             media\Tex\370ba571485d150c                        
+                             .tex                                              
+                    INFO     Writing \Delta s to        tex_file_writing.py:111
+                             media\Tex\a97687e802e9e08b                        
+                             .tex                                              
+[09/11/26 23:26:33] INFO     Caching disabled.             cairo_renderer.py:79
+Animation 8: Create(Line), etc.:   0%|          | 0/35 [00:00<?, ?it/s]Animation 8: Create(Line), etc.:  46%|####5     | 16/35 [00:00<00:00, 153.86it/s]Animation 8: Create(Line), etc.:  91%|#########1| 32/35 [00:00<00:00, 155.29it/s]                                                                                 [09/11/26 23:26:34] INFO     Animation 8 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00008.mp4'                                       
+                    INFO     Writing \Delta             tex_file_writing.py:111
+                             A\approx2\pi\rho\,\Delta s                        
+                             to                                                
+                             media\Tex\b62bd2520d4ef78a                        
+                             .tex                                              
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 9: Write(MathTex('\\Delta A\\approx2\\pi\\rho\\,\\Delta s')):   0%|          | 0/33 [00:00<?, ?it/s]Animation 9: Write(MathTex('\\Delta A\\approx2\\pi\\rho\\,\\Delta s')):  52%|#####1    | 17/33 [00:00<00:00, 166.39it/s]                                                                                                                        [09/11/26 23:26:35] INFO     Animation 9 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00009.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:26:36] INFO     Animation 10 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00010.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 11: FadeOut(Text('Uma faixa estreita: raio \u03c1 e largura inclinada\n\u0394s.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 11: FadeOut(Text('Uma faixa estreita: raio \u03c1 e largura inclinada\n\u0394s.')), etc.:  33%|###3      | 5/15 [00:00<00:00, 48.23it/s]Animation 11: FadeOut(Text('Uma faixa estreita: raio \u03c1 e largura inclinada\n\u0394s.')), etc.:  67%|######6   | 10/15 [00:00<00:00, 48.83it/s]Animation 11: FadeOut(Text('Uma faixa estreita: raio \u03c1 e largura inclinada\n\u0394s.')), etc.: 100%|##########| 15/15 [00:00<00:00, 46.70it/s]                                                                                                                                                             INFO     Animation 11 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00011.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:26:37] INFO     Animation 12 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00012.mp4'                                       
+                    INFO     Writing \Delta h to        tex_file_writing.py:111
+                             media\Tex\158e4ac0380ac7c3                        
+                             .tex                                              
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 13: Create(VGroup of 2 submobjects):   0%|          | 0/35 [00:00<?, ?it/s]Animation 13: Create(VGroup of 2 submobjects):  51%|#####1    | 18/35 [00:00<00:00, 174.56it/s]                                                                                               [09/11/26 23:26:38] INFO     Animation 13 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00013.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 14: Write(MathTex('\\Delta h')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 14: Write(MathTex('\\Delta h')):  46%|####5     | 16/35 [00:00<00:00, 156.67it/s]Animation 14: Write(MathTex('\\Delta h')): 100%|##########| 35/35 [00:00<00:00, 172.91it/s]                                                                                           [09/11/26 23:26:39] INFO     Animation 14 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00014.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 15: FadeOut(Text('O raio diminui, mas a inclinação aumenta a\nlargura.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 15: FadeOut(Text('O raio diminui, mas a inclinação aumenta a\nlargura.')), etc.:  40%|####      | 6/15 [00:00<00:00, 56.31it/s]Animation 15: FadeOut(Text('O raio diminui, mas a inclinação aumenta a\nlargura.')), etc.:  80%|########  | 12/15 [00:00<00:00, 54.29it/s]                                                                                                                                                              INFO     Animation 15 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00015.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:26:40] INFO     Animation 16 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00016.mp4'                                       
+                    INFO     Writing \frac{\Delta       tex_file_writing.py:111
+                             h}{\Delta                                         
+                             s}\longrightarrow\frac{\rh                        
+                             o}{R} to                                          
+                             media\Tex\b0fdb9a724705e9e                        
+                             .tex                                              
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 17: ReplacementTransform(MathTex('\\Delta A\\approx2\\pi\\rho\\,\\Delta s')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 17: ReplacementTransform(MathTex('\\Delta A\\approx2\\pi\\rho\\,\\Delta s')):  22%|##1       | 8/37 [00:00<00:00, 72.14it/s]Animation 17: ReplacementTransform(MathTex('\\Delta A\\approx2\\pi\\rho\\,\\Delta s')):  43%|####3     | 16/37 [00:00<00:00, 73.89it/s]Animation 17: ReplacementTransform(MathTex('\\Delta A\\approx2\\pi\\rho\\,\\Delta s')):  65%|######4   | 24/37 [00:00<00:00, 74.08it/s]Animation 17: ReplacementTransform(MathTex('\\Delta A\\approx2\\pi\\rho\\,\\Delta s')):  86%|########6 | 32/37 [00:00<00:00, 75.13it/s]                                                                                                                                       [09/11/26 23:26:41] INFO     Animation 17 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00017.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:26:42] INFO     Animation 18 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00018.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 19: FadeOut(Text('Triângulos da tangente e do raio são\nsemelhantes.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 19: FadeOut(Text('Triângulos da tangente e do raio são\nsemelhantes.')), etc.:  40%|####      | 6/15 [00:00<00:00, 54.21it/s]Animation 19: FadeOut(Text('Triângulos da tangente e do raio são\nsemelhantes.')), etc.:  80%|########  | 12/15 [00:00<00:00, 53.93it/s]                                                                                                                                                            INFO     Animation 19 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00019.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:26:43] INFO     Animation 20 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00020.mp4'                                       
+                    INFO     Writing                    tex_file_writing.py:111
+                             dA=2\pi\rho\frac{R}{\rho}d                        
+                             h=2\pi R\,dh to                                   
+                             media\Tex\f01ac1c261ad4b41                        
+                             .tex                                              
+[09/11/26 23:26:44] INFO     Caching disabled.             cairo_renderer.py:79
+Animation 21: ReplacementTransform(MathTex('\\frac{\\Delta h}{\\Delta s}\\longrightarrow\\frac{\\rho}{R}')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 21: ReplacementTransform(MathTex('\\frac{\\Delta h}{\\Delta s}\\longrightarrow\\frac{\\rho}{R}')):  19%|#8        | 7/37 [00:00<00:00, 69.44it/s]Animation 21: ReplacementTransform(MathTex('\\frac{\\Delta h}{\\Delta s}\\longrightarrow\\frac{\\rho}{R}')):  41%|####      | 15/37 [00:00<00:00, 70.16it/s]Animation 21: ReplacementTransform(MathTex('\\frac{\\Delta h}{\\Delta s}\\longrightarrow\\frac{\\rho}{R}')):  62%|######2   | 23/37 [00:00<00:00, 70.65it/s]Animation 21: ReplacementTransform(MathTex('\\frac{\\Delta h}{\\Delta s}\\longrightarrow\\frac{\\rho}{R}')):  84%|########3 | 31/37 [00:00<00:00, 69.26it/s]                                                                                                                                                                                INFO     Animation 21 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00021.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:26:45] INFO     Animation 22 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00022.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 23: FadeOut(Text('No limite, substitua a largura da faixa.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 23: FadeOut(Text('No limite, substitua a largura da faixa.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 59.12it/s]Animation 23: FadeOut(Text('No limite, substitua a largura da faixa.')), etc.:  87%|########6 | 13/15 [00:00<00:00, 58.12it/s]                                                                                                                                                  INFO     Animation 23 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00023.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:26:46] INFO     Animation 24 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00024.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 25: FadeOut(VGroup of 6 submobjects):   0%|          | 0/35 [00:00<?, ?it/s]Animation 25: FadeOut(VGroup of 6 submobjects):  43%|####2     | 15/35 [00:00<00:00, 145.87it/s]Animation 25: FadeOut(VGroup of 6 submobjects):  86%|########5 | 30/35 [00:00<00:00, 141.99it/s]                                                                                                [09/11/26 23:26:47] INFO     Animation 25 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00025.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 26: Create(VGroup of 17 submobjects):   0%|          | 0/69 [00:00<?, ?it/s]Animation 26: Create(VGroup of 17 submobjects):  29%|##8       | 20/69 [00:00<00:00, 192.95it/s]Animation 26: Create(VGroup of 17 submobjects):  58%|#####7    | 40/69 [00:00<00:00, 194.39it/s]Animation 26: Create(VGroup of 17 submobjects):  88%|########8 | 61/69 [00:00<00:00, 196.52it/s]                                                                                                [09/11/26 23:26:48] INFO     Animation 26 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00026.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 27: FadeOut(Text('O fator \u03c1 cancela. Cada altura contribui\nigualmente.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 27: FadeOut(Text('O fator \u03c1 cancela. Cada altura contribui\nigualmente.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 60.99it/s]Animation 27: FadeOut(Text('O fator \u03c1 cancela. Cada altura contribui\nigualmente.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 59.53it/s]                                                                                                                                                               INFO     Animation 27 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00027.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:26:49] INFO     Animation 28 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00028.mp4'                                       
+                    INFO     Writing                    tex_file_writing.py:111
+                             A=\int_{-R}^{R}2\pi R\,dh                         
+                             to                                                
+                             media\Tex\caa54901049217cb                        
+                             .tex                                              
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 29: ReplacementTransform(MathTex('dA=2\\pi\\rho\\frac{R}{\\rho}dh=2\\pi R\\,dh')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 29: ReplacementTransform(MathTex('dA=2\\pi\\rho\\frac{R}{\\rho}dh=2\\pi R\\,dh')):  22%|##1       | 8/37 [00:00<00:00, 73.05it/s]Animation 29: ReplacementTransform(MathTex('dA=2\\pi\\rho\\frac{R}{\\rho}dh=2\\pi R\\,dh')):  43%|####3     | 16/37 [00:00<00:00, 72.15it/s]Animation 29: ReplacementTransform(MathTex('dA=2\\pi\\rho\\frac{R}{\\rho}dh=2\\pi R\\,dh')):  65%|######4   | 24/37 [00:00<00:00, 72.61it/s]Animation 29: ReplacementTransform(MathTex('dA=2\\pi\\rho\\frac{R}{\\rho}dh=2\\pi R\\,dh')):  86%|########6 | 32/37 [00:00<00:00, 72.49it/s]                                                                                                                                            [09/11/26 23:26:50] INFO     Animation 29 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00029.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:26:51] INFO     Animation 30 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00030.mp4'                                       
+                    INFO     Writing A=2\pi R(2R)=4\pi  tex_file_writing.py:111
+                             R^2 to                                            
+                             media\Tex\9939032fba3b5e64                        
+                             .tex                                              
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 31: ReplacementTransform(MathTex('A=\\int_{-R}^{R}2\\pi R\\,dh')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 31: ReplacementTransform(MathTex('A=\\int_{-R}^{R}2\\pi R\\,dh')):  22%|##1       | 8/37 [00:00<00:00, 76.90it/s]Animation 31: ReplacementTransform(MathTex('A=\\int_{-R}^{R}2\\pi R\\,dh')):  43%|####3     | 16/37 [00:00<00:00, 73.45it/s]Animation 31: ReplacementTransform(MathTex('A=\\int_{-R}^{R}2\\pi R\\,dh')):  65%|######4   | 24/37 [00:00<00:00, 73.27it/s]Animation 31: ReplacementTransform(MathTex('A=\\int_{-R}^{R}2\\pi R\\,dh')):  86%|########6 | 32/37 [00:00<00:00, 74.40it/s]                                                                                                                            [09/11/26 23:26:52] INFO     Animation 31 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00031.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:26:53] INFO     Animation 32 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00032.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 33: Indicate(MathTex('A=2\\pi R(2R)=4\\pi R^2')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 33: Indicate(MathTex('A=2\\pi R(2R)=4\\pi R^2')):  26%|##5       | 9/35 [00:00<00:00, 82.77it/s]Animation 33: Indicate(MathTex('A=2\\pi R(2R)=4\\pi R^2')):  51%|#####1    | 18/35 [00:00<00:00, 82.05it/s]Animation 33: Indicate(MathTex('A=2\\pi R(2R)=4\\pi R^2')):  77%|#######7  | 27/35 [00:00<00:00, 81.23it/s]                                                                                                                               INFO     Animation 33 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00033.mp4'                                       
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:26:54] INFO     Animation 34 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\partial_movie_                         
+                             files\AreaEsfera\uncached                         
+                             _00034.mp4'                                       
+                    INFO     Combining to Movie file.  scene_file_writer.py:739
+                    INFO                               scene_file_writer.py:886
+                             File ready at                                     
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\30_area_esfe                         
+                             ra\1920p30\AreaEsfera.mp4                         
+                             '                                                 
+                                                                               
+                    INFO     Rendered AreaEsfera                   scene.py:255
+                             Played 35 animations                              
+You are using manim version v0.19.0, but version v0.21.0 is available.
+You should consider upgrading via pip install -U manim

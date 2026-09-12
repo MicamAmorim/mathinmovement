@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+enem/__pycache__/
+media/
+enem/media/
+enem/media_horizontal/
+media_horizontal/

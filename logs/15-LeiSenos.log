@@ -1,0 +1,343 @@
+Manim Community v0.19.0
+
+[09/11/26 23:21:12] INFO     Caching disabled.             cairo_renderer.py:79
+Animation 0: FadeIn(Text('15  /  TRIGONOMETRIA')):   0%|          | 0/19 [00:00<?, ?it/s]Animation 0: FadeIn(Text('15  /  TRIGONOMETRIA')):  79%|#######8  | 15/19 [00:00<00:00, 146.11it/s]                                                                                                                       INFO     Animation 0 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             00.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 1: Write(Text('Lei dos senos')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 1: Write(Text('Lei dos senos')):  49%|####8     | 17/35 [00:00<00:00, 165.53it/s]Animation 1: Write(Text('Lei dos senos')):  97%|#########7| 34/35 [00:00<00:00, 152.96it/s]                                                                                           [09/11/26 23:21:13] INFO     Animation 1 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             01.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 2: Write(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}')):   0%|          | 0/44 [00:00<?, ?it/s]Animation 2: Write(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}')):  34%|###4      | 15/44 [00:00<00:00, 143.25it/s]Animation 2: Write(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}')):  68%|######8   | 30/44 [00:00<00:00, 130.70it/s]Animation 2: Write(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}')): 100%|##########| 44/44 [00:00<00:00, 124.25it/s]                                                                                                                                                             INFO     Animation 2 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             02.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:21:14] INFO     Animation 3 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             03.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 4: FadeIn(Text('Trace uma altura e olhe para os dois triângulos\nretângulos.')):   0%|          | 0/15 [00:00<?, ?it/s]Animation 4: FadeIn(Text('Trace uma altura e olhe para os dois triângulos\nretângulos.')):  53%|#####3    | 8/15 [00:00<00:00, 79.42it/s]                                                                                                                                                             INFO     Animation 4 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             04.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:21:15] INFO     Animation 5 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             05.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 6: Create(Polygon), etc.:   0%|          | 0/56 [00:00<?, ?it/s]Animation 6: Create(Polygon), etc.:  29%|##8       | 16/56 [00:00<00:00, 152.16it/s]Animation 6: Create(Polygon), etc.:  57%|#####7    | 32/56 [00:00<00:00, 155.78it/s]Animation 6: Create(Polygon), etc.:  86%|########5 | 48/56 [00:00<00:00, 156.53it/s]                                                                                    [09/11/26 23:21:16] INFO     Animation 6 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             06.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 7: Write(VGroup of 7 submobjects):   0%|          | 0/28 [00:00<?, ?it/s]Animation 7: Write(VGroup of 7 submobjects):  61%|######    | 17/28 [00:00<00:00, 164.02it/s]                                                                                                                 INFO     Animation 7 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             07.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 8: FadeOut(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}')):   0%|          | 0/16 [00:00<?, ?it/s]Animation 8: FadeOut(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}')):  38%|###7      | 6/16 [00:00<00:00, 58.40it/s]Animation 8: FadeOut(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}')):  75%|#######5  | 12/16 [00:00<00:00, 58.30it/s]                                                                                                                                          [09/11/26 23:21:17] INFO     Animation 8 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             08.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 9: FadeOut(Text('Trace uma altura e olhe para os dois triângulos\nretângulos.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 9: FadeOut(Text('Trace uma altura e olhe para os dois triângulos\nretângulos.')), etc.:  33%|###3      | 5/15 [00:00<00:00, 49.16it/s]Animation 9: FadeOut(Text('Trace uma altura e olhe para os dois triângulos\nretângulos.')), etc.:  67%|######6   | 10/15 [00:00<00:00, 47.07it/s]Animation 9: FadeOut(Text('Trace uma altura e olhe para os dois triângulos\nretângulos.')), etc.: 100%|##########| 15/15 [00:00<00:00, 47.96it/s]                                                                                                                                                                     INFO     Animation 9 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             09.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:21:18] INFO     Animation 10 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             10.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 11: Write(MathTex('h=b\\sin A')):   0%|          | 0/33 [00:00<?, ?it/s]Animation 11: Write(MathTex('h=b\\sin A')):  55%|#####4    | 18/33 [00:00<00:00, 170.20it/s]                                                                                                                INFO     Animation 11 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             11.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:21:19] INFO     Animation 12 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             12.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 13: ReplacementTransform(MathTex('h=b\\sin A')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 13: ReplacementTransform(MathTex('h=b\\sin A')):  49%|####8     | 18/37 [00:00<00:00, 166.93it/s]Animation 13: ReplacementTransform(MathTex('h=b\\sin A')):  95%|#########4| 35/37 [00:00<00:00, 163.26it/s]                                                                                                                               INFO     Animation 13 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             13.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:21:20] INFO     Animation 14 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             14.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 15: FadeOut(Text('A mesma altura pode ser escrita de duas formas.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 15: FadeOut(Text('A mesma altura pode ser escrita de duas formas.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 68.15it/s]Animation 15: FadeOut(Text('A mesma altura pode ser escrita de duas formas.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 67.46it/s]                                                                                                                                                         INFO     Animation 15 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             15.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:21:21] INFO     Animation 16 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             16.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 17: ReplacementTransform(MathTex('h=a\\sin B')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 17: ReplacementTransform(MathTex('h=a\\sin B')):  27%|##7       | 10/37 [00:00<00:00, 95.43it/s]Animation 17: ReplacementTransform(MathTex('h=a\\sin B')):  54%|#####4    | 20/37 [00:00<00:00, 94.15it/s]Animation 17: ReplacementTransform(MathTex('h=a\\sin B')):  81%|########1 | 30/37 [00:00<00:00, 92.74it/s]                                                                                                                              INFO     Animation 17 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             17.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:21:22] INFO     Animation 18 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             18.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 19: ReplacementTransform(MathTex('b\\sin A=a\\sin B')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 19: ReplacementTransform(MathTex('b\\sin A=a\\sin B')):  27%|##7       | 10/37 [00:00<00:00, 95.85it/s]Animation 19: ReplacementTransform(MathTex('b\\sin A=a\\sin B')):  54%|#####4    | 20/37 [00:00<00:00, 95.22it/s]Animation 19: ReplacementTransform(MathTex('b\\sin A=a\\sin B')):  84%|########3 | 31/37 [00:00<00:00, 98.55it/s]                                                                                                                                     INFO     Animation 19 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             19.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:21:23] INFO     Animation 20 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             20.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 21: FadeOut(Text('Iguale e reorganize.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 21: FadeOut(Text('Iguale e reorganize.')), etc.:  53%|#####3    | 8/15 [00:00<00:00, 69.60it/s]                                                                                                                             INFO     Animation 21 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             21.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:21:24] INFO     Animation 22 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             22.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 23: FadeOut(DashedLine), etc.:   0%|          | 0/35 [00:00<?, ?it/s]Animation 23: FadeOut(DashedLine), etc.:  20%|##        | 7/35 [00:00<00:00, 61.63it/s]Animation 23: FadeOut(DashedLine), etc.:  40%|####      | 14/35 [00:00<00:00, 64.17it/s]Animation 23: FadeOut(DashedLine), etc.:  60%|######    | 21/35 [00:00<00:00, 63.61it/s]Animation 23: FadeOut(DashedLine), etc.:  80%|########  | 28/35 [00:00<00:00, 64.05it/s]Animation 23: FadeOut(DashedLine), etc.: 100%|##########| 35/35 [00:00<00:00, 64.17it/s]                                                                                        [09/11/26 23:21:25] INFO     Animation 23 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             23.mp4'                                           
+                    INFO     Writing h'=c\sin A=a\sin C tex_file_writing.py:111
+                             to                                                
+                             media\Tex\3bbe8650bd430bc9                        
+                             .tex                                              
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 24: ReplacementTransform(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 24: ReplacementTransform(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}')):  22%|##1       | 8/37 [00:00<00:00, 71.68it/s]Animation 24: ReplacementTransform(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}')):  43%|####3     | 16/37 [00:00<00:00, 70.87it/s]Animation 24: ReplacementTransform(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}')):  65%|######4   | 24/37 [00:00<00:00, 69.31it/s]Animation 24: ReplacementTransform(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}')):  84%|########3 | 31/37 [00:00<00:00, 69.48it/s]                                                                                                                                     [09/11/26 23:21:26] INFO     Animation 24 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             24.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:21:27] INFO     Animation 25 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             25.mp4'                                           
+                    INFO     Writing \frac{a}{\sin      tex_file_writing.py:111
+                             A}=\frac{c}{\sin C} to                            
+                             media\Tex\513b997c0d153135                        
+                             .tex                                              
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 26: ReplacementTransform(MathTex("h'=c\\sin A=a\\sin C")):   0%|          | 0/37 [00:00<?, ?it/s]Animation 26: ReplacementTransform(MathTex("h'=c\\sin A=a\\sin C")):  22%|##1       | 8/37 [00:00<00:00, 72.76it/s]Animation 26: ReplacementTransform(MathTex("h'=c\\sin A=a\\sin C")):  43%|####3     | 16/37 [00:00<00:00, 73.44it/s]Animation 26: ReplacementTransform(MathTex("h'=c\\sin A=a\\sin C")):  65%|######4   | 24/37 [00:00<00:00, 72.91it/s]Animation 26: ReplacementTransform(MathTex("h'=c\\sin A=a\\sin C")):  86%|########6 | 32/37 [00:00<00:00, 72.58it/s]                                                                                                                    [09/11/26 23:21:28] INFO     Animation 26 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             26.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:21:29] INFO     Animation 27 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             27.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 28: ReplacementTransform(MathTex('\\frac{a}{\\sin A}=\\frac{c}{\\sin C}')):   0%|          | 0/37 [00:00<?, ?it/s]Animation 28: ReplacementTransform(MathTex('\\frac{a}{\\sin A}=\\frac{c}{\\sin C}')):  19%|#8        | 7/37 [00:00<00:00, 63.15it/s]Animation 28: ReplacementTransform(MathTex('\\frac{a}{\\sin A}=\\frac{c}{\\sin C}')):  38%|###7      | 14/37 [00:00<00:00, 61.46it/s]Animation 28: ReplacementTransform(MathTex('\\frac{a}{\\sin A}=\\frac{c}{\\sin C}')):  57%|#####6    | 21/37 [00:00<00:00, 61.56it/s]Animation 28: ReplacementTransform(MathTex('\\frac{a}{\\sin A}=\\frac{c}{\\sin C}')):  76%|#######5  | 28/37 [00:00<00:00, 61.82it/s]Animation 28: ReplacementTransform(MathTex('\\frac{a}{\\sin A}=\\frac{c}{\\sin C}')):  95%|#########4| 35/37 [00:00<00:00, 61.18it/s]                                                                                                                                                         INFO     Animation 28 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             28.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:21:30] INFO     Animation 29 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             29.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 30: Indicate(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 30: Indicate(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}')):  23%|##2       | 8/35 [00:00<00:00, 71.99it/s]Animation 30: Indicate(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}')):  46%|####5     | 16/35 [00:00<00:00, 71.47it/s]Animation 30: Indicate(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}')):  69%|######8   | 24/35 [00:00<00:00, 71.13it/s]Animation 30: Indicate(MathTex('\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}')):  91%|#########1| 32/35 [00:00<00:00, 70.67it/s]                                                                                                                                            [09/11/26 23:21:31] INFO     Animation 30 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             30.mp4'                                           
+                    INFO     Caching disabled.             cairo_renderer.py:79
+                    INFO     Animation 31 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\partial_movie_fi                         
+                             les\LeiSenos\uncached_000                         
+                             31.mp4'                                           
+                    INFO     Combining to Movie file.  scene_file_writer.py:739
+                    INFO                               scene_file_writer.py:886
+                             File ready at                                     
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\15_lei_senos                         
+                             \1920p30\LeiSenos.mp4'                            
+                                                                               
+                    INFO     Rendered LeiSenos                     scene.py:255
+                             Played 32 animations                              
+You are using manim version v0.19.0, but version v0.21.0 is available.
+You should consider upgrading via pip install -U manim

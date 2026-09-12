@@ -1,0 +1,242 @@
+[
+  {
+    "episode": 1,
+    "scene": "AreaTriangulo",
+    "returncode": 0,
+    "seconds": 16.94,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\01-AreaTriangulo.log",
+    "mode": "final"
+  },
+  {
+    "episode": 2,
+    "scene": "AreaParalelogramo",
+    "returncode": 0,
+    "seconds": 16.02,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\02-AreaParalelogramo.log",
+    "mode": "final"
+  },
+  {
+    "episode": 3,
+    "scene": "AreaTrapezio",
+    "returncode": 0,
+    "seconds": 16.19,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\03-AreaTrapezio.log",
+    "mode": "final"
+  },
+  {
+    "episode": 4,
+    "scene": "AreaLosango",
+    "returncode": 0,
+    "seconds": 18.62,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\04-AreaLosango.log",
+    "mode": "final"
+  },
+  {
+    "episode": 5,
+    "scene": "AreaTrianguloEquilatero",
+    "returncode": 0,
+    "seconds": 19.23,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\05-AreaTrianguloEquilatero.log",
+    "mode": "final"
+  },
+  {
+    "episode": 6,
+    "scene": "AreaPoligonosRegulares",
+    "returncode": 0,
+    "seconds": 34.02,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\06-AreaPoligonosRegulares.log",
+    "mode": "final"
+  },
+  {
+    "episode": 7,
+    "scene": "ComprimentoCircunferenciaPi",
+    "returncode": 0,
+    "seconds": 25.44,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\07-ComprimentoCircunferenciaPi.log",
+    "mode": "final"
+  },
+  {
+    "episode": 8,
+    "scene": "AreaCirculo",
+    "returncode": 0,
+    "seconds": 34.95,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\08-AreaCirculo.log",
+    "mode": "final"
+  },
+  {
+    "episode": 9,
+    "scene": "ComprimentoArco",
+    "returncode": 0,
+    "seconds": 20.05,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\09-ComprimentoArco.log",
+    "mode": "final"
+  },
+  {
+    "episode": 10,
+    "scene": "AreaSetorCircular",
+    "returncode": 0,
+    "seconds": 21.44,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\10-AreaSetorCircular.log",
+    "mode": "final"
+  },
+  {
+    "episode": 11,
+    "scene": "AreaCoroaCircular",
+    "returncode": 0,
+    "seconds": 13.22,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\11-AreaCoroaCircular.log",
+    "mode": "final"
+  },
+  {
+    "episode": 12,
+    "scene": "TeoremaPitagoras",
+    "returncode": 0,
+    "seconds": 17.09,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\12-TeoremaPitagoras.log",
+    "mode": "final"
+  },
+  {
+    "episode": 13,
+    "scene": "RelacoesMetricasTrianguloRetangulo",
+    "returncode": 0,
+    "seconds": 25.11,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\13-RelacoesMetricasTrianguloRetangulo.log",
+    "mode": "final"
+  },
+  {
+    "episode": 14,
+    "scene": "RazoesTrigonometricasSemelhanca",
+    "returncode": 0,
+    "seconds": 19.7,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\14-RazoesTrigonometricasSemelhanca.log",
+    "mode": "final"
+  },
+  {
+    "episode": 15,
+    "scene": "LeiSenos",
+    "returncode": 0,
+    "seconds": 22.22,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\15-LeiSenos.log",
+    "mode": "final"
+  },
+  {
+    "episode": 16,
+    "scene": "LeiCossenos",
+    "returncode": 0,
+    "seconds": 20.31,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\16-LeiCossenos.log",
+    "mode": "final"
+  },
+  {
+    "episode": 17,
+    "scene": "AreaTrianguloSeno",
+    "returncode": 0,
+    "seconds": 16.11,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\17-AreaTrianguloSeno.log",
+    "mode": "final"
+  },
+  {
+    "episode": 18,
+    "scene": "EscalasComprimentosAreasVolumes",
+    "returncode": 0,
+    "seconds": 21.89,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\18-EscalasComprimentosAreasVolumes.log",
+    "mode": "final"
+  },
+  {
+    "episode": 19,
+    "scene": "RelacaoEulerPoliedros",
+    "returncode": 0,
+    "seconds": 35.06,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\19-RelacaoEulerPoliedros.log",
+    "mode": "final"
+  },
+  {
+    "episode": 20,
+    "scene": "DiagonalParalelepipedo",
+    "returncode": 0,
+    "seconds": 17.11,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\20-DiagonalParalelepipedo.log",
+    "mode": "final"
+  },
+  {
+    "episode": 21,
+    "scene": "AreaPrismasPlanificacao",
+    "returncode": 0,
+    "seconds": 22.06,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\21-AreaPrismasPlanificacao.log",
+    "mode": "final"
+  },
+  {
+    "episode": 22,
+    "scene": "VolumePrismas",
+    "returncode": 0,
+    "seconds": 15.78,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\22-VolumePrismas.log",
+    "mode": "final"
+  },
+  {
+    "episode": 23,
+    "scene": "AreaCilindro",
+    "returncode": 0,
+    "seconds": 20.39,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\23-AreaCilindro.log",
+    "mode": "final"
+  },
+  {
+    "episode": 24,
+    "scene": "VolumeCilindro",
+    "returncode": 0,
+    "seconds": 16.05,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\24-VolumeCilindro.log",
+    "mode": "final"
+  },
+  {
+    "episode": 25,
+    "scene": "AreaPiramidesRegulares",
+    "returncode": 0,
+    "seconds": 18.48,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\25-AreaPiramidesRegulares.log",
+    "mode": "final"
+  },
+  {
+    "episode": 26,
+    "scene": "VolumePiramide",
+    "returncode": 0,
+    "seconds": 28.83,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\26-VolumePiramide.log",
+    "mode": "final"
+  },
+  {
+    "episode": 27,
+    "scene": "AreaCone",
+    "returncode": 0,
+    "seconds": 18.97,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\27-AreaCone.log",
+    "mode": "final"
+  },
+  {
+    "episode": 28,
+    "scene": "VolumeCone",
+    "returncode": 0,
+    "seconds": 14.86,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\28-VolumeCone.log",
+    "mode": "final"
+  },
+  {
+    "episode": 29,
+    "scene": "VolumeEsfera",
+    "returncode": 0,
+    "seconds": 27.41,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\29-VolumeEsfera.log",
+    "mode": "final"
+  },
+  {
+    "episode": 30,
+    "scene": "AreaEsfera",
+    "returncode": 0,
+    "seconds": 29.22,
+    "log": "C:\\Users\\Windows 11\\Documents\\Instagram\\matematica_em_movimento_30\\logs\\30-AreaEsfera.log",
+    "mode": "final"
+  }
+]

@@ -1,0 +1,276 @@
+Manim Community v0.19.0
+
+[09/11/26 23:16:31] INFO     Caching disabled.             cairo_renderer.py:79
+Animation 0: FadeIn(Text('02  /  ÁREAS')):   0%|          | 0/19 [00:00<?, ?it/s]Animation 0: FadeIn(Text('02  /  ÁREAS')):  79%|#######8  | 15/19 [00:00<00:00, 149.06it/s]                                                                                                               INFO     Animation 0 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00000.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 1: Write(Text('Área do paralelogramo')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 1: Write(Text('Área do paralelogramo')):  40%|####      | 14/35 [00:00<00:00, 139.07it/s]Animation 1: Write(Text('Área do paralelogramo')):  80%|########  | 28/35 [00:00<00:00, 130.35it/s]                                                                                                   [09/11/26 23:16:32] INFO     Animation 1 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00001.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 2: Write(MathTex('A=bh')):   0%|          | 0/44 [00:00<?, ?it/s]Animation 2: Write(MathTex('A=bh')):  45%|####5     | 20/44 [00:00<00:00, 193.47it/s]Animation 2: Write(MathTex('A=bh')):  91%|######### | 40/44 [00:00<00:00, 182.90it/s]                                                                                                         INFO     Animation 2 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00002.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:16:33] INFO     Animation 3 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00003.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 4: FadeIn(Text('A inclinação do lado não é a altura.')):   0%|          | 0/15 [00:00<?, ?it/s]Animation 4: FadeIn(Text('A inclinação do lado não é a altura.')):  53%|#####3    | 8/15 [00:00<00:00, 73.98it/s]                                                                                                                                     INFO     Animation 4 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00004.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:16:34] INFO     Animation 5 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00005.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 6: Create(Polygon):   0%|          | 0/63 [00:00<?, ?it/s]Animation 6: Create(Polygon):  30%|###       | 19/63 [00:00<00:00, 188.11it/s]Animation 6: Create(Polygon):  60%|######    | 38/63 [00:00<00:00, 164.85it/s]Animation 6: Create(Polygon):  87%|########7 | 55/63 [00:00<00:00, 160.98it/s]                                                                              [09/11/26 23:16:35] INFO     Animation 6 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00006.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 7: Create(DashedLine):   0%|          | 0/32 [00:00<?, ?it/s]Animation 7: Create(DashedLine):  50%|#####     | 16/32 [00:00<00:00, 155.50it/s]                                                                                                     INFO     Animation 7 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00007.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:16:36] INFO     Animation 8 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00008.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 9: FadeOut(Text('A inclinação do lado não é a altura.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 9: FadeOut(Text('A inclinação do lado não é a altura.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 63.24it/s]Animation 9: FadeOut(Text('A inclinação do lado não é a altura.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 62.54it/s]                                                                                                                                             INFO     Animation 9 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00009.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:16:37] INFO     Animation 10 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00010.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 11: FadeOut(DashedLine):   0%|          | 0/13 [00:00<?, ?it/s]Animation 11: FadeOut(DashedLine):  85%|########4 | 11/13 [00:00<00:00, 99.84it/s]                                                                                                      INFO     Animation 11 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00011.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 12: FadeOut(Text('Corte a ponta direita.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 12: FadeOut(Text('Corte a ponta direita.')), etc.:  53%|#####3    | 8/15 [00:00<00:00, 73.20it/s]                                                                                                                               INFO     Animation 12 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00012.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:16:38] INFO     Animation 13 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00013.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 14: FadeOut(MathTex('A=bh')):   0%|          | 0/16 [00:00<?, ?it/s]Animation 14: FadeOut(MathTex('A=bh')):  50%|#####     | 8/16 [00:00<00:00, 77.34it/s]Animation 14: FadeOut(MathTex('A=bh')): 100%|##########| 16/16 [00:00<00:00, 76.18it/s]                                                                                                           INFO     Animation 14 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00014.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 15: _MethodAnimation(Polygon):   0%|          | 0/19 [00:00<?, ?it/s]Animation 15: _MethodAnimation(Polygon):  53%|#####2    | 10/19 [00:00<00:00, 90.91it/s]                                                                                        [09/11/26 23:16:39] INFO     Animation 15 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00015.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 16: _MethodAnimation(Polygon):   0%|          | 0/76 [00:00<?, ?it/s]Animation 16: _MethodAnimation(Polygon):  13%|#3        | 10/76 [00:00<00:00, 89.22it/s]Animation 16: _MethodAnimation(Polygon):  25%|##5       | 19/76 [00:00<00:00, 88.77it/s]Animation 16: _MethodAnimation(Polygon):  37%|###6      | 28/76 [00:00<00:00, 87.53it/s]Animation 16: _MethodAnimation(Polygon):  49%|####8     | 37/76 [00:00<00:00, 88.01it/s]Animation 16: _MethodAnimation(Polygon):  62%|######1   | 47/76 [00:00<00:00, 89.29it/s]Animation 16: _MethodAnimation(Polygon):  74%|#######3  | 56/76 [00:00<00:00, 87.30it/s]Animation 16: _MethodAnimation(Polygon):  86%|########5 | 65/76 [00:00<00:00, 86.10it/s]Animation 16: _MethodAnimation(Polygon):  97%|#########7| 74/76 [00:00<00:00, 85.67it/s]                                                                                        [09/11/26 23:16:40] INFO     Animation 16 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00016.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 17: _MethodAnimation(Polygon):   0%|          | 0/19 [00:00<?, ?it/s]Animation 17: _MethodAnimation(Polygon):  47%|####7     | 9/19 [00:00<00:00, 87.29it/s]Animation 17: _MethodAnimation(Polygon): 100%|##########| 19/19 [00:00<00:00, 89.23it/s]                                                                                                            INFO     Animation 17 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00017.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 18: Create(Rectangle):   0%|          | 0/28 [00:00<?, ?it/s]Animation 18: Create(Rectangle):  79%|#######8  | 22/28 [00:00<00:00, 213.14it/s]                                                                                                     INFO     Animation 18 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00018.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 19: FadeIn(VGroup of 4 submobjects):   0%|          | 0/26 [00:00<?, ?it/s]Animation 19: FadeIn(VGroup of 4 submobjects):  73%|#######3  | 19/26 [00:00<00:00, 177.11it/s]                                                                                               [09/11/26 23:16:41] INFO     Animation 19 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00019.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 20: FadeOut(Text('Translade a própria peça para o outro lado.')), etc.:   0%|          | 0/15 [00:00<?, ?it/s]Animation 20: FadeOut(Text('Translade a própria peça para o outro lado.')), etc.:  47%|####6     | 7/15 [00:00<00:00, 61.51it/s]Animation 20: FadeOut(Text('Translade a própria peça para o outro lado.')), etc.:  93%|#########3| 14/15 [00:00<00:00, 59.32it/s]                                                                                                                                                     INFO     Animation 20 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00020.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:16:42] INFO     Animation 21 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00021.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 22: Write(MathTex('A=b\\cdot h')):   0%|          | 0/33 [00:00<?, ?it/s]Animation 22: Write(MathTex('A=b\\cdot h')):  52%|#####1    | 17/33 [00:00<00:00, 169.09it/s]                                                                                                                 INFO     Animation 22 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00022.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:16:43] INFO     Animation 23 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00023.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+Animation 24: Indicate(MathTex('A=b\\cdot h')):   0%|          | 0/35 [00:00<?, ?it/s]Animation 24: Indicate(MathTex('A=b\\cdot h')):  54%|#####4    | 19/35 [00:00<00:00, 189.29it/s]                                                                                                                    INFO     Animation 24 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00024.mp4'                         
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/11/26 23:16:44] INFO     Animation 25 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\partial                         
+                             _movie_files\AreaParalelo                         
+                             gramo\uncached_00025.mp4'                         
+                    INFO     Combining to Movie file.  scene_file_writer.py:739
+                    INFO                               scene_file_writer.py:886
+                             File ready at                                     
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             media\videos\02_area_para                         
+                             lelogramo\1920p30\AreaPar                         
+                             alelogramo.mp4'                                   
+                                                                               
+                    INFO     Rendered AreaParalelogramo            scene.py:255
+                             Played 26 animations                              
+You are using manim version v0.19.0, but version v0.21.0 is available.
+You should consider upgrading via pip install -U manim

@@ -1,0 +1,521 @@
+Manim Community v0.19.0
+
+[09/12/26 09:11:41] INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\source.mp3 to .wav                              
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:11:43] INFO     Animation 0 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00000.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:11:45] INFO     Animation 1 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00001.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+                    INFO     Animation 2 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00002.m                         
+                             p4'                                               
+                    INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\statement_01.mp3 to                             
+                             .wav                                              
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:11:51] INFO     Animation 3 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00003.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:11:57] INFO     Animation 4 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00004.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:11:58] INFO     Animation 5 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00005.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+                    INFO     Animation 6 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00006.m                         
+                             p4'                                               
+                    INFO     Writing 5\,m to            tex_file_writing.py:111
+                             media\Tex\0fbe6313e1e7922e                        
+                             .tex                                              
+latex: security risk: running with elevated privileges
+dvisvgm: security risk: running with elevated privileges
+[09/12/26 09:11:59] INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\figure.mp3 to .wav                              
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:02] INFO     Animation 7 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00007.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:04] INFO     Animation 8 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00008.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:05] INFO     Animation 9 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00009.m                         
+                             p4'                                               
+                    INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\options.mp3 to .wav                             
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:07] INFO     Animation 10 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00010.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:10] INFO     Animation 11 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00011.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+                    INFO     Animation 12 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00012.m                         
+                             p4'                                               
+                    INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\data.mp3 to .wav                                
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:13] INFO     Animation 13 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00013.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:16] INFO     Animation 14 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00014.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:17] INFO     Animation 15 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00015.m                         
+                             p4'                                               
+                    INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\strategy.mp3 to .wav                            
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:21] INFO     Animation 16 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00016.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:26] INFO     Animation 17 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00017.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:27] INFO     Animation 18 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00018.m                         
+                             p4'                                               
+                    INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\visual.mp3 to .wav                              
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:29] INFO     Animation 19 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00019.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+                    INFO     Animation 20 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00020.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:30] INFO     Animation 21 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00021.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+                    INFO     Animation 22 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00022.m                         
+                             p4'                                               
+                    INFO     Writing \ell^2=400 to      tex_file_writing.py:111
+                             media\Tex\3b83759fe50fd801                        
+                             .tex                                              
+latex: security risk: running with elevated privileges
+dvisvgm: security risk: running with elevated privileges
+[09/12/26 09:12:31] INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\step_01.mp3 to .wav                             
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:33] INFO     Animation 23 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00023.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:34] INFO     Animation 24 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00024.m                         
+                             p4'                                               
+                    INFO     Writing                    tex_file_writing.py:111
+                             \ell=\sqrt{400}=20\                               
+                             \mathrm m to                                      
+                             media\Tex\54b57d39cbb644e7                        
+                             .tex                                              
+latex: security risk: running with elevated privileges
+dvisvgm: security risk: running with elevated privileges
+                    INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\step_02.mp3 to .wav                             
+[09/12/26 09:12:35] INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:37] INFO     Animation 25 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00025.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:38] INFO     Animation 26 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00026.m                         
+                             p4'                                               
+                    INFO     Writing L=20+5+5=30\       tex_file_writing.py:111
+                             \mathrm m to                                      
+                             media\Tex\43a1f3a7491ba78b                        
+                             .tex                                              
+latex: security risk: running with elevated privileges
+dvisvgm: security risk: running with elevated privileges
+[09/12/26 09:12:39] INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\step_03.mp3 to .wav                             
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:41] INFO     Animation 27 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00027.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:42] INFO     Animation 28 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00028.m                         
+                             p4'                                               
+                    INFO     Writing A_{cal}=30^2-20^2  tex_file_writing.py:111
+                             to                                                
+                             media\Tex\d9e0bf44a990129c                        
+                             .tex                                              
+latex: security risk: running with elevated privileges
+dvisvgm: security risk: running with elevated privileges
+[09/12/26 09:12:43] INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\step_04.mp3 to .wav                             
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:45] INFO     Animation 29 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00029.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:46] INFO     Animation 30 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00030.m                         
+                             p4'                                               
+                    INFO     Writing                    tex_file_writing.py:111
+                             A_{cal}=900-400=500\                              
+                             \mathrm{m^2} to                                   
+                             media\Tex\5a9d9ce8c8e77ccb                        
+                             .tex                                              
+latex: security risk: running with elevated privileges
+dvisvgm: security risk: running with elevated privileges
+[09/12/26 09:12:47] INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\step_05.mp3 to .wav                             
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:49] INFO     Animation 31 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00031.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:51] INFO     Animation 32 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00032.m                         
+                             p4'                                               
+                    INFO     Automatically converted   scene_file_writer.py:377
+                             C:\Users\Windows                                  
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\audio\ENEM-2023-MT-0                         
+                             7\answer.mp3 to .wav                              
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:52] INFO     Animation 33 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00033.m                         
+                             p4'                                               
+                    INFO     Caching disabled.             cairo_renderer.py:79
+[09/12/26 09:12:53] INFO     Animation 34 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\partial_movie_files\Res                         
+                             olucao16\uncached_00034.m                         
+                             p4'                                               
+                    INFO     Combining to Movie file.  scene_file_writer.py:739
+[09/12/26 09:12:56] WARNING  Some options were not     scene_file_writer.py:801
+                             used: {'shortest': '1',                           
+                             'metadata':                                       
+                             'comment=Rendered with                            
+                             Manim Community v0.19.0'}                         
+                    INFO                               scene_file_writer.py:886
+                             File ready at                                     
+                             'C:\Users\Windows                                 
+                             11\Documents\Instagram\ma                         
+                             tematica_em_movimento_30\                         
+                             enem\media\videos\16_2023                         
+                             _q142_area_calcada\1920p3                         
+                             0\Resolucao16.mp4'                                
+                                                                               
+                    INFO     Rendered Resolucao16                  scene.py:255
+                             Played 35 animations                              
+You are using manim version v0.19.0, but version v0.21.0 is available.
+You should consider upgrading via pip install -U manim
