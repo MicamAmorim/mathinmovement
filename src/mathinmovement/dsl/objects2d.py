@@ -107,6 +107,15 @@ def apply_layout(runtime, mob, spec):
         mob.shift(point(runtime, spec["shift"]))
     if spec.get("scale") is not None:
         mob.scale(float(runtime.resolve(spec["scale"])))
+    if spec.get("stretch") is not None:
+        stretch = spec["stretch"]
+        if isinstance(stretch, dict):
+            factor = float(runtime.resolve(stretch.get("factor", 1)))
+            dim = int(stretch.get("dim", 0))
+        else:
+            factor = float(runtime.resolve(stretch))
+            dim = 0
+        mob.stretch(factor, dim)
     if spec.get("rotate") is not None:
         mob.rotate(float(runtime.resolve(spec["rotate"])))
     if spec.get("opacity") is not None:
@@ -162,6 +171,7 @@ def make_regular_polygon(runtime, spec):
         RegularPolygon(
             int(runtime.resolve(spec.get("n", 3))),
             radius=float(runtime.resolve(spec.get("radius", 1))),
+            start_angle=float(runtime.resolve(spec.get("start_angle", 0))),
             **style(spec),
         ),
         spec,

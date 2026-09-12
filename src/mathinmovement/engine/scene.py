@@ -28,6 +28,7 @@ if VIDEO_FORMAT not in {"vertical", "horizontal"}:
     VIDEO_FORMAT = "vertical"
 IS_HORIZONTAL = VIDEO_FORMAT == "horizontal"
 FAST_PREVIEW = os.getenv("MIM_FAST_PREVIEW", "0").lower() in {"1", "true", "yes"}
+DSL_SHADOW = os.getenv("MIM_DSL_SHADOW", "0").lower() in {"1", "true", "yes"}
 
 config.frame_width = 16 if IS_HORIZONTAL else 9
 config.frame_height = 9 if IS_HORIZONTAL else 16
@@ -289,6 +290,17 @@ class UnifiedContentScene(Scene):
         )
 
     def render_demo(self):
+        if DSL_SHADOW:
+            shadow = self.manifest.get("dsl_shadow") or {}
+            program = shadow.get("visual_program")
+            if not program:
+                raise RuntimeError(
+                    f"{self.record.id}: shadow port DSL sem visual_program."
+                )
+            from ..dsl.runtime import run_visual_program
+            run_visual_program(self, program)
+            return
+
         program = self.manifest.get("visual_program")
         if program:
             from ..dsl.runtime import run_visual_program
@@ -2604,6 +2616,17 @@ class UnifiedContentScene(Scene):
         self.exam = self.manifest["exam"]
         self.solution = self.manifest["solution"]
         self.visuals = self.manifest.get("visuals") or {}
+        if DSL_SHADOW:
+            shadow_visuals = (self.manifest.get("dsl_shadow") or {}).get("visuals") or {}
+            merged = {}
+            for key in set(self.visuals) | set(shadow_visuals):
+                base = self.visuals.get(key) or {}
+                override = shadow_visuals.get(key) or {}
+                if isinstance(base, dict) and isinstance(override, dict):
+                    merged[key] = {**base, **override}
+                else:
+                    merged[key] = override or base
+            self.visuals = merged
 
         self.source_screen()
         self.statement_screen()
@@ -2721,6 +2744,19 @@ class UnifiedContentScene(Scene):
             P(0, _lv(6.7, 3.65))
         )
         self.add(h)
+        option_spec = self.visuals.get("options") or {}
+        if option_spec.get("program"):
+            from ..dsl.runtime import build_visual_group
+            body, _dsl_runtime = build_visual_group(
+                self,
+                option_spec["program"],
+                ids=option_spec.get("show"),
+            )
+            fit(body, _lv(7.1, 13.6), _lv(11.0, 5.55))
+            body.move_to(P(_lv(0.2, 0), 0))
+            self.speak("options", [FadeIn(body, shift=UP * 0.1)])
+            self.play(FadeOut(VGroup(h, body)), run_time=0.35)
+            return
         if self.exam.get("canonical_id") == "ENEM-2023-MT-29":
             body = ferris_alternatives()
             fit(body, _lv(7.1, 13.6), _lv(11.0, 5.55))

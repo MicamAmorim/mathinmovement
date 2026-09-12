@@ -32,6 +32,24 @@ class RenderModeTests(unittest.TestCase):
             )
             self.assertIn("media_native", output.parts)
 
+    def test_dsl_shadow_uses_isolated_media_root(self):
+        record = self.registry.get("area-triangulo")
+        # O catálogo de produção só passa a exigir shadow quando o port existe.
+        record.manifest["dsl_shadow"] = {
+            "formats": ["vertical"],
+            "visual_program": {
+                "dsl_version": "1.0",
+                "objects": [],
+                "timeline": [],
+            },
+        }
+        output = render_record(
+            record,
+            dry_run=True,
+            render_engine="dsl",
+        )
+        self.assertIn("media_dsl", output.parts)
+
     def test_qenem_supports_both_approved_formats(self):
         record = self.registry.get("ENEM-2021-MT-11")
         for video_format in ("vertical", "horizontal"):

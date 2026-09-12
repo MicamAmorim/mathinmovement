@@ -37,12 +37,13 @@ def _short_build_dir(
     quality: str,
 ) -> Path:
     """Caminho curto e determinístico para evitar MAX_PATH no Windows."""
-    if engine != "native":
+    if engine not in {"native", "dsl"}:
         raise ManifestError(f"Engine desconhecido: {engine!r}")
     digest = hashlib.sha1(record.id.encode("utf-8")).hexdigest()[:10]
     format_code = "v" if video_format == "vertical" else "h"
     quality_code = "d" if quality == "draft" else "f"
-    return PROJECT_ROOT / ".mim_build" / "n" / digest / format_code / quality_code
+    engine_code = "s" if engine == "dsl" else "n"
+    return PROJECT_ROOT / ".mim_build" / engine_code / digest / format_code / quality_code
 
 
 def _resolve_engine(
@@ -60,6 +61,12 @@ def _resolve_engine(
         return "native", "media"
     if requested == "native":
         return "native", "media_native"
+    if requested == "dsl":
+        if not record.manifest.get("dsl_shadow"):
+            raise ManifestError(
+                f"{record.id}: ainda não possui shadow port DSL."
+            )
+        return "dsl", "media_dsl"
     raise ManifestError(f"Engine desconhecido: {requested!r}")
 
 
@@ -72,6 +79,14 @@ def _native_command(
     build_dir: Path,
 ) -> tuple[list[str], dict[str, str], Path]:
     render = record.manifest.get("render") or {}
+    shadow = record.manifest.get("dsl_shadow") or {}
+    if render_engine == "dsl":
+        shadow_formats = shadow.get("formats") or render.get("native_formats") or render.get("formats") or ["vertical"]
+        if video_format not in shadow_formats:
+            raise ManifestError(
+                f"{record.id}: shadow DSL não suporta {video_format!r}. "
+                f"Disponíveis: {', '.join(map(str, shadow_formats))}."
+            )
     if render.get("native_ready") is False:
         raise ManifestError(
             f"{record.id}: renderer nativo ainda não foi validado."
@@ -205,11 +220,13 @@ def render_record(
 
     if fast_preview:
         env["MIM_FAST_PREVIEW"] = "1"
+    if render_engine == "dsl":
+        env["MIM_DSL_SHADOW"] = "1"
 
     label = (
         "production→native"
         if render_engine == "production"
-        else "native"
+        else ("dsl-shadow" if render_engine == "dsl" else "native")
     )
     print(
         f"[{record.type}] {record.id} · {video_format} · "

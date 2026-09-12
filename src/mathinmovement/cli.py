@@ -237,10 +237,18 @@ def cmd_dsl_validate(args: argparse.Namespace) -> int:
     if record.manifest.get("visual_program"):
         programs.append(("visual_program", record.manifest["visual_program"]))
     visuals = record.manifest.get("visuals") or {}
-    for name in ("statement", "concept"):
+    for name in ("statement", "concept", "options"):
         spec = visuals.get(name) or {}
         if isinstance(spec, dict) and spec.get("program"):
             programs.append((f"visuals.{name}.program", spec["program"]))
+    shadow = record.manifest.get("dsl_shadow") or {}
+    if shadow.get("visual_program"):
+        programs.append(("dsl_shadow.visual_program", shadow["visual_program"]))
+    shadow_visuals = shadow.get("visuals") or {}
+    for name in ("statement", "concept", "options"):
+        spec = shadow_visuals.get(name) or {}
+        if isinstance(spec, dict) and spec.get("program"):
+            programs.append((f"dsl_shadow.visuals.{name}.program", spec["program"]))
     if not programs:
         raise ManifestError(f"{record.id}: nenhum programa DSL declarado.")
     for label, program in programs:
@@ -421,11 +429,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p_render.add_argument(
         "--engine",
-        choices=["production", "native"],
+        choices=["production", "native", "dsl"],
         default="production",
         help=(
-            "production grava em media/; native força o mesmo engine "
-            "em media_native/ para inspeção."
+            "production grava em media/; native em media_native/; "
+            "dsl renderiza o shadow port em media_dsl/."
         ),
     )
     p_render.add_argument("--preview", action="store_true")

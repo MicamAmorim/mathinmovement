@@ -95,11 +95,16 @@ def make_animation(runtime, spec):
         original = target.copy()
         angle = float(runtime.resolve(spec.get("angle", 0)))
         shift = point(runtime, spec.get("shift", [0, 0]))
+        about = (
+            point(runtime, spec["about_point"])
+            if spec.get("about_point") is not None
+            else np.zeros(3)
+        )
         return UpdateFromAlphaFunc(
             target,
             lambda mob, alpha: mob.become(
                 original.copy()
-                .rotate(angle * alpha, about_point=spec.get("_origin", np.zeros(3)))
+                .rotate(angle * alpha, about_point=about)
                 .shift(alpha * shift)
             ),
         )
@@ -294,3 +299,64 @@ def action_dynamic_redraw(runtime, spec):
     runtime.scene.remove(old)
     runtime.objects[target_id] = dynamic
     runtime.scene.add(dynamic)
+
+
+def _lesson_step(runtime, index):
+    steps = list((runtime.scene.manifest.get("lesson") or {}).get("steps") or [])
+    try:
+        return steps[int(index)]
+    except (IndexError, ValueError, TypeError) as exc:
+        raise DSLError(f"Etapa didática inexistente: {index!r}") from exc
+
+
+@action_type("didactic.header", aliases=("header",))
+def action_didactic_header(runtime, spec):
+    del spec
+    runtime.scene.demo_header_from_manifest()
+
+
+@action_type("didactic.hide_intro", aliases=("hide_intro",))
+def action_didactic_hide_intro(runtime, spec):
+    del spec
+    runtime.scene.demo_hide_intro_formula()
+
+
+@action_type("didactic.caption", aliases=("caption",))
+def action_didactic_caption(runtime, spec):
+    text = spec.get("text")
+    if text is None and spec.get("step") is not None:
+        text = _lesson_step(runtime, spec["step"]).get("narration", "")
+    if text is None and spec.get("presentation") is not None:
+        captions = (runtime.scene.manifest.get("presentation") or {}).get("captions") or {}
+        text = captions.get(str(spec["presentation"]), "")
+    if text is None:
+        raise DSLError("caption exige text, step ou presentation.")
+    runtime.scene.demo_caption(
+        str(text),
+        color=color(spec.get("color", "white")),
+        size=int(runtime.resolve(spec.get("size", 25))),
+        y=float(runtime.resolve(spec.get("y", -3.28))),
+    )
+
+
+@action_type("didactic.equation", aliases=("equation",))
+def action_didactic_equation(runtime, spec):
+    tex = spec.get("tex")
+    if tex is None and spec.get("step") is not None:
+        tex = _lesson_step(runtime, spec["step"]).get("math")
+    if not tex:
+        raise DSLError("equation exige tex ou step com math.")
+    runtime.scene.demo_equation(
+        str(tex),
+        color=color(spec.get("color", "white")),
+        size=int(runtime.resolve(spec.get("size", 50))),
+        y=float(runtime.resolve(spec.get("y", -4.75))),
+        transform=bool(spec.get("transform", True)),
+    )
+
+
+@action_type("didactic.end", aliases=("end",))
+def action_didactic_end(runtime, spec):
+    runtime.scene.demo_end(
+        pause=float(runtime.resolve(spec.get("pause", 2.4)))
+    )

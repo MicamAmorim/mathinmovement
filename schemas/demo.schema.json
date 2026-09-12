@@ -151,6 +151,77 @@
         }
       },
       "additionalProperties": true
+    },
+    "dsl_shadow": {
+      "type": "object",
+      "properties": {
+        "formats": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "vertical",
+              "horizontal"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "visual_program": {
+          "type": "object",
+          "required": [
+            "dsl_version",
+            "objects",
+            "timeline"
+          ],
+          "properties": {
+            "dsl_version": {
+              "type": "string",
+              "pattern": "^1(?:\\\\.\\\\d+)?$"
+            },
+            "objects": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "type"
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "type": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "timeline": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "op"
+                ],
+                "properties": {
+                  "op": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "additionalProperties": true
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "visuals": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
     }
   },
   "additionalProperties": true
