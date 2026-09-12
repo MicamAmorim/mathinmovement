@@ -11,6 +11,15 @@ from .package_io import export_package, import_package
 from .production import produce
 from .registry import Registry
 from .tts import prepare_narration
+from .dsl.coverage import (
+    DEMO_USAGE,
+    DEMO_VALIDATION_SET,
+    QENEM_COMMON,
+    QENEM_USAGE,
+    QENEM_VALIDATION_SET,
+    minimum_cover,
+    universe,
+)
 
 
 def cmd_list(args: argparse.Namespace) -> int:
@@ -185,6 +194,61 @@ def cmd_render(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_dsl_ops(_: argparse.Namespace) -> int:
+    # Importa runtime para registrar os built-ins.
+    from .dsl.runtime import validate_program  # noqa: F401
+    from .dsl.registry import action_capabilities, object_capabilities
+
+    print("Objetos DSL:")
+    for cap in object_capabilities():
+        aliases = f" ({', '.join(cap.aliases)})" if cap.aliases else ""
+        print(f"- {cap.canonical}{aliases} · desde {cap.since}")
+    print("\nAções DSL:")
+    for cap in action_capabilities():
+        aliases = f" ({', '.join(cap.aliases)})" if cap.aliases else ""
+        print(f"- {cap.canonical}{aliases} · desde {cap.since}")
+    return 0
+
+
+def cmd_dsl_audit(_: argparse.Namespace) -> int:
+    demos = minimum_cover(DEMO_USAGE)
+    qenem = minimum_cover(QENEM_USAGE)
+    print(
+        f"Demos: {len(universe(DEMO_USAGE))} capacidades · "
+        f"cobertura mínima {len(demos.selected)} vídeo(s)"
+    )
+    for content_id in DEMO_VALIDATION_SET:
+        print(f"- {content_id}")
+    print(
+        f"\nqENEM: {len(universe(QENEM_USAGE))} capacidades específicas + "
+        f"{len(QENEM_COMMON)} comuns · "
+        f"cobertura mínima {len(qenem.selected)} vídeo(s)"
+    )
+    for content_id in QENEM_VALIDATION_SET:
+        print(f"- {content_id}")
+    return 0
+
+
+def cmd_dsl_validate(args: argparse.Namespace) -> int:
+    from .dsl.runtime import validate_program
+
+    record = Registry().rebuild().get(args.id)
+    programs = []
+    if record.manifest.get("visual_program"):
+        programs.append(("visual_program", record.manifest["visual_program"]))
+    visuals = record.manifest.get("visuals") or {}
+    for name in ("statement", "concept"):
+        spec = visuals.get(name) or {}
+        if isinstance(spec, dict) and spec.get("program"):
+            programs.append((f"visuals.{name}.program", spec["program"]))
+    if not programs:
+        raise ManifestError(f"{record.id}: nenhum programa DSL declarado.")
+    for label, program in programs:
+        validate_program(program)
+        print(f"PASS: {record.id} · {label} · DSL {program.get('dsl_version')}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="mathinmovement",
@@ -248,6 +312,25 @@ def build_parser() -> argparse.ArgumentParser:
     p_db_status.set_defaults(func=cmd_db_status)
     p_db_rebuild = db_sub.add_parser("rebuild")
     p_db_rebuild.set_defaults(func=cmd_db_rebuild)
+
+    p_dsl = sub.add_parser(
+        "dsl",
+        help="Inspeciona e valida a DSL visual.",
+    )
+    dsl_sub = p_dsl.add_subparsers(dest="dsl_command", required=True)
+    p_dsl_ops = dsl_sub.add_parser("ops", help="Lista capacidades registradas.")
+    p_dsl_ops.set_defaults(func=cmd_dsl_ops)
+    p_dsl_audit = dsl_sub.add_parser(
+        "audit",
+        help="Mostra a cobertura mínima dos vídeos de regressão.",
+    )
+    p_dsl_audit.set_defaults(func=cmd_dsl_audit)
+    p_dsl_validate = dsl_sub.add_parser(
+        "validate",
+        help="Valida programas DSL de um conteúdo.",
+    )
+    p_dsl_validate.add_argument("id")
+    p_dsl_validate.set_defaults(func=cmd_dsl_validate)
 
     p_voice = sub.add_parser(
         "voice",

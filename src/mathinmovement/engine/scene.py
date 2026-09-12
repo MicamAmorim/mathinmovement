@@ -289,6 +289,12 @@ class UnifiedContentScene(Scene):
         )
 
     def render_demo(self):
+        program = self.manifest.get("visual_program")
+        if program:
+            from ..dsl.runtime import run_visual_program
+            run_visual_program(self, program)
+            return
+
         render = self.manifest.get("render") or {}
         renderer = str(render.get("native_renderer", ""))
 
@@ -2670,7 +2676,15 @@ class UnifiedContentScene(Scene):
             h, DOWN, buff=0.12
         )
         spec = self.visuals["statement"]
-        fig = source_figure(str(spec["renderer"]))
+        if spec.get("program"):
+            from ..dsl.runtime import build_visual_group
+            fig, _dsl_runtime = build_visual_group(
+                self,
+                spec["program"],
+                ids=spec.get("show"),
+            )
+        else:
+            fig = source_figure(str(spec["renderer"]))
         note = enem_txt(
             str(spec.get("description", "")),
             _lv(18, 19),
@@ -2860,7 +2874,15 @@ class UnifiedContentScene(Scene):
         )
         self.add(h)
         spec = self.visuals.get("concept") or {}
-        diagram = concept_diagram(str(spec.get("renderer", "generic")))
+        if spec.get("program"):
+            from ..dsl.runtime import build_visual_group
+            diagram, _dsl_runtime = build_visual_group(
+                self,
+                spec["program"],
+                ids=spec.get("show"),
+            )
+        else:
+            diagram = concept_diagram(str(spec.get("renderer", "generic")))
         note = enem_txt(
             str(spec.get("note", "")),
             _lv(22, 20),

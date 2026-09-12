@@ -3,72 +3,237 @@
   "$id": "https://mathinmovement.local/schemas/qenem.schema.json",
   "title": "Math in Movement QENEM",
   "type": "object",
-  "required": ["schema_version", "id", "type", "title", "exam", "question", "solution"],
+  "required": [
+    "schema_version",
+    "id",
+    "type",
+    "title",
+    "exam",
+    "question",
+    "solution"
+  ],
   "properties": {
-    "schema_version": {"const": 1},
-    "id": {"type": "string", "minLength": 1},
-    "type": {"const": "qenem"},
-    "title": {"type": "string", "minLength": 1},
-    "status": {"enum": ["draft", "validated", "production", "deprecated"]},
-    "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "const": "qenem"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "validated",
+        "production",
+        "deprecated"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
     "exam": {
       "type": "object",
-      "required": ["name", "year", "canonical_id", "question_number"],
+      "required": [
+        "name",
+        "year",
+        "canonical_id",
+        "question_number"
+      ],
       "properties": {
-        "name": {"type": "string", "minLength": 1},
-        "year": {"type": "integer", "minimum": 1998},
-        "canonical_id": {"type": "string", "minLength": 1},
-        "question_number": {"type": "integer", "minimum": 1},
-        "booklet": {"type": "string"}
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1998
+        },
+        "canonical_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "question_number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "booklet": {
+          "type": "string"
+        }
       },
       "additionalProperties": true
     },
     "question": {
       "type": "object",
-      "required": ["stem", "options", "answer"],
+      "required": [
+        "stem",
+        "options",
+        "answer"
+      ],
       "properties": {
-        "stem": {"type": "string", "minLength": 1},
+        "stem": {
+          "type": "string",
+          "minLength": 1
+        },
         "options": {
           "type": "object",
-          "required": ["A", "B", "C", "D", "E"],
+          "required": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
           "properties": {
-            "A": {}, "B": {}, "C": {}, "D": {}, "E": {}
+            "A": {},
+            "B": {},
+            "C": {},
+            "D": {},
+            "E": {}
           },
           "additionalProperties": false
         },
-        "answer": {"enum": ["A", "B", "C", "D", "E"]}
+        "answer": {
+          "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ]
+        }
       },
       "additionalProperties": true
     },
     "solution": {
       "type": "object",
-      "required": ["goal", "strategy", "steps", "final_answer"],
+      "required": [
+        "goal",
+        "strategy",
+        "steps",
+        "final_answer"
+      ],
       "properties": {
-        "data": {"type": "array"},
-        "goal": {"type": "string", "minLength": 1},
-        "hook": {"type": "string"},
-        "strategy": {"type": "array", "minItems": 1},
+        "data": {
+          "type": "array"
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hook": {
+          "type": "string"
+        },
+        "strategy": {
+          "type": "array",
+          "minItems": 1
+        },
         "steps": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["label"],
+            "required": [
+              "label"
+            ],
             "properties": {
-              "label": {"type": "string", "minLength": 1},
-              "math": {"type": "string"},
-              "narration": {"type": "string"}
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "math": {
+                "type": "string"
+              },
+              "narration": {
+                "type": "string"
+              }
             },
             "additionalProperties": true
           }
         },
-        "final_answer": {"enum": ["A", "B", "C", "D", "E"]}
+        "final_answer": {
+          "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ]
+        }
       },
       "additionalProperties": true
     },
-    "visuals": {"type": "object"},
-    "render": {"type": "object"},
-    "narration": {"type": "object"}
+    "visuals": {
+      "type": "object"
+    },
+    "render": {
+      "type": "object"
+    },
+    "narration": {
+      "type": "object"
+    },
+    "visual_program": {
+      "type": "object",
+      "required": [
+        "dsl_version",
+        "objects",
+        "timeline"
+      ],
+      "properties": {
+        "dsl_version": {
+          "type": "string",
+          "pattern": "^1(?:\\\\.\\\\d+)?$"
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "type"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "timeline": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "op"
+            ],
+            "properties": {
+              "op": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    }
   },
   "additionalProperties": true
 }

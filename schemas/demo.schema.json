@@ -3,30 +3,77 @@
   "$id": "https://mathinmovement.local/schemas/demo.schema.json",
   "title": "Math in Movement Demo",
   "type": "object",
-  "required": ["schema_version", "id", "type", "title", "lesson", "result"],
+  "required": [
+    "schema_version",
+    "id",
+    "type",
+    "title",
+    "lesson",
+    "result"
+  ],
   "properties": {
-    "schema_version": {"const": 1},
-    "id": {"type": "string", "minLength": 1},
-    "type": {"const": "demo"},
-    "title": {"type": "string", "minLength": 1},
-    "status": {"enum": ["draft", "validated", "production", "deprecated"]},
-    "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "const": "demo"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "validated",
+        "production",
+        "deprecated"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
     "lesson": {
       "type": "object",
-      "required": ["objective", "steps"],
+      "required": [
+        "objective",
+        "steps"
+      ],
       "properties": {
-        "objective": {"type": "string", "minLength": 1},
-        "hook": {"type": "string"},
+        "objective": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hook": {
+          "type": "string"
+        },
         "steps": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["narration"],
+            "required": [
+              "narration"
+            ],
             "properties": {
-              "narration": {"type": "string", "minLength": 1},
-              "visual": {"type": "object"},
-              "math": {"type": "string"}
+              "narration": {
+                "type": "string",
+                "minLength": 1
+              },
+              "visual": {
+                "type": "object"
+              },
+              "math": {
+                "type": "string"
+              }
             },
             "additionalProperties": true
           }
@@ -37,14 +84,74 @@
     "result": {
       "type": "object",
       "properties": {
-        "math": {"type": "string"},
-        "text": {"type": "string"}
+        "math": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
       },
       "minProperties": 1,
       "additionalProperties": true
     },
-    "render": {"type": "object"},
-    "narration": {"type": "object"}
+    "render": {
+      "type": "object"
+    },
+    "narration": {
+      "type": "object"
+    },
+    "visual_program": {
+      "type": "object",
+      "required": [
+        "dsl_version",
+        "objects",
+        "timeline"
+      ],
+      "properties": {
+        "dsl_version": {
+          "type": "string",
+          "pattern": "^1(?:\\\\.\\\\d+)?$"
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "type"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "type": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "timeline": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "op"
+            ],
+            "properties": {
+              "op": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    }
   },
   "additionalProperties": true
 }

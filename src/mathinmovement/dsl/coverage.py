@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from itertools import combinations
 
 
 DEMO_USAGE = {
@@ -111,10 +110,64 @@ def covered_by(usage, selected):
 
 
 def minimum_cover(usage):
+    """Set cover exato com branch-and-bound sobre bitmasks."""
     names = tuple(usage)
-    target = universe(usage)
-    for size in range(1, len(names) + 1):
-        for combo in combinations(names, size):
-            if covered_by(usage, combo) >= target:
-                return CoverResult(combo, frozenset(target))
-    raise RuntimeError("Catálogo sem cobertura possível.")
+    features = tuple(sorted(universe(usage)))
+    if not features:
+        return CoverResult((), frozenset())
+
+    bit = {feature: 1 << i for i, feature in enumerate(features)}
+    masks = [
+        sum(bit[feature] for feature in usage[name])
+        for name in names
+    ]
+    full = (1 << len(features)) - 1
+    candidates = {
+        feature: [
+            i for i, name in enumerate(names)
+            if feature in usage[name]
+        ]
+        for feature in features
+    }
+
+    best = list(range(len(names)))
+    seen = {}
+
+    def search(mask, chosen):
+        nonlocal best
+        if mask == full:
+            if len(chosen) < len(best):
+                best = list(chosen)
+            return
+        if len(chosen) >= len(best):
+            return
+        previous = seen.get(mask)
+        if previous is not None and previous <= len(chosen):
+            return
+        seen[mask] = len(chosen)
+
+        missing = [
+            feature for feature in features
+            if not (mask & bit[feature])
+        ]
+        feature = min(
+            missing,
+            key=lambda item: sum(
+                bool(masks[i] & ~mask)
+                for i in candidates[item]
+                if i not in chosen
+            ),
+        )
+        for index in candidates[feature]:
+            if index in chosen:
+                continue
+            added = masks[index] & ~mask
+            if not added:
+                continue
+            search(mask | masks[index], chosen + (index,))
+
+    search(0, ())
+    if not best and full:
+        raise RuntimeError("Catálogo sem cobertura possível.")
+    selected = tuple(names[i] for i in best)
+    return CoverResult(selected, frozenset(features))
