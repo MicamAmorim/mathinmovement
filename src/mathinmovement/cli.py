@@ -117,6 +117,7 @@ def cmd_render(args: argparse.Namespace) -> int:
                 preview=args.preview,
                 dry_run=args.dry_run,
                 fast_preview=args.fast,
+                render_engine=args.engine,
             )
         except (ManifestError, RenderError) as exc:
             failures.append((record.id, str(exc)))
@@ -192,6 +193,12 @@ def build_parser() -> argparse.ArgumentParser:
     p_render.add_argument("--status", choices=["draft", "validated", "production", "deprecated"], default="production")
     p_render.add_argument("--format", choices=["vertical", "horizontal"], default="vertical")
     p_render.add_argument("--quality", choices=["draft", "final"], default="draft")
+    p_render.add_argument(
+        "--engine",
+        choices=["production", "native", "compatibility"],
+        default="production",
+        help="production usa o renderer aprovado; native testa o engine v2; compatibility força a cena anterior.",
+    )
     p_render.add_argument("--preview", action="store_true")
     p_render.add_argument("--fast", action="store_true", help="Prévia rápida: reduz esperas e não toca áudio.")
     p_render.add_argument("--dry-run", action="store_true", help="Mostra o comando sem executar o Manim.")

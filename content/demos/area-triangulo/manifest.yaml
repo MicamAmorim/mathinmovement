@@ -31,11 +31,21 @@ result:
   math: A=\frac{bh}{2}
 
 render:
+  production_engine: compatibility
   formats:
     - vertical
     - horizontal
+  native_formats:
+    - vertical
+    - horizontal
   default_format: vertical
-  engine: unified-v2
+  native_engine: unified-v2
+  compatibility:
+    source: videos/01_area_triangulo.py
+    scene: AreaTriangulo
+    cwd: .
+    formats:
+      - vertical
 
 narration:
   enabled: false

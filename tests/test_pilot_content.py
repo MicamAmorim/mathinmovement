@@ -21,12 +21,13 @@ class PilotContentTests(unittest.TestCase):
         self.assertEqual(q.manifest["solution"]["final_answer"], "D")
         self.assertIn("8 cm", q.manifest["question"]["stem"])
 
-    def test_pilots_use_unified_engine(self):
+    def test_pilots_keep_production_parity_while_native_engine_evolves(self):
         for content_id in ("area-triangulo", "ENEM-2021-MT-11"):
             record = self.registry.get(content_id)
             render = record.manifest["render"]
-            self.assertEqual(render["engine"], "unified-v2")
-            self.assertNotIn("adapter", render)
+            self.assertEqual(render["production_engine"], "compatibility")
+            self.assertEqual(render["native_engine"], "unified-v2")
+            self.assertIn("compatibility", render)
 
     def test_both_pilots_support_horizontal(self):
         for content_id in ("area-triangulo", "ENEM-2021-MT-11"):
