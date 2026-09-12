@@ -190,5 +190,58 @@
         "audio": "assets/audio/answer.mp3"
       }
     ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "tri",
+              "type": "regular_polygon",
+              "n": 3,
+              "radius": 0.9,
+              "start_angle": "=pi/2",
+              "at": [
+                -2,
+                0
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "sq",
+              "type": "square",
+              "side": 1.5,
+              "at": [
+                0,
+                0
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "circ",
+              "type": "circle",
+              "radius": 0.85,
+              "at": [
+                2,
+                0
+              ],
+              "color": "green"
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "tri",
+          "sq",
+          "circ"
+        ]
+      }
+    }
   }
 }
