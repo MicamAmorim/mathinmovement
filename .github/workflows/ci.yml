@@ -44,3 +44,9 @@ jobs:
           python -m mathinmovement render ENEM-2021-MT-11 --format horizontal --dry-run
           python -m mathinmovement render ENEM-2021-MT-11 --format vertical --engine native --dry-run
           python -m mathinmovement render ENEM-2021-MT-11 --format horizontal --engine native --dry-run
+
+      - name: Check voice and produce orchestration
+        run: |
+          python -m mathinmovement voice ENEM-2021-MT-11 --dry-run
+          python -m mathinmovement produce ENEM-2021-MT-11 --skip-voice --dry-run
+          python -m mathinmovement produce ENEM-2021-MT-11 --format horizontal --skip-voice --dry-run

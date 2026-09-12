@@ -90,6 +90,26 @@ content/enem/<id>/assets/audio/<segmento>.mp3
 
 Isso mantém manifesto e assets juntos e torna os pacotes `.qenem` autocontidos.
 
+O módulo `mathinmovement.tts` gera somente segmentos ausentes ou invalidados, usa fingerprint de texto/voz/prosódia e mede a duração real do MP3. O comando `voice` expõe essa etapa isoladamente.
+
+O módulo `mathinmovement.production` orquestra o fluxo completo. `produce` aceita tanto um ID existente quanto um arquivo `.qenem`/`.demo`:
+
+```text
+package ou ID
+    ↓
+import/registry
+    ↓
+TTS + cache
+    ↓
+manifest sincronizado
+    ↓
+render nativo
+    ↓
+MP4
+```
+
+Referências de assets que começam por `assets/` são resolvidas relativamente ao diretório do próprio conteúdo. Caminhos antigos relativos à raiz do projeto continuam aceitos para compatibilidade de dados.
+
 ## Branches
 
 - `main`: linha estável do engine unificado;

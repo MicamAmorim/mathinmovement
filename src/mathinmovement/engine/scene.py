@@ -2569,8 +2569,14 @@ class UnifiedContentScene(Scene):
         rel = rec.get("audio")
         if not rel:
             return None
-        path = (PROJECT_ROOT / str(rel)).resolve()
-        return path if path.exists() else None
+        rel_path = Path(str(rel))
+        if rel_path.is_absolute():
+            return None
+        if rel_path.parts and rel_path.parts[0] == "assets":
+            path = (self.record.path / rel_path).resolve()
+        else:
+            path = (PROJECT_ROOT / rel_path).resolve()
+        return path if path.is_file() else None
 
     def speak(self, key, animations=None, run_time=None):
         duration = self.segment_duration(key)

@@ -99,6 +99,35 @@ python -m mathinmovement export ENEM-2021-MT-11
 
 Como os assets ficam junto do conteúdo, um pacote `.qenem` exportado leva consigo também sua narração disponível.
 
+## Produção em uma etapa
+
+Para um conteúdo já cadastrado:
+
+```powershell
+python -m mathinmovement produce ENEM-2021-MT-11
+```
+
+Para importar um pacote e produzir o vídeo:
+
+```powershell
+python -m mathinmovement produce minha-questao.qenem
+python -m mathinmovement produce minha-demo.demo
+```
+
+O comando `produce` executa o fluxo `import → TTS/cache → render`. Para qENEM com `narration.segments`, os MP3s ausentes são gerados com Edge TTS e a duração real é registrada no manifest.
+
+Comandos úteis:
+
+```powershell
+python -m mathinmovement voice ENEM-2021-MT-11
+python -m mathinmovement produce ENEM-2021-MT-11 --format horizontal
+python -m mathinmovement produce nova.qenem --voice pt-BR-AntonioNeural
+python -m mathinmovement produce nova.qenem --skip-voice
+python -m mathinmovement produce nova.qenem --dry-run
+```
+
+Dentro de um pacote novo, assets podem ser referenciados de forma portátil, por exemplo `assets/audio/source.mp3`.
+
 ## Estrutura principal
 
 ```text

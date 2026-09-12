@@ -183,19 +183,30 @@ def prepare_narration(
         safe_key = _safe_key(key)
         canonical = record.path / "assets" / "audio" / f"{safe_key}.mp3"
         try:
-            canonical_rel = canonical.resolve().relative_to(root).as_posix()
+            record.path.resolve().relative_to(root)
         except ValueError as exc:
             raise ManifestError(
                 f"{record.id}: diretório do conteúdo está fora do projeto: "
                 f"{record.path}"
             ) from exc
+        canonical_rel = f"assets/audio/{safe_key}.mp3"
 
         current_rel = segment.get("audio")
-        current_path = (
-            root / str(current_rel)
-            if current_rel
-            else canonical
-        )
+        if current_rel:
+            current_rel_path = Path(str(current_rel))
+            if current_rel_path.is_absolute():
+                raise ManifestError(
+                    f"{record.id}/{key}: caminho de áudio absoluto não é permitido."
+                )
+            if (
+                current_rel_path.parts
+                and current_rel_path.parts[0] == "assets"
+            ):
+                current_path = record.path / current_rel_path
+            else:
+                current_path = root / current_rel_path
+        else:
+            current_path = canonical
         fp = narration_fingerprint(
             text,
             voice,
