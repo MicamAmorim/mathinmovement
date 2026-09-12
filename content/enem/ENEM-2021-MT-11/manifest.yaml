@@ -1,6 +1,7 @@
 schema_version: 1
 id: ENEM-2021-MT-11
 type: qenem
+status: production
 title: ENEM 2021 — Q146 — Triângulo equilátero
 tags:
   - enem

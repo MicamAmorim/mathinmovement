@@ -9,6 +9,7 @@
     "id": {"type": "string", "minLength": 1},
     "type": {"const": "demo"},
     "title": {"type": "string", "minLength": 1},
+    "status": {"enum": ["draft", "validated", "production", "deprecated"]},
     "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
     "lesson": {
       "type": "object",

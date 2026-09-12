@@ -3,22 +3,30 @@ from __future__ import annotations
 import argparse
 import sys
 
+from .config import REGISTRY_DB
+from .database import database_stats
 from .engine import RenderError, render_record
 from .models import ManifestError
-from .package_io import import_package
+from .package_io import export_package, import_package
 from .registry import Registry
 
 
 def cmd_list(args: argparse.Namespace) -> int:
     registry = Registry().rebuild()
-    records = registry.find(content_type=args.type, year=args.year, tags=args.tag or ())
+    records = registry.find(
+        content_type=args.type,
+        year=args.year,
+        tags=args.tag or (),
+        status=args.status,
+    )
     if not records:
         print("Nenhum conteúdo encontrado.")
         return 0
     for record in records:
         year = f" · {record.year}" if record.year is not None else ""
+        status = str(record.manifest.get("status", "production"))
         formats = ",".join((record.manifest.get("render") or {}).get("formats") or ["vertical"])
-        print(f"{record.id} [{record.type}]{year} · {record.title} · {formats}")
+        print(f"{record.id} [{record.type}] [{status}]{year} · {record.title} · {formats}")
     print(f"\nTotal: {len(records)}")
     return 0
 
@@ -26,13 +34,42 @@ def cmd_list(args: argparse.Namespace) -> int:
 def cmd_validate(_: argparse.Namespace) -> int:
     registry = Registry().rebuild()
     print(f"PASS: {len(registry)} conteúdo(s) válido(s), sem IDs duplicados.")
+    print(f"SQLite sincronizado: {REGISTRY_DB}")
     return 0
 
 
 def cmd_import(args: argparse.Namespace) -> int:
     destination = import_package(args.package, replace=args.replace)
-    Registry().rebuild()
     print(f"Importado: {destination}")
+    print(f"SQLite sincronizado: {REGISTRY_DB}")
+    return 0
+
+
+def cmd_export(args: argparse.Namespace) -> int:
+    output = export_package(args.id, args.output)
+    print(f"Exportado: {output}")
+    return 0
+
+
+def cmd_db_status(_: argparse.Namespace) -> int:
+    stats = database_stats(REGISTRY_DB)
+    if not stats["exists"]:
+        print(f"SQLite ainda não existe: {REGISTRY_DB}")
+        return 0
+    print(f"SQLite: {stats['path']}")
+    print(f"Conteúdos: {stats['total']}")
+    print(f"Por tipo: {stats['by_type']}")
+    print(f"Por status: {stats['by_status']}")
+    print(f"Relações de tags: {stats['tags']}")
+    if stats.get("indexed_at"):
+        print(f"Última reconstrução: {stats['indexed_at']}")
+    return 0
+
+
+def cmd_db_rebuild(_: argparse.Namespace) -> int:
+    registry = Registry().rebuild()
+    print(f"SQLite reconstruído: {REGISTRY_DB}")
+    print(f"Conteúdos indexados: {len(registry)}")
     return 0
 
 
@@ -40,7 +77,7 @@ def cmd_render(args: argparse.Namespace) -> int:
     registry = Registry().rebuild()
 
     if args.all:
-        records = registry.find(content_type=args.type)
+        records = registry.find(content_type=args.type, status=args.status)
         if not records:
             print("Nenhum conteúdo selecionado para renderização.")
             return 0
@@ -89,9 +126,10 @@ def build_parser() -> argparse.ArgumentParser:
     p_list.add_argument("--type", choices=["qenem", "demo"])
     p_list.add_argument("--year", type=int)
     p_list.add_argument("--tag", action="append", help="Pode ser repetido.")
+    p_list.add_argument("--status", choices=["draft", "validated", "production", "deprecated"])
     p_list.set_defaults(func=cmd_list)
 
-    p_validate = sub.add_parser("validate", help="Valida todos os manifestos.")
+    p_validate = sub.add_parser("validate", help="Valida manifestos e sincroniza o SQLite.")
     p_validate.set_defaults(func=cmd_validate)
 
     p_import = sub.add_parser("import", help="Importa um pacote .qenem ou .demo.")
@@ -99,10 +137,23 @@ def build_parser() -> argparse.ArgumentParser:
     p_import.add_argument("--replace", action="store_true")
     p_import.set_defaults(func=cmd_import)
 
+    p_export = sub.add_parser("export", help="Empacota um conteúdo do registry como .qenem/.demo.")
+    p_export.add_argument("id")
+    p_export.add_argument("-o", "--output")
+    p_export.set_defaults(func=cmd_export)
+
+    p_db = sub.add_parser("db", help="Inspeciona ou reconstrói o índice SQLite.")
+    db_sub = p_db.add_subparsers(dest="db_command", required=True)
+    p_db_status = db_sub.add_parser("status")
+    p_db_status.set_defaults(func=cmd_db_status)
+    p_db_rebuild = db_sub.add_parser("rebuild")
+    p_db_rebuild.set_defaults(func=cmd_db_rebuild)
+
     p_render = sub.add_parser("render", help="Renderiza conteúdo pelo engine v2.")
     p_render.add_argument("id", nargs="?", help="ID do conteúdo.")
     p_render.add_argument("--all", action="store_true", help="Renderiza todos os conteúdos selecionados.")
     p_render.add_argument("--type", choices=["qenem", "demo"], help="Filtra o lote por tipo.")
+    p_render.add_argument("--status", choices=["draft", "validated", "production", "deprecated"], default="production")
     p_render.add_argument("--format", choices=["vertical", "horizontal"], default="vertical")
     p_render.add_argument("--quality", choices=["draft", "final"], default="draft")
     p_render.add_argument("--preview", action="store_true")

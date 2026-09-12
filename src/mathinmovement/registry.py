@@ -7,7 +7,8 @@ from typing import Iterable
 import yaml
 from jsonschema import Draft202012Validator
 
-from .config import CONTENT_ROOT, SCHEMA_ROOT
+from .config import CONTENT_ROOT, REGISTRY_DB, SCHEMA_ROOT
+from .database import rebuild_database
 from .models import ContentRecord, ManifestError
 
 
@@ -15,6 +16,8 @@ TYPE_DIRS = {
     "qenem": "enem",
     "demo": "demos",
 }
+
+_AUTO_DB = object()
 
 
 def load_manifest(path: Path) -> dict:
@@ -49,11 +52,24 @@ def validate_manifest(manifest: dict, *, source: str | Path = "<manifest>") -> N
 
 
 class Registry:
-    def __init__(self, content_root: Path = CONTENT_ROOT):
+    def __init__(
+        self,
+        content_root: Path = CONTENT_ROOT,
+        *,
+        database_path: Path | None | object = _AUTO_DB,
+    ):
         self.content_root = Path(content_root)
         self._records: dict[str, ContentRecord] = {}
+        if database_path is _AUTO_DB:
+            try:
+                same_root = self.content_root.resolve() == CONTENT_ROOT.resolve()
+            except FileNotFoundError:
+                same_root = self.content_root == CONTENT_ROOT
+            self.database_path = REGISTRY_DB if same_root else None
+        else:
+            self.database_path = Path(database_path) if database_path is not None else None
 
-    def rebuild(self) -> "Registry":
+    def rebuild(self, *, sync_database: bool = True) -> "Registry":
         records: dict[str, ContentRecord] = {}
         for content_type, dirname in TYPE_DIRS.items():
             root = self.content_root / dirname
@@ -79,6 +95,10 @@ class Registry:
                     manifest=manifest,
                 )
         self._records = records
+
+        if sync_database and self.database_path is not None:
+            rebuild_database(self._records.values(), self.database_path)
+
         return self
 
     def __len__(self) -> int:
@@ -99,6 +119,7 @@ class Registry:
         content_type: str | None = None,
         year: int | None = None,
         tags: Iterable[str] = (),
+        status: str | None = None,
     ) -> list[ContentRecord]:
         wanted_tags = {str(x) for x in tags}
         result = []
@@ -106,6 +127,8 @@ class Registry:
             if content_type and record.type != content_type:
                 continue
             if year is not None and record.year != year:
+                continue
+            if status and str(record.manifest.get("status", "production")) != status:
                 continue
             if wanted_tags and not wanted_tags.issubset(set(record.tags)):
                 continue

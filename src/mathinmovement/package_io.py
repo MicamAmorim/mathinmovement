@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .config import CONTENT_ROOT
 from .models import ManifestError
-from .registry import TYPE_DIRS, load_manifest, validate_manifest
+from .registry import TYPE_DIRS, Registry, load_manifest, validate_manifest
 
 
 ALLOWED_EXTENSIONS = {
@@ -66,4 +66,30 @@ def import_package(
 
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(tmp, destination)
-        return destination
+
+    # O conteúdo em disco é a fonte de verdade; o SQLite é sincronizado depois.
+    if Path(content_root).resolve() == CONTENT_ROOT.resolve():
+        Registry().rebuild()
+
+    return destination
+
+
+def export_package(
+    content_id: str,
+    output_path: str | Path | None = None,
+) -> Path:
+    record = Registry().rebuild().get(content_id)
+    suffix = ".qenem" if record.type == "qenem" else ".demo"
+    output = Path(output_path) if output_path else Path.cwd() / f"{record.id}{suffix}"
+    if output.suffix.lower() != suffix:
+        raise ManifestError(
+            f"{record.id} é do tipo {record.type}; o arquivo deve terminar em {suffix}."
+        )
+    output.parent.mkdir(parents=True, exist_ok=True)
+
+    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for path in sorted(record.path.rglob("*")):
+            if path.is_file():
+                archive.write(path, path.relative_to(record.path).as_posix())
+
+    return output

@@ -1,6 +1,7 @@
 schema_version: 1
 id: area-triangulo
 type: demo
+status: production
 title: Área do triângulo
 tags:
   - geometria
