@@ -102,85 +102,85 @@
         "key": "source",
         "text": "ENEM 2023, questão 164. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.824,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/source.mp3"
+        "audio": "assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "A figura ilustra uma roda-gigante no exato instante em que a cadeira onde se encontra a pessoa P está no ponto mais alto dessa roda-gigante. Com o passar do tempo, à medida que a roda-gigante gira, com velocidade constante e no sentido horário, a altura da cadeira onde se encontra a pessoa P, em relação ao solo, vai se alterando.",
         "duration": 19.56,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/statement_01.mp3"
+        "audio": "assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "O gráfico que melhor representa a variação dessa altura, em função do tempo, contado a partir do instante em que a cadeira da pessoa P se encontra na posição mais alta da roda-gigante, é",
         "duration": 11.28,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/statement_02.mp3"
+        "audio": "assets/audio/statement_02.mp3"
       },
       {
         "key": "figure",
         "text": "Observe a reconstrução esquemática da figura da questão. Roda-gigante com a cadeira P inicialmente no ponto mais alto e alternativas formadas por cinco gráficos altura versus tempo.",
         "duration": 11.376,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/figure.mp3"
+        "audio": "assets/audio/figure.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são cinco gráficos. Observe que todos começam na altura máxima, mas têm formas diferentes. A alternativa A é uma cossenoide; as demais são formadas por segmentos de reta ou arcos de parábola.",
         "duration": 14.832,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/options.mp3"
+        "audio": "assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: roda-gigante gira com velocidade angular constante; pessoa começa no ponto mais alto; altura varia continuamente e periodicamente; o ponto mais baixo fica acima do solo.",
         "duration": 13.584,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/data.mp3"
+        "audio": "assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Movimento circular uniforme visto na vertical produz uma cossenoide. O plano é: 1, Modelar o movimento circular uniforme. 2, Projetar a posição vertical. 3, Comparar forma, período e valor inicial.",
         "duration": 16.272,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/strategy.mp3"
+        "audio": "assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "A altura é a projeção vertical de um raio que gira uniformemente.",
         "duration": 4.392,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/visual.mp3"
+        "audio": "assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Ângulo cresce linearmente. Na tela, teta (t) é igual a ômega t.",
         "duration": 6.648,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/step_01.mp3"
+        "audio": "assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Começando no topo. Na tela, h(t) é igual a h índice c mais R cosseno de ( ômega t).",
         "duration": 8.352,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/step_02.mp3"
+        "audio": "assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "No instante inicial. Na tela, h(0) é igual a h índice c mais R, máximo.",
         "duration": 7.776,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/step_03.mp3"
+        "audio": "assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "A curva é suave e periódica. Na tela, h(t mais 2 pi dividido por ômega ) é igual a h(t).",
         "duration": 8.472,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/step_04.mp3"
+        "audio": "assets/audio/step_04.mp3"
       },
       {
         "key": "step_05",
         "text": "Logo, é uma cossenoide. Na tela, gráfico A.",
         "duration": 4.968,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/step_05.mp3"
+        "audio": "assets/audio/step_05.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa A: O gráfico é representado por uma cossenoide.",
         "duration": 5.784,
-        "audio": "content/enem/ENEM-2023-MT-29/assets/audio/answer.mp3"
+        "audio": "assets/audio/answer.mp3"
       }
     ]
   }

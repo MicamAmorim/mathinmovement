@@ -102,85 +102,85 @@
         "key": "source",
         "text": "ENEM 2024, questão 165. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.92,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/source.mp3"
+        "audio": "assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "Uma indústria faz uma parceria com uma distribuidora de sucos para lançar no mercado dois tipos de embalagens. Para a fabricação dessas embalagens, a indústria dispõe de folhas de alumínio retangulares, de dimensões 10 centímetros por 20 centímetros. Cada uma dessas folhas é utilizada para formar a superfície lateral da embalagem, em formato de cilindro circular reto, que posteriormente recebe fundo e tampa circulares.",
         "duration": 26.136,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/statement_01.mp3"
+        "audio": "assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "A figura ilustra, dependendo de qual das duas extensões será utilizada como altura, as duas opções para formar a possível embalagem. Dentre essas duas embalagens, a de maior capacidade apresentará volume, em centímetro cúbico, igual a",
         "duration": 15.768,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/statement_02.mp3"
+        "audio": "assets/audio/statement_02.mp3"
       },
       {
         "key": "figure",
         "text": "Observe a reconstrução esquemática da figura da questão. Duas formas de enrolar uma folha 10 centímetros por 20 centímetros: embalagem 1 com altura 20 centímetros e circunferência 10 centímetros; embalagem 2 com altura 10 centímetros e circunferência 20 centímetros.",
         "duration": 17.376,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/figure.mp3"
+        "audio": "assets/audio/figure.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: 4000 vezes pi.; B: 2000 vezes pi.; C: fração, numerador 4000, denominador pi.; D: fração, numerador 1000, denominador pi.; E: fração, numerador 500, denominador pi..",
         "duration": 18.624,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/options.mp3"
+        "audio": "assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: folha lateral: 10 vezes 20 centímetros; embalagem 1: h é igual a 20 e circunferência é igual a 10; embalagem 2: h é igual a 10 e circunferência é igual a 20; 2pir é a largura enrolada.",
         "duration": 16.272,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/data.mp3"
+        "audio": "assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "A mesma folha gera dois cilindros; trocar altura e circunferência muda muito o raio. O plano é: 1, Achar o raio de cada embalagem. 2, Calcular V é igual a pir ao quadradoh. 3, Comparar os volumes.",
         "duration": 16.104,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/strategy.mp3"
+        "audio": "assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "Ao enrolar a folha, uma dimensão vira altura e a outra vira a circunferência.",
         "duration": 5.28,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/visual.mp3"
+        "audio": "assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Embalagem 1: 2pir₁ é igual a 10. Na tela, r índice 1 é igual a 10 dividido por 2 pi é igual a 5 dividido por pi.",
         "duration": 9.504,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/step_01.mp3"
+        "audio": "assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Volume 1. Na tela, V índice 1 é igual a pi (5 dividido por pi ) ao quadrado(20) é igual a 500 dividido por pi.",
         "duration": 10.176,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/step_02.mp3"
+        "audio": "assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Embalagem 2: 2pir₂ é igual a 20. Na tela, r índice 2 é igual a 20 dividido por 2 pi é igual a 10 dividido por pi.",
         "duration": 9.744,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/step_03.mp3"
+        "audio": "assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Volume 2. Na tela, V índice 2 é igual a pi (10 dividido por pi ) ao quadrado(10) é igual a 1000 dividido por pi.",
         "duration": 10.032,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/step_04.mp3"
+        "audio": "assets/audio/step_04.mp3"
       },
       {
         "key": "step_05",
         "text": "Compare; pi é positivo. Na tela, 1000 dividido por pi é maior que 500 dividido por pi ; portanto, V índice 2.",
         "duration": 9.432,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/step_05.mp3"
+        "audio": "assets/audio/step_05.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa D: fração, numerador 1000, denominador pi.",
         "duration": 6.456,
-        "audio": "content/enem/ENEM-2024-MT-30/assets/audio/answer.mp3"
+        "audio": "assets/audio/answer.mp3"
       }
     ]
   }

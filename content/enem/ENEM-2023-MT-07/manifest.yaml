@@ -101,79 +101,79 @@
         "key": "source",
         "text": "ENEM 2023, questão 142. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.752,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/source.mp3"
+        "audio": "assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "Na planta baixa de um clube, a piscina é representada por um quadrado cuja área real mede 400 metros quadrados. Ao redor dessa piscina, será construída uma calçada, de largura constante igual a 5 metros. Qual é a medida da área, em metro quadrado, ocupada pela calçada?",
         "duration": 18.6,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/statement_01.mp3"
+        "audio": "assets/audio/statement_01.mp3"
       },
       {
         "key": "figure",
         "text": "Observe a reconstrução esquemática da figura da questão. Piscina quadrada cercada por uma calçada de largura constante de 5 metros.",
         "duration": 9.24,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/figure.mp3"
+        "audio": "assets/audio/figure.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: 1000; B: 900; C: 600; D: 500; E: 400.",
         "duration": 9.864,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/options.mp3"
+        "audio": "assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: piscina quadrada com área 400 metros quadrados; calçada de 5 metros ao redor; largura acrescentada nos dois lados de cada dimensão.",
         "duration": 12.144,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/data.mp3"
+        "audio": "assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "A calçada é uma moldura: quadrado de fora menos quadrado de dentro. O plano é: 1, Extrair a raiz para achar o lado da piscina. 2, Calcular o lado do quadrado externo. 3, Subtrair a área interna.",
         "duration": 15.84,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/strategy.mp3"
+        "audio": "assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "Calçada é igual a quadrado externo menos quadrado interno.",
         "duration": 4.152,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/visual.mp3"
+        "audio": "assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Área da piscina. Na tela, L ao quadrado é igual a 400.",
         "duration": 5.688,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/step_01.mp3"
+        "audio": "assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Raiz positiva. Na tela, L é igual a raiz quadrada de 400 é igual a 20 mathrm m.",
         "duration": 7.44,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/step_02.mp3"
+        "audio": "assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Lado externo. Na tela, L é igual a 20 mais 5 mais 5 é igual a 30 mathrm m.",
         "duration": 6.792,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/step_03.mp3"
+        "audio": "assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Diferença de áreas. Na tela, A índice cal é igual a 30 ao quadrado menos 20 ao quadrado.",
         "duration": 7.08,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/step_04.mp3"
+        "audio": "assets/audio/step_04.mp3"
       },
       {
         "key": "step_05",
         "text": "Calcule. Na tela, A índice cal é igual a 900 menos 400 é igual a 500 metros quadrados.",
         "duration": 8.136,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/step_05.mp3"
+        "audio": "assets/audio/step_05.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa D: 500",
         "duration": 4.248,
-        "audio": "content/enem/ENEM-2023-MT-07/assets/audio/answer.mp3"
+        "audio": "assets/audio/answer.mp3"
       }
     ]
   }

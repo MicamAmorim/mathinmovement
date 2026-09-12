@@ -107,103 +107,103 @@
         "key": "source",
         "text": "ENEM 2024, questão 137. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.752,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/source.mp3"
+        "audio": "assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "Um proprietário pretende instalar um sensor de presença para a proteção de seu imóvel. O sensor deverá detectar movimentos de objetos e pessoas numa determinada região plana. A figura ilustra a vista superior da área de cobertura (setor circular em azul) de um sensor colocado no ponto S. Essa área depende da medida do ângulo alfa, em grau, e do raio R, em metro.",
         "duration": 23.4,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/statement_01.mp3"
+        "audio": "assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "Ao aumentar o ângulo alfa ou o raio R aumenta-se a área de cobertura do sensor. Entretanto, quanto maior essa área, maior o preço do sensor.",
         "duration": 9.816,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/statement_02.mp3"
+        "audio": "assets/audio/statement_02.mp3"
       },
       {
         "key": "statement_03",
         "text": "Para esse fim, há cinco tipos de sensores disponíveis no mercado, cada um com as seguintes características: tipo 1: alfa é igual a 15 graus e R é igual a 20 metros; tipo 2: alfa é igual a 30 graus e R é igual a 22 metros; tipo 3: alfa é igual a 40 graus e R é igual a 12 metros; tipo 4: alfa é igual a 60 graus e R é igual a 16 metros; tipo 5: alfa é igual a 90 graus e R é igual a 10 metros.",
         "duration": 28.32,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/statement_03.mp3"
+        "audio": "assets/audio/statement_03.mp3"
       },
       {
         "key": "statement_04",
         "text": "Esse proprietário pretende adquirir um desses sensores que seja capaz de cobrir, no mínimo, uma área de medida 70 metros quadrados, com o menor preço possível. Use 3 como valor aproximado para pi. O proprietário do imóvel deverá adquirir o sensor do tipo",
         "duration": 16.968,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/statement_04.mp3"
+        "audio": "assets/audio/statement_04.mp3"
       },
       {
         "key": "figure",
         "text": "Observe a reconstrução esquemática da figura da questão. Setor circular de centro S, raio R e ângulo alfa representando a área de cobertura do sensor.",
         "duration": 10.488,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/figure.mp3"
+        "audio": "assets/audio/figure.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: 1.; B: 2.; C: 3.; D: 4.; E: 5..",
         "duration": 8.832,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/options.mp3"
+        "audio": "assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: área é um setor circular; cinco pares (alfa,R); área mínima exigida: 70 metros quadrados; pi aproximadamente 3; menor área admissível corresponde ao menor preço.",
         "duration": 14.352,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/data.mp3"
+        "audio": "assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Não basta cobrir 70 metros quadrados: entre os que cobrem, escolha a menor área e portanto o menor preço. O plano é: 1, Calcular A é igual a alfapiR ao quadrado dividido por 360 para cada tipo. 2, Eliminar áreas menores que 70. 3, Escolher a menor das áreas restantes.",
         "duration": 21.24,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/strategy.mp3"
+        "audio": "assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "O setor ocupa a fração alfa dividido por 360 graus do círculo inteiro.",
         "duration": 5.472,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/visual.mp3"
+        "audio": "assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Tipo 1: 15 graus, R é igual a 20. Na tela, A índice 1 é igual a 15 dividido por 360 3(20) ao quadrado é igual a 50.",
         "duration": 11.664,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/step_01.mp3"
+        "audio": "assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Tipo 2: 30 graus, R é igual a 22. Na tela, A índice 2 é igual a 30 dividido por 360 3(22) ao quadrado é igual a 121.",
         "duration": 12.552,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/step_02.mp3"
+        "audio": "assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Tipo 3: 40 graus, R é igual a 12. Na tela, A índice 3 é igual a 40 dividido por 360 3(12) ao quadrado é igual a 48.",
         "duration": 12.168,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/step_03.mp3"
+        "audio": "assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Tipo 4: 60 graus, R é igual a 16. Na tela, A índice 4 é igual a 60 dividido por 360 3(16) ao quadrado é igual a 128.",
         "duration": 13.2,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/step_04.mp3"
+        "audio": "assets/audio/step_04.mp3"
       },
       {
         "key": "step_05",
         "text": "Tipo 5: 90 graus, R é igual a 10. Na tela, A índice 5 é igual a 90 dividido por 360 3(10) ao quadrado é igual a 75.",
         "duration": 12.48,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/step_05.mp3"
+        "audio": "assets/audio/step_05.mp3"
       },
       {
         "key": "step_06",
         "text": "Admissíveis: 2, 4 e 5; escolha a menor área. Na tela, 75 é menor que 121 é menor que 128; portanto, tipo 5.",
         "duration": 11.808,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/step_06.mp3"
+        "audio": "assets/audio/step_06.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa E: 5.",
         "duration": 3.768,
-        "audio": "content/enem/ENEM-2024-MT-02/assets/audio/answer.mp3"
+        "audio": "assets/audio/answer.mp3"
       }
     ]
   }

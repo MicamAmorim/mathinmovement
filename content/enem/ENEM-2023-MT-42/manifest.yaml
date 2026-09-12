@@ -98,79 +98,79 @@
         "key": "source",
         "text": "ENEM 2023, questão 177. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.824,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/source.mp3"
+        "audio": "assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "Um controlador de voo dispõe de um instrumento que descreve a altitude de uma aeronave em voo, em função da distância em solo. Essa distância em solo é a medida na horizontal entre o ponto de origem do voo até o ponto que representa a projeção ortogonal da posição da aeronave, em voo, no solo. Essas duas grandezas são dadas numa mesma unidade de medida.",
         "duration": 21.576,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/statement_01.mp3"
+        "audio": "assets/audio/statement_01.mp3"
       },
       {
         "key": "statement_02",
         "text": "A tela do instrumento representa proporcionalmente as dimensões reais das distâncias associadas ao voo. A figura apresenta a tela do instrumento depois de concluída a viagem de um avião, sendo a medida do lado de cada quadradinho da malha igual a 1 centímetro. Essa tela apresenta os dados de um voo cuja maior altitude alcançada foi de 5 quilômetros. A escala em que essa tela representa as medidas reais é",
         "duration": 24.696,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/statement_02.mp3"
+        "audio": "assets/audio/statement_02.mp3"
       },
       {
         "key": "figure",
         "text": "Observe a reconstrução esquemática da figura da questão. Gráfico em malha quadriculada de lado 1 centímetros. A maior altitude representada ocupa 1 centímetros na vertical.",
         "duration": 11.832,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/figure.mp3"
+        "audio": "assets/audio/figure.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: 1 para 5.; B: 1 para 11.; C: 1 para 55.; D: 1 para 5000.; E: 1 para 500.000..",
         "duration": 11.16,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/options.mp3"
+        "audio": "assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: malha: quadrados de 1 centímetros; maior altitude na tela: 1 centímetros; maior altitude real: 5 quilômetros; escala deve usar a mesma unidade.",
         "duration": 13.344,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/data.mp3"
+        "audio": "assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Leia um centímetro na tela, converta a altitude real e forme a escala. O plano é: 1, Ler a maior ordenada no gráfico. 2, Converter 5 quilômetros para centímetros. 3, Formar a razão tela dividido por real.",
         "duration": 16.464,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/strategy.mp3"
+        "audio": "assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "O maior patamar do gráfico tem uma unidade vertical, isto é, 1 centímetros na tela.",
         "duration": 6.336,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/visual.mp3"
+        "audio": "assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Converta quilômetros em metros. Na tela, 5 quilômetros é igual a 5000 mathrm m.",
         "duration": 7.032,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/step_01.mp3"
+        "audio": "assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Converta metros em centímetros. Na tela, 5000 mathrm m é igual a 500000 centímetros.",
         "duration": 7.68,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/step_02.mp3"
+        "audio": "assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Escala. Na tela, E é igual a 1 centímetros dividido por 500000 centímetros.",
         "duration": 6.84,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/step_03.mp3"
+        "audio": "assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Forma 1:n. Na tela, E é igual a 1:500000.",
         "duration": 5.304,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/step_04.mp3"
+        "audio": "assets/audio/step_04.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa E: 1 para 500.000.",
         "duration": 4.464,
-        "audio": "content/enem/ENEM-2023-MT-42/assets/audio/answer.mp3"
+        "audio": "assets/audio/answer.mp3"
       }
     ]
   }

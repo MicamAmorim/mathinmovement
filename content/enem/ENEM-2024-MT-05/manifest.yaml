@@ -93,67 +93,67 @@
         "key": "source",
         "text": "ENEM 2024, questão 140. Vamos ler, interpretar e resolver visualmente.",
         "duration": 7.512,
-        "audio": "content/enem/ENEM-2024-MT-05/assets/audio/source.mp3"
+        "audio": "assets/audio/source.mp3"
       },
       {
         "key": "statement_01",
         "text": "O arquiteto Renzo Piano exibiu a maquete da nova sede do Museu Whitney de Arte Americana, um prédio assimétrico que tem um vão aberto para a galeria principal, cuja medida da área é 1672 metros quadrados. Considere que a escala da maquete exibida é 1 para 200. A medida da área do vão aberto nessa maquete, em centímetro quadrado, é",
         "duration": 22.272,
-        "audio": "content/enem/ENEM-2024-MT-05/assets/audio/statement_01.mp3"
+        "audio": "assets/audio/statement_01.mp3"
       },
       {
         "key": "options",
         "text": "As alternativas são: A: 4,18.; B: 8,36.; C: 41,80.; D: 83,60.; E: 418,00..",
         "duration": 13.992,
-        "audio": "content/enem/ENEM-2024-MT-05/assets/audio/options.mp3"
+        "audio": "assets/audio/options.mp3"
       },
       {
         "key": "data",
         "text": "Separe os dados que realmente entram na conta: área real: 1672 metros quadrados; escala linear: 1:200; pedem área na maquete em centímetros quadrados.",
         "duration": 11.856,
-        "audio": "content/enem/ENEM-2024-MT-05/assets/audio/data.mp3"
+        "audio": "assets/audio/data.mp3"
       },
       {
         "key": "strategy",
         "text": "Escala de comprimento vira escala de área ao quadrado. O plano é: 1, Elevar o fator linear ao quadrado. 2, Aplicar à área real. 3, Converter metros quadrados para centímetros quadrados.",
         "duration": 14.184,
-        "audio": "content/enem/ENEM-2024-MT-05/assets/audio/strategy.mp3"
+        "audio": "assets/audio/strategy.mp3"
       },
       {
         "key": "visual",
         "text": "Uma área recebe o fator de escala duas vezes: 1 dividido por 200 ao quadrado.",
         "duration": 5.808,
-        "audio": "content/enem/ENEM-2024-MT-05/assets/audio/visual.mp3"
+        "audio": "assets/audio/visual.mp3"
       },
       {
         "key": "step_01",
         "text": "Fator de área. Na tela, k índice A é igual a menor ou igual a ft( 1 dividido por 200 right) ao quadrado é igual a 1 dividido por 40000.",
         "duration": 10.848,
-        "audio": "content/enem/ENEM-2024-MT-05/assets/audio/step_01.mp3"
+        "audio": "assets/audio/step_01.mp3"
       },
       {
         "key": "step_02",
         "text": "Área na maquete em metros quadrados. Na tela, A índice m é igual a 1672 dividido por 40000 metros quadrados.",
         "duration": 9.432,
-        "audio": "content/enem/ENEM-2024-MT-05/assets/audio/step_02.mp3"
+        "audio": "assets/audio/step_02.mp3"
       },
       {
         "key": "step_03",
         "text": "Como 1 metros quadrados é igual a 10 000 centímetros quadrados. Na tela, A índice m é igual a 1672 dividido por 40000 vezes 10000 centímetros quadrados.",
         "duration": 12.288,
-        "audio": "content/enem/ENEM-2024-MT-05/assets/audio/step_03.mp3"
+        "audio": "assets/audio/step_03.mp3"
       },
       {
         "key": "step_04",
         "text": "Cancele 10 000 dividido por 40 000. Na tela, A índice m é igual a 1672 dividido por 4 é igual a 418 centímetros quadrados.",
         "duration": 11.664,
-        "audio": "content/enem/ENEM-2024-MT-05/assets/audio/step_04.mp3"
+        "audio": "assets/audio/step_04.mp3"
       },
       {
         "key": "answer",
         "text": "Logo, a resposta é a alternativa E: 418,00.",
         "duration": 5.568,
-        "audio": "content/enem/ENEM-2024-MT-05/assets/audio/answer.mp3"
+        "audio": "assets/audio/answer.mp3"
       }
     ]
   }
