@@ -58,27 +58,25 @@ class FullCatalogTests(unittest.TestCase):
                 "area-cilindro",
                 "volume-cilindro",
                 "area-piramides-regulares",
+                "volume-piramide",
+                "area-cone",
+                "volume-cone",
+                "volume-esfera",
+                "area-esfera",
                 "ENEM-2021-MT-11",
             },
         )
-        self.assertEqual(len(drafts), 34)
+        self.assertEqual(len(drafts), 29)
 
         for record in production:
             render = record.manifest["render"]
             self.assertEqual(render["production_engine"], "native")
             self.assertTrue(render["native_ready"])
 
-        candidate_ids = {
-            "volume-piramide",
-            "area-cone",
-            "volume-cone",
-            "volume-esfera",
-            "area-esfera",
-        }
         for record in drafts:
             render = record.manifest["render"]
             self.assertEqual(render["production_engine"], "compatibility")
-            self.assertEqual(render["native_ready"], record.id in candidate_ids)
+            self.assertFalse(render["native_ready"])
 
     def test_every_compatibility_source_and_scene_exists(self):
         for record in self.records:

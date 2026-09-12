@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "volume-piramide",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Volume da pirâmide",
   "tags": [
     "demo",
@@ -60,7 +60,7 @@
     "math": "V=\\frac13A_bh"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

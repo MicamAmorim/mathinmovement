@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-cone",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área do cone",
   "tags": [
     "demo",
@@ -43,7 +43,7 @@
     "math": "A_T=\\pi rg+\\pi r^2"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

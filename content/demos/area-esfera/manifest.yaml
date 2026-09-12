@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "area-esfera",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Área da esfera",
   "tags": [
     "demo",
@@ -50,7 +50,7 @@
     "math": "A=2\\pi R(2R)=4\\pi R^2"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

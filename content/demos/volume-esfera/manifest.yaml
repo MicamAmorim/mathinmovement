@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "volume-esfera",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Volume da esfera",
   "tags": [
     "demo",
@@ -51,7 +51,7 @@
     "math": "V=2V_{\\rm hemi}=\\frac43\\pi R^3"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],

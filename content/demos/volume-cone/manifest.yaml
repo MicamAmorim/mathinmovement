@@ -2,7 +2,7 @@
   "schema_version": 1,
   "id": "volume-cone",
   "type": "demo",
-  "status": "draft",
+  "status": "production",
   "title": "Volume do cone",
   "tags": [
     "demo",
@@ -39,7 +39,7 @@
     "math": "V=\\frac13\\pi r^2h"
   },
   "render": {
-    "production_engine": "compatibility",
+    "production_engine": "native",
     "formats": [
       "vertical"
     ],
