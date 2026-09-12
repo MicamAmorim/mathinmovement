@@ -49,5 +49,151 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "outer",
+          "type": "circle",
+          "radius": 2.55,
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.2,
+          "stroke_width": 4
+        },
+        {
+          "id": "inner",
+          "type": "circle",
+          "radius": 1.35,
+          "color": "gold",
+          "fill_color": "bg",
+          "fill_opacity": 1,
+          "stroke_width": 4
+        },
+        {
+          "id": "Rline",
+          "type": "line",
+          "start": [
+            0,
+            0
+          ],
+          "end": [
+            2.55,
+            0
+          ],
+          "color": "cyan",
+          "stroke_width": 3
+        },
+        {
+          "id": "rline",
+          "type": "line",
+          "start": [
+            0,
+            0
+          ],
+          "end": [
+            -1.0341599982106202,
+            0.8677632730768283
+          ],
+          "color": "gold",
+          "stroke_width": 3
+        },
+        {
+          "id": "R",
+          "type": "math",
+          "tex": "R",
+          "font_size": 34,
+          "color": "cyan",
+          "at": [
+            1.25,
+            -0.35
+          ]
+        },
+        {
+          "id": "r",
+          "type": "math",
+          "tex": "r",
+          "font_size": 34,
+          "color": "gold",
+          "at": [
+            -0.85,
+            0.65
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "create",
+          "target": "outer",
+          "run_time": 1
+        },
+        {
+          "op": "create",
+          "target": "inner",
+          "run_time": 0.9
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.8,
+          "actions": [
+            {
+              "op": "create",
+              "target": "Rline"
+            },
+            {
+              "op": "create",
+              "target": "rline"
+            },
+            {
+              "op": "write",
+              "target": "R"
+            },
+            {
+              "op": "write",
+              "target": "r"
+            }
+          ]
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "equation",
+          "step": 1
+        },
+        {
+          "op": "highlight",
+          "target": "inner",
+          "color": "red"
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 2
+        },
+        {
+          "op": "end"
+        }
+      ]
+    }
   }
 }

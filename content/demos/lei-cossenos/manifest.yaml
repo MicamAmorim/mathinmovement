@@ -60,5 +60,257 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "tri",
+          "type": "polygon",
+          "points": [
+            [
+              -3,
+              -1.2
+            ],
+            [
+              3,
+              -1.2
+            ],
+            [
+              0.8,
+              2
+            ]
+          ],
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.12,
+          "stroke_width": 3
+        },
+        {
+          "id": "alt",
+          "type": "dashed_line",
+          "start": [
+            0.8,
+            2
+          ],
+          "end": [
+            0.8,
+            -1.2
+          ],
+          "color": "gold",
+          "stroke_width": 3
+        },
+        {
+          "id": "a",
+          "type": "math",
+          "tex": "a",
+          "font_size": 32,
+          "color": "cyan",
+          "at": [
+            2.15,
+            0.6
+          ]
+        },
+        {
+          "id": "b",
+          "type": "math",
+          "tex": "b",
+          "font_size": 32,
+          "color": "cyan",
+          "at": [
+            -1.35,
+            0.6
+          ]
+        },
+        {
+          "id": "c",
+          "type": "math",
+          "tex": "c",
+          "font_size": 32,
+          "color": "cyan",
+          "at": [
+            0,
+            -2.15
+          ]
+        },
+        {
+          "id": "A",
+          "type": "math",
+          "tex": "A",
+          "font_size": 30,
+          "color": "white",
+          "at": [
+            -2.6,
+            -0.85
+          ]
+        },
+        {
+          "id": "proj",
+          "type": "line",
+          "start": [
+            -3,
+            -1.2
+          ],
+          "end": [
+            0.8,
+            -1.2
+          ],
+          "color": "gold",
+          "stroke_width": 5
+        },
+        {
+          "id": "pcos",
+          "type": "math",
+          "tex": "b\\cos A",
+          "font_size": 30,
+          "color": "gold",
+          "at": [
+            -1.1,
+            -1.6
+          ]
+        },
+        {
+          "id": "psin",
+          "type": "math",
+          "tex": "b\\sin A",
+          "font_size": 28,
+          "color": "gold",
+          "at": [
+            1.2,
+            0.4
+          ]
+        },
+        {
+          "id": "rightbase",
+          "type": "line",
+          "start": [
+            0.8,
+            -1.2
+          ],
+          "end": [
+            3,
+            -1.2
+          ],
+          "color": "green",
+          "stroke_width": 5
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "parallel",
+          "run_time": 1.5,
+          "actions": [
+            {
+              "op": "create",
+              "target": "tri"
+            },
+            {
+              "op": "create",
+              "target": "alt"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.8,
+          "actions": [
+            {
+              "op": "write",
+              "target": "a"
+            },
+            {
+              "op": "write",
+              "target": "b"
+            },
+            {
+              "op": "write",
+              "target": "c"
+            },
+            {
+              "op": "write",
+              "target": "A"
+            }
+          ]
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.8,
+          "actions": [
+            {
+              "op": "create",
+              "target": "proj"
+            },
+            {
+              "op": "write",
+              "target": "pcos"
+            }
+          ]
+        },
+        {
+          "op": "write",
+          "target": "psin"
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "create",
+          "target": "rightbase",
+          "run_time": 0.4
+        },
+        {
+          "op": "highlight",
+          "target": "rightbase",
+          "color": "green"
+        },
+        {
+          "op": "equation",
+          "step": 2,
+          "size": 42
+        },
+        {
+          "op": "caption",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "caption",
+          "step": 4
+        },
+        {
+          "op": "equation",
+          "step": 4
+        },
+        {
+          "op": "equation",
+          "step": 5
+        },
+        {
+          "op": "end"
+        }
+      ]
+    }
   }
 }
