@@ -385,7 +385,7 @@
         },
         {
           "op": "equation",
-          "tex": "1\\\\cdot\\\\frac{\\\\ell a}{2}",
+          "tex": "1\\cdot\\frac{\\ell a}{2}",
           "size": 44
         },
         {
@@ -394,7 +394,7 @@
         },
         {
           "op": "equation",
-          "tex": "2\\\\cdot\\\\frac{\\\\ell a}{2}",
+          "tex": "2\\cdot\\frac{\\ell a}{2}",
           "size": 44
         },
         {
@@ -403,7 +403,7 @@
         },
         {
           "op": "equation",
-          "tex": "3\\\\cdot\\\\frac{\\\\ell a}{2}",
+          "tex": "3\\cdot\\frac{\\ell a}{2}",
           "size": 44
         },
         {
@@ -412,7 +412,7 @@
         },
         {
           "op": "equation",
-          "tex": "4\\\\cdot\\\\frac{\\\\ell a}{2}",
+          "tex": "4\\cdot\\frac{\\ell a}{2}",
           "size": 44
         },
         {
@@ -421,7 +421,7 @@
         },
         {
           "op": "equation",
-          "tex": "5\\\\cdot\\\\frac{\\\\ell a}{2}",
+          "tex": "5\\cdot\\frac{\\ell a}{2}",
           "size": 44
         },
         {
@@ -430,7 +430,7 @@
         },
         {
           "op": "equation",
-          "tex": "6\\\\cdot\\\\frac{\\\\ell a}{2}",
+          "tex": "6\\cdot\\frac{\\ell a}{2}",
           "size": 44
         },
         {
