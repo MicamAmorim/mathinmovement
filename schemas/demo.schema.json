@@ -110,7 +110,7 @@
       "properties": {
         "dsl_version": {
           "type": "string",
-          "pattern": "^1(?:\\\\.\\\\d+)?$"
+          "pattern": "^1(?:\\.\\d+)?$"
         },
         "objects": {
           "type": "array",
@@ -175,7 +175,7 @@
           "properties": {
             "dsl_version": {
               "type": "string",
-              "pattern": "^1(?:\\\\.\\\\d+)?$"
+              "pattern": "^1(?:\\.\\d+)?$"
             },
             "objects": {
               "type": "array",
