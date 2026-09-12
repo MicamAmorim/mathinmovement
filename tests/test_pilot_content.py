@@ -21,18 +21,19 @@ class PilotContentTests(unittest.TestCase):
         self.assertEqual(q.manifest["solution"]["final_answer"], "D")
         self.assertIn("8 cm", q.manifest["question"]["stem"])
 
-    def test_pilots_keep_production_parity_while_native_engine_evolves(self):
+    def test_validated_pilots_use_native_production_and_keep_legacy_reference(self):
         for content_id in ("area-triangulo", "ENEM-2021-MT-11"):
             record = self.registry.get(content_id)
             render = record.manifest["render"]
-            self.assertEqual(render["production_engine"], "compatibility")
+            self.assertEqual(render["production_engine"], "native")
             self.assertEqual(render["native_engine"], "unified-v2")
             self.assertIn("compatibility", render)
 
     def test_native_format_policy_matches_reference_coverage(self):
         demo = self.registry.get("area-triangulo").manifest["render"]
         qenem = self.registry.get("ENEM-2021-MT-11").manifest["render"]
-        self.assertEqual(demo["native_formats"], ["vertical"])
+        self.assertIn("vertical", demo["native_formats"])
+        self.assertIn("horizontal", demo["native_formats"])
         self.assertIn("vertical", qenem["native_formats"])
         self.assertIn("horizontal", qenem["native_formats"])
 

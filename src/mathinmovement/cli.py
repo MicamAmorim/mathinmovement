@@ -100,7 +100,7 @@ def cmd_parity(args: argparse.Namespace) -> int:
         video_format=args.format,
         quality=args.quality,
         dry_run=args.dry_run,
-        render_engine="production",
+        render_engine="compatibility",
     )
     candidate = render_record(
         record,
@@ -225,7 +225,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_parity = sub.add_parser(
         "parity",
-        help="Renderiza referência de produção e candidato nativo para comparação.",
+        help="Renderiza referência legada e candidato nativo para comparação.",
     )
     p_parity.add_argument("id")
     p_parity.add_argument("--format", choices=["vertical", "horizontal"], default="vertical")

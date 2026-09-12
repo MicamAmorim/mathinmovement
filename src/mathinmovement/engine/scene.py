@@ -213,15 +213,14 @@ class UnifiedContentScene(Scene):
         )
 
     def render_demo(self):
-        if IS_HORIZONTAL:
-            raise RuntimeError(
-                "O perfil nativo motion_math_v1 ainda não foi aprovado para horizontal."
-            )
-
         render = self.manifest.get("render") or {}
         renderer = str(render.get("native_renderer", ""))
         if renderer != "area_triangle_parallelogram_v1":
             raise RuntimeError(f"Renderer demo nativo ainda não portado: {renderer!r}")
+
+        if IS_HORIZONTAL:
+            self.render_demo_horizontal()
+            return
 
         presentation = self.manifest.get("presentation") or {}
         captions = presentation.get("captions") or {}
@@ -268,6 +267,144 @@ class UnifiedContentScene(Scene):
         self.demo_caption(captions["half"])
         self.demo_equation(r"A=\frac{bh}{2}")
         self.demo_end()
+
+    def render_demo_horizontal(self):
+        """16:9 adaptation of the approved motion-math visual language.
+
+        This is a new layout, not a legacy-parity target: the visual proof and
+        timing language are preserved while the composition uses two columns.
+        """
+        presentation = self.manifest.get("presentation") or {}
+        captions = presentation.get("captions") or {}
+        formula = str(
+            presentation.get(
+                "formula",
+                self.manifest.get("result", {}).get("math", ""),
+            )
+        )
+        signature = str(presentation.get("signature", "MIQUÉIAS AMORIM"))
+
+        brand = self.demo_text(
+            "MATEMÁTICA EM MOVIMENTO", 16, MUTED, max_width=5.5
+        ).move_to(P(-5.35, 3.95))
+        counter = self.demo_text(
+            f'{presentation.get("number", "01")}  /  {presentation.get("category", "ÁREAS")}',
+            18,
+            CYAN,
+            max_width=5.0,
+        ).move_to(P(5.35, 3.95))
+        title = self.demo_text(
+            self.manifest["title"], 36, WHITE, max_width=9.5, weight=BOLD
+        ).move_to(P(0, 3.22))
+        intro_formula = safe_mathtex(
+            formula, 44, WHITE, max_width=5.0
+        ).move_to(P(0, 2.35))
+        signature_mob = self.demo_text(
+            signature, 14, MUTED, max_width=4.0
+        ).move_to(P(5.65, -4.05))
+        divider = Line(
+            P(0.35, -3.25),
+            P(0.35, 1.85),
+            color="#24324E",
+            stroke_width=2,
+        )
+
+        self.add(brand)
+        self.play(FadeIn(counter, shift=UP * 0.12), run_time=0.55)
+        self.play(Write(title), run_time=1.0)
+        self.play(Write(intro_formula), run_time=1.25)
+        self.add(signature_mob)
+        self.wait(0.55)
+
+        caption_mob = VGroup()
+        equation_mob = VGroup()
+
+        def show_caption(text):
+            nonlocal caption_mob
+            new = self.demo_text(
+                textwrap.fill(str(text), width=48),
+                25,
+                WHITE,
+                max_width=6.2,
+            ).move_to(P(4.15, 0.95))
+            if len(caption_mob) > 0:
+                self.play(
+                    FadeOut(caption_mob),
+                    FadeIn(new, shift=UP * 0.10),
+                    run_time=0.42,
+                )
+            else:
+                self.play(FadeIn(new, shift=UP * 0.10), run_time=0.42)
+            caption_mob = new
+            self.wait(max(1.4, len(str(text).split()) / 3.0))
+
+        def show_equation(tex):
+            nonlocal equation_mob
+            new = safe_mathtex(
+                tex, 50, WHITE, max_width=5.8
+            ).move_to(P(4.15, -1.0))
+            if len(equation_mob) > 0:
+                self.play(
+                    ReplacementTransform(equation_mob, new),
+                    run_time=1.05,
+                )
+            else:
+                self.play(Write(new), run_time=0.95)
+            equation_mob = new
+            self.wait(2.0)
+
+        shift = LEFT * 3.4
+        tri = polygon_xy(
+            [(-2.8, -0.9), (2.2, -0.9), (-0.8, 1.6)]
+        ).shift(shift)
+
+        show_caption(captions["base_height"])
+        self.play(FadeIn(divider), FadeOut(intro_formula), run_time=0.45)
+        self.play(Create(tri), run_time=1.8)
+
+        h = DashedLine(
+            P(-0.8, -0.9) + shift,
+            P(-0.8, 1.6) + shift,
+            color=GOLD,
+        )
+        ra = self.right_angle(P(-0.8, -0.9) + shift, quadrant=UR)
+        labels = VGroup(
+            safe_mathtex("b", 36, CYAN).move_to(P(-0.3, -1.35) + shift),
+            safe_mathtex("h", 36, GOLD).move_to(P(-1.15, 0.25) + shift),
+        )
+        self.play(Create(h), Create(ra), Write(labels), run_time=1.2)
+        self.wait(1.2)
+
+        show_caption(captions["duplicate"])
+        other = tri.copy().set_color(GOLD)
+        self.play(
+            FadeOut(h),
+            FadeOut(ra),
+            FadeOut(labels),
+            other.animate.shift(UP * 0.45),
+            run_time=0.8,
+        )
+        self.play(Rotate(other, PI, about_point=other.get_center()), run_time=1.35)
+        target = polygon_xy(
+            [(-0.8, 1.6), (4.2, 1.6), (2.2, -0.9)],
+            GOLD,
+        ).shift(shift)
+        self.play(
+            other.animate.shift(target.get_center() - other.get_center()),
+            run_time=1.35,
+        )
+        group = VGroup(tri, other)
+        self.play(group.animate.shift(LEFT * 0.7), run_time=0.65)
+        self.wait(0.9)
+
+        show_equation(r"2A=bh")
+        show_caption(captions["half"])
+        show_equation(r"A=\frac{bh}{2}")
+        self.play(
+            Indicate(equation_mob, color=CYAN, scale_factor=1.04),
+            run_time=1.0,
+        )
+        self.wait(2.4)
 
     # ------------------------------------------------------------------
     # ENEM profile: port of ENEMSolutionScene, driven only by manifest

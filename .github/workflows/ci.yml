@@ -38,6 +38,8 @@ jobs:
         run: |
           python -m mathinmovement render area-triangulo --format vertical --dry-run
           python -m mathinmovement render area-triangulo --format vertical --engine native --dry-run
+          python -m mathinmovement render area-triangulo --format horizontal --dry-run
+          python -m mathinmovement render area-triangulo --format horizontal --engine native --dry-run
           python -m mathinmovement render ENEM-2021-MT-11 --format vertical --dry-run
           python -m mathinmovement render ENEM-2021-MT-11 --format horizontal --dry-run
           python -m mathinmovement render ENEM-2021-MT-11 --format vertical --engine native --dry-run
