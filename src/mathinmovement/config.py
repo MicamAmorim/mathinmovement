@@ -9,3 +9,6 @@ DEMO_CONTENT = CONTENT_ROOT / "demos"
 SCHEMA_ROOT = PROJECT_ROOT / "schemas"
 CACHE_ROOT = PROJECT_ROOT / "cache"
 REGISTRY_DB = CACHE_ROOT / "registry.sqlite"
+
+RAW_MEDIA_ROOT = PROJECT_ROOT / "media_raw"
+MEDIA_ROOT = PROJECT_ROOT / "media"
