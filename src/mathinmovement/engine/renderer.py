@@ -104,7 +104,7 @@ def _resolve_engine(
     raise ManifestError(f"Engine desconhecido: {requested!r}")
 
 
-def _native_command(
+def _manim_command(
     record: ContentRecord,
     *,
     video_format: str,
@@ -112,22 +112,6 @@ def _native_command(
     preview: bool,
     build_dir: Path,
 ) -> tuple[list[str], dict[str, str], Path]:
-    render = record.manifest.get("render") or {}
-    if render.get("native_ready") is False:
-        raise ManifestError(
-            f"{record.id}: renderer nativo ainda não foi validado."
-        )
-    allowed = (
-        render.get("native_formats")
-        or render.get("formats")
-        or ["vertical"]
-    )
-    if video_format not in allowed:
-        raise ManifestError(
-            f"{record.id}: renderer nativo não suporta {video_format!r}. "
-            f"Disponíveis: {', '.join(map(str, allowed))}."
-        )
-
     wrapper = build_dir / "_mim_scene.py"
     wrapper.write_text(
         "from mathinmovement.engine.scene import UnifiedContentScene\n"
@@ -239,7 +223,7 @@ def render_record(
     else:
         shutil.rmtree(build_dir, ignore_errors=True)
         build_dir.mkdir(parents=True, exist_ok=True)
-        cmd, env, cwd = _native_command(
+        cmd, env, cwd = _manim_command(
             record,
             video_format=video_format,
             quality=quality,
