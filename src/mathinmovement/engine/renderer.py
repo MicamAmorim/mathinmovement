@@ -86,6 +86,8 @@ def _engine_formats(
             or ["vertical"]
         )
     if engine == "native":
+        if render.get("native_ready") is not True:
+            return []
         return list(
             render.get("native_formats")
             or render.get("formats")
