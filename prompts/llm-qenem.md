@@ -18,7 +18,7 @@ QUESTÃO:
 1. Não escreva Python.
 2. Use somente DSL visual v1.
 3. Preserve fielmente enunciado, alternativas, dados relevantes e gabarito fornecidos.
-4. Se algum dado de fonte, ano, número ou gabarito não estiver disponível, não invente. Sinalize a ausência fora do manifest ou use metadados explicitamente fornecidos pelo usuário.
+4. Se faltar um campo obrigatório de fonte, ano, número da questão ou gabarito, não invente. Pare a geração do pacote e liste objetivamente os campos obrigatórios ausentes.
 5. Garanta `question.answer == solution.final_answer`.
 6. Use `schema_version: 1`, `type: qenem`, `status: draft`.
 7. Use `render.production_engine: dsl`.
