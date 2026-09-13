@@ -484,6 +484,9 @@
           "op": "end"
         }
       ]
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }
