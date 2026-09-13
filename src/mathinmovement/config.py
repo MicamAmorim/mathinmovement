@@ -12,3 +12,5 @@ REGISTRY_DB = CACHE_ROOT / "registry.sqlite"
 
 RAW_MEDIA_ROOT = PROJECT_ROOT / "media_raw"
 MEDIA_ROOT = PROJECT_ROOT / "media"
+
+JOBS_DB = CACHE_ROOT / "jobs.sqlite"

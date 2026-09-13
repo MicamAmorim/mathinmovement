@@ -1,20 +1,23 @@
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 import sys
 from pathlib import Path
 
-from .config import REGISTRY_DB
+from .config import JOBS_DB, REGISTRY_DB
 from .database import database_stats
 from .engine import RenderError, render_record
 from .models import ManifestError
+from .jobs import JOB_STATUSES, JobStore
 from .package_io import export_package, import_package
 from .production import produce
 from .postprocess import PostProcessError, postprocess_video
 from .scaffold import scaffold_content
 from .registry import Registry
 from .tts import prepare_narration
+from .worker import run_worker, run_worker_once
 from .dsl.coverage import (
     DEMO_USAGE,
     DEMO_VALIDATION_SET,
@@ -93,6 +96,114 @@ def cmd_scaffold(args: argparse.Namespace) -> int:
     print(f"Manifest: {destination / 'manifest.yaml'}")
     if package is not None:
         print(f"Pacote: {package}")
+    return 0
+
+
+def _job_payload(job) -> dict:
+    return {
+        "id": job.id,
+        "kind": job.kind,
+        "status": job.status,
+        "payload": job.payload,
+        "result": job.result,
+        "error": job.error,
+        "created_at": job.created_at,
+        "started_at": job.started_at,
+        "finished_at": job.finished_at,
+    }
+
+
+def cmd_jobs(args: argparse.Namespace) -> int:
+    store = JobStore()
+    if args.jobs_command == "list":
+        jobs = store.list(
+            status=args.status,
+            limit=args.limit,
+        )
+        if args.json:
+            print(
+                json.dumps(
+                    [_job_payload(job) for job in jobs],
+                    ensure_ascii=False,
+                    indent=2,
+                )
+            )
+            return 0
+        if not jobs:
+            print("Nenhum job encontrado.")
+            return 0
+        for job in jobs:
+            target = str(job.payload.get("target", ""))
+            print(
+                f"{job.id} [{job.status}] {job.kind}"
+                + (f" · {target}" if target else "")
+            )
+        return 0
+
+    if args.jobs_command == "show":
+        job = store.get(args.id)
+        print(
+            json.dumps(
+                _job_payload(job),
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return 0
+
+    if args.jobs_command == "cancel":
+        job = store.cancel(args.id)
+        print(f"Cancelado: {job.id} [{job.status}]")
+        return 0
+
+    raise ManifestError(
+        f"Subcomando jobs desconhecido: {args.jobs_command!r}"
+    )
+
+
+def cmd_worker(args: argparse.Namespace) -> int:
+    store = JobStore()
+    if args.once:
+        job = run_worker_once(store)
+        if job is None:
+            print("Nenhum job enfileirado.")
+            return 0
+        print(f"Job {job.id}: {job.status}")
+        if job.result:
+            print(
+                json.dumps(
+                    job.result,
+                    ensure_ascii=False,
+                    indent=2,
+                )
+            )
+        if job.error:
+            print(f"Erro: {job.error}", file=sys.stderr)
+            return 1
+        return 0
+
+    print(
+        f"Worker ativo · DB {JOBS_DB} · "
+        f"poll {args.poll_interval}s"
+    )
+    try:
+        run_worker(
+            store=store,
+            poll_interval=args.poll_interval,
+        )
+    except KeyboardInterrupt:
+        print("\nWorker encerrado.")
+    return 0
+
+
+def cmd_serve(args: argparse.Namespace) -> int:
+    from .api import serve
+
+    serve(
+        host=args.host,
+        port=args.port,
+        reload=args.reload,
+    )
     return 0
 
 
@@ -452,6 +563,54 @@ def build_parser() -> argparse.ArgumentParser:
     p_scaffold.add_argument("--force", action="store_true")
     p_scaffold.set_defaults(func=cmd_scaffold)
 
+    p_jobs = sub.add_parser(
+        "jobs",
+        help="Inspeciona e controla a fila persistente de jobs.",
+    )
+    jobs_sub = p_jobs.add_subparsers(
+        dest="jobs_command",
+        required=True,
+    )
+    p_jobs_list = jobs_sub.add_parser("list")
+    p_jobs_list.add_argument(
+        "--status",
+        choices=sorted(JOB_STATUSES),
+    )
+    p_jobs_list.add_argument("--limit", type=int, default=100)
+    p_jobs_list.add_argument("--json", action="store_true")
+    p_jobs_list.set_defaults(func=cmd_jobs)
+    p_jobs_show = jobs_sub.add_parser("show")
+    p_jobs_show.add_argument("id")
+    p_jobs_show.set_defaults(func=cmd_jobs)
+    p_jobs_cancel = jobs_sub.add_parser("cancel")
+    p_jobs_cancel.add_argument("id")
+    p_jobs_cancel.set_defaults(func=cmd_jobs)
+
+    p_worker = sub.add_parser(
+        "worker",
+        help="Processa jobs de produção fora do servidor HTTP.",
+    )
+    p_worker.add_argument(
+        "--once",
+        action="store_true",
+        help="Processa no máximo um job e encerra.",
+    )
+    p_worker.add_argument(
+        "--poll-interval",
+        type=float,
+        default=1.0,
+    )
+    p_worker.set_defaults(func=cmd_worker)
+
+    p_serve = sub.add_parser(
+        "serve",
+        help="Inicia a API HTTP opcional do Math in Movement.",
+    )
+    p_serve.add_argument("--host", default="127.0.0.1")
+    p_serve.add_argument("--port", type=int, default=8000)
+    p_serve.add_argument("--reload", action="store_true")
+    p_serve.set_defaults(func=cmd_serve)
+
     p_db = sub.add_parser(
         "db",
         help="Inspeciona ou reconstrói o índice SQLite.",
@@ -677,6 +836,7 @@ def main() -> None:
         PostProcessError,
         KeyError,
         ValueError,
+        RuntimeError,
     ) as exc:
         print(f"ERRO: {exc}", file=sys.stderr)
         raise SystemExit(2)

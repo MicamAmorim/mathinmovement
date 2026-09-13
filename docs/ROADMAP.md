@@ -159,9 +159,11 @@ final MP4
 
 ## M6 — Escala e publicação
 
-- [ ] API HTTP sobre o core Python, sem duplicar regras de negócio.
-- [ ] Worker de renderização separado da aplicação web.
-- [ ] Fila persistente de jobs.
+Primeira fundação do Studio concluída e validada localmente em 2026-09-12: API interna, JobStore SQLite e worker separado funcionando com smoke test API → fila → worker → `produce()`.
+
+- [x] API HTTP interna inicial sobre o core Python, sem duplicar regras de negócio (`serve`, `/contents`, `/jobs`).
+- [x] Worker de renderização separado da aplicação web (`worker` / `worker --once`).
+- [x] Fila persistente local de jobs em SQLite com claim atômico e estados de lifecycle.
 - [ ] Armazenamento externo para pacotes, assets e MP4s em instalações hospedadas.
 - [ ] Banco persistente para usuários/jobs/histórico; manter o SQLite atual como índice local reconstruível.
 - [ ] Autenticação e permissões se houver uso multiusuário.
