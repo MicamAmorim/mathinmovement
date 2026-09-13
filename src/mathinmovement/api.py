@@ -104,6 +104,23 @@ def create_app(*, store: JobStore | None = None):
                 ),
                 "tags": list(record.tags),
                 "render": record.manifest.get("render") or {},
+                "narration": {
+                    "enabled": bool(
+                        (record.manifest.get("narration") or {}).get(
+                            "enabled",
+                            False,
+                        )
+                    ),
+                    "segments": len(
+                        (record.manifest.get("narration") or {}).get(
+                            "segments",
+                            [],
+                        )
+                    ),
+                    "voice": (
+                        record.manifest.get("narration") or {}
+                    ).get("voice"),
+                },
             }
             for record in records
         ]
