@@ -320,6 +320,9 @@
           "length"
         ]
       }
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

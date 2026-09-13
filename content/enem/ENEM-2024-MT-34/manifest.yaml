@@ -220,6 +220,9 @@
           "hex"
         ]
       }
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

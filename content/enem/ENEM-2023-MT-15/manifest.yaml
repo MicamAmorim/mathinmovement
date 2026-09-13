@@ -428,6 +428,9 @@
           "r"
         ]
       }
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

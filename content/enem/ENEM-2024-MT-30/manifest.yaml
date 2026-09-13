@@ -478,6 +478,9 @@
           "c2bot"
         ]
       }
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

@@ -789,6 +789,9 @@
           "choices"
         ]
       }
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

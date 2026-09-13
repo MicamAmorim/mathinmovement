@@ -592,6 +592,9 @@
           "IV"
         ]
       }
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

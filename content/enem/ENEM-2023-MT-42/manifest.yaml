@@ -334,6 +334,9 @@
           "unit"
         ]
       }
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

@@ -390,6 +390,9 @@
           "alpha"
         ]
       }
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

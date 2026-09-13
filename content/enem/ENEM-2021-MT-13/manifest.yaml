@@ -242,6 +242,9 @@
           "circ"
         ]
       }
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }
