@@ -58,7 +58,10 @@ def _validate_catalog(registry: Registry) -> tuple[int, int]:
         shadow = record.manifest.get("dsl_shadow") or {}
         if shadow.get("visual_program"):
             validate_program(shadow["visual_program"])
-            if record.type == "demo":
+            if (
+                record.manifest.get("status") == "production"
+                and record.type == "demo"
+            ):
                 demo_shadows += 1
 
         visual_count = 0
@@ -67,7 +70,11 @@ def _validate_catalog(registry: Registry) -> tuple[int, int]:
                 validate_program(spec["program"])
                 visual_count += 1
 
-        if record.type == "qenem" and visual_count:
+        if (
+            record.manifest.get("status") == "production"
+            and record.type == "qenem"
+            and visual_count
+        ):
             qenem_shadows += 1
 
         if record.manifest.get("status") == "production":
