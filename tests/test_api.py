@@ -9,9 +9,11 @@ from mathinmovement.jobs import JobStore
 
 
 HAS_FASTAPI = importlib.util.find_spec("fastapi") is not None
+HAS_MULTIPART = importlib.util.find_spec("multipart") is not None
+HAS_API = HAS_FASTAPI and HAS_MULTIPART
 
 
-@unittest.skipUnless(HAS_FASTAPI, "FastAPI extra não instalado")
+@unittest.skipUnless(HAS_API, "FastAPI/multipart extra não instalado")
 class APISmokeTests(unittest.TestCase):
     def test_app_exposes_health_contents_and_jobs_routes(self):
         from mathinmovement.api import create_app
@@ -27,6 +29,8 @@ class APISmokeTests(unittest.TestCase):
         self.assertIn("/studio/assets", paths)
         self.assertIn("/health", paths)
         self.assertIn("/contents", paths)
+        self.assertIn("/imports", paths)
+        self.assertIn("/uploads/music", paths)
         self.assertIn("/jobs", paths)
         self.assertIn("/jobs/{job_id}", paths)
         self.assertIn("/jobs/{job_id}/cancel", paths)
