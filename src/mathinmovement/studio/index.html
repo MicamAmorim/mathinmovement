@@ -123,6 +123,14 @@
             </div>
 
             <div class="field-group">
+              <label for="voice">Voz TTS</label>
+              <select id="voice">
+                <option value="">Padrão do manifest</option>
+                <option value="pt-BR-AntonioNeural">pt-BR-AntonioNeural</option>
+              </select>
+            </div>
+
+            <div class="field-group">
               <label for="musicPath">Trilha sonora <span>opcional</span></label>
               <input id="musicPath" type="text" placeholder="C:\caminho\musica.mp3">
               <p class="hint">O caminho é lido pela máquina onde o worker está executando.</p>
@@ -163,6 +171,13 @@
                 <span>
                   <strong>Pular TTS</strong>
                   <small>Não gera segmentos de narração ausentes.</small>
+                </span>
+              </label>
+              <label class="toggle-row">
+                <input id="forceVoice" type="checkbox">
+                <span>
+                  <strong>Regenerar TTS</strong>
+                  <small>Força a geração dos segmentos de voz.</small>
                 </span>
               </label>
               <label class="toggle-row">
