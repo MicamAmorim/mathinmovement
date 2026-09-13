@@ -38,24 +38,24 @@ Critério de saída: catálogo completo reproduzível pelo contrato declarativo 
 
 ## M2 — Kit de autoria para LLMs e usuários
 
-Objetivo: permitir que um usuário entregue uma questão do ENEM ou uma fórmula/teorema a uma LLM e receba um pacote válido do Math in Movement.
+Objetivo: permitir que um usuário entregue uma questão do ENEM ou uma fórmula/teorema a uma LLM e receba um pacote válido do Math in Movement. A autoria nova usa DSL canônica (`visual_program` / `visuals.*.program`); `dsl_shadow` fica apenas como compatibilidade de migração.
 
-- [ ] Criar `docs/AUTHORING_WITH_LLM.md`.
-- [ ] Documentar claramente que `.demo` e `.qenem` são containers ZIP autocontidos.
-- [ ] Fornecer template mínimo e template completo de `manifest.yaml` para cada tipo.
-- [ ] Fornecer um prompt oficial para geração de `.demo`.
-- [ ] Fornecer um prompt oficial para geração de `.qenem`.
-- [ ] Incluir regras de narrativa, sincronização visual, TeX, assets, formatos e DSL.
-- [ ] Exigir no prompt que a LLM produza conteúdo compatível com a versão da DSL declarada.
-- [ ] Incluir checklist de validação e comandos:
+- [x] Criar `docs/AUTHORING_WITH_LLM.md`.
+- [x] Documentar claramente que `.demo` e `.qenem` são containers ZIP autocontidos.
+- [x] Fornecer template mínimo e template completo de `manifest.yaml` para cada tipo.
+- [x] Fornecer um prompt oficial para geração de `.demo`.
+- [x] Fornecer um prompt oficial para geração de `.qenem`.
+- [x] Incluir regras de narrativa, sincronização visual, TeX, assets, formatos e DSL.
+- [x] Exigir no prompt que a LLM produza conteúdo compatível com a versão da DSL declarada.
+- [x] Incluir checklist de validação e comandos:
   - `mim import`
   - `mim validate`
   - `mim dsl validate`
   - `mim produce --dry-run`
-- [ ] Adicionar exemplos prontos em `examples/templates/`.
-- [ ] Adicionar um comando futuro `mim scaffold demo|qenem` para gerar a estrutura-base localmente.
+- [x] Adicionar exemplos prontos em `examples/templates/`.
+- [x] Adicionar `mim scaffold demo|qenem` para gerar a estrutura-base localmente, com opção `--package`.
 
-Critério de saída: um usuário sem conhecer Python consegue pedir a uma LLM um conteúdo novo, importar o pacote e validá-lo.
+Critério de saída: um usuário sem conhecer Python consegue pedir a uma LLM um conteúdo novo, importar o pacote e validá-lo. **Concluído e validado localmente em 2026-09-12.**
 
 ## M3 — Math in Movement Studio (Web App)
 

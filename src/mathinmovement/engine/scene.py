@@ -29,6 +29,12 @@ if VIDEO_FORMAT not in {"vertical", "horizontal"}:
 IS_HORIZONTAL = VIDEO_FORMAT == "horizontal"
 FAST_PREVIEW = os.getenv("MIM_FAST_PREVIEW", "0").lower() in {"1", "true", "yes"}
 DSL_SHADOW = os.getenv("MIM_DSL_SHADOW", "0").lower() in {"1", "true", "yes"}
+RENDER_ENGINE = os.getenv(
+    "MIM_RENDER_ENGINE",
+    "dsl" if DSL_SHADOW else "native",
+).strip().lower()
+if RENDER_ENGINE not in {"native", "dsl"}:
+    RENDER_ENGINE = "native"
 
 config.frame_width = 16 if IS_HORIZONTAL else 9
 config.frame_height = 9 if IS_HORIZONTAL else 16
@@ -290,19 +296,16 @@ class UnifiedContentScene(Scene):
         )
 
     def render_demo(self):
-        if DSL_SHADOW:
+        if RENDER_ENGINE == "dsl":
             shadow = self.manifest.get("dsl_shadow") or {}
-            program = shadow.get("visual_program")
+            program = (
+                self.manifest.get("visual_program")
+                or shadow.get("visual_program")
+            )
             if not program:
                 raise RuntimeError(
-                    f"{self.record.id}: shadow port DSL sem visual_program."
+                    f"{self.record.id}: engine DSL sem visual_program."
                 )
-            from ..dsl.runtime import run_visual_program
-            run_visual_program(self, program)
-            return
-
-        program = self.manifest.get("visual_program")
-        if program:
             from ..dsl.runtime import run_visual_program
             run_visual_program(self, program)
             return
@@ -2616,7 +2619,7 @@ class UnifiedContentScene(Scene):
         self.exam = self.manifest["exam"]
         self.solution = self.manifest["solution"]
         self.visuals = self.manifest.get("visuals") or {}
-        if DSL_SHADOW:
+        if RENDER_ENGINE == "dsl":
             shadow_visuals = (self.manifest.get("dsl_shadow") or {}).get("visuals") or {}
             merged = {}
             for key in set(self.visuals) | set(shadow_visuals):
@@ -2699,7 +2702,7 @@ class UnifiedContentScene(Scene):
             h, DOWN, buff=0.12
         )
         spec = self.visuals["statement"]
-        if spec.get("program"):
+        if RENDER_ENGINE == "dsl" and spec.get("program"):
             from ..dsl.runtime import build_visual_group
             fig, _dsl_runtime = build_visual_group(
                 self,
@@ -2745,7 +2748,7 @@ class UnifiedContentScene(Scene):
         )
         self.add(h)
         option_spec = self.visuals.get("options") or {}
-        if option_spec.get("program"):
+        if RENDER_ENGINE == "dsl" and option_spec.get("program"):
             from ..dsl.runtime import build_visual_group
             body, _dsl_runtime = build_visual_group(
                 self,
@@ -2910,7 +2913,7 @@ class UnifiedContentScene(Scene):
         )
         self.add(h)
         spec = self.visuals.get("concept") or {}
-        if spec.get("program"):
+        if RENDER_ENGINE == "dsl" and spec.get("program"):
             from ..dsl.runtime import build_visual_group
             diagram, _dsl_runtime = build_visual_group(
                 self,

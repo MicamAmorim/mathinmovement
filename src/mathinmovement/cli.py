@@ -9,6 +9,7 @@ from .engine import RenderError, render_record
 from .models import ManifestError
 from .package_io import export_package, import_package
 from .production import produce
+from .scaffold import scaffold_content
 from .registry import Registry
 from .tts import prepare_narration
 from .dsl.coverage import (
@@ -71,6 +72,24 @@ def cmd_import(args: argparse.Namespace) -> int:
 def cmd_export(args: argparse.Namespace) -> int:
     output = export_package(args.id, args.output)
     print(f"Exportado: {output}")
+    return 0
+
+
+def cmd_scaffold(args: argparse.Namespace) -> int:
+    destination, package = scaffold_content(
+        args.type,
+        args.id,
+        output_dir=args.output,
+        title=args.title,
+        year=args.year,
+        question_number=args.question_number,
+        package=args.package,
+        force=args.force,
+    )
+    print(f"Scaffold criado: {destination}")
+    print(f"Manifest: {destination / 'manifest.yaml'}")
+    if package is not None:
+        print(f"Pacote: {package}")
     return 0
 
 
@@ -361,6 +380,24 @@ def build_parser() -> argparse.ArgumentParser:
     p_export.add_argument("-o", "--output")
     p_export.set_defaults(func=cmd_export)
 
+    p_scaffold = sub.add_parser(
+        "scaffold",
+        help="Cria uma base declarativa válida para demo ou qENEM.",
+    )
+    p_scaffold.add_argument("type", choices=["demo", "qenem"])
+    p_scaffold.add_argument("id")
+    p_scaffold.add_argument("-o", "--output")
+    p_scaffold.add_argument("--title")
+    p_scaffold.add_argument("--year", type=int)
+    p_scaffold.add_argument("--question-number", type=int, default=1)
+    p_scaffold.add_argument(
+        "--package",
+        action="store_true",
+        help="Também gera o container .demo/.qenem.",
+    )
+    p_scaffold.add_argument("--force", action="store_true")
+    p_scaffold.set_defaults(func=cmd_scaffold)
+
     p_db = sub.add_parser(
         "db",
         help="Inspeciona ou reconstrói o índice SQLite.",
@@ -521,7 +558,7 @@ def build_parser() -> argparse.ArgumentParser:
         default="production",
         help=(
             "production grava em media/; native em media_native/; "
-            "dsl renderiza o shadow port em media_dsl/."
+            "dsl renderiza o programa declarativo em media_dsl/."
         ),
     )
     p_render.add_argument("--preview", action="store_true")

@@ -1,0 +1,106 @@
+schema_version: 1
+id: exemplo-demo-triangulo
+type: demo
+status: draft
+title: Por que a área do triângulo tem um meio?
+tags: [geometria, areas, triangulo]
+
+presentation:
+  profile: motion_math_v1
+  number: "EX"
+  category: ÁREAS
+  formula: 'A=\frac{bh}{2}'
+  signature: MATH IN MOVEMENT
+  captions:
+    base_height: Uma base e uma altura perpendicular.
+    duplicate: Duas cópias congruentes formam um paralelogramo.
+    conclusion: O triângulo ocupa metade da área.
+
+lesson:
+  objective: Demonstrar visualmente a fórmula da área do triângulo.
+  hook: De onde vem o fator um meio?
+  steps:
+    - narration: Identifique a base e a altura perpendicular.
+      math: 'b\text{ e }h'
+    - narration: Duplique o triângulo e complete um paralelogramo.
+      math: '2A=bh'
+    - narration: Divida os dois lados por dois.
+      math: 'A=\frac{bh}{2}'
+
+result:
+  math: 'A=\frac{bh}{2}'
+
+render:
+  production_engine: dsl
+  formats: [vertical]
+  default_format: vertical
+
+narration:
+  enabled: false
+
+visual_program:
+  dsl_version: '1.0'
+  objects:
+    - id: tri
+      type: polygon
+      points: [[-2.8, -0.8], [2.2, -0.8], [-0.8, 1.8]]
+      color: cyan
+      fill_opacity: 0.20
+      stroke_width: 3
+    - id: height
+      type: dashed_line
+      start: [-0.8, -0.8]
+      end: [-0.8, 1.8]
+      color: gold
+    - id: b
+      type: math
+      tex: 'b'
+      font_size: 34
+      color: cyan
+      at: [-0.3, -1.3]
+    - id: h
+      type: math
+      tex: 'h'
+      font_size: 34
+      color: gold
+      at: [-1.15, 0.35]
+    - id: result
+      type: math
+      tex: 'A=\frac{bh}{2}'
+      font_size: 44
+      color: white
+      at: [0, -4.0]
+  timeline:
+    - op: create
+      target: tri
+      run_time: 1.4
+    - op: parallel
+      run_time: 0.9
+      actions:
+        - op: create
+          target: height
+        - op: write
+          target: b
+        - op: write
+          target: h
+    - op: wait
+      duration: 0.7
+    - op: copy
+      source: tri
+      id: tri_copy
+      color: gold
+    - op: rotate
+      target: tri_copy
+      angle: '=pi'
+      run_time: 1.1
+    - op: translate
+      target: tri_copy
+      by: [2.0, 0.0]
+      run_time: 1.1
+    - op: write
+      target: result
+      run_time: 1.0
+    - op: highlight
+      target: result
+    - op: wait
+      duration: 1.0

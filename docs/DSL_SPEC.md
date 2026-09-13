@@ -4,6 +4,17 @@
 
 Descrever animações matemáticas sem Python arbitrário no conteúdo. O engine traduz objetos e ações declarativas para Manim.
 
+## Autoria canônica
+
+Para conteúdo novo:
+
+- demos usam `visual_program` na raiz do manifest;
+- qENEM usam `visuals.<nome>.program`;
+- `render.production_engine` deve ser `dsl`;
+- `dsl_shadow` é um campo legado de compatibilidade com o catálogo migrado e não deve ser emitido por novas ferramentas de autoria.
+
+O renderer nativo é um fallback apenas para conteúdos que declaram explicitamente `native_ready: true`.
+
 ## Programa mínimo
 
 ```yaml

@@ -1,0 +1,62 @@
+schema_version: 1
+id: EXEMPLO-2026-MT-01
+type: qenem
+status: draft
+title: Exemplo qENEM mínimo
+tags: [exemplo, qenem, geometria]
+
+exam:
+  name: Exemplo
+  year: 2026
+  canonical_id: EXEMPLO-2026-MT-01
+  question_number: 1
+  booklet: Modelo didático
+
+question:
+  stem: Um quadrado tem lado medindo 3 cm. Qual é sua área?
+  options:
+    A: '6 cm²'
+    B: '9 cm²'
+    C: '12 cm²'
+    D: '18 cm²'
+    E: '27 cm²'
+  answer: B
+
+solution:
+  data:
+    - lado = 3 cm
+  goal: Calcular a área do quadrado.
+  strategy:
+    - Usar A = l².
+  steps:
+    - label: Substitua o lado
+      math: 'A=3^2=9\,\mathrm{cm}^2'
+  final_answer: B
+
+visuals:
+  concept:
+    note: A área do quadrado é lado vezes lado.
+    program:
+      dsl_version: '1.0'
+      objects:
+        - id: square
+          type: square
+          side_length: 3
+          color: cyan
+          fill_opacity: 0.15
+        - id: side
+          type: math
+          tex: '3\,\mathrm{cm}'
+          font_size: 28
+          color: gold
+          at: [0, -2.0]
+      timeline: []
+    show: [square, side]
+
+render:
+  production_engine: dsl
+  formats: [vertical]
+  default_format: vertical
+
+narration:
+  enabled: false
