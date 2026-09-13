@@ -47,7 +47,7 @@ class RenderModeTests(unittest.TestCase):
         )
         self.assertEqual(
             _resolve_engine(qenem, "production", video_format="horizontal"),
-            ("dsl", "media"),
+            ("native", "media"),
         )
 
     def test_explicit_native_uses_isolated_media_root(self):
@@ -104,11 +104,15 @@ class RenderModeTests(unittest.TestCase):
                 )
                 self.assertIn("media_dsl", output.parts)
 
-    def test_qenem_production_dsl_supports_both_approved_formats(self):
+    def test_qenem_supports_both_dsl_formats_but_only_vertical_is_promoted(self):
         record = self.registry.get("ENEM-2021-MT-11")
         self.assertEqual(
             record.manifest["dsl_shadow"]["formats"],
             ["vertical", "horizontal"],
+        )
+        self.assertEqual(
+            record.manifest["dsl_shadow"]["approved_formats"],
+            ["vertical"],
         )
         for video_format in ("vertical", "horizontal"):
             output = render_record(
