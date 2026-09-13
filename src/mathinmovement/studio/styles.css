@@ -92,7 +92,7 @@ h3 { margin-bottom: 8px; }
 
 .toolbar {
   display: grid;
-  grid-template-columns: minmax(260px, 1fr) 170px 180px auto;
+  grid-template-columns: minmax(260px, 1.25fr) repeat(6, minmax(125px, .55fr)) auto;
   gap: 14px;
   align-items: end;
   padding: 18px;
@@ -421,7 +421,7 @@ tr:last-child td { border-bottom: 0; }
 @media (max-width: 1050px) {
   .workspace { grid-template-columns: 1fr; }
   .composer { position: static; }
-  .toolbar { grid-template-columns: 1fr 1fr; }
+  .toolbar { grid-template-columns: repeat(2, 1fr); }
   .search-wrap { grid-column: 1 / -1; }
   .toolbar-count { text-align: left; padding-bottom: 0; }
 }
