@@ -191,6 +191,7 @@ def render_record(
     dry_run: bool = False,
     fast_preview: bool = False,
     render_engine: str = "production",
+    output_root: str | Path | None = None,
 ) -> Path:
     try:
         resolution, fps = RESOLUTIONS[(video_format, quality)]
@@ -211,9 +212,14 @@ def render_record(
         video_format=video_format,
         quality=quality,
     )
-    output_dir = (
-        PROJECT_ROOT / output_root_name / record.type / video_format
+    root = (
+        Path(output_root)
+        if output_root is not None
+        else PROJECT_ROOT / output_root_name
     )
+    if not root.is_absolute():
+        root = PROJECT_ROOT / root
+    output_dir = root / record.type / video_format
     output = output_dir / f"{safe_id}.mp4"
 
     render = record.manifest.get("render") or {}
