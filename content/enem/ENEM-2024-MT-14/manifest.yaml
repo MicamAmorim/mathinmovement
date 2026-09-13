@@ -173,5 +173,163 @@
         "audio": "assets/audio/answer.mp3"
       }
     ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "statement": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "trap",
+              "type": "polygon",
+              "points": [
+                [
+                  0,
+                  -2
+                ],
+                [
+                  2.7,
+                  -1.2
+                ],
+                [
+                  1.7,
+                  1.8
+                ],
+                [
+                  0,
+                  2
+                ]
+              ],
+              "color": "cyan",
+              "fill_opacity": 0.15
+            },
+            {
+              "id": "axis",
+              "type": "line",
+              "start": [
+                0,
+                -2.8
+              ],
+              "end": [
+                0,
+                2.8
+              ],
+              "color": "gold",
+              "stroke_width": 6
+            },
+            {
+              "id": "spin",
+              "type": "curved_arrow",
+              "start": [
+                0.7,
+                2.4
+              ],
+              "end": [
+                -0.7,
+                2.4
+              ],
+              "angle": 1.8479956786,
+              "color": "pink"
+            },
+            {
+              "id": "PS",
+              "type": "math",
+              "tex": "PS",
+              "at": [
+                -0.4,
+                0
+              ],
+              "color": "gold",
+              "font_size": 22
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "trap",
+          "axis",
+          "spin",
+          "PS"
+        ]
+      },
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "frustum",
+              "type": "polygon",
+              "points": [
+                [
+                  -2,
+                  -1.5
+                ],
+                [
+                  2,
+                  -1.5
+                ],
+                [
+                  1,
+                  1.7
+                ],
+                [
+                  -1,
+                  1.7
+                ]
+              ],
+              "color": "cyan",
+              "fill_opacity": 0.18
+            },
+            {
+              "id": "axis",
+              "type": "dashed_line",
+              "start": [
+                0,
+                -2.1
+              ],
+              "end": [
+                0,
+                2.3
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "R",
+              "type": "math",
+              "tex": "R",
+              "at": [
+                1,
+                -1.85
+              ],
+              "color": "gold",
+              "font_size": 25
+            },
+            {
+              "id": "r",
+              "type": "math",
+              "tex": "r",
+              "at": [
+                0.5,
+                2.05
+              ],
+              "color": "white",
+              "font_size": 25
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "frustum",
+          "axis",
+          "R",
+          "r"
+        ]
+      }
+    }
   }
 }
