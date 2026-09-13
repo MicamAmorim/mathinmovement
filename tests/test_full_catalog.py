@@ -38,7 +38,9 @@ class FullCatalogTests(unittest.TestCase):
                 record.id,
             )
             self.assertTrue(render["native_ready"], record.id)
-            self.assertTrue(record.manifest.get("dsl_shadow"), record.id)
+            shadow = record.manifest.get("dsl_shadow") or {}
+            self.assertTrue(shadow, record.id)
+            self.assertIn("vertical", shadow.get("approved_formats") or [], record.id)
             self.assertNotIn("compatibility", render, record.id)
 
     def test_qenem_answers_match_solution(self):
