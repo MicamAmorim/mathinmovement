@@ -43,7 +43,7 @@ class QENEMBatch0211PromotedTests(unittest.TestCase):
     def test_batch_has_exactly_ten_items(self):
         self.assertEqual(len(CANDIDATES), 10)
 
-    def test_batch_is_native_production(self):
+    def test_batch_prefers_dsl_production_with_native_fallback(self):
         for content_id in CANDIDATES:
             record = self.registry.get(content_id)
             render = record.manifest["render"]
@@ -53,9 +53,10 @@ class QENEMBatch0211PromotedTests(unittest.TestCase):
             )
             self.assertEqual(
                 render["production_engine"],
-                "native",
+                "dsl",
             )
             self.assertTrue(render["native_ready"])
+            self.assertEqual(record.manifest["dsl_shadow"]["approved_formats"], ["vertical"])
             self.assertNotIn("compatibility", render)
 
     def test_batch_supports_production_and_native_dry_runs(self):
