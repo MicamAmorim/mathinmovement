@@ -149,6 +149,28 @@ python -m mathinmovement produce nova.qenem --dry-run
 
 Dentro de um pacote novo, assets podem ser referenciados de forma portátil, por exemplo `assets/audio/source.mp3`.
 
+## Pós-produção e trilha sonora
+
+Para gerar um master com música sem acoplar a trilha ao Manim:
+
+```powershell
+python -m mathinmovement produce ENEM-2021-MT-11 `
+    --music "music/bach.mp3" `
+    --music-volume 0.12
+```
+
+Quando há música, o render Manim é preservado em `media_raw/` com fingerprint. Trocas posteriores de música/volume/fades reutilizam o raw compatível.
+
+Também é possível pós-processar um MP4 bruto diretamente:
+
+```powershell
+python -m mathinmovement postprocess raw.mp4 `
+    --music "music/chopin.mp3" `
+    -o master.mp4
+```
+
+Veja `docs/POSTPRODUCTION.md`.
+
 ## DSL visual v1
 
 A DSL visual é versionada e usa um registry extensível de capacidades.
@@ -202,7 +224,8 @@ src/mathinmovement/      engine, CLI, registry e renderers
 schemas/                 contratos dos manifests
 tests/                   testes automatizados
 cache/                   SQLite reconstruível
-media/                   saída de produção (DSL preferida + fallback nativo)
+media/                   master final de produção
+media_raw/               renders Manim reutilizáveis por fingerprint
 media_native/            saída isolada do renderer nativo
 media_dsl/               saída isolada para regressão/inspeção DSL
 ```
