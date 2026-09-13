@@ -84,9 +84,14 @@ def _resolve_engine(
         )
 
     if requested == "production":
+        shadow = record.manifest.get("dsl_shadow") or {}
+        approved_formats = list(
+            shadow.get("approved_formats")
+            or _engine_formats(record, "dsl")
+        )
         if (
             production == "dsl"
-            and video_format in _engine_formats(record, "dsl")
+            and video_format in approved_formats
         ):
             return "dsl", "media"
         return "native", "media"
