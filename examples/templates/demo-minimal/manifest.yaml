@@ -1,0 +1,48 @@
+schema_version: 1
+id: exemplo-demo-minimal
+type: demo
+status: draft
+title: Exemplo mínimo de demonstração
+tags: [exemplo, demo]
+
+lesson:
+  objective: Mostrar visualmente uma relação matemática simples.
+  steps:
+    - narration: Mostre o objeto e apresente a relação final.
+      math: 'A=\frac{bh}{2}'
+
+result:
+  math: 'A=\frac{bh}{2}'
+
+render:
+  production_engine: dsl
+  formats: [vertical]
+  default_format: vertical
+
+narration:
+  enabled: false
+
+visual_program:
+  dsl_version: '1.0'
+  objects:
+    - id: tri
+      type: polygon
+      points: [[-2.5, -1.0], [2.5, -1.0], [0.0, 2.0]]
+      color: cyan
+      fill_opacity: 0.16
+      stroke_width: 3
+    - id: formula
+      type: math
+      tex: 'A=\frac{bh}{2}'
+      font_size: 42
+      color: white
+      at: [0, -3.5]
+  timeline:
+    - op: create
+      target: tri
+      run_time: 1.4
+    - op: write
+      target: formula
+      run_time: 1.0
+    - op: wait
+      duration: 1.2
