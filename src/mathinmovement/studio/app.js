@@ -29,6 +29,8 @@ const elements = {
   dryRun: $("dryRun"),
   fastPreview: $("fastPreview"),
   skipVoice: $("skipVoice"),
+  ducking: $("ducking"),
+  normalizeAudio: $("normalizeAudio"),
   enqueueButton: $("enqueueButton"),
   formMessage: $("formMessage"),
   jobsBody: $("jobsBody"),
@@ -53,8 +55,13 @@ async function request(url, options = {}) {
   return response.json();
 }
 
-function escapeText(value) {
-  return String(value ?? "");
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 function filteredContents() {
@@ -191,10 +198,10 @@ function renderJobs() {
     const row = document.createElement("tr");
 
     const status = document.createElement("td");
-    status.innerHTML = `<span class="job-status ${job.status}">${escapeText(job.status)}</span>`;
+    status.innerHTML = `<span class="job-status ${job.status}">${escapeHtml(job.status)}</span>`;
 
     const target = document.createElement("td");
-    target.innerHTML = `<strong>${escapeText(job.payload?.target || "—")}</strong><br><span class="content-id">${escapeText(job.id.slice(0, 12))}</span>`;
+    target.innerHTML = `<strong>${escapeHtml(job.payload?.target || "—")}</strong><br><span class="content-id">${escapeHtml(job.id.slice(0, 12))}</span>`;
 
     const config = document.createElement("td");
     config.textContent = jobConfig(job);
@@ -204,7 +211,7 @@ function renderJobs() {
 
     const result = document.createElement("td");
     const path = job.result?.output || job.error || "—";
-    result.innerHTML = `<div class="result-path" title="${escapeText(path)}">${escapeText(path)}</div>`;
+    result.innerHTML = `<div class="result-path" title="${escapeHtml(path)}">${escapeHtml(path)}</div>`;
 
     const action = document.createElement("td");
     if (job.status === "queued") {
@@ -254,6 +261,8 @@ async function enqueue(event) {
     dry_run: elements.dryRun.checked,
     fast: elements.fastPreview.checked,
     skip_voice: elements.skipVoice.checked,
+    no_ducking: !elements.ducking.checked,
+    no_normalize: !elements.normalizeAudio.checked,
   };
 
   const music = elements.musicPath.value.trim();
