@@ -390,6 +390,25 @@ input:focus, select:focus {
 .form-message.error { color: var(--red); }
 .form-message.success { color: var(--green); }
 
+.studio-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px 18px;
+  align-items: center;
+  padding: 18px;
+  margin-top: 22px;
+}
+
+.folder-button {
+  min-width: 190px;
+}
+
+.footer-message {
+  grid-column: 1 / -1;
+  margin: 0;
+  word-break: break-all;
+}
+
 .jobs-section { margin-top: 34px; }
 .jobs-controls { display: flex; align-items: center; gap: 12px; }
 .polling-indicator { color: var(--muted); font-size: .72rem; }
@@ -470,6 +489,8 @@ tr:last-child td { border-bottom: 0; }
 
 @media (max-width: 1050px) {
   .workspace { grid-template-columns: 1fr; }
+  .studio-footer { grid-template-columns: 1fr; }
+  .folder-button { width: 100%; }
   .import-panel { grid-template-columns: 1fr; }
   .import-controls { grid-template-columns: 1fr 1fr; }
   .import-controls > input[type="file"] { grid-column: 1 / -1; }
