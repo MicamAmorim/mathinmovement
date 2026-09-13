@@ -2913,7 +2913,7 @@ class UnifiedContentScene(Scene):
         )
         self.add(h)
         spec = self.visuals.get("concept") or {}
-        if spec.get("program"):
+        if RENDER_ENGINE == "dsl" and spec.get("program"):
             from ..dsl.runtime import build_visual_group
             diagram, _dsl_runtime = build_visual_group(
                 self,
