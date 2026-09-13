@@ -60,6 +60,23 @@ def _validate_catalog(registry: Registry) -> tuple[int, int]:
         raise RuntimeError(
             f"DSL demo incompleta: esperado 30/30; encontrado {demo_shadows}/30."
         )
+    if qenem_shadows != 30:
+        raise RuntimeError(
+            f"DSL qENEM incompleta: esperado 30/30; encontrado {qenem_shadows}/30."
+        )
+
+    for record in records:
+        production_engine = str(
+            (record.manifest.get("render") or {}).get(
+                "production_engine",
+                "native",
+            )
+        )
+        if production_engine != "dsl":
+            raise RuntimeError(
+                f"{record.id}: production_engine esperado 'dsl'; "
+                f"encontrado {production_engine!r}."
+            )
 
     return demo_shadows, qenem_shadows
 
