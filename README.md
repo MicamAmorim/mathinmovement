@@ -237,6 +237,28 @@ python -m mathinmovement jobs list
 
 Veja `docs/API_JOBS.md`.
 
+## Math in Movement Studio
+
+A interface web local usa a API e a fila persistente já existentes.
+
+```powershell
+python -m pip install -e ".[api]"
+python -m mathinmovement serve
+```
+
+Em outro terminal:
+
+```powershell
+python -m mathinmovement worker
+```
+
+Abra:
+
+```text
+http://127.0.0.1:8000/studio
+```
+
+O MVP já oferece catálogo, busca/filtros, configuração de render, TTS, trilha sonora e acompanhamento da fila. Veja `docs/STUDIO.md`.
 ## Roadmap
 
 O planejamento de evolução do projeto está em [`docs/ROADMAP.md`](docs/ROADMAP.md).

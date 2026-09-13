@@ -22,6 +22,9 @@ class APISmokeTests(unittest.TestCase):
             )
 
         paths = {route.path for route in app.routes}
+        self.assertIn("/", paths)
+        self.assertIn("/studio", paths)
+        self.assertIn("/studio/assets", paths)
         self.assertIn("/health", paths)
         self.assertIn("/contents", paths)
         self.assertIn("/jobs", paths)

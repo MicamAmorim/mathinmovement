@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Math in Movement Studio</title>
+  <link rel="stylesheet" href="/studio/assets/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">MATH IN MOVEMENT</p>
+        <h1>Studio</h1>
+        <p class="subtitle">Catálogo, renderização e acompanhamento de jobs em um só lugar.</p>
+      </div>
+      <div class="health" id="healthBadge">
+        <span class="health-dot"></span>
+        <span>Conectando...</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="toolbar card">
+        <div class="search-wrap">
+          <label for="search">Buscar conteúdo</label>
+          <input id="search" type="search" placeholder="Título, ID ou tag">
+        </div>
+        <div>
+          <label for="typeFilter">Tipo</label>
+          <select id="typeFilter">
+            <option value="">Todos</option>
+            <option value="demo">Demo</option>
+            <option value="qenem">qENEM</option>
+          </select>
+        </div>
+        <div>
+          <label for="statusFilter">Status</label>
+          <select id="statusFilter">
+            <option value="">Todos</option>
+            <option value="production">Produção</option>
+            <option value="draft">Rascunho</option>
+            <option value="validated">Validado</option>
+            <option value="deprecated">Depreciado</option>
+          </select>
+        </div>
+        <div>
+          <label for="yearFilter">Ano</label>
+          <select id="yearFilter"><option value="">Todos</option></select>
+        </div>
+        <div>
+          <label for="tagFilter">Tag</label>
+          <select id="tagFilter"><option value="">Todas</option></select>
+        </div>
+        <div>
+          <label for="formatFilter">Formato</label>
+          <select id="formatFilter">
+            <option value="">Todos</option>
+            <option value="vertical">Vertical</option>
+            <option value="horizontal">Horizontal</option>
+          </select>
+        </div>
+        <div>
+          <label for="narrationFilter">Narração</label>
+          <select id="narrationFilter">
+            <option value="">Todas</option>
+            <option value="yes">Com narração</option>
+            <option value="no">Sem narração</option>
+          </select>
+        </div>
+        <div class="toolbar-count">
+          <span id="catalogCount">0 conteúdos</span>
+        </div>
+      </section>
+
+      <div class="workspace">
+        <section class="catalog-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">CATÁLOGO</p>
+              <h2>Conteúdos</h2>
+            </div>
+            <button class="ghost-button" id="refreshCatalog">Atualizar</button>
+          </div>
+          <div id="catalog" class="catalog-grid"></div>
+          <div id="catalogEmpty" class="empty-state hidden">
+            Nenhum conteúdo corresponde aos filtros.
+          </div>
+        </section>
+
+        <aside class="composer card" id="composer">
+          <div class="composer-empty" id="composerEmpty">
+            <div class="composer-icon">∑</div>
+            <h3>Selecione um conteúdo</h3>
+            <p>Escolha um card ao lado para configurar uma renderização.</p>
+          </div>
+
+          <form id="renderForm" class="hidden">
+            <div class="composer-heading">
+              <div>
+                <p class="eyebrow">NOVO JOB</p>
+                <h2 id="selectedTitle">Renderizar</h2>
+                <p class="content-id" id="selectedId"></p>
+              </div>
+              <span class="type-pill" id="selectedType"></span>
+            </div>
+
+            <div class="form-grid two">
+              <div>
+                <label for="renderFormat">Formato</label>
+                <select id="renderFormat">
+                  <option value="vertical">Vertical 9:16</option>
+                  <option value="horizontal">Horizontal 16:9</option>
+                </select>
+              </div>
+              <div>
+                <label for="renderQuality">Qualidade</label>
+                <select id="renderQuality">
+                  <option value="draft">Draft</option>
+                  <option value="final">Final</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="voice">Voz TTS</label>
+              <select id="voice">
+                <option value="">Padrão do manifest</option>
+                <option value="pt-BR-AntonioNeural">pt-BR-AntonioNeural</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="musicPath">Trilha sonora <span>opcional</span></label>
+              <input id="musicPath" type="text" placeholder="C:\caminho\musica.mp3">
+              <p class="hint">O caminho é lido pela máquina onde o worker está executando.</p>
+            </div>
+
+            <div class="form-grid three">
+              <div>
+                <label for="musicVolume">Volume</label>
+                <input id="musicVolume" type="number" min="0" step="0.01" value="0.12">
+              </div>
+              <div>
+                <label for="fadeIn">Fade in</label>
+                <input id="fadeIn" type="number" min="0" step="0.5" value="1.5">
+              </div>
+              <div>
+                <label for="fadeOut">Fade out</label>
+                <input id="fadeOut" type="number" min="0" step="0.5" value="2.5">
+              </div>
+            </div>
+
+            <div class="toggle-grid">
+              <label class="toggle-row">
+                <input id="dryRun" type="checkbox">
+                <span>
+                  <strong>Dry run</strong>
+                  <small>Planeja sem renderizar o Manim.</small>
+                </span>
+              </label>
+              <label class="toggle-row">
+                <input id="fastPreview" type="checkbox">
+                <span>
+                  <strong>Preview rápido</strong>
+                  <small>Reduz esperas e desativa áudio na prévia.</small>
+                </span>
+              </label>
+              <label class="toggle-row">
+                <input id="skipVoice" type="checkbox">
+                <span>
+                  <strong>Pular TTS</strong>
+                  <small>Não gera segmentos de narração ausentes.</small>
+                </span>
+              </label>
+              <label class="toggle-row">
+                <input id="forceVoice" type="checkbox">
+                <span>
+                  <strong>Regenerar TTS</strong>
+                  <small>Força a geração dos segmentos de voz.</small>
+                </span>
+              </label>
+              <label class="toggle-row">
+                <input id="ducking" type="checkbox" checked>
+                <span>
+                  <strong>Ducking automático</strong>
+                  <small>Reduz a música durante a narração.</small>
+                </span>
+              </label>
+              <label class="toggle-row">
+                <input id="normalizeAudio" type="checkbox" checked>
+                <span>
+                  <strong>Normalizar áudio</strong>
+                  <small>Aplica loudness alvo ao master final.</small>
+                </span>
+              </label>
+            </div>
+
+            <button class="primary-button" type="submit" id="enqueueButton">
+              Enfileirar render
+            </button>
+            <p id="formMessage" class="form-message"></p>
+          </form>
+        </aside>
+      </div>
+
+      <section class="jobs-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">FILA</p>
+            <h2>Jobs recentes</h2>
+          </div>
+          <div class="jobs-controls">
+            <span class="polling-indicator"><span></span> atualização automática</span>
+            <button class="ghost-button" id="refreshJobs">Atualizar</button>
+          </div>
+        </div>
+        <div class="jobs-card card">
+          <div class="jobs-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Conteúdo</th>
+                  <th>Configuração</th>
+                  <th>Criado</th>
+                  <th>Resultado</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="jobsBody"></tbody>
+            </table>
+          </div>
+          <div id="jobsEmpty" class="empty-state hidden">A fila ainda está vazia.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <template id="contentCardTemplate">
+    <article class="content-card">
+      <div class="card-topline">
+        <span class="type-pill card-type"></span>
+        <span class="status-pill card-status"></span>
+      </div>
+      <div>
+        <h3 class="card-title"></h3>
+        <p class="content-id card-id"></p>
+      </div>
+      <div class="tag-list"></div>
+      <div class="card-footer">
+        <span class="card-meta"></span>
+        <button class="select-button">Configurar</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="/studio/assets/app.js" defer></script>
+</body>
+</html>

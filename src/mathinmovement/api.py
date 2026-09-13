@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Any
 
 from .jobs import JOB_STATUSES, JobRecord, JobStore
@@ -21,6 +22,8 @@ def _job_dict(job: JobRecord) -> dict[str, Any]:
 def create_app(*, store: JobStore | None = None):
     try:
         from fastapi import FastAPI, HTTPException, Query
+        from fastapi.responses import FileResponse, RedirectResponse
+        from fastapi.staticfiles import StaticFiles
         from pydantic import BaseModel, Field
     except ImportError as exc:
         raise RuntimeError(
@@ -31,8 +34,24 @@ def create_app(*, store: JobStore | None = None):
     store = store or JobStore()
     app = FastAPI(
         title="Math in Movement API",
-        version="0.1",
+        version="0.2",
     )
+
+    studio_root = Path(__file__).with_name("studio")
+    if studio_root.is_dir():
+        app.mount(
+            "/studio/assets",
+            StaticFiles(directory=studio_root),
+            name="studio-assets",
+        )
+
+        @app.get("/", include_in_schema=False)
+        def root():
+            return RedirectResponse(url="/studio")
+
+        @app.get("/studio", include_in_schema=False)
+        def studio():
+            return FileResponse(studio_root / "index.html")
 
     class ProduceJobRequest(BaseModel):
         target: str
@@ -85,6 +104,23 @@ def create_app(*, store: JobStore | None = None):
                 ),
                 "tags": list(record.tags),
                 "render": record.manifest.get("render") or {},
+                "narration": {
+                    "enabled": bool(
+                        (record.manifest.get("narration") or {}).get(
+                            "enabled",
+                            False,
+                        )
+                    ),
+                    "segments": len(
+                        (record.manifest.get("narration") or {}).get(
+                            "segments",
+                            [],
+                        )
+                    ),
+                    "voice": (
+                        record.manifest.get("narration") or {}
+                    ).get("voice"),
+                },
             }
             for record in records
         ]
