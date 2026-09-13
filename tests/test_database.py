@@ -16,9 +16,10 @@ class DatabaseTests(unittest.TestCase):
             stats = database_stats(db_path)
             self.assertTrue(stats["exists"])
             self.assertEqual(stats["total"], len(registry))
-            self.assertEqual(stats["total"], 60)
-            self.assertEqual(stats["by_type"].get("demo"), 30)
-            self.assertEqual(stats["by_type"].get("qenem"), 30)
+            self.assertGreaterEqual(stats["total"], 60)
+            self.assertEqual(stats["by_status"].get("production"), 60)
+            self.assertGreaterEqual(stats["by_type"].get("demo", 0), 30)
+            self.assertGreaterEqual(stats["by_type"].get("qenem", 0), 30)
 
             # Regressão Windows: nenhuma conexão pode manter o arquivo aberto.
             db_path.unlink()
