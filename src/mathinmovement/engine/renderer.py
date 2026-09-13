@@ -46,14 +46,38 @@ def _short_build_dir(
     return PROJECT_ROOT / ".mim_build" / engine_code / digest / format_code / quality_code
 
 
+def _has_canonical_dsl(record: ContentRecord) -> bool:
+    manifest = record.manifest
+    if manifest.get("visual_program"):
+        return True
+    visuals = manifest.get("visuals") or {}
+    return any(
+        isinstance(spec, dict) and bool(spec.get("program"))
+        for spec in visuals.values()
+    )
+
+
+def _has_shadow_dsl(record: ContentRecord) -> bool:
+    shadow = record.manifest.get("dsl_shadow") or {}
+    if shadow.get("visual_program"):
+        return True
+    visuals = shadow.get("visuals") or {}
+    return any(
+        isinstance(spec, dict) and bool(spec.get("program"))
+        for spec in visuals.values()
+    )
+
+
 def _engine_formats(
     record: ContentRecord,
     engine: str,
 ) -> list[str]:
     render = record.manifest.get("render") or {}
     if engine == "dsl":
+        if _has_canonical_dsl(record):
+            return list(render.get("formats") or ["vertical"])
         shadow = record.manifest.get("dsl_shadow") or {}
-        if not shadow:
+        if not _has_shadow_dsl(record):
             return []
         return list(
             shadow.get("formats")
@@ -84,11 +108,14 @@ def _resolve_engine(
         )
 
     if requested == "production":
-        shadow = record.manifest.get("dsl_shadow") or {}
-        approved_formats = list(
-            shadow.get("approved_formats")
-            or _engine_formats(record, "dsl")
-        )
+        if _has_canonical_dsl(record):
+            approved_formats = _engine_formats(record, "dsl")
+        else:
+            shadow = record.manifest.get("dsl_shadow") or {}
+            approved_formats = list(
+                shadow.get("approved_formats")
+                or _engine_formats(record, "dsl")
+            )
         if (
             production == "dsl"
             and video_format in approved_formats
@@ -100,9 +127,9 @@ def _resolve_engine(
         return "native", "media_native"
 
     if requested == "dsl":
-        if not record.manifest.get("dsl_shadow"):
+        if not (_has_canonical_dsl(record) or _has_shadow_dsl(record)):
             raise ManifestError(
-                f"{record.id}: ainda não possui shadow port DSL."
+                f"{record.id}: nenhum programa DSL foi declarado."
             )
         return "dsl", "media_dsl"
 
@@ -190,7 +217,7 @@ def render_record(
     render = record.manifest.get("render") or {}
     allowed = _engine_formats(record, resolved_engine)
     if video_format not in allowed:
-        label = "shadow DSL" if resolved_engine == "dsl" else "renderer nativo"
+        label = "DSL" if resolved_engine == "dsl" else "renderer nativo"
         raise ManifestError(
             f"{record.id}: {label} não suporta {video_format!r}. "
             f"Disponíveis: {', '.join(map(str, allowed))}."
@@ -238,13 +265,15 @@ def render_record(
 
     if fast_preview:
         env["MIM_FAST_PREVIEW"] = "1"
+    env["MIM_RENDER_ENGINE"] = resolved_engine
     if resolved_engine == "dsl":
+        # Compatibilidade com cenas/branches anteriores à promoção canônica.
         env["MIM_DSL_SHADOW"] = "1"
 
     label = (
         f"production→{resolved_engine}"
         if render_engine == "production"
-        else ("dsl-shadow" if render_engine == "dsl" else "native")
+        else ("dsl" if render_engine == "dsl" else "native")
     )
     print(
         f"[{record.type}] {record.id} · {video_format} · "
