@@ -31,6 +31,7 @@ class APISmokeTests(unittest.TestCase):
         self.assertIn("/contents", paths)
         self.assertIn("/imports", paths)
         self.assertIn("/uploads/music", paths)
+        self.assertIn("/system/open-media-folder", paths)
         self.assertIn("/jobs", paths)
         self.assertIn("/jobs/{job_id}", paths)
         self.assertIn("/jobs/{job_id}/cancel", paths)
