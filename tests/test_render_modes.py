@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from mathinmovement.engine.renderer import render_record
+from mathinmovement.engine.renderer import _resolve_engine, render_record
 from mathinmovement.registry import Registry
 
 
@@ -32,6 +32,23 @@ class RenderModeTests(unittest.TestCase):
         )
         self.assertIn("media", output.parts)
         self.assertNotIn("media_native", output.parts)
+
+    def test_production_engine_resolution_is_format_aware(self):
+        demo = self.registry.get("area-triangulo")
+        qenem = self.registry.get("ENEM-2021-MT-11")
+
+        self.assertEqual(
+            _resolve_engine(demo, "production", video_format="vertical"),
+            ("dsl", "media"),
+        )
+        self.assertEqual(
+            _resolve_engine(demo, "production", video_format="horizontal"),
+            ("native", "media"),
+        )
+        self.assertEqual(
+            _resolve_engine(qenem, "production", video_format="horizontal"),
+            ("dsl", "media"),
+        )
 
     def test_explicit_native_uses_isolated_media_root(self):
         for content_id in ("area-triangulo", "ENEM-2021-MT-11"):
