@@ -25,7 +25,7 @@ def create_app(*, store: JobStore | None = None):
     except ImportError as exc:
         raise RuntimeError(
             "API opcional não instalada. "
-            "Execute: pip install -e ".[api]""
+            'Execute: pip install -e ".[api]"'
         ) from exc
 
     store = store or JobStore()
@@ -154,7 +154,7 @@ def serve(
     except ImportError as exc:
         raise RuntimeError(
             "Servidor API opcional não instalado. "
-            "Execute: pip install -e ".[api]""
+            'Execute: pip install -e ".[api]"'
         ) from exc
 
     uvicorn.run(
