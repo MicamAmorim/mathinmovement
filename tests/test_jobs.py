@@ -57,10 +57,11 @@ class JobStoreTests(unittest.TestCase):
         )
         canceled = self.store.cancel("job-1")
         self.assertEqual(canceled.status, "canceled")
-        with self.assertRaises(ValueError):
-            self.store.claim_next(kinds={"produce"}) or self.store.cancel(
-                "job-1"
-            )
+        self.assertIsNone(
+            self.store.claim_next(kinds={"produce"})
+        )
+        again = self.store.cancel("job-1")
+        self.assertEqual(again.status, "canceled")
 
     def test_succeed_and_fail_transitions(self):
         self.store.enqueue(
