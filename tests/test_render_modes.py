@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 
 from mathinmovement.engine.renderer import _resolve_engine, render_record
-from mathinmovement.models import ContentRecord
+from mathinmovement.models import ContentRecord, ManifestError
 from mathinmovement.registry import Registry
 
 
@@ -84,6 +84,31 @@ class RenderModeTests(unittest.TestCase):
             render_engine="dsl",
         )
         self.assertIn("media_dsl", output.parts)
+
+    def test_canonical_dsl_only_content_rejects_native_engine(self):
+        record = ContentRecord(
+            id="dsl-only",
+            type="demo",
+            title="DSL only",
+            path=Path("."),
+            manifest={
+                "render": {
+                    "production_engine": "dsl",
+                    "formats": ["vertical"],
+                },
+                "visual_program": {
+                    "dsl_version": "1.0",
+                    "objects": [],
+                    "timeline": [],
+                },
+            },
+        )
+        with self.assertRaises(ManifestError):
+            render_record(
+                record,
+                dry_run=True,
+                render_engine="native",
+            )
 
     def test_canonical_qenem_visual_program_needs_no_shadow_block(self):
         record = ContentRecord(
