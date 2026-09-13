@@ -16,10 +16,12 @@ Este roadmap acompanha a evolução do Math in Movement de engine declarativo em
 - [x] DSL visual v1 e runtime extensível.
 - [x] Testes automatizados e regressão DSL.
 - [x] Validação local como quality gate canônico enquanto CI remota estiver indisponível (`mim verify`).
-- [ ] Concluir migração do catálogo para programas DSL declarativos.
+- [x] Concluir migração do catálogo para programas DSL declarativos.
   - Estado em 2026-09-12 na branch `feature-dsl-catalog-migration`: 30/30 demos e 30/30 qENEM possuem shadow ports DSL.
-  - Migração estrutural concluída: 60/60 conteúdos possuem representação declarativa shadow.
-  - Próxima etapa: regressão renderizada, correções visuais e promoção quando visualmente equivalentes.
+  - Regressão renderizada vertical dos 60 conteúdos aprovada visualmente.
+  - Os 60 manifests agora usam `production_engine: dsl`; a produção aplica fallback nativo por formato quando o shadow DSL não o declara.
+  - Demos: DSL aprovada em vertical; horizontal permanece protegido pelo renderer nativo.
+  - qENEM: shadow DSL declarado para vertical e horizontal.
 
 ## M1 — Fechar a migração DSL
 
@@ -27,9 +29,9 @@ Prioridade imediata.
 
 - [x] Migrar os 9 demos restantes para DSL.
 - [x] Migrar os qENEM restantes para DSL quando aplicável. Estado atual: 30/30.
-- [ ] Executar regressão visual dos shadow ports.
-- [ ] Corrigir diferenças de layout, TeX, timing e composição.
-- [ ] Promover os programas validados e reduzir dependência de renderers específicos.
+- [x] Executar regressão visual dos shadow ports em vertical.
+- [x] Validar layout, TeX, timing e composição da regressão vertical.
+- [x] Promover os programas validados e reduzir dependência de renderers específicos.
 - [ ] Consolidar a branch de migração na `main`.
 
 Critério de saída: catálogo completo reproduzível pelo contrato declarativo aprovado, com testes de regressão e sem perda visual relevante. A validação não depende de GitHub Actions: `mim verify` é o quality gate canônico local, e `mim verify --render-dsl --keep-going` executa a regressão renderizada.
