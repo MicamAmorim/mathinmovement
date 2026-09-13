@@ -112,6 +112,7 @@ def build_ffmpeg_command(
     fade_out: float = 2.5,
     ducking: bool = True,
     normalize: bool = True,
+    ffmpeg_binary: str | None = None,
 ) -> list[str]:
     if duration <= 0:
         raise ManifestError("duration deve ser positiva.")
@@ -120,7 +121,7 @@ def build_ffmpeg_command(
     if fade_in < 0 or fade_out < 0:
         raise ManifestError("fade_in/fade_out não podem ser negativos.")
 
-    ffmpeg = _require_binary("ffmpeg")
+    ffmpeg = ffmpeg_binary or _require_binary("ffmpeg")
     input_video = Path(input_video)
     output_video = Path(output_video)
     music = Path(soundtrack) if soundtrack is not None else None
@@ -232,6 +233,8 @@ def postprocess_video(
     output = Path(output_video)
     music = Path(soundtrack) if soundtrack is not None else None
 
+    if music is not None and not music.exists():
+        raise ManifestError(f"Trilha sonora não encontrada: {music}")
     if not source.exists():
         if dry_run:
             return PostProcessResult(
@@ -242,8 +245,6 @@ def postprocess_video(
                 copied=False,
             )
         raise ManifestError(f"Vídeo bruto não encontrado: {source}")
-    if music is not None and not music.exists():
-        raise ManifestError(f"Trilha sonora não encontrada: {music}")
 
     if music is None and not normalize:
         if not dry_run:
