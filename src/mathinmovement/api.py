@@ -7,6 +7,7 @@ from typing import Any
 from .config import UPLOAD_ROOT
 from .engine.renderer import production_formats
 from .jobs import JOB_STATUSES, JobRecord, JobStore
+from .models import ManifestError
 from .package_io import ALLOWED_EXTENSIONS, import_package
 from .registry import Registry
 
@@ -187,20 +188,16 @@ def create_app(*, store: JobStore | None = None):
                 "imported": True,
                 "content": _content_dict(record),
             }
+        except ManifestError as exc:
+            raise HTTPException(
+                status_code=422,
+                detail=str(exc),
+            ) from exc
         except ValueError as exc:
             raise HTTPException(
                 status_code=413,
                 detail=str(exc),
             ) from exc
-        except Exception as exc:
-            from .models import ManifestError
-
-            if isinstance(exc, ManifestError):
-                raise HTTPException(
-                    status_code=422,
-                    detail=str(exc),
-                ) from exc
-            raise
         finally:
             temporary.unlink(missing_ok=True)
 
