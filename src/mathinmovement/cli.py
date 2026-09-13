@@ -521,7 +521,7 @@ def build_parser() -> argparse.ArgumentParser:
         default="production",
         help=(
             "production grava em media/; native em media_native/; "
-            "dsl renderiza o shadow port em media_dsl/."
+            "dsl renderiza o programa declarativo em media_dsl/."
         ),
     )
     p_render.add_argument("--preview", action="store_true")
