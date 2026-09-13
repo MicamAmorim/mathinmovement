@@ -3,7 +3,11 @@ from __future__ import annotations
 import unittest
 from pathlib import Path
 
-from mathinmovement.engine.renderer import _resolve_engine, render_record
+from mathinmovement.engine.renderer import (
+    _resolve_engine,
+    production_formats,
+    render_record,
+)
 from mathinmovement.models import ContentRecord, ManifestError
 from mathinmovement.registry import Registry
 
@@ -51,6 +55,35 @@ class RenderModeTests(unittest.TestCase):
             _resolve_engine(qenem, "production", video_format="horizontal"),
             ("native", "media"),
         )
+
+    def test_effective_production_formats_include_native_fallback(self):
+        for content_id in ("area-triangulo", "ENEM-2021-MT-11"):
+            with self.subTest(content_id=content_id):
+                record = self.registry.get(content_id)
+                self.assertEqual(
+                    production_formats(record),
+                    ["vertical", "horizontal"],
+                )
+
+    def test_canonical_vertical_only_content_stays_vertical_only(self):
+        record = ContentRecord(
+            id="vertical-only",
+            type="demo",
+            title="Vertical only",
+            path=Path("."),
+            manifest={
+                "render": {
+                    "production_engine": "dsl",
+                    "formats": ["vertical"],
+                },
+                "visual_program": {
+                    "dsl_version": "1.0",
+                    "objects": [],
+                    "timeline": [],
+                },
+            },
+        )
+        self.assertEqual(production_formats(record), ["vertical"])
 
     def test_canonical_demo_dsl_needs_no_shadow_block(self):
         record = ContentRecord(
