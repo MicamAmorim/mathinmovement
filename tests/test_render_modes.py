@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
 
 from mathinmovement.engine.renderer import _resolve_engine, render_record
+from mathinmovement.models import ContentRecord
 from mathinmovement.registry import Registry
 
 
@@ -48,6 +50,70 @@ class RenderModeTests(unittest.TestCase):
         self.assertEqual(
             _resolve_engine(qenem, "production", video_format="horizontal"),
             ("native", "media"),
+        )
+
+    def test_canonical_demo_dsl_needs_no_shadow_block(self):
+        record = ContentRecord(
+            id="demo-canonical",
+            type="demo",
+            title="Demo canônica",
+            path=Path("."),
+            manifest={
+                "render": {
+                    "production_engine": "dsl",
+                    "formats": ["vertical"],
+                },
+                "visual_program": {
+                    "dsl_version": "1.0",
+                    "objects": [],
+                    "timeline": [],
+                },
+            },
+        )
+        self.assertEqual(
+            _resolve_engine(
+                record,
+                "production",
+                video_format="vertical",
+            ),
+            ("dsl", "media"),
+        )
+        output = render_record(
+            record,
+            dry_run=True,
+            render_engine="dsl",
+        )
+        self.assertIn("media_dsl", output.parts)
+
+    def test_canonical_qenem_visual_program_needs_no_shadow_block(self):
+        record = ContentRecord(
+            id="qenem-canonical",
+            type="qenem",
+            title="qENEM canônica",
+            path=Path("."),
+            manifest={
+                "render": {
+                    "production_engine": "dsl",
+                    "formats": ["vertical"],
+                },
+                "visuals": {
+                    "concept": {
+                        "program": {
+                            "dsl_version": "1.0",
+                            "objects": [],
+                            "timeline": [],
+                        }
+                    }
+                },
+            },
+        )
+        self.assertEqual(
+            _resolve_engine(
+                record,
+                "production",
+                video_format="vertical",
+            ),
+            ("dsl", "media"),
         )
 
     def test_explicit_native_uses_isolated_media_root(self):
