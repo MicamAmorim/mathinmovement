@@ -1,10 +1,13 @@
 import hashlib
+import os
 import shutil
+import subprocess
+import sys
 import uuid
 from pathlib import Path
 from typing import Any
 
-from .config import UPLOAD_ROOT
+from .config import MEDIA_ROOT, UPLOAD_ROOT
 from .engine.renderer import production_formats
 from .jobs import JOB_STATUSES, JobRecord, JobStore
 from .models import ManifestError
@@ -256,6 +259,28 @@ def create_app(*, store: JobStore | None = None):
             "path": str(destination.resolve()),
             "size": size,
             "fingerprint": digest[:12],
+        }
+
+    @app.post("/system/open-media-folder")
+    def open_media_folder() -> dict[str, str]:
+        MEDIA_ROOT.mkdir(parents=True, exist_ok=True)
+        path = MEDIA_ROOT.resolve()
+
+        try:
+            if sys.platform == "win32":
+                os.startfile(str(path))  # type: ignore[attr-defined]
+            elif sys.platform == "darwin":
+                subprocess.Popen(["open", str(path)])
+            else:
+                subprocess.Popen(["xdg-open", str(path)])
+        except (OSError, subprocess.SubprocessError) as exc:
+            raise HTTPException(
+                status_code=500,
+                detail=f"Não foi possível abrir a pasta de vídeos: {exc}",
+            ) from exc
+
+        return {
+            "opened": str(path),
         }
 
     @app.post("/jobs", status_code=202)
