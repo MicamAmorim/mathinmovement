@@ -1,0 +1,133 @@
+schema_version: 1
+id: EXEMPLO-2026-MT-02
+type: qenem
+status: draft
+title: Exemplo qENEM completo — função afim
+tags: [exemplo, qenem, funcao-afim]
+
+exam:
+  name: Exemplo
+  year: 2026
+  canonical_id: EXEMPLO-2026-MT-02
+  question_number: 2
+  booklet: Modelo didático
+
+question:
+  stem: |
+    Um serviço cobra uma taxa fixa de R$ 5,00 mais R$ 2,00 por quilômetro percorrido.
+    Qual expressão representa o custo C, em reais, para uma distância x, em quilômetros?
+  options:
+    A: 'C=2+5x'
+    B: 'C=5x'
+    C: 'C=5+2x'
+    D: 'C=7x'
+    E: 'C=10x'
+  answer: C
+
+solution:
+  data:
+    - taxa fixa = R$ 5,00
+    - custo variável = R$ 2,00 por quilômetro
+    - distância = x km
+  goal: Escrever a função que representa o custo total.
+  hook: Separe a parte fixa da parte que cresce com a distância.
+  strategy:
+    - Identificar o termo constante.
+    - Multiplicar a taxa por quilômetro pela distância.
+    - Somar as duas parcelas.
+  steps:
+    - label: Parcela fixa
+      math: '5'
+      narration: A taxa fixa contribui com cinco reais.
+    - label: Parcela variável
+      math: '2x'
+      narration: Dois reais por quilômetro produzem a parcela dois x.
+    - label: Some as parcelas
+      math: 'C(x)=5+2x'
+      narration: O custo total é cinco mais dois x.
+  final_answer: C
+
+visuals:
+  statement:
+    description: Esquema das duas parcelas que compõem o preço.
+    program:
+      dsl_version: '1.0'
+      objects:
+        - id: fixed
+          type: text
+          text: 'taxa fixa: R$ 5'
+          font_size: 28
+          color: cyan
+          at: [0, 1.2]
+        - id: variable
+          type: text
+          text: 'R$ 2 por km'
+          font_size: 28
+          color: gold
+          at: [0, -0.2]
+        - id: plus
+          type: math
+          tex: '+'
+          font_size: 36
+          color: white
+          at: [0, 0.5]
+      timeline: []
+    show: [fixed, variable, plus]
+  concept:
+    note: Função afim = parcela fixa + taxa de variação vezes a entrada.
+    program:
+      dsl_version: '1.0'
+      objects:
+        - id: fixed
+          type: math
+          tex: '5'
+          font_size: 44
+          color: cyan
+          at: [-1.8, 0]
+        - id: variable
+          type: math
+          tex: '2x'
+          font_size: 44
+          color: gold
+          at: [1.0, 0]
+        - id: formula
+          type: math
+          tex: 'C(x)=5+2x'
+          font_size: 44
+          color: white
+          at: [0, -2.2]
+      timeline: []
+    show: [fixed, variable, formula]
+
+render:
+  production_engine: dsl
+  formats: [vertical]
+  default_format: vertical
+
+narration:
+  enabled: true
+  language: pt-BR
+  voice: pt-BR-AntonioNeural
+  segments:
+    - key: source
+      text: Exemplo 2026, questão 2. Vamos interpretar e resolver.
+    - key: statement_01
+      text: Um serviço cobra uma taxa fixa de cinco reais mais dois reais por quilômetro percorrido. Qual expressão representa o custo?
+    - key: figure
+      text: O preço tem duas parcelas, uma fixa e uma variável.
+    - key: options
+      text: Compare as cinco expressões apresentadas.
+    - key: data
+      text: Separe cinco reais fixos, dois reais por quilômetro e a distância x.
+    - key: strategy
+      text: Some a parcela fixa à parcela que cresce com a distância.
+    - key: visual
+      text: A estrutura é constante mais taxa vezes entrada.
+    - key: step_01
+      text: A parcela fixa é cinco.
+    - key: step_02
+      text: A parcela variável é dois x.
+    - key: step_03
+      text: Portanto, C de x é igual a cinco mais dois x.
+    - key: answer
+      text: A resposta é a alternativa C.
