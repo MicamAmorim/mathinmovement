@@ -183,6 +183,13 @@ Guia oficial:
 
 Os templates oficiais são testados automaticamente contra os schemas e a DSL.
 
+Crie uma base local com:
+
+```powershell
+python -m mathinmovement scaffold demo meu-demo
+python -m mathinmovement scaffold qenem minha-questao --year 2026 --question-number 146 --package
+```
+
 ## Roadmap
 
 O planejamento de evolução do projeto está em [`docs/ROADMAP.md`](docs/ROADMAP.md).
