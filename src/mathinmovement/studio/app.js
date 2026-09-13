@@ -8,6 +8,10 @@ const $ = (id) => document.getElementById(id);
 
 const elements = {
   health: $("healthBadge"),
+  packageFile: $("packageFile"),
+  replacePackage: $("replacePackage"),
+  importPackage: $("importPackage"),
+  importMessage: $("importMessage"),
   search: $("search"),
   typeFilter: $("typeFilter"),
   statusFilter: $("statusFilter"),
@@ -27,7 +31,9 @@ const elements = {
   renderFormat: $("renderFormat"),
   renderQuality: $("renderQuality"),
   voice: $("voice"),
+  musicFile: $("musicFile"),
   musicPath: $("musicPath"),
+  musicHint: $("musicHint"),
   musicVolume: $("musicVolume"),
   fadeIn: $("fadeIn"),
   fadeOut: $("fadeOut"),
@@ -46,9 +52,12 @@ const elements = {
 };
 
 async function request(url, options = {}) {
+  const isFormData = options.body instanceof FormData;
   const response = await fetch(url, {
-    headers: { "Content-Type": "application/json", ...(options.headers || {}) },
     ...options,
+    headers: isFormData
+      ? { ...(options.headers || {}) }
+      : { "Content-Type": "application/json", ...(options.headers || {}) },
   });
   if (!response.ok) {
     let message = `${response.status} ${response.statusText}`;
@@ -85,7 +94,7 @@ function filteredContents() {
       ...(item.tags || []),
       item.year || "",
     ].join(" ").toLowerCase();
-    const formats = item.render?.formats || ["vertical"];
+    const formats = item.production_formats || item.render?.formats || ["vertical"];
     const hasNarration = Boolean(item.narration?.enabled);
     return (!term || haystack.includes(term))
       && (!type || item.type === type)
@@ -154,7 +163,11 @@ function renderCatalog() {
     status.classList.add(item.status);
     title.textContent = item.title;
     id.textContent = item.id;
-    meta.textContent = item.year ? String(item.year) : "sem ano";
+    const formats = item.production_formats || item.render?.formats || ["vertical"];
+    meta.textContent = [
+      item.year ? String(item.year) : "sem ano",
+      formats.map((value) => value === "horizontal" ? "16:9" : "9:16").join(" / "),
+    ].join(" · ");
 
     (item.tags || []).slice(0, 5).forEach((tag) => {
       const node = document.createElement("span");
@@ -183,7 +196,7 @@ function selectContent(item) {
   elements.formMessage.textContent = "";
   elements.formMessage.className = "form-message";
 
-  const formats = item.render?.formats || ["vertical"];
+  const formats = item.production_formats || item.render?.formats || ["vertical"];
   [...elements.renderFormat.options].forEach((option) => {
     option.disabled = !formats.includes(option.value);
   });
@@ -195,6 +208,66 @@ function selectContent(item) {
   if (window.innerWidth < 1050) {
     $("composer").scrollIntoView({ behavior: "smooth", block: "start" });
   }
+}
+
+async function importPackage() {
+  const file = elements.packageFile.files?.[0];
+  if (!file) {
+    elements.importMessage.textContent = "Selecione um arquivo .demo ou .qenem.";
+    elements.importMessage.className = "form-message import-message error";
+    return;
+  }
+
+  const suffix = file.name.toLowerCase();
+  if (!suffix.endsWith(".demo") && !suffix.endsWith(".qenem")) {
+    elements.importMessage.textContent = "O arquivo deve terminar em .demo ou .qenem.";
+    elements.importMessage.className = "form-message import-message error";
+    return;
+  }
+
+  const form = new FormData();
+  form.append("file", file);
+  form.append("replace", elements.replacePackage.checked ? "true" : "false");
+
+  elements.importPackage.disabled = true;
+  elements.importMessage.textContent = "Validando e importando pacote...";
+  elements.importMessage.className = "form-message import-message";
+
+  try {
+    const result = await request("/imports", {
+      method: "POST",
+      body: form,
+    });
+    elements.importMessage.textContent = `${result.content.id} importado com sucesso.`;
+    elements.importMessage.className = "form-message import-message success";
+    elements.packageFile.value = "";
+    await loadContents();
+    const imported = state.contents.find((item) => item.id === result.content.id);
+    if (imported) selectContent(imported);
+  } catch (error) {
+    elements.importMessage.textContent = error.message;
+    elements.importMessage.className = "form-message import-message error";
+  } finally {
+    elements.importPackage.disabled = false;
+  }
+}
+
+async function uploadSelectedMusic() {
+  const file = elements.musicFile.files?.[0];
+  if (!file) {
+    return elements.musicPath.value.trim() || null;
+  }
+
+  const form = new FormData();
+  form.append("file", file);
+  elements.musicHint.textContent = `Enviando ${file.name}...`;
+
+  const result = await request("/uploads/music", {
+    method: "POST",
+    body: form,
+  });
+  elements.musicHint.textContent = `${result.name} · upload concluído`;
+  return result.path;
 }
 
 async function loadHealth() {
@@ -320,14 +393,16 @@ async function enqueue(event) {
 
   const voice = elements.voice.value.trim();
   if (voice) payload.voice = voice;
-  const music = elements.musicPath.value.trim();
-  if (music) payload.music = music;
 
   elements.enqueueButton.disabled = true;
-  elements.formMessage.textContent = "Enfileirando...";
+  elements.formMessage.textContent = "Preparando job...";
   elements.formMessage.className = "form-message";
 
   try {
+    const music = await uploadSelectedMusic();
+    if (music) payload.music = music;
+
+    elements.formMessage.textContent = "Enfileirando...";
     const job = await request("/jobs", {
       method: "POST",
       body: JSON.stringify(payload),
@@ -356,6 +431,7 @@ async function enqueue(event) {
   node.addEventListener("change", renderCatalog);
 });
 
+elements.importPackage.addEventListener("click", importPackage);
 elements.refreshCatalog.addEventListener("click", loadContents);
 elements.refreshJobs.addEventListener("click", loadJobs);
 elements.renderForm.addEventListener("submit", enqueue);
