@@ -4,6 +4,13 @@ A DSL foi extraída dos 60 vídeos já aprovados, e não de uma lista abstrata.
 
 A auditoria separa objetos gráficos, ações, ações compostas, dinâmica e layout.
 
+## Estado da migração
+
+Em 2026-09-12, **30/30 demos** possuem `dsl_shadow.visual_program` e **30/30 qENEM** possuem `dsl_shadow.visuals`.
+Assim, os **60/60 conteúdos de produção** já têm uma representação shadow declarativa.
+
+A regressão renderizada vertical dos 60 conteúdos foi aprovada em 2026-09-12 e o catálogo foi promovido para `production_engine: dsl`. `dsl_shadow.formats` registra suporte técnico e `dsl_shadow.approved_formats` registra aprovação visual para produção. Atualmente os 60 conteúdos estão aprovados em vertical. As 30 qENEM também suportam horizontal na DSL, mas o 16:9 continua no renderer nativo até a regressão visual horizontal ser aprovada. Os demos mantêm shadow DSL apenas vertical por enquanto. O conjunto mínimo de capacidade das qENEM permanece com 6 questões.
+
 Cobertura mínima das demos: 31 capacidades semânticas usadas pelas 30 demos.
 Set cover mínimo de 8 demos:
 - area-triangulo

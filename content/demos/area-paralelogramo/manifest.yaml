@@ -37,7 +37,7 @@
     "math": "A=b\\cdot h"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],
@@ -51,5 +51,300 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "whole",
+          "type": "polygon",
+          "points": [
+            [
+              -3,
+              -1
+            ],
+            [
+              1.5,
+              -1
+            ],
+            [
+              3,
+              1.5
+            ],
+            [
+              -1.5,
+              1.5
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "cut",
+          "type": "dashed_line",
+          "start": [
+            1.5,
+            -1
+          ],
+          "end": [
+            1.5,
+            1.5
+          ],
+          "color": "gold"
+        },
+        {
+          "id": "left",
+          "type": "polygon",
+          "points": [
+            [
+              -3,
+              -1
+            ],
+            [
+              -1.5,
+              -1
+            ],
+            [
+              -1.5,
+              1.5
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "mid",
+          "type": "polygon",
+          "points": [
+            [
+              -1.5,
+              -1
+            ],
+            [
+              1.5,
+              -1
+            ],
+            [
+              1.5,
+              1.5
+            ],
+            [
+              -1.5,
+              1.5
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "moving",
+          "type": "polygon",
+          "points": [
+            [
+              1.5,
+              -1
+            ],
+            [
+              3,
+              1.5
+            ],
+            [
+              1.5,
+              1.5
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "outline",
+          "type": "rectangle",
+          "width": 4.5,
+          "height": 2.5,
+          "color": "white",
+          "at": [
+            -0.75,
+            0.25
+          ]
+        },
+        {
+          "id": "basebrace",
+          "type": "brace",
+          "start": [
+            -3,
+            -1.12
+          ],
+          "end": [
+            1.5,
+            -1.12
+          ],
+          "direction": "DOWN",
+          "color": "cyan"
+        },
+        {
+          "id": "baselabel",
+          "type": "math",
+          "tex": "b",
+          "font_size": 36,
+          "color": "cyan",
+          "at": [
+            -0.75,
+            -1.6
+          ]
+        },
+        {
+          "id": "hbrace",
+          "type": "brace",
+          "start": [
+            1.65,
+            -1
+          ],
+          "end": [
+            1.65,
+            1.5
+          ],
+          "direction": "RIGHT",
+          "color": "gold"
+        },
+        {
+          "id": "hlabel",
+          "type": "math",
+          "tex": "h",
+          "font_size": 36,
+          "color": "gold",
+          "at": [
+            2.15,
+            0.25
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "create",
+          "target": "whole",
+          "run_time": 1.8
+        },
+        {
+          "op": "create",
+          "target": "cut",
+          "run_time": 0.9
+        },
+        {
+          "op": "wait",
+          "duration": 0.8
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "remove",
+          "target": "whole"
+        },
+        {
+          "op": "add",
+          "target": "left"
+        },
+        {
+          "op": "add",
+          "target": "mid"
+        },
+        {
+          "op": "add",
+          "target": "moving"
+        },
+        {
+          "op": "fade_out",
+          "target": "cut",
+          "run_time": 0.35
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "translate",
+          "target": "moving",
+          "by": [
+            0,
+            0.55
+          ],
+          "run_time": 0.55
+        },
+        {
+          "op": "translate",
+          "target": "moving",
+          "by": [
+            -4.5,
+            0
+          ],
+          "run_time": 2.2
+        },
+        {
+          "op": "translate",
+          "target": "moving",
+          "by": [
+            0,
+            -0.55
+          ],
+          "run_time": 0.55
+        },
+        {
+          "op": "create",
+          "target": "outline",
+          "run_time": 0.8
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.75,
+          "actions": [
+            {
+              "op": "fade_in",
+              "target": "basebrace"
+            },
+            {
+              "op": "write",
+              "target": "baselabel"
+            },
+            {
+              "op": "fade_in",
+              "target": "hbrace"
+            },
+            {
+              "op": "write",
+              "target": "hlabel"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "end"
+        }
+      ]
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

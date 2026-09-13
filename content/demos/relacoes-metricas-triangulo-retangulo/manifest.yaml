@@ -58,7 +58,7 @@
     "math": "a^2=cn\\qquad b^2=cm"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],
@@ -423,6 +423,9 @@
           "op": "end"
         }
       ]
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

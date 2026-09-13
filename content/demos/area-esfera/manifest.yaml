@@ -50,7 +50,7 @@
     "math": "A=2\\pi R(2R)=4\\pi R^2"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],
@@ -64,5 +64,598 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "circle",
+          "type": "circle",
+          "radius": 2,
+          "color": "cyan"
+        },
+        {
+          "id": "radius",
+          "type": "line",
+          "start": [
+            0,
+            0
+          ],
+          "end": [
+            1.7320508,
+            1
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "rho",
+          "type": "line",
+          "start": [
+            0,
+            1
+          ],
+          "end": [
+            1.7320508,
+            1
+          ],
+          "color": "green",
+          "stroke_width": 2
+        },
+        {
+          "id": "tangent",
+          "type": "line",
+          "start": [
+            1.9570508,
+            0.6102886
+          ],
+          "end": [
+            1.5070508,
+            1.3897114
+          ],
+          "color": "pink",
+          "stroke_width": 6
+        },
+        {
+          "id": "R",
+          "type": "math",
+          "tex": "R",
+          "at": [
+            0.8,
+            0.25
+          ],
+          "color": "gold",
+          "font_size": 30
+        },
+        {
+          "id": "rho_l",
+          "type": "math",
+          "tex": "\\rho",
+          "at": [
+            0.85,
+            1.35
+          ],
+          "color": "green",
+          "font_size": 30
+        },
+        {
+          "id": "ds",
+          "type": "math",
+          "tex": "\\Delta s",
+          "at": [
+            2.15,
+            1
+          ],
+          "color": "pink",
+          "font_size": 30
+        },
+        {
+          "id": "aux1",
+          "type": "dashed_line",
+          "start": [
+            1.9570508,
+            0.6102886
+          ],
+          "end": [
+            1.9570508,
+            1.3897114
+          ],
+          "color": "white"
+        },
+        {
+          "id": "aux2",
+          "type": "dashed_line",
+          "start": [
+            1.9570508,
+            1.3897114
+          ],
+          "end": [
+            1.5070508,
+            1.3897114
+          ],
+          "color": "white"
+        },
+        {
+          "id": "dh",
+          "type": "math",
+          "tex": "\\Delta h",
+          "at": [
+            2.35,
+            1
+          ],
+          "color": "white",
+          "font_size": 25
+        },
+        {
+          "id": "band0",
+          "type": "line",
+          "start": [
+            -2,
+            -2
+          ],
+          "end": [
+            2,
+            -2
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band1",
+          "type": "line",
+          "start": [
+            -2,
+            -1.75
+          ],
+          "end": [
+            2,
+            -1.75
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band2",
+          "type": "line",
+          "start": [
+            -2,
+            -1.5
+          ],
+          "end": [
+            2,
+            -1.5
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band3",
+          "type": "line",
+          "start": [
+            -2,
+            -1.25
+          ],
+          "end": [
+            2,
+            -1.25
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band4",
+          "type": "line",
+          "start": [
+            -2,
+            -1
+          ],
+          "end": [
+            2,
+            -1
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band5",
+          "type": "line",
+          "start": [
+            -2,
+            -0.75
+          ],
+          "end": [
+            2,
+            -0.75
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band6",
+          "type": "line",
+          "start": [
+            -2,
+            -0.5
+          ],
+          "end": [
+            2,
+            -0.5
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band7",
+          "type": "line",
+          "start": [
+            -2,
+            -0.25
+          ],
+          "end": [
+            2,
+            -0.25
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band8",
+          "type": "line",
+          "start": [
+            -2,
+            0
+          ],
+          "end": [
+            2,
+            0
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band9",
+          "type": "line",
+          "start": [
+            -2,
+            0.25
+          ],
+          "end": [
+            2,
+            0.25
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band10",
+          "type": "line",
+          "start": [
+            -2,
+            0.5
+          ],
+          "end": [
+            2,
+            0.5
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band11",
+          "type": "line",
+          "start": [
+            -2,
+            0.75
+          ],
+          "end": [
+            2,
+            0.75
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band12",
+          "type": "line",
+          "start": [
+            -2,
+            1
+          ],
+          "end": [
+            2,
+            1
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band13",
+          "type": "line",
+          "start": [
+            -2,
+            1.25
+          ],
+          "end": [
+            2,
+            1.25
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band14",
+          "type": "line",
+          "start": [
+            -2,
+            1.5
+          ],
+          "end": [
+            2,
+            1.5
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band15",
+          "type": "line",
+          "start": [
+            -2,
+            1.75
+          ],
+          "end": [
+            2,
+            1.75
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        },
+        {
+          "id": "band16",
+          "type": "line",
+          "start": [
+            -2,
+            2
+          ],
+          "end": [
+            2,
+            2
+          ],
+          "color": "gold",
+          "stroke_width": 2
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "create",
+          "target": "circle",
+          "run_time": 2
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "create",
+              "target": "radius"
+            },
+            {
+              "op": "create",
+              "target": "rho"
+            },
+            {
+              "op": "create",
+              "target": "tangent"
+            },
+            {
+              "op": "write",
+              "target": "R"
+            },
+            {
+              "op": "write",
+              "target": "rho_l"
+            },
+            {
+              "op": "write",
+              "target": "ds"
+            }
+          ]
+        },
+        {
+          "op": "equation",
+          "step": 0
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "create",
+              "target": "aux1"
+            },
+            {
+              "op": "create",
+              "target": "aux2"
+            }
+          ]
+        },
+        {
+          "op": "write",
+          "target": "dh"
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 2
+        },
+        {
+          "op": "caption",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 3,
+          "size": 40
+        },
+        {
+          "op": "caption",
+          "step": 4
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.7,
+          "actions": [
+            {
+              "op": "fade_out",
+              "target": "radius"
+            },
+            {
+              "op": "fade_out",
+              "target": "rho"
+            },
+            {
+              "op": "fade_out",
+              "target": "tangent"
+            },
+            {
+              "op": "fade_out",
+              "target": "R"
+            },
+            {
+              "op": "fade_out",
+              "target": "rho_l"
+            },
+            {
+              "op": "fade_out",
+              "target": "ds"
+            },
+            {
+              "op": "fade_out",
+              "target": "aux1"
+            },
+            {
+              "op": "fade_out",
+              "target": "aux2"
+            },
+            {
+              "op": "fade_out",
+              "target": "dh"
+            }
+          ]
+        },
+        {
+          "op": "lagged",
+          "run_time": 2,
+          "lag_ratio": 0.05,
+          "actions": [
+            {
+              "op": "create",
+              "target": "band0"
+            },
+            {
+              "op": "create",
+              "target": "band1"
+            },
+            {
+              "op": "create",
+              "target": "band2"
+            },
+            {
+              "op": "create",
+              "target": "band3"
+            },
+            {
+              "op": "create",
+              "target": "band4"
+            },
+            {
+              "op": "create",
+              "target": "band5"
+            },
+            {
+              "op": "create",
+              "target": "band6"
+            },
+            {
+              "op": "create",
+              "target": "band7"
+            },
+            {
+              "op": "create",
+              "target": "band8"
+            },
+            {
+              "op": "create",
+              "target": "band9"
+            },
+            {
+              "op": "create",
+              "target": "band10"
+            },
+            {
+              "op": "create",
+              "target": "band11"
+            },
+            {
+              "op": "create",
+              "target": "band12"
+            },
+            {
+              "op": "create",
+              "target": "band13"
+            },
+            {
+              "op": "create",
+              "target": "band14"
+            },
+            {
+              "op": "create",
+              "target": "band15"
+            },
+            {
+              "op": "create",
+              "target": "band16"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 5
+        },
+        {
+          "op": "equation",
+          "step": 5
+        },
+        {
+          "op": "equation",
+          "step": 6
+        },
+        {
+          "op": "end"
+        }
+      ]
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

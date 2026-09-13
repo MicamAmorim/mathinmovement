@@ -55,7 +55,7 @@
     "math": "\\frac{a}{\\sin A}=\\frac{b}{\\sin B}=\\frac{c}{\\sin C}"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],
@@ -69,5 +69,264 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "tri",
+          "type": "polygon",
+          "points": [
+            [
+              -3,
+              -1.2
+            ],
+            [
+              3,
+              -1.2
+            ],
+            [
+              0.8,
+              2
+            ]
+          ],
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.12,
+          "stroke_width": 3
+        },
+        {
+          "id": "alt",
+          "type": "dashed_line",
+          "start": [
+            0.8,
+            2
+          ],
+          "end": [
+            0.8,
+            -1.2
+          ],
+          "color": "gold",
+          "stroke_width": 3
+        },
+        {
+          "id": "A",
+          "type": "math",
+          "tex": "A",
+          "font_size": 30,
+          "color": "white",
+          "at": [
+            -3.35,
+            -1.15
+          ]
+        },
+        {
+          "id": "B",
+          "type": "math",
+          "tex": "B",
+          "font_size": 30,
+          "color": "white",
+          "at": [
+            3.35,
+            -1.15
+          ]
+        },
+        {
+          "id": "C",
+          "type": "math",
+          "tex": "C",
+          "font_size": 30,
+          "color": "white",
+          "at": [
+            0.8,
+            2.4
+          ]
+        },
+        {
+          "id": "c",
+          "type": "math",
+          "tex": "c",
+          "font_size": 32,
+          "color": "cyan",
+          "at": [
+            0,
+            -1.65
+          ]
+        },
+        {
+          "id": "a",
+          "type": "math",
+          "tex": "a",
+          "font_size": 32,
+          "color": "cyan",
+          "at": [
+            2.15,
+            0.6
+          ]
+        },
+        {
+          "id": "b",
+          "type": "math",
+          "tex": "b",
+          "font_size": 32,
+          "color": "cyan",
+          "at": [
+            -1.35,
+            0.6
+          ]
+        },
+        {
+          "id": "h",
+          "type": "math",
+          "tex": "h",
+          "font_size": 32,
+          "color": "gold",
+          "at": [
+            1.15,
+            0.4
+          ]
+        },
+        {
+          "id": "second",
+          "type": "dashed_line",
+          "start": [
+            3,
+            -1.2
+          ],
+          "end": [
+            0.510534846,
+            1.75623987
+          ],
+          "color": "green"
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "parallel",
+          "run_time": 1.6,
+          "actions": [
+            {
+              "op": "create",
+              "target": "tri"
+            },
+            {
+              "op": "create",
+              "target": "alt"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.8,
+          "actions": [
+            {
+              "op": "write",
+              "target": "A"
+            },
+            {
+              "op": "write",
+              "target": "B"
+            },
+            {
+              "op": "write",
+              "target": "C"
+            },
+            {
+              "op": "write",
+              "target": "c"
+            },
+            {
+              "op": "write",
+              "target": "a"
+            },
+            {
+              "op": "write",
+              "target": "b"
+            },
+            {
+              "op": "write",
+              "target": "h"
+            }
+          ]
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "equation",
+          "step": 1
+        },
+        {
+          "op": "equation",
+          "step": 2
+        },
+        {
+          "op": "caption",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 4
+        },
+        {
+          "op": "caption",
+          "step": 5
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "fade_out",
+              "target": "alt"
+            },
+            {
+              "op": "fade_out",
+              "target": "h"
+            },
+            {
+              "op": "create",
+              "target": "second"
+            }
+          ]
+        },
+        {
+          "op": "equation",
+          "step": 5
+        },
+        {
+          "op": "equation",
+          "step": 6
+        },
+        {
+          "op": "equation",
+          "step": 7
+        },
+        {
+          "op": "end"
+        }
+      ]
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

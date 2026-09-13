@@ -81,7 +81,7 @@
     }
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical",
       "horizontal"
@@ -189,6 +189,117 @@
         "duration": 4.344,
         "audio": "assets/audio/answer.mp3"
       }
+    ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "top",
+              "type": "ellipse",
+              "width": 4,
+              "height": 1,
+              "at": [
+                0,
+                1.5
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "bottom",
+              "type": "ellipse",
+              "width": 4,
+              "height": 1,
+              "at": [
+                0,
+                -1.5
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "left",
+              "type": "line",
+              "start": [
+                -2,
+                1.5
+              ],
+              "end": [
+                -2,
+                -1.5
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "right",
+              "type": "line",
+              "start": [
+                2,
+                1.5
+              ],
+              "end": [
+                2,
+                -1.5
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "radius",
+              "type": "line",
+              "start": [
+                0,
+                0
+              ],
+              "end": [
+                2,
+                0
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "r",
+              "type": "math",
+              "tex": "r",
+              "at": [
+                1,
+                0.35
+              ],
+              "color": "gold",
+              "font_size": 25
+            },
+            {
+              "id": "h",
+              "type": "math",
+              "tex": "h",
+              "at": [
+                2.4,
+                0
+              ],
+              "color": "gold",
+              "font_size": 25
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "top",
+          "bottom",
+          "left",
+          "right",
+          "radius",
+          "r",
+          "h"
+        ]
+      }
+    },
+    "approved_formats": [
+      "vertical"
     ]
   }
 }

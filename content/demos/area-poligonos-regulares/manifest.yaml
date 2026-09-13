@@ -42,7 +42,7 @@
     "math": "A=\\frac{Pa}{2}"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],
@@ -56,5 +56,437 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "s0",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              1.991858428704209,
+              1.1499999999999997
+            ],
+            [
+              1.991858428704209,
+              -1.1499999999999997
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "s1",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              1.991858428704209,
+              -1.1499999999999997
+            ],
+            [
+              1.408343819019456e-16,
+              -2.3
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "s2",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              1.408343819019456e-16,
+              -2.3
+            ],
+            [
+              -1.991858428704209,
+              -1.1499999999999997
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "s3",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              -1.991858428704209,
+              -1.1499999999999997
+            ],
+            [
+              -1.9918584287042091,
+              1.1499999999999992
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "s4",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              -1.9918584287042091,
+              1.1499999999999992
+            ],
+            [
+              -4.225031457058368e-16,
+              2.3
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "s5",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              -4.225031457058368e-16,
+              2.3
+            ],
+            [
+              1.991858428704209,
+              1.1499999999999997
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "apo",
+          "type": "line",
+          "start": [
+            0,
+            0
+          ],
+          "end": [
+            1.991858428704209,
+            0
+          ],
+          "color": "gold"
+        },
+        {
+          "id": "alab",
+          "type": "math",
+          "tex": "a",
+          "font_size": 34,
+          "color": "gold",
+          "at": [
+            1.641858428704209,
+            0
+          ]
+        },
+        {
+          "id": "llab",
+          "type": "math",
+          "tex": "\\ell",
+          "font_size": 34,
+          "color": "white",
+          "at": [
+            1.991858428704209,
+            0.4
+          ]
+        },
+        {
+          "id": "e0",
+          "type": "line",
+          "start": [
+            1.991858428704209,
+            1.1499999999999997
+          ],
+          "end": [
+            1.991858428704209,
+            -1.1499999999999997
+          ],
+          "color": "green",
+          "stroke_width": 6
+        },
+        {
+          "id": "e1",
+          "type": "line",
+          "start": [
+            1.991858428704209,
+            -1.1499999999999997
+          ],
+          "end": [
+            1.408343819019456e-16,
+            -2.3
+          ],
+          "color": "green",
+          "stroke_width": 6
+        },
+        {
+          "id": "e2",
+          "type": "line",
+          "start": [
+            1.408343819019456e-16,
+            -2.3
+          ],
+          "end": [
+            -1.991858428704209,
+            -1.1499999999999997
+          ],
+          "color": "green",
+          "stroke_width": 6
+        },
+        {
+          "id": "e3",
+          "type": "line",
+          "start": [
+            -1.991858428704209,
+            -1.1499999999999997
+          ],
+          "end": [
+            -1.9918584287042091,
+            1.1499999999999992
+          ],
+          "color": "green",
+          "stroke_width": 6
+        },
+        {
+          "id": "e4",
+          "type": "line",
+          "start": [
+            -1.9918584287042091,
+            1.1499999999999992
+          ],
+          "end": [
+            -4.225031457058368e-16,
+            2.3
+          ],
+          "color": "green",
+          "stroke_width": 6
+        },
+        {
+          "id": "e5",
+          "type": "line",
+          "start": [
+            -4.225031457058368e-16,
+            2.3
+          ],
+          "end": [
+            1.991858428704209,
+            1.1499999999999997
+          ],
+          "color": "green",
+          "stroke_width": 6
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "lagged",
+          "run_time": 3,
+          "lag_ratio": 0.2,
+          "actions": [
+            {
+              "op": "create",
+              "target": "s0"
+            },
+            {
+              "op": "create",
+              "target": "s1"
+            },
+            {
+              "op": "create",
+              "target": "s2"
+            },
+            {
+              "op": "create",
+              "target": "s3"
+            },
+            {
+              "op": "create",
+              "target": "s4"
+            },
+            {
+              "op": "create",
+              "target": "s5"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "create",
+              "target": "apo"
+            },
+            {
+              "op": "write",
+              "target": "alab"
+            },
+            {
+              "op": "write",
+              "target": "llab"
+            }
+          ]
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "highlight",
+          "target": "s0"
+        },
+        {
+          "op": "equation",
+          "step": 1
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "highlight",
+          "target": "s0"
+        },
+        {
+          "op": "equation",
+          "tex": "1\\cdot\\frac{\\ell a}{2}",
+          "size": 44
+        },
+        {
+          "op": "highlight",
+          "target": "s1"
+        },
+        {
+          "op": "equation",
+          "tex": "2\\cdot\\frac{\\ell a}{2}",
+          "size": 44
+        },
+        {
+          "op": "highlight",
+          "target": "s2"
+        },
+        {
+          "op": "equation",
+          "tex": "3\\cdot\\frac{\\ell a}{2}",
+          "size": 44
+        },
+        {
+          "op": "highlight",
+          "target": "s3"
+        },
+        {
+          "op": "equation",
+          "tex": "4\\cdot\\frac{\\ell a}{2}",
+          "size": 44
+        },
+        {
+          "op": "highlight",
+          "target": "s4"
+        },
+        {
+          "op": "equation",
+          "tex": "5\\cdot\\frac{\\ell a}{2}",
+          "size": 44
+        },
+        {
+          "op": "highlight",
+          "target": "s5"
+        },
+        {
+          "op": "equation",
+          "tex": "6\\cdot\\frac{\\ell a}{2}",
+          "size": 44
+        },
+        {
+          "op": "caption",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "lagged",
+          "run_time": 2,
+          "lag_ratio": 0.2,
+          "actions": [
+            {
+              "op": "create",
+              "target": "e0"
+            },
+            {
+              "op": "create",
+              "target": "e1"
+            },
+            {
+              "op": "create",
+              "target": "e2"
+            },
+            {
+              "op": "create",
+              "target": "e3"
+            },
+            {
+              "op": "create",
+              "target": "e4"
+            },
+            {
+              "op": "create",
+              "target": "e5"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 4
+        },
+        {
+          "op": "equation",
+          "step": 4
+        },
+        {
+          "op": "end"
+        }
+      ]
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

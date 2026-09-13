@@ -46,31 +46,70 @@ def _short_build_dir(
     return PROJECT_ROOT / ".mim_build" / engine_code / digest / format_code / quality_code
 
 
+def _engine_formats(
+    record: ContentRecord,
+    engine: str,
+) -> list[str]:
+    render = record.manifest.get("render") or {}
+    if engine == "dsl":
+        shadow = record.manifest.get("dsl_shadow") or {}
+        if not shadow:
+            return []
+        return list(
+            shadow.get("formats")
+            or render.get("formats")
+            or render.get("native_formats")
+            or ["vertical"]
+        )
+    if engine == "native":
+        return list(
+            render.get("native_formats")
+            or render.get("formats")
+            or ["vertical"]
+        )
+    raise ManifestError(f"Engine desconhecido: {engine!r}")
+
+
 def _resolve_engine(
     record: ContentRecord,
     requested: str,
+    *,
+    video_format: str,
 ) -> tuple[str, str]:
     render = record.manifest.get("render") or {}
     production = str(render.get("production_engine", "native"))
-    if production != "native":
+    if production not in {"native", "dsl"}:
         raise ManifestError(
-            f"{record.id}: somente production_engine='native' é suportado; "
-            f"recebido {production!r}."
+            f"{record.id}: production_engine inválido: {production!r}."
         )
+
     if requested == "production":
+        shadow = record.manifest.get("dsl_shadow") or {}
+        approved_formats = list(
+            shadow.get("approved_formats")
+            or _engine_formats(record, "dsl")
+        )
+        if (
+            production == "dsl"
+            and video_format in approved_formats
+        ):
+            return "dsl", "media"
         return "native", "media"
+
     if requested == "native":
         return "native", "media_native"
+
     if requested == "dsl":
         if not record.manifest.get("dsl_shadow"):
             raise ManifestError(
                 f"{record.id}: ainda não possui shadow port DSL."
             )
         return "dsl", "media_dsl"
+
     raise ManifestError(f"Engine desconhecido: {requested!r}")
 
 
-def _native_command(
+def _manim_command(
     record: ContentRecord,
     *,
     video_format: str,
@@ -78,22 +117,6 @@ def _native_command(
     preview: bool,
     build_dir: Path,
 ) -> tuple[list[str], dict[str, str], Path]:
-    render = record.manifest.get("render") or {}
-    if render.get("native_ready") is False:
-        raise ManifestError(
-            f"{record.id}: renderer nativo ainda não foi validado."
-        )
-    allowed = (
-        render.get("native_formats")
-        or render.get("formats")
-        or ["vertical"]
-    )
-    if video_format not in allowed:
-        raise ManifestError(
-            f"{record.id}: renderer nativo não suporta {video_format!r}. "
-            f"Disponíveis: {', '.join(map(str, allowed))}."
-        )
-
     wrapper = build_dir / "_mim_scene.py"
     wrapper.write_text(
         "from mathinmovement.engine.scene import UnifiedContentScene\n"
@@ -148,7 +171,9 @@ def render_record(
         ) from exc
 
     resolved_engine, output_root_name = _resolve_engine(
-        record, render_engine
+        record,
+        render_engine,
+        video_format=video_format,
     )
     safe_id = _safe_filename(record.id)
     build_dir = _short_build_dir(
@@ -163,31 +188,19 @@ def render_record(
     output = output_dir / f"{safe_id}.mp4"
 
     render = record.manifest.get("render") or {}
-    if render_engine == "dsl":
-        shadow = record.manifest.get("dsl_shadow") or {}
-        shadow_formats = (
-            shadow.get("formats")
-            or render.get("native_formats")
-            or render.get("formats")
-            or ["vertical"]
+    allowed = _engine_formats(record, resolved_engine)
+    if video_format not in allowed:
+        label = "shadow DSL" if resolved_engine == "dsl" else "renderer nativo"
+        raise ManifestError(
+            f"{record.id}: {label} não suporta {video_format!r}. "
+            f"Disponíveis: {', '.join(map(str, allowed))}."
         )
-        if video_format not in shadow_formats:
-            raise ManifestError(
-                f"{record.id}: shadow DSL não suporta {video_format!r}. "
-                f"Disponíveis: {', '.join(map(str, shadow_formats))}."
-            )
-    if render.get("native_ready") is False:
+    if (
+        resolved_engine == "native"
+        and render.get("native_ready") is False
+    ):
         raise ManifestError(
             f"{record.id}: renderer nativo ainda não foi validado."
-        )
-    allowed = (
-        render.get("native_formats")
-        or render.get("formats")
-        or ["vertical"]
-    )
-    if video_format not in allowed:
-        raise ManifestError(
-            f"{record.id}: renderer nativo não suporta {video_format!r}."
         )
 
     wrapper = build_dir / "_mim_scene.py"
@@ -215,7 +228,7 @@ def render_record(
     else:
         shutil.rmtree(build_dir, ignore_errors=True)
         build_dir.mkdir(parents=True, exist_ok=True)
-        cmd, env, cwd = _native_command(
+        cmd, env, cwd = _manim_command(
             record,
             video_format=video_format,
             quality=quality,
@@ -225,11 +238,11 @@ def render_record(
 
     if fast_preview:
         env["MIM_FAST_PREVIEW"] = "1"
-    if render_engine == "dsl":
+    if resolved_engine == "dsl":
         env["MIM_DSL_SHADOW"] = "1"
 
     label = (
-        "production→native"
+        f"production→{resolved_engine}"
         if render_engine == "production"
         else ("dsl-shadow" if render_engine == "dsl" else "native")
     )

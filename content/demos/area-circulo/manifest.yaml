@@ -38,7 +38,7 @@
     "math": "A=(\\pi r)r=\\pi r^2"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],
@@ -52,5 +52,1513 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "n8s0",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.7853981633974483,
+          "start_angle": 0,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n8s1",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.7853981633974483,
+          "start_angle": 0.7853981633974483,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n8s2",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.7853981633974483,
+          "start_angle": 1.5707963267948966,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n8s3",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.7853981633974483,
+          "start_angle": 2.356194490192345,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n8s4",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.7853981633974483,
+          "start_angle": 3.141592653589793,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n8s5",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.7853981633974483,
+          "start_angle": 3.9269908169872414,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n8s6",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.7853981633974483,
+          "start_angle": 4.71238898038469,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n8s7",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.7853981633974483,
+          "start_angle": 5.497787143782138,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s0",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 0,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s1",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 0.39269908169872414,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s2",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 0.7853981633974483,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s3",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 1.1780972450961724,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s4",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 1.5707963267948966,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s5",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 1.9634954084936207,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s6",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 2.356194490192345,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s7",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 2.748893571891069,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s8",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 3.141592653589793,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s9",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 3.5342917352885173,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s10",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 3.9269908169872414,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s11",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 4.319689898685965,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s12",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 4.71238898038469,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s13",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 5.105088062083414,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s14",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 5.497787143782138,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n16s15",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.39269908169872414,
+          "start_angle": 5.890486225480862,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s0",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 0,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s1",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 0.19634954084936207,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s2",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 0.39269908169872414,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s3",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 0.5890486225480862,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s4",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 0.7853981633974483,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s5",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 0.9817477042468103,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s6",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 1.1780972450961724,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s7",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 1.3744467859455345,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s8",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 1.5707963267948966,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s9",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 1.7671458676442586,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s10",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 1.9634954084936207,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s11",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 2.1598449493429825,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s12",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 2.356194490192345,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s13",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 2.552544031041707,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s14",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 2.748893571891069,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s15",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 2.945243112740431,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s16",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 3.141592653589793,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s17",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 3.3379421944391554,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s18",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 3.5342917352885173,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s19",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 3.730641276137879,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s20",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 3.9269908169872414,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s21",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 4.123340357836604,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s22",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 4.319689898685965,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s23",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 4.516039439535327,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s24",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 4.71238898038469,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s25",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 4.908738521234052,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s26",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 5.105088062083414,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s27",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 5.301437602932776,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s28",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 5.497787143782138,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s29",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 5.6941366846315,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s30",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 5.890486225480862,
+          "color": "cyan",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        },
+        {
+          "id": "n32s31",
+          "type": "sector",
+          "radius": 1.65,
+          "angle": 0.19634954084936207,
+          "start_angle": 6.086835766330224,
+          "color": "gold",
+          "fill_opacity": 0.35,
+          "stroke_width": 1
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "text": "Divida o círculo em 8 setores iguais."
+        },
+        {
+          "op": "lagged",
+          "run_time": 2,
+          "lag_ratio": 0.04,
+          "actions": [
+            {
+              "op": "create",
+              "target": "n8s0"
+            },
+            {
+              "op": "create",
+              "target": "n8s1"
+            },
+            {
+              "op": "create",
+              "target": "n8s2"
+            },
+            {
+              "op": "create",
+              "target": "n8s3"
+            },
+            {
+              "op": "create",
+              "target": "n8s4"
+            },
+            {
+              "op": "create",
+              "target": "n8s5"
+            },
+            {
+              "op": "create",
+              "target": "n8s6"
+            },
+            {
+              "op": "create",
+              "target": "n8s7"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "parallel",
+          "run_time": 5,
+          "actions": [
+            {
+              "op": "rigid_motion",
+              "target": "n8s0",
+              "angle": 1.1780972450961724,
+              "shift": [
+                -2.209996821908393,
+                0.724401228643623
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n8s1",
+              "angle": -2.748893571891069,
+              "shift": [
+                -1.578569158505995,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n8s2",
+              "angle": -0.39269908169872414,
+              "shift": [
+                -0.947141495103597,
+                0.724401228643623
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n8s3",
+              "angle": -4.319689898685965,
+              "shift": [
+                -0.31571383170119893,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n8s4",
+              "angle": -1.9634954084936207,
+              "shift": [
+                0.31571383170119915,
+                0.724401228643623
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n8s5",
+              "angle": -5.890486225480862,
+              "shift": [
+                0.9471414951035975,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n8s6",
+              "angle": -3.5342917352885173,
+              "shift": [
+                1.5785691585059953,
+                0.724401228643623
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n8s7",
+              "angle": -7.461282552275758,
+              "shift": [
+                2.209996821908393,
+                -0.8
+              ]
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.5,
+          "actions": [
+            {
+              "op": "fade_out",
+              "target": "n8s0"
+            },
+            {
+              "op": "fade_out",
+              "target": "n8s1"
+            },
+            {
+              "op": "fade_out",
+              "target": "n8s2"
+            },
+            {
+              "op": "fade_out",
+              "target": "n8s3"
+            },
+            {
+              "op": "fade_out",
+              "target": "n8s4"
+            },
+            {
+              "op": "fade_out",
+              "target": "n8s5"
+            },
+            {
+              "op": "fade_out",
+              "target": "n8s6"
+            },
+            {
+              "op": "fade_out",
+              "target": "n8s7"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "text": "Divida o círculo em 16 setores iguais."
+        },
+        {
+          "op": "lagged",
+          "run_time": 2,
+          "lag_ratio": 0.04,
+          "actions": [
+            {
+              "op": "create",
+              "target": "n16s0"
+            },
+            {
+              "op": "create",
+              "target": "n16s1"
+            },
+            {
+              "op": "create",
+              "target": "n16s2"
+            },
+            {
+              "op": "create",
+              "target": "n16s3"
+            },
+            {
+              "op": "create",
+              "target": "n16s4"
+            },
+            {
+              "op": "create",
+              "target": "n16s5"
+            },
+            {
+              "op": "create",
+              "target": "n16s6"
+            },
+            {
+              "op": "create",
+              "target": "n16s7"
+            },
+            {
+              "op": "create",
+              "target": "n16s8"
+            },
+            {
+              "op": "create",
+              "target": "n16s9"
+            },
+            {
+              "op": "create",
+              "target": "n16s10"
+            },
+            {
+              "op": "create",
+              "target": "n16s11"
+            },
+            {
+              "op": "create",
+              "target": "n16s12"
+            },
+            {
+              "op": "create",
+              "target": "n16s13"
+            },
+            {
+              "op": "create",
+              "target": "n16s14"
+            },
+            {
+              "op": "create",
+              "target": "n16s15"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "parallel",
+          "run_time": 5,
+          "actions": [
+            {
+              "op": "rigid_motion",
+              "target": "n16s0",
+              "angle": 1.3744467859455345,
+              "shift": [
+                -2.4142427349495867,
+                0.8182957126653301
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s1",
+              "angle": -2.1598449493429825,
+              "shift": [
+                -2.092343703622975,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s2",
+              "angle": 0.5890486225480862,
+              "shift": [
+                -1.7704446722963636,
+                0.8182957126653301
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s3",
+              "angle": -2.945243112740431,
+              "shift": [
+                -1.4485456409697521,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s4",
+              "angle": -0.19634954084936207,
+              "shift": [
+                -1.1266466096431405,
+                0.8182957126653301
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s5",
+              "angle": -3.730641276137879,
+              "shift": [
+                -0.8047475783165288,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s6",
+              "angle": -0.9817477042468103,
+              "shift": [
+                -0.4828485469899173,
+                0.8182957126653301
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s7",
+              "angle": -4.516039439535327,
+              "shift": [
+                -0.16094951566330584,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s8",
+              "angle": -1.7671458676442586,
+              "shift": [
+                0.16094951566330584,
+                0.8182957126653301
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s9",
+              "angle": -5.301437602932776,
+              "shift": [
+                0.4828485469899175,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s10",
+              "angle": -2.552544031041707,
+              "shift": [
+                0.8047475783165292,
+                0.8182957126653301
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s11",
+              "angle": -6.086835766330224,
+              "shift": [
+                1.126646609643141,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s12",
+              "angle": -3.3379421944391554,
+              "shift": [
+                1.4485456409697521,
+                0.8182957126653301
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s13",
+              "angle": -6.872233929727673,
+              "shift": [
+                1.7704446722963634,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s14",
+              "angle": -4.123340357836604,
+              "shift": [
+                2.092343703622975,
+                0.8182957126653301
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n16s15",
+              "angle": -7.6576320931251205,
+              "shift": [
+                2.4142427349495867,
+                -0.8
+              ]
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.5,
+          "actions": [
+            {
+              "op": "fade_out",
+              "target": "n16s0"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s1"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s2"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s3"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s4"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s5"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s6"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s7"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s8"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s9"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s10"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s11"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s12"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s13"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s14"
+            },
+            {
+              "op": "fade_out",
+              "target": "n16s15"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "text": "Divida o círculo em 32 setores iguais."
+        },
+        {
+          "op": "lagged",
+          "run_time": 2,
+          "lag_ratio": 0.04,
+          "actions": [
+            {
+              "op": "create",
+              "target": "n32s0"
+            },
+            {
+              "op": "create",
+              "target": "n32s1"
+            },
+            {
+              "op": "create",
+              "target": "n32s2"
+            },
+            {
+              "op": "create",
+              "target": "n32s3"
+            },
+            {
+              "op": "create",
+              "target": "n32s4"
+            },
+            {
+              "op": "create",
+              "target": "n32s5"
+            },
+            {
+              "op": "create",
+              "target": "n32s6"
+            },
+            {
+              "op": "create",
+              "target": "n32s7"
+            },
+            {
+              "op": "create",
+              "target": "n32s8"
+            },
+            {
+              "op": "create",
+              "target": "n32s9"
+            },
+            {
+              "op": "create",
+              "target": "n32s10"
+            },
+            {
+              "op": "create",
+              "target": "n32s11"
+            },
+            {
+              "op": "create",
+              "target": "n32s12"
+            },
+            {
+              "op": "create",
+              "target": "n32s13"
+            },
+            {
+              "op": "create",
+              "target": "n32s14"
+            },
+            {
+              "op": "create",
+              "target": "n32s15"
+            },
+            {
+              "op": "create",
+              "target": "n32s16"
+            },
+            {
+              "op": "create",
+              "target": "n32s17"
+            },
+            {
+              "op": "create",
+              "target": "n32s18"
+            },
+            {
+              "op": "create",
+              "target": "n32s19"
+            },
+            {
+              "op": "create",
+              "target": "n32s20"
+            },
+            {
+              "op": "create",
+              "target": "n32s21"
+            },
+            {
+              "op": "create",
+              "target": "n32s22"
+            },
+            {
+              "op": "create",
+              "target": "n32s23"
+            },
+            {
+              "op": "create",
+              "target": "n32s24"
+            },
+            {
+              "op": "create",
+              "target": "n32s25"
+            },
+            {
+              "op": "create",
+              "target": "n32s26"
+            },
+            {
+              "op": "create",
+              "target": "n32s27"
+            },
+            {
+              "op": "create",
+              "target": "n32s28"
+            },
+            {
+              "op": "create",
+              "target": "n32s29"
+            },
+            {
+              "op": "create",
+              "target": "n32s30"
+            },
+            {
+              "op": "create",
+              "target": "n32s31"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "parallel",
+          "run_time": 5,
+          "actions": [
+            {
+              "op": "rigid_motion",
+              "target": "n32s0",
+              "angle": 1.4726215563702154,
+              "shift": [
+                -2.5067883639285125,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s1",
+              "angle": -1.8653206380689398,
+              "shift": [
+                -2.3450600823847374,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s2",
+              "angle": 1.0799224746714913,
+              "shift": [
+                -2.1833318008409623,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s3",
+              "angle": -2.258019719767664,
+              "shift": [
+                -2.0216035192971873,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s4",
+              "angle": 0.6872233929727671,
+              "shift": [
+                -1.8598752377534125,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s5",
+              "angle": -2.650718801466388,
+              "shift": [
+                -1.6981469562096374,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s6",
+              "angle": 0.294524311274043,
+              "shift": [
+                -1.5364186746658626,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s7",
+              "angle": -3.0434178831651124,
+              "shift": [
+                -1.3746903931220875,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s8",
+              "angle": -0.09817477042468115,
+              "shift": [
+                -1.2129621115783125,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s9",
+              "angle": -3.436116964863836,
+              "shift": [
+                -1.0512338300345374,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s10",
+              "angle": -0.4908738521234053,
+              "shift": [
+                -0.8895055484907624,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s11",
+              "angle": -3.8288160465625602,
+              "shift": [
+                -0.7277772669469873,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s12",
+              "angle": -0.8835729338221294,
+              "shift": [
+                -0.5660489854032125,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s13",
+              "angle": -4.221515128261284,
+              "shift": [
+                -0.40432070385943764,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s14",
+              "angle": -1.2762720155208536,
+              "shift": [
+                -0.24259242231566258,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s15",
+              "angle": -4.614214209960009,
+              "shift": [
+                -0.08086414077188753,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s16",
+              "angle": -1.6689710972195777,
+              "shift": [
+                0.08086414077188753,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s17",
+              "angle": -5.0069132916587336,
+              "shift": [
+                0.24259242231566258,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s18",
+              "angle": -2.061670178918302,
+              "shift": [
+                0.40432070385943764,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s19",
+              "angle": -5.399612373357456,
+              "shift": [
+                0.5660489854032127,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s20",
+              "angle": -2.454369260617026,
+              "shift": [
+                0.7277772669469877,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s21",
+              "angle": -5.792311455056181,
+              "shift": [
+                0.8895055484907628,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s22",
+              "angle": -2.8470683423157497,
+              "shift": [
+                1.0512338300345374,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s23",
+              "angle": -6.1850105367549055,
+              "shift": [
+                1.2129621115783125,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s24",
+              "angle": -3.2397674240144743,
+              "shift": [
+                1.3746903931220875,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s25",
+              "angle": -6.57770961845363,
+              "shift": [
+                1.5364186746658621,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s26",
+              "angle": -3.632466505713199,
+              "shift": [
+                1.6981469562096372,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s27",
+              "angle": -6.970408700152353,
+              "shift": [
+                1.8598752377534122,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s28",
+              "angle": -4.025165587411923,
+              "shift": [
+                2.0216035192971873,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s29",
+              "angle": -7.3631077818510775,
+              "shift": [
+                2.1833318008409623,
+                -0.8
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s30",
+              "angle": -4.417864669110646,
+              "shift": [
+                2.3450600823847374,
+                0.8420547990091247
+              ]
+            },
+            {
+              "op": "rigid_motion",
+              "target": "n32s31",
+              "angle": -7.755806863549802,
+              "shift": [
+                2.5067883639285125,
+                -0.8
+              ]
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 2,
+          "size": 44
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "end"
+        }
+      ]
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

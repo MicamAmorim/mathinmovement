@@ -109,6 +109,19 @@ def _print_voice_result(result) -> None:
     )
 
 
+def cmd_verify(args: argparse.Namespace) -> int:
+    from .verify import verify_local
+
+    try:
+        return verify_local(
+            render_dsl=args.render_dsl,
+            keep_going=args.keep_going,
+        )
+    except RuntimeError as exc:
+        print(f"ERRO: {exc}", file=sys.stderr)
+        return 2
+
+
 def cmd_voice(args: argparse.Namespace) -> int:
     record = Registry().rebuild().get(args.id)
     result = prepare_narration(
@@ -259,7 +272,14 @@ def cmd_dsl_validate(args: argparse.Namespace) -> int:
 
 def cmd_dsl_regress(args: argparse.Namespace) -> int:
     registry = Registry().rebuild()
-    if args.type == "demo":
+    if args.scope == "all":
+        records = [
+            record for record in registry.all()
+            if record.manifest.get("dsl_shadow")
+            and (args.type == "all" or record.type == args.type)
+        ]
+        ids = tuple(record.id for record in records)
+    elif args.type == "demo":
         ids = DEMO_VALIDATION_SET
     elif args.type == "qenem":
         ids = QENEM_VALIDATION_SET
@@ -378,6 +398,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="Renderiza o conjunto mínimo de regressão em media_dsl/.",
     )
     p_dsl_regress.add_argument("--type", choices=["all", "demo", "qenem"], default="all")
+    p_dsl_regress.add_argument(
+        "--scope",
+        choices=["cover", "all"],
+        default="cover",
+        help="cover usa os 14 representantes mínimos; all usa todo conteúdo com dsl_shadow.",
+    )
     p_dsl_regress.add_argument("--format", choices=["vertical", "horizontal"], default="vertical")
     p_dsl_regress.add_argument("--quality", choices=["draft", "final"], default="draft")
     p_dsl_regress.add_argument("--preview", action="store_true")
@@ -385,6 +411,22 @@ def build_parser() -> argparse.ArgumentParser:
     p_dsl_regress.add_argument("--dry-run", action="store_true")
     p_dsl_regress.add_argument("--keep-going", action="store_true")
     p_dsl_regress.set_defaults(func=cmd_dsl_regress)
+
+    p_verify = sub.add_parser(
+        "verify",
+        help="Executa o quality gate local do projeto.",
+    )
+    p_verify.add_argument(
+        "--render-dsl",
+        action="store_true",
+        help="Além do dry-run, renderiza todos os shadow ports em qualidade draft.",
+    )
+    p_verify.add_argument(
+        "--keep-going",
+        action="store_true",
+        help="Continua a regressão DSL após uma falha para listar as demais.",
+    )
+    p_verify.set_defaults(func=cmd_verify)
 
     p_voice = sub.add_parser(
         "voice",

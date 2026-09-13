@@ -41,7 +41,7 @@
     "math": "A=\\frac{Dd}{2}"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],
@@ -449,6 +449,9 @@
           "op": "end"
         }
       ]
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

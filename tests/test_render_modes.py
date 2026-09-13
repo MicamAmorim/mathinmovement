@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from mathinmovement.engine.renderer import render_record
+from mathinmovement.engine.renderer import _resolve_engine, render_record
 from mathinmovement.registry import Registry
 
 
@@ -11,16 +11,44 @@ class RenderModeTests(unittest.TestCase):
     def setUpClass(cls):
         cls.registry = Registry().rebuild()
 
-    def test_production_uses_native_engine_and_media_root(self):
+    def test_production_prefers_dsl_and_uses_media_root(self):
         for content_id in ("area-triangulo", "ENEM-2021-MT-11"):
             record = self.registry.get(content_id)
             self.assertEqual(
                 record.manifest["render"]["production_engine"],
-                "native",
+                "dsl",
             )
             output = render_record(record, dry_run=True)
             self.assertIn("media", output.parts)
-            self.assertNotIn("media_native", output.parts)
+            self.assertNotIn("media_dsl", output.parts)
+
+    def test_production_falls_back_to_native_for_unapproved_dsl_format(self):
+        record = self.registry.get("area-triangulo")
+        self.assertEqual(record.manifest["dsl_shadow"]["formats"], ["vertical"])
+        output = render_record(
+            record,
+            dry_run=True,
+            video_format="horizontal",
+        )
+        self.assertIn("media", output.parts)
+        self.assertNotIn("media_native", output.parts)
+
+    def test_production_engine_resolution_is_format_aware(self):
+        demo = self.registry.get("area-triangulo")
+        qenem = self.registry.get("ENEM-2021-MT-11")
+
+        self.assertEqual(
+            _resolve_engine(demo, "production", video_format="vertical"),
+            ("dsl", "media"),
+        )
+        self.assertEqual(
+            _resolve_engine(demo, "production", video_format="horizontal"),
+            ("native", "media"),
+        )
+        self.assertEqual(
+            _resolve_engine(qenem, "production", video_format="horizontal"),
+            ("native", "media"),
+        )
 
     def test_explicit_native_uses_isolated_media_root(self):
         for content_id in ("area-triangulo", "ENEM-2021-MT-11"):
@@ -76,8 +104,16 @@ class RenderModeTests(unittest.TestCase):
                 )
                 self.assertIn("media_dsl", output.parts)
 
-    def test_qenem_supports_both_approved_formats(self):
+    def test_qenem_supports_both_dsl_formats_but_only_vertical_is_promoted(self):
         record = self.registry.get("ENEM-2021-MT-11")
+        self.assertEqual(
+            record.manifest["dsl_shadow"]["formats"],
+            ["vertical", "horizontal"],
+        )
+        self.assertEqual(
+            record.manifest["dsl_shadow"]["approved_formats"],
+            ["vertical"],
+        )
         for video_format in ("vertical", "horizontal"):
             output = render_record(
                 record,

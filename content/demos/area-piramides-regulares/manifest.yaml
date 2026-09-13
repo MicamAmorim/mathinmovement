@@ -42,7 +42,7 @@
     "math": "A_T=A_b+\\frac{P_bg}{2}"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],
@@ -56,5 +56,377 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "base",
+          "type": "polygon",
+          "points": [
+            [
+              -2.3,
+              -1.3
+            ],
+            [
+              1.8,
+              -1.3
+            ],
+            [
+              2.6,
+              -0.45
+            ],
+            [
+              -1.5,
+              -0.45
+            ]
+          ],
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.13
+        },
+        {
+          "id": "pe1",
+          "type": "line",
+          "start": [
+            0.3,
+            2.15
+          ],
+          "end": [
+            -2.3,
+            -1.3
+          ],
+          "color": "gold",
+          "stroke_width": 3
+        },
+        {
+          "id": "pe2",
+          "type": "line",
+          "start": [
+            0.3,
+            2.15
+          ],
+          "end": [
+            1.8,
+            -1.3
+          ],
+          "color": "gold",
+          "stroke_width": 3
+        },
+        {
+          "id": "pe3",
+          "type": "line",
+          "start": [
+            0.3,
+            2.15
+          ],
+          "end": [
+            2.6,
+            -0.45
+          ],
+          "color": "gold",
+          "stroke_width": 3
+        },
+        {
+          "id": "pe4",
+          "type": "line",
+          "start": [
+            0.3,
+            2.15
+          ],
+          "end": [
+            -1.5,
+            -0.45
+          ],
+          "color": "gold",
+          "stroke_width": 3
+        },
+        {
+          "id": "f0",
+          "type": "polygon",
+          "points": [
+            [
+              -2.9,
+              -0.75
+            ],
+            [
+              -1.55,
+              -0.75
+            ],
+            [
+              -2.225,
+              1.25
+            ]
+          ],
+          "color": "gold",
+          "fill_color": "gold",
+          "fill_opacity": 0.16,
+          "stroke_width": 2
+        },
+        {
+          "id": "f1",
+          "type": "polygon",
+          "points": [
+            [
+              -1.55,
+              -0.75
+            ],
+            [
+              -0.2,
+              -0.75
+            ],
+            [
+              -0.875,
+              1.25
+            ]
+          ],
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.16,
+          "stroke_width": 2
+        },
+        {
+          "id": "f2",
+          "type": "polygon",
+          "points": [
+            [
+              -0.2,
+              -0.75
+            ],
+            [
+              1.15,
+              -0.75
+            ],
+            [
+              0.475,
+              1.25
+            ]
+          ],
+          "color": "gold",
+          "fill_color": "gold",
+          "fill_opacity": 0.16,
+          "stroke_width": 2
+        },
+        {
+          "id": "f3",
+          "type": "polygon",
+          "points": [
+            [
+              1.15,
+              -0.75
+            ],
+            [
+              2.5,
+              -0.75
+            ],
+            [
+              1.825,
+              1.25
+            ]
+          ],
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.16,
+          "stroke_width": 2
+        },
+        {
+          "id": "baseline",
+          "type": "line",
+          "start": [
+            -2.9,
+            -0.75
+          ],
+          "end": [
+            2.5,
+            -0.75
+          ],
+          "color": "cyan",
+          "stroke_width": 4
+        },
+        {
+          "id": "gline",
+          "type": "dashed_line",
+          "start": [
+            -2.225,
+            -0.75
+          ],
+          "end": [
+            -2.225,
+            1.25
+          ],
+          "color": "gold"
+        },
+        {
+          "id": "g",
+          "type": "math",
+          "tex": "g",
+          "at": [
+            -1.9,
+            0.25
+          ],
+          "color": "gold",
+          "font_size": 30
+        },
+        {
+          "id": "pb",
+          "type": "math",
+          "tex": "P_b=n\\ell",
+          "at": [
+            -0.2,
+            -1.25
+          ],
+          "color": "cyan",
+          "font_size": 30
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "parallel",
+          "run_time": 1.5,
+          "actions": [
+            {
+              "op": "create",
+              "target": "base"
+            },
+            {
+              "op": "create",
+              "target": "pe1"
+            },
+            {
+              "op": "create",
+              "target": "pe2"
+            },
+            {
+              "op": "create",
+              "target": "pe3"
+            },
+            {
+              "op": "create",
+              "target": "pe4"
+            }
+          ]
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.5,
+          "actions": [
+            {
+              "op": "fade_out",
+              "target": "base"
+            },
+            {
+              "op": "fade_out",
+              "target": "pe1"
+            },
+            {
+              "op": "fade_out",
+              "target": "pe2"
+            },
+            {
+              "op": "fade_out",
+              "target": "pe3"
+            },
+            {
+              "op": "fade_out",
+              "target": "pe4"
+            }
+          ]
+        },
+        {
+          "op": "lagged",
+          "run_time": 1.2,
+          "lag_ratio": 0.08,
+          "actions": [
+            {
+              "op": "fade_in",
+              "target": "f0"
+            },
+            {
+              "op": "fade_in",
+              "target": "f1"
+            },
+            {
+              "op": "fade_in",
+              "target": "f2"
+            },
+            {
+              "op": "fade_in",
+              "target": "f3"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.7,
+          "actions": [
+            {
+              "op": "create",
+              "target": "baseline"
+            },
+            {
+              "op": "create",
+              "target": "gline"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "write",
+              "target": "g"
+            },
+            {
+              "op": "write",
+              "target": "pb"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "caption",
+          "step": 4
+        },
+        {
+          "op": "equation",
+          "step": 4
+        },
+        {
+          "op": "end"
+        }
+      ]
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

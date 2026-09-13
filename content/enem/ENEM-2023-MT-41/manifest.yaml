@@ -85,7 +85,7 @@
     }
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical",
       "horizontal"
@@ -199,6 +199,171 @@
         "duration": 5.64,
         "audio": "assets/audio/answer.mp3"
       }
+    ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "statement": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "ground",
+              "type": "line",
+              "start": [
+                -3,
+                -1.7
+              ],
+              "end": [
+                3,
+                -1.7
+              ],
+              "color": "muted"
+            },
+            {
+              "id": "mast",
+              "type": "line",
+              "start": [
+                -1.1,
+                -1.7
+              ],
+              "end": [
+                -1.1,
+                2.5
+              ],
+              "color": "cyan",
+              "stroke_width": 7
+            },
+            {
+              "id": "cable",
+              "type": "line",
+              "start": [
+                -1.1,
+                1.8
+              ],
+              "end": [
+                2.4,
+                -1.7
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "h",
+              "type": "math",
+              "tex": "h",
+              "at": [
+                -1.45,
+                0.1
+              ],
+              "color": "cyan",
+              "font_size": 22
+            },
+            {
+              "id": "alpha",
+              "type": "math",
+              "tex": "\\alpha",
+              "at": [
+                1.8,
+                -1.35
+              ],
+              "color": "gold",
+              "font_size": 25
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "ground",
+          "mast",
+          "cable",
+          "h",
+          "alpha"
+        ]
+      },
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "ground",
+              "type": "line",
+              "start": [
+                -3,
+                -1.7
+              ],
+              "end": [
+                3,
+                -1.7
+              ],
+              "color": "muted"
+            },
+            {
+              "id": "mast",
+              "type": "line",
+              "start": [
+                -1.1,
+                -1.7
+              ],
+              "end": [
+                -1.1,
+                2.5
+              ],
+              "color": "cyan",
+              "stroke_width": 7
+            },
+            {
+              "id": "cable",
+              "type": "line",
+              "start": [
+                -1.1,
+                1.8
+              ],
+              "end": [
+                2.4,
+                -1.7
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "h",
+              "type": "math",
+              "tex": "h",
+              "at": [
+                -1.45,
+                0.1
+              ],
+              "color": "cyan",
+              "font_size": 22
+            },
+            {
+              "id": "alpha",
+              "type": "math",
+              "tex": "\\alpha",
+              "at": [
+                1.8,
+                -1.35
+              ],
+              "color": "gold",
+              "font_size": 25
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "ground",
+          "mast",
+          "cable",
+          "h",
+          "alpha"
+        ]
+      }
+    },
+    "approved_formats": [
+      "vertical"
     ]
   }
 }

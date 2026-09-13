@@ -47,7 +47,7 @@
     "math": "A=\\frac{\\ell h}{2}=\\frac{\\sqrt3}{4}\\ell^2"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],
@@ -61,5 +61,227 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "tri",
+          "type": "polygon",
+          "points": [
+            [
+              -2.2,
+              -1.45
+            ],
+            [
+              2.2,
+              -1.45
+            ],
+            [
+              0,
+              2.3605117766515304
+            ]
+          ],
+          "color": "cyan",
+          "fill_opacity": 0.22
+        },
+        {
+          "id": "alt",
+          "type": "dashed_line",
+          "start": [
+            0,
+            -1.45
+          ],
+          "end": [
+            0,
+            2.3605117766515304
+          ],
+          "color": "gold"
+        },
+        {
+          "id": "ra",
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              -1.45
+            ],
+            [
+              0.2,
+              -1.45
+            ],
+            [
+              0.2,
+              -1.25
+            ],
+            [
+              0,
+              -1.25
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0,
+          "stroke_width": 2
+        },
+        {
+          "id": "lbase",
+          "type": "math",
+          "tex": "\\ell",
+          "font_size": 36,
+          "color": "cyan",
+          "at": [
+            0,
+            -1.85
+          ]
+        },
+        {
+          "id": "lside",
+          "type": "math",
+          "tex": "\\ell",
+          "font_size": 36,
+          "color": "cyan",
+          "at": [
+            1.7,
+            0.7
+          ]
+        },
+        {
+          "id": "lhalf",
+          "type": "math",
+          "tex": "\\frac\\ell2",
+          "font_size": 34,
+          "color": "gold",
+          "at": [
+            -1.28,
+            -1.05
+          ]
+        },
+        {
+          "id": "hl",
+          "type": "math",
+          "tex": "h",
+          "font_size": 34,
+          "color": "gold",
+          "at": [
+            0.32,
+            0.45
+          ]
+        },
+        {
+          "id": "half",
+          "type": "polygon",
+          "points": [
+            [
+              -2.2,
+              -1.45
+            ],
+            [
+              0,
+              -1.45
+            ],
+            [
+              0,
+              2.3605117766515304
+            ]
+          ],
+          "color": "gold",
+          "fill_opacity": 0.16
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "create",
+          "target": "tri",
+          "run_time": 1.8
+        },
+        {
+          "op": "parallel",
+          "run_time": 1.15,
+          "actions": [
+            {
+              "op": "create",
+              "target": "alt"
+            },
+            {
+              "op": "create",
+              "target": "ra"
+            },
+            {
+              "op": "write",
+              "target": "lbase"
+            },
+            {
+              "op": "write",
+              "target": "lside"
+            },
+            {
+              "op": "write",
+              "target": "lhalf"
+            },
+            {
+              "op": "write",
+              "target": "hl"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "fade_in",
+          "target": "half",
+          "run_time": 0.6
+        },
+        {
+          "op": "equation",
+          "step": 1
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 4
+        },
+        {
+          "op": "caption",
+          "step": 5
+        },
+        {
+          "op": "equation",
+          "step": 5
+        },
+        {
+          "op": "end"
+        }
+      ]
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

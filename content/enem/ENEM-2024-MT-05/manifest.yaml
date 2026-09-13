@@ -71,7 +71,7 @@
     }
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical",
       "horizontal"
@@ -155,6 +155,76 @@
         "duration": 5.568,
         "audio": "assets/audio/answer.mp3"
       }
+    ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "small",
+              "type": "square",
+              "side": 1.4,
+              "at": [
+                -2,
+                0
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "large",
+              "type": "square",
+              "side": 3,
+              "at": [
+                1.2,
+                0
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "arrow",
+              "type": "arrow",
+              "start": [
+                -1.2,
+                0
+              ],
+              "end": [
+                -0.45,
+                0
+              ],
+              "color": "white",
+              "buff": 0
+            },
+            {
+              "id": "k",
+              "type": "math",
+              "tex": "k",
+              "at": [
+                -0.82,
+                0.45
+              ],
+              "color": "green",
+              "font_size": 30
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "small",
+          "large",
+          "arrow",
+          "k"
+        ]
+      }
+    },
+    "approved_formats": [
+      "vertical"
     ]
   }
 }

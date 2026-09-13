@@ -76,7 +76,7 @@
     }
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical",
       "horizontal"
@@ -172,6 +172,178 @@
         "duration": 4.728,
         "audio": "assets/audio/answer.mp3"
       }
+    ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "statement": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "castle",
+              "type": "rectangle",
+              "width": 3.4,
+              "height": 2.1,
+              "at": [
+                0,
+                0.25
+              ],
+              "color": "cyan",
+              "fill_opacity": 0.08
+            },
+            {
+              "id": "roof_l",
+              "type": "polygon",
+              "points": [
+                [
+                  -1.7,
+                  1.3
+                ],
+                [
+                  -1.05,
+                  2
+                ],
+                [
+                  -0.4,
+                  1.3
+                ]
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "roof_r",
+              "type": "polygon",
+              "points": [
+                [
+                  0.4,
+                  1.3
+                ],
+                [
+                  1.05,
+                  2
+                ],
+                [
+                  1.7,
+                  1.3
+                ]
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "bridge",
+              "type": "line",
+              "start": [
+                -3,
+                -1.8
+              ],
+              "end": [
+                3,
+                -1.8
+              ],
+              "color": "gold",
+              "stroke_width": 7
+            },
+            {
+              "id": "length",
+              "type": "math",
+              "tex": "38{,}4\\,m\\to160\\,cm",
+              "at": [
+                0,
+                -2.25
+              ],
+              "color": "gold",
+              "font_size": 24
+            },
+            {
+              "id": "width",
+              "type": "math",
+              "tex": "1{,}68\\,m\\to7\\,cm",
+              "at": [
+                0,
+                -2.8
+              ],
+              "color": "white",
+              "font_size": 24
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "castle",
+          "roof_l",
+          "roof_r",
+          "bridge",
+          "length",
+          "width"
+        ]
+      },
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "small",
+              "type": "square",
+              "side": 1.4,
+              "at": [
+                -2,
+                0
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "large",
+              "type": "square",
+              "side": 3,
+              "at": [
+                1.2,
+                0
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "arrow",
+              "type": "arrow",
+              "start": [
+                -1.2,
+                0
+              ],
+              "end": [
+                -0.45,
+                0
+              ],
+              "color": "white",
+              "buff": 0
+            },
+            {
+              "id": "k",
+              "type": "math",
+              "tex": "k",
+              "at": [
+                -0.82,
+                0.45
+              ],
+              "color": "green",
+              "font_size": 30
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "small",
+          "large",
+          "arrow",
+          "k"
+        ]
+      }
+    },
+    "approved_formats": [
+      "vertical"
     ]
   }
 }

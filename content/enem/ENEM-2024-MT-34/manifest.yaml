@@ -75,7 +75,7 @@
     }
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical",
       "horizontal"
@@ -165,6 +165,64 @@
         "duration": 12.96,
         "audio": "assets/audio/answer.mp3"
       }
+    ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "tri",
+              "type": "regular_polygon",
+              "n": 3,
+              "radius": 1,
+              "start_angle": "=pi/2",
+              "at": [
+                -2.2,
+                0
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "sq",
+              "type": "square",
+              "side": 1.5,
+              "at": [
+                0,
+                0
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "hex",
+              "type": "regular_polygon",
+              "n": 6,
+              "radius": 1.5,
+              "start_angle": "=pi/2",
+              "at": [
+                2.35,
+                0
+              ],
+              "color": "green"
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "tri",
+          "sq",
+          "hex"
+        ]
+      }
+    },
+    "approved_formats": [
+      "vertical"
     ]
   }
 }

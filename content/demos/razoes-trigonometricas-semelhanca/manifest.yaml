@@ -43,7 +43,7 @@
     "math": "\\tan\\theta=\\frac{op}{adj}"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],
@@ -57,5 +57,200 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "small",
+          "type": "polygon",
+          "points": [
+            [
+              -3,
+              -1.5
+            ],
+            [
+              -0.4,
+              -1.5
+            ],
+            [
+              -0.4,
+              0.12466031496425156
+            ]
+          ],
+          "color": "gold",
+          "fill_color": "gold",
+          "fill_opacity": 0.16,
+          "stroke_width": 3
+        },
+        {
+          "id": "large",
+          "type": "polygon",
+          "points": [
+            [
+              -3,
+              -1.5
+            ],
+            [
+              2.5,
+              -1.5
+            ],
+            [
+              2.5,
+              1.936781435501301
+            ]
+          ],
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.1,
+          "stroke_width": 3
+        },
+        {
+          "id": "arc",
+          "type": "arc",
+          "radius": 0.65,
+          "start_angle": 0,
+          "angle": 0.5585053606381855,
+          "center": [
+            -3,
+            -1.5
+          ],
+          "color": "white",
+          "stroke_width": 3
+        },
+        {
+          "id": "theta",
+          "type": "math",
+          "tex": "\\theta",
+          "font_size": 30,
+          "color": "white",
+          "at": [
+            -2.25,
+            -1.15
+          ]
+        },
+        {
+          "id": "op",
+          "type": "math",
+          "tex": "op",
+          "font_size": 30,
+          "color": "cyan",
+          "at": [
+            2.9,
+            -1.2816092822493494
+          ]
+        },
+        {
+          "id": "adj",
+          "type": "math",
+          "tex": "adj",
+          "font_size": 30,
+          "color": "cyan",
+          "at": [
+            -0.25,
+            -1.95
+          ]
+        },
+        {
+          "id": "hip",
+          "type": "math",
+          "tex": "hip",
+          "font_size": 30,
+          "color": "gold",
+          "at": [
+            -0.2,
+            1.3183907177506504
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "create",
+          "target": "small",
+          "run_time": 1
+        },
+        {
+          "op": "transform_from_copy",
+          "target": "small",
+          "to": "large",
+          "run_time": 1.2
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.6,
+          "actions": [
+            {
+              "op": "create",
+              "target": "arc"
+            },
+            {
+              "op": "write",
+              "target": "theta"
+            }
+          ]
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "parallel",
+          "actions": [
+            {
+              "op": "write",
+              "target": "op"
+            },
+            {
+              "op": "write",
+              "target": "adj"
+            },
+            {
+              "op": "write",
+              "target": "hip"
+            }
+          ]
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "equation",
+          "step": 1
+        },
+        {
+          "op": "equation",
+          "step": 2
+        },
+        {
+          "op": "caption",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 4
+        },
+        {
+          "op": "end"
+        }
+      ]
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

@@ -41,7 +41,7 @@ class DSLCoverageTests(unittest.TestCase):
                 self.assertEqual(record.manifest.get("status"), "production")
                 self.assertEqual(
                     record.manifest["render"]["production_engine"],
-                    "native",
+                    "dsl",
                 )
                 self.assertIn("dsl_shadow", record.manifest)
 
@@ -59,6 +59,44 @@ class DSLCoverageTests(unittest.TestCase):
             for name, spec in visuals.items():
                 with self.subTest(content_id=content_id, visual=name):
                     validate_program(spec["program"])
+
+    def test_every_demo_has_valid_shadow_program(self):
+        registry = Registry().rebuild()
+        demos = registry.find(content_type="demo")
+        self.assertEqual(len(demos), 30)
+        for record in demos:
+            with self.subTest(content_id=record.id):
+                shadow = record.manifest.get("dsl_shadow") or {}
+                self.assertIn("visual_program", shadow)
+                validate_program(shadow["visual_program"])
+
+    def test_every_shadow_program_in_catalog_validates(self):
+        registry = Registry().rebuild()
+        count = 0
+        for record in registry.all():
+            shadow = record.manifest.get("dsl_shadow") or {}
+            if shadow.get("visual_program"):
+                validate_program(shadow["visual_program"])
+                count += 1
+            for name, spec in (shadow.get("visuals") or {}).items():
+                if isinstance(spec, dict) and spec.get("program"):
+                    with self.subTest(content_id=record.id, visual=name):
+                        validate_program(spec["program"])
+                    count += 1
+        self.assertGreaterEqual(count, 60)
+
+    def test_every_qenem_has_valid_shadow_visuals(self):
+        registry = Registry().rebuild()
+        qenem = registry.find(content_type="qenem")
+        self.assertEqual(len(qenem), 30)
+        for record in qenem:
+            with self.subTest(content_id=record.id):
+                visuals = (record.manifest.get("dsl_shadow") or {}).get("visuals") or {}
+                self.assertTrue(visuals)
+                for name, spec in visuals.items():
+                    with self.subTest(content_id=record.id, visual=name):
+                        self.assertIn("program", spec)
+                        validate_program(spec["program"])
 
     def test_common_qenem_profile_is_explicit(self):
         self.assertIn("replacement_transform", QENEM_COMMON)

@@ -18,7 +18,7 @@ class FullCatalogTests(unittest.TestCase):
         self.assertEqual(len(demos), 30)
         self.assertEqual(len(qenem), 30)
 
-    def test_catalog_is_fully_native_production(self):
+    def test_catalog_prefers_dsl_production_with_native_fallback(self):
         production = [
             r for r in self.records
             if r.manifest.get("status") == "production"
@@ -34,10 +34,13 @@ class FullCatalogTests(unittest.TestCase):
             render = record.manifest["render"]
             self.assertEqual(
                 render["production_engine"],
-                "native",
+                "dsl",
                 record.id,
             )
             self.assertTrue(render["native_ready"], record.id)
+            shadow = record.manifest.get("dsl_shadow") or {}
+            self.assertTrue(shadow, record.id)
+            self.assertIn("vertical", shadow.get("approved_formats") or [], record.id)
             self.assertNotIn("compatibility", render, record.id)
 
     def test_qenem_answers_match_solution(self):

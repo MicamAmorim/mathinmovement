@@ -6,7 +6,8 @@ O projeto possui hoje **60 conteúdos de produção**:
 
 - 30 demonstrações matemáticas;
 - 30 questões ENEM comentadas;
-- todos renderizados pelo engine nativo unificado.
+- todos possuem representação declarativa DSL v1 aprovada em shadow;
+- a produção prefere DSL nos formatos aprovados e usa o renderer nativo como fallback por formato.
 
 ## Instalação
 
@@ -28,6 +29,24 @@ python -m mathinmovement db rebuild
 python -m mathinmovement db status
 ```
 
+## Verificação local
+
+Como o projeto não depende de CI remota para garantir integridade, o quality gate canônico pode ser executado localmente:
+
+```powershell
+python -m mathinmovement verify
+```
+
+Esse comando compila o código, roda a suíte de testes, reconstrói/valida catálogo e SQLite, valida todos os programas DSL e verifica em `dry-run` todas as combinações conteúdo/formato declaradas pelos shadow ports.
+
+Para também renderizar de verdade todos os shadow ports em qualidade `draft`:
+
+```powershell
+python -m mathinmovement verify --render-dsl --keep-going
+```
+
+A renderização completa é mais lenta; por isso o modo padrão usa `dry-run`.
+
 ## Listar conteúdo
 
 ```powershell
@@ -36,6 +55,8 @@ python -m mathinmovement list --type qenem
 ```
 
 ## Renderização
+
+A rota `production` é sensível ao formato: `dsl_shadow.formats` indica os formatos que a DSL consegue renderizar, enquanto `dsl_shadow.approved_formats` indica quais já foram aprovados visualmente para produção. Se o formato solicitado estiver aprovado, a DSL é usada e o MP4 final vai para `media/`; caso contrário, o engine nativo aprovado é usado automaticamente como fallback.
 
 Um conteúdo:
 
@@ -145,6 +166,10 @@ qENEM podem declarar programas DSL estáticos em `visuals.statement.program` e `
 
 A v1 cobre o vocabulário gráfico já usado nos 60 vídeos aprovados. O conjunto mínimo de regressão possui 8 demos e 6 qENEM. Veja `docs/DSL_COVERAGE.md` e `docs/DSL_SPEC.md`.
 
+## Roadmap
+
+O planejamento de evolução do projeto está em [`docs/ROADMAP.md`](docs/ROADMAP.md).
+
 ## Estrutura principal
 
 ```text
@@ -153,8 +178,9 @@ src/mathinmovement/      engine, CLI, registry e renderers
 schemas/                 contratos dos manifests
 tests/                   testes automatizados
 cache/                   SQLite reconstruível
-media/                   saída de produção
-media_native/            saída isolada para inspeção do engine
+media/                   saída de produção (DSL preferida + fallback nativo)
+media_native/            saída isolada do renderer nativo
+media_dsl/               saída isolada para regressão/inspeção DSL
 ```
 
 O código legado foi removido da linha principal após a migração para o engine unificado. O snapshot histórico completo permanece preservado na branch `backup`.

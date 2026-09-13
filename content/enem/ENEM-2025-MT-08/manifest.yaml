@@ -80,7 +80,7 @@
     }
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical",
       "horizontal"
@@ -182,6 +182,147 @@
         "duration": 4.008,
         "audio": "assets/audio/answer.mp3"
       }
+    ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "statement": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "circle",
+              "type": "circle",
+              "radius": 2.7,
+              "color": "cyan"
+            },
+            {
+              "id": "arc",
+              "type": "arc",
+              "radius": 2.7,
+              "start_angle": 1.1507963268,
+              "angle": 0.84,
+              "center": [
+                0,
+                0
+              ],
+              "color": "pink",
+              "stroke_width": 10
+            },
+            {
+              "id": "P",
+              "type": "dot",
+              "point": [
+                0,
+                2.7
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "Pl",
+              "type": "math",
+              "tex": "P",
+              "at": [
+                0,
+                3.05
+              ],
+              "color": "gold",
+              "font_size": 22
+            },
+            {
+              "id": "length",
+              "type": "math",
+              "tex": "400\\,m",
+              "at": [
+                0,
+                2
+              ],
+              "color": "pink",
+              "font_size": 22
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "circle",
+          "arc",
+          "P",
+          "Pl",
+          "length"
+        ]
+      },
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "circle",
+              "type": "circle",
+              "radius": 2.7,
+              "color": "cyan"
+            },
+            {
+              "id": "arc",
+              "type": "arc",
+              "radius": 2.7,
+              "start_angle": 1.1507963268,
+              "angle": 0.84,
+              "center": [
+                0,
+                0
+              ],
+              "color": "pink",
+              "stroke_width": 10
+            },
+            {
+              "id": "P",
+              "type": "dot",
+              "point": [
+                0,
+                2.7
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "Pl",
+              "type": "math",
+              "tex": "P",
+              "at": [
+                0,
+                3.05
+              ],
+              "color": "gold",
+              "font_size": 22
+            },
+            {
+              "id": "length",
+              "type": "math",
+              "tex": "400\\,m",
+              "at": [
+                0,
+                2
+              ],
+              "color": "pink",
+              "font_size": 22
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "circle",
+          "arc",
+          "P",
+          "Pl",
+          "length"
+        ]
+      }
+    },
+    "approved_formats": [
+      "vertical"
     ]
   }
 }

@@ -43,7 +43,7 @@
     "math": "V=\\pi r^2h"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],
@@ -57,5 +57,269 @@
   },
   "narration": {
     "enabled": false
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical"
+    ],
+    "visual_program": {
+      "dsl_version": "1.0",
+      "objects": [
+        {
+          "id": "base",
+          "type": "ellipse",
+          "width": 4.6,
+          "height": 1.25,
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.16,
+          "at": [
+            0,
+            -1.45
+          ]
+        },
+        {
+          "id": "d1",
+          "type": "ellipse",
+          "width": 4.6,
+          "height": 1.25,
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.16,
+          "at": [
+            0,
+            -1.0899999999999999
+          ]
+        },
+        {
+          "id": "d2",
+          "type": "ellipse",
+          "width": 4.6,
+          "height": 1.25,
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.16,
+          "at": [
+            0,
+            -0.73
+          ]
+        },
+        {
+          "id": "d3",
+          "type": "ellipse",
+          "width": 4.6,
+          "height": 1.25,
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.16,
+          "at": [
+            0,
+            -0.3699999999999999
+          ]
+        },
+        {
+          "id": "d4",
+          "type": "ellipse",
+          "width": 4.6,
+          "height": 1.25,
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.16,
+          "at": [
+            0,
+            -0.010000000000000009
+          ]
+        },
+        {
+          "id": "d5",
+          "type": "ellipse",
+          "width": 4.6,
+          "height": 1.25,
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.16,
+          "at": [
+            0,
+            0.34999999999999987
+          ]
+        },
+        {
+          "id": "d6",
+          "type": "ellipse",
+          "width": 4.6,
+          "height": 1.25,
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.16,
+          "at": [
+            0,
+            0.7100000000000002
+          ]
+        },
+        {
+          "id": "d7",
+          "type": "ellipse",
+          "width": 4.6,
+          "height": 1.25,
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.16,
+          "at": [
+            0,
+            1.07
+          ]
+        },
+        {
+          "id": "d8",
+          "type": "ellipse",
+          "width": 4.6,
+          "height": 1.25,
+          "color": "cyan",
+          "fill_color": "cyan",
+          "fill_opacity": 0.16,
+          "at": [
+            0,
+            1.43
+          ]
+        },
+        {
+          "id": "left",
+          "type": "line",
+          "start": [
+            -2.3,
+            -1.45
+          ],
+          "end": [
+            -2.3,
+            1.43
+          ],
+          "color": "white",
+          "stroke_width": 2
+        },
+        {
+          "id": "right",
+          "type": "line",
+          "start": [
+            2.3,
+            -1.45
+          ],
+          "end": [
+            2.3,
+            1.43
+          ],
+          "color": "white",
+          "stroke_width": 2
+        }
+      ],
+      "timeline": [
+        {
+          "op": "header"
+        },
+        {
+          "op": "caption",
+          "step": 0
+        },
+        {
+          "op": "create",
+          "target": "base",
+          "run_time": 0.9
+        },
+        {
+          "op": "lagged",
+          "run_time": 1.5,
+          "lag_ratio": 0.07,
+          "actions": [
+            {
+              "op": "transform_from_copy",
+              "target": "base",
+              "to": "d1"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "base",
+              "to": "d2"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "base",
+              "to": "d3"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "base",
+              "to": "d4"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "base",
+              "to": "d5"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "base",
+              "to": "d6"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "base",
+              "to": "d7"
+            },
+            {
+              "op": "transform_from_copy",
+              "target": "base",
+              "to": "d8"
+            }
+          ]
+        },
+        {
+          "op": "parallel",
+          "run_time": 0.55,
+          "actions": [
+            {
+              "op": "create",
+              "target": "left"
+            },
+            {
+              "op": "create",
+              "target": "right"
+            }
+          ]
+        },
+        {
+          "op": "hide_intro"
+        },
+        {
+          "op": "caption",
+          "step": 1
+        },
+        {
+          "op": "equation",
+          "step": 1
+        },
+        {
+          "op": "caption",
+          "step": 2
+        },
+        {
+          "op": "equation",
+          "step": 2,
+          "size": 42
+        },
+        {
+          "op": "equation",
+          "step": 3
+        },
+        {
+          "op": "equation",
+          "step": 4
+        },
+        {
+          "op": "end"
+        }
+      ]
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

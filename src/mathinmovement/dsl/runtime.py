@@ -18,6 +18,32 @@ from . import actions as _actions  # noqa: F401
 _VERSION_RE = re.compile(r"^1(?:\.\d+)?$")
 
 
+def _validate_tex_escapes(value, path="visual_program"):
+    """Reject accidental doubled escapes before LaTeX control words.
+
+    A genuine LaTeX line break such as \\[4pt] remains allowed; what we
+    reject is the common JSON/DSL mistake that turns \frac into \\frac.
+    """
+    if isinstance(value, dict):
+        for key, item in value.items():
+            child_path = f"{path}.{key}"
+            if key == "tex" and isinstance(item, str):
+                doubled = chr(92) * 2
+                for index in range(len(item) - 2):
+                    if (
+                        item.startswith(doubled, index)
+                        and item[index + 2].isalpha()
+                    ):
+                        raise DSLError(
+                            f"{child_path}: escape LaTeX duplicado antes de "
+                            f"{item[index + 2:]!r}."
+                        )
+            _validate_tex_escapes(item, child_path)
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            _validate_tex_escapes(item, f"{path}[{index}]")
+
+
 def validate_program(program):
     if not isinstance(program, dict):
         raise DSLError("visual_program deve ser um objeto.")
@@ -50,6 +76,8 @@ def validate_program(program):
         if not isinstance(step, dict) or not step.get("op"):
             raise DSLError("Cada passo da timeline exige op.")
         get_action(str(step["op"]))
+
+    _validate_tex_escapes(program)
     return program
 
 

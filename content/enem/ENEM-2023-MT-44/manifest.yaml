@@ -88,7 +88,7 @@
     }
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical",
       "horizontal"
@@ -390,6 +390,9 @@
           "alpha"
         ]
       }
-    }
+    },
+    "approved_formats": [
+      "vertical"
+    ]
   }
 }

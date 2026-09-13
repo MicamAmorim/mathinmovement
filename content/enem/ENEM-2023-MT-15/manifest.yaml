@@ -93,7 +93,7 @@
     }
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical",
       "horizontal"
@@ -219,6 +219,218 @@
         "duration": 5.568,
         "audio": "assets/audio/answer.mp3"
       }
+    ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "statement": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "cone_base",
+              "type": "ellipse",
+              "width": 3,
+              "height": 0.7,
+              "at": [
+                -1.7,
+                -1.4
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "cone_l",
+              "type": "line",
+              "start": [
+                -3.2,
+                -1.4
+              ],
+              "end": [
+                -1.7,
+                2.2
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "cone_r",
+              "type": "line",
+              "start": [
+                -0.2,
+                -1.4
+              ],
+              "end": [
+                -1.7,
+                2.2
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "cut",
+              "type": "dashed_line",
+              "start": [
+                -2.2,
+                0.9
+              ],
+              "end": [
+                -1.2,
+                0.9
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "frustum",
+              "type": "polygon",
+              "points": [
+                [
+                  1.1,
+                  -1.4
+                ],
+                [
+                  3.7,
+                  -1.4
+                ],
+                [
+                  2.8,
+                  0.9
+                ],
+                [
+                  2,
+                  0.9
+                ]
+              ],
+              "color": "cyan",
+              "fill_opacity": 0.1
+            },
+            {
+              "id": "bore",
+              "type": "dashed_line",
+              "start": [
+                2.4,
+                -1.4
+              ],
+              "end": [
+                2.4,
+                0.9
+              ],
+              "color": "pink",
+              "stroke_width": 5
+            },
+            {
+              "id": "dims",
+              "type": "math",
+              "tex": "H=36,\\ D=18",
+              "at": [
+                -1.7,
+                -2.45
+              ],
+              "color": "white",
+              "font_size": 20
+            },
+            {
+              "id": "diameter",
+              "type": "math",
+              "tex": "d=6",
+              "at": [
+                2.3,
+                -2.45
+              ],
+              "color": "gold",
+              "font_size": 20
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "cone_base",
+          "cone_l",
+          "cone_r",
+          "cut",
+          "frustum",
+          "bore",
+          "dims",
+          "diameter"
+        ]
+      },
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "frustum",
+              "type": "polygon",
+              "points": [
+                [
+                  -2,
+                  -1.5
+                ],
+                [
+                  2,
+                  -1.5
+                ],
+                [
+                  1,
+                  1.7
+                ],
+                [
+                  -1,
+                  1.7
+                ]
+              ],
+              "color": "cyan",
+              "fill_opacity": 0.18
+            },
+            {
+              "id": "axis",
+              "type": "dashed_line",
+              "start": [
+                0,
+                -2.1
+              ],
+              "end": [
+                0,
+                2.3
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "R",
+              "type": "math",
+              "tex": "R",
+              "at": [
+                1,
+                -1.85
+              ],
+              "color": "gold",
+              "font_size": 25
+            },
+            {
+              "id": "r",
+              "type": "math",
+              "tex": "r",
+              "at": [
+                0.5,
+                2.05
+              ],
+              "color": "white",
+              "font_size": 25
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "frustum",
+          "axis",
+          "R",
+          "r"
+        ]
+      }
+    },
+    "approved_formats": [
+      "vertical"
     ]
   }
 }

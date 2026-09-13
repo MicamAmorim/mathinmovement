@@ -75,7 +75,7 @@
     }
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical",
       "horizontal"
@@ -171,6 +171,193 @@
         "duration": 4.824,
         "audio": "assets/audio/answer.mp3"
       }
+    ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "statement": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "base",
+              "type": "ellipse",
+              "width": 4.4,
+              "height": 1,
+              "at": [
+                0,
+                0
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "side_l",
+              "type": "line",
+              "start": [
+                -2.2,
+                0
+              ],
+              "end": [
+                0,
+                3
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "side_r",
+              "type": "line",
+              "start": [
+                2.2,
+                0
+              ],
+              "end": [
+                0,
+                3
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "alt",
+              "type": "dashed_line",
+              "start": [
+                0,
+                0
+              ],
+              "end": [
+                0,
+                3
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "diameter",
+              "type": "math",
+              "tex": "8\\,cm",
+              "at": [
+                0,
+                -0.75
+              ],
+              "color": "white",
+              "font_size": 24
+            },
+            {
+              "id": "height",
+              "type": "math",
+              "tex": "10\\,cm",
+              "at": [
+                0.65,
+                1.5
+              ],
+              "color": "gold",
+              "font_size": 24
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "base",
+          "side_l",
+          "side_r",
+          "alt",
+          "diameter",
+          "height"
+        ]
+      },
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "base",
+              "type": "ellipse",
+              "width": 4.4,
+              "height": 1,
+              "at": [
+                0,
+                0
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "side_l",
+              "type": "line",
+              "start": [
+                -2.2,
+                0
+              ],
+              "end": [
+                0,
+                3
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "side_r",
+              "type": "line",
+              "start": [
+                2.2,
+                0
+              ],
+              "end": [
+                0,
+                3
+              ],
+              "color": "cyan"
+            },
+            {
+              "id": "alt",
+              "type": "dashed_line",
+              "start": [
+                0,
+                0
+              ],
+              "end": [
+                0,
+                3
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "diameter",
+              "type": "math",
+              "tex": "8\\,cm",
+              "at": [
+                0,
+                -0.75
+              ],
+              "color": "white",
+              "font_size": 24
+            },
+            {
+              "id": "height",
+              "type": "math",
+              "tex": "10\\,cm",
+              "at": [
+                0.65,
+                1.5
+              ],
+              "color": "gold",
+              "font_size": 24
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "base",
+          "side_l",
+          "side_r",
+          "alt",
+          "diameter",
+          "height"
+        ]
+      }
+    },
+    "approved_formats": [
+      "vertical"
     ]
   }
 }

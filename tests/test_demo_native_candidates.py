@@ -19,17 +19,18 @@ class DemoNativePromotedTests(unittest.TestCase):
     def setUpClass(cls):
         cls.registry = Registry().rebuild()
 
-    def test_validated_demos_are_native_production(self):
+    def test_validated_demos_prefer_dsl_with_native_fallback(self):
         for content_id, renderer in PROMOTED.items():
             record = self.registry.get(content_id)
             render = record.manifest["render"]
             self.assertEqual(record.manifest["status"], "production")
-            self.assertEqual(render["production_engine"], "native")
+            self.assertEqual(render["production_engine"], "dsl")
             self.assertTrue(render["native_ready"])
             self.assertEqual(render["native_formats"], ["vertical"])
             self.assertEqual(render["native_renderer"], renderer)
+            self.assertEqual(record.manifest["dsl_shadow"]["approved_formats"], ["vertical"])
 
-    def test_production_routes_to_native(self):
+    def test_production_routes_to_promoted_engine(self):
         for content_id in PROMOTED:
             record = self.registry.get(content_id)
             output = render_record(

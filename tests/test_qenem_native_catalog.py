@@ -17,16 +17,21 @@ class QENEMNativeCatalogTests(unittest.TestCase):
         cls.registry = Registry().rebuild()
         cls.records = [r for r in cls.registry.all() if r.type == "qenem"]
 
-    def test_all_thirty_qenem_are_native_production(self):
+    def test_all_thirty_qenem_prefer_dsl_with_native_fallback(self):
         self.assertEqual(len(self.records), 30)
         for record in self.records:
             render = record.manifest["render"]
             self.assertEqual(record.manifest["status"], "production", record.id)
-            self.assertEqual(render["production_engine"], "native", record.id)
+            self.assertEqual(render["production_engine"], "dsl", record.id)
             self.assertTrue(render["native_ready"], record.id)
             self.assertEqual(
                 render["native_formats"],
                 ["vertical", "horizontal"],
+                record.id,
+            )
+            self.assertEqual(
+                record.manifest["dsl_shadow"]["approved_formats"],
+                ["vertical"],
                 record.id,
             )
 
