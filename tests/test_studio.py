@@ -21,15 +21,18 @@ class StudioAssetTests(unittest.TestCase):
         self.assertIn('id="jobsBody"', index)
         self.assertIn('id="packageFile"', index)
         self.assertIn('id="musicFile"', index)
+        self.assertIn('id="openMediaFolder"', index)
         self.assertIn('accept=".demo,.qenem"', index)
         self.assertIn('request("/contents")', script)
         self.assertIn('request("/imports"', script)
         self.assertIn('request("/uploads/music"', script)
+        self.assertIn('request("/system/open-media-folder"', script)
         self.assertIn("production_formats", script)
         self.assertIn('request("/jobs?limit=30")', script)
         self.assertIn('method: "POST"', script)
         self.assertIn(".catalog-grid", style)
         self.assertIn(".job-status", style)
+        self.assertIn(".studio-footer", style)
 
     def test_package_data_includes_studio_assets(self):
         data = tomllib.loads(
