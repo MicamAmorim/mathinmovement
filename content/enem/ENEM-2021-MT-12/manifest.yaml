@@ -183,5 +183,185 @@
         "audio": "assets/audio/answer.mp3"
       }
     ]
+  },
+  "dsl_shadow": {
+    "formats": [
+      "vertical",
+      "horizontal"
+    ],
+    "visuals": {
+      "statement": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "body",
+              "type": "polygon",
+              "points": [
+                [
+                  -1.8,
+                  -1.6
+                ],
+                [
+                  1.8,
+                  -1.6
+                ],
+                [
+                  2.4,
+                  1.6
+                ],
+                [
+                  -2.4,
+                  1.6
+                ]
+              ],
+              "color": "cyan",
+              "fill_opacity": 0.12
+            },
+            {
+              "id": "handle",
+              "type": "arc",
+              "radius": 1.25,
+              "start_angle": -1.5707963268,
+              "angle": 3.1415926536,
+              "center": [
+                2.1,
+                0
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "height",
+              "type": "double_arrow",
+              "start": [
+                -2.8,
+                -1.6
+              ],
+              "end": [
+                -2.8,
+                1.6
+              ],
+              "buff": 0,
+              "color": "gold"
+            },
+            {
+              "id": "height_label",
+              "type": "math",
+              "tex": "12",
+              "at": [
+                -3.25,
+                0
+              ],
+              "color": "gold",
+              "font_size": 22
+            },
+            {
+              "id": "top_label",
+              "type": "math",
+              "tex": "D=10",
+              "at": [
+                0,
+                2
+              ],
+              "color": "white",
+              "font_size": 22
+            },
+            {
+              "id": "base_label",
+              "type": "math",
+              "tex": "d=8",
+              "at": [
+                0,
+                -2
+              ],
+              "color": "white",
+              "font_size": 22
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "body",
+          "handle",
+          "height",
+          "height_label",
+          "top_label",
+          "base_label"
+        ]
+      },
+      "concept": {
+        "program": {
+          "dsl_version": "1.0",
+          "objects": [
+            {
+              "id": "frustum",
+              "type": "polygon",
+              "points": [
+                [
+                  -2,
+                  -1.5
+                ],
+                [
+                  2,
+                  -1.5
+                ],
+                [
+                  1,
+                  1.7
+                ],
+                [
+                  -1,
+                  1.7
+                ]
+              ],
+              "color": "cyan",
+              "fill_opacity": 0.18
+            },
+            {
+              "id": "axis",
+              "type": "dashed_line",
+              "start": [
+                0,
+                -2.1
+              ],
+              "end": [
+                0,
+                2.3
+              ],
+              "color": "gold"
+            },
+            {
+              "id": "R",
+              "type": "math",
+              "tex": "R",
+              "at": [
+                1,
+                -1.85
+              ],
+              "color": "gold",
+              "font_size": 25
+            },
+            {
+              "id": "r",
+              "type": "math",
+              "tex": "r",
+              "at": [
+                0.5,
+                2.05
+              ],
+              "color": "white",
+              "font_size": 25
+            }
+          ],
+          "timeline": []
+        },
+        "show": [
+          "frustum",
+          "axis",
+          "R",
+          "r"
+        ]
+      }
+    }
   }
 }
