@@ -59,7 +59,7 @@ Critério de saída: um usuário sem conhecer Python consegue pedir a uma LLM um
 
 ## M3 — Math in Movement Studio (Web App)
 
-MVP local em `feature-studio-mvp`: dashboard servido pelo FastAPI com catálogo, filtros, configuração de render e fila; aguarda quality gate e inspeção visual antes da promoção.
+MVP local em `feature-studio-mvp`: dashboard servido pelo FastAPI com catálogo, filtros, configuração de render e fila; revisão de UX com upload de pacotes, upload de música e formatos efetivos de produção implementada; aguarda novo quality gate e inspeção visual antes da promoção.
 
 Objetivo: transformar o engine em uma aplicação visual de gerenciamento e renderização.
 
@@ -73,13 +73,13 @@ Objetivo: transformar o engine em uma aplicação visual de gerenciamento e rend
 
 ### Upload e importação
 
-- [ ] Upload individual de `.demo` ou `.qenem`.
+- [x] Upload individual de `.demo` ou `.qenem`.
 - [ ] Upload múltiplo.
 - [ ] Upload de `.zip` contendo vários pacotes.
-- [ ] Validação antes da importação definitiva.
+- [x] Validação antes da importação definitiva.
 - [ ] Relatório amigável de erros de schema/DSL/assets.
 - [ ] Proteções contra ZIP malformado, zip-slip, arquivos excessivamente grandes e extensões não permitidas.
-- [ ] Opção de substituir conteúdo existente mediante confirmação.
+- [x] Opção de substituir conteúdo existente mediante confirmação.
 
 ### Renderização
 
@@ -97,7 +97,7 @@ Objetivo: transformar o engine em uma aplicação visual de gerenciamento e rend
 
 ### Trilha sonora
 
-- [ ] Campo para upload de trilha sonora de fundo por job.
+- [x] Campo para upload de trilha sonora de fundo por job.
 - [ ] Biblioteca opcional de trilhas reutilizáveis.
 - [x] Controle de volume.
 - [x] Fade in/fade out.
