@@ -6,7 +6,8 @@ O projeto possui hoje **60 conteúdos de produção**:
 
 - 30 demonstrações matemáticas;
 - 30 questões ENEM comentadas;
-- todos renderizados pelo engine nativo unificado.
+- todos possuem representação declarativa DSL v1 aprovada em shadow;
+- a produção prefere DSL nos formatos aprovados e usa o renderer nativo como fallback por formato.
 
 ## Instalação
 
@@ -54,6 +55,8 @@ python -m mathinmovement list --type qenem
 ```
 
 ## Renderização
+
+A rota `production` é sensível ao formato: se o conteúdo declara `production_engine: dsl` e o formato solicitado está em `dsl_shadow.formats`, a DSL é usada e o MP4 final vai para `media/`. Caso contrário, o engine nativo aprovado é usado automaticamente como fallback.
 
 Um conteúdo:
 
@@ -175,8 +178,9 @@ src/mathinmovement/      engine, CLI, registry e renderers
 schemas/                 contratos dos manifests
 tests/                   testes automatizados
 cache/                   SQLite reconstruível
-media/                   saída de produção
-media_native/            saída isolada para inspeção do engine
+media/                   saída de produção (DSL preferida + fallback nativo)
+media_native/            saída isolada do renderer nativo
+media_dsl/               saída isolada para regressão/inspeção DSL
 ```
 
 O código legado foi removido da linha principal após a migração para o engine unificado. O snapshot histórico completo permanece preservado na branch `backup`.
