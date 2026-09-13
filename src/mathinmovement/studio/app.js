@@ -26,6 +26,7 @@ const elements = {
   selectedType: $("selectedType"),
   renderFormat: $("renderFormat"),
   renderQuality: $("renderQuality"),
+  voice: $("voice"),
   musicPath: $("musicPath"),
   musicVolume: $("musicVolume"),
   fadeIn: $("fadeIn"),
@@ -33,6 +34,7 @@ const elements = {
   dryRun: $("dryRun"),
   fastPreview: $("fastPreview"),
   skipVoice: $("skipVoice"),
+  forceVoice: $("forceVoice"),
   ducking: $("ducking"),
   normalizeAudio: $("normalizeAudio"),
   enqueueButton: $("enqueueButton"),
@@ -311,10 +313,13 @@ async function enqueue(event) {
     dry_run: elements.dryRun.checked,
     fast: elements.fastPreview.checked,
     skip_voice: elements.skipVoice.checked,
+    force_voice: elements.forceVoice.checked,
     no_ducking: !elements.ducking.checked,
     no_normalize: !elements.normalizeAudio.checked,
   };
 
+  const voice = elements.voice.value.trim();
+  if (voice) payload.voice = voice;
   const music = elements.musicPath.value.trim();
   if (music) payload.music = music;
 
