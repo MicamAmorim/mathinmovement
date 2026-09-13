@@ -48,6 +48,8 @@ const elements = {
   jobsBody: $("jobsBody"),
   jobsEmpty: $("jobsEmpty"),
   refreshJobs: $("refreshJobs"),
+  openMediaFolder: $("openMediaFolder"),
+  folderMessage: $("folderMessage"),
   cardTemplate: $("contentCardTemplate"),
 };
 
@@ -363,6 +365,25 @@ async function loadJobs() {
   }
 }
 
+async function openMediaFolder() {
+  elements.openMediaFolder.disabled = true;
+  elements.folderMessage.textContent = "Abrindo pasta...";
+  elements.folderMessage.className = "form-message footer-message";
+
+  try {
+    const result = await request("/system/open-media-folder", {
+      method: "POST",
+    });
+    elements.folderMessage.textContent = result.opened;
+    elements.folderMessage.className = "form-message footer-message success";
+  } catch (error) {
+    elements.folderMessage.textContent = error.message;
+    elements.folderMessage.className = "form-message footer-message error";
+  } finally {
+    elements.openMediaFolder.disabled = false;
+  }
+}
+
 async function cancelJob(id) {
   try {
     await request(`/jobs/${id}/cancel`, { method: "POST" });
@@ -434,6 +455,7 @@ async function enqueue(event) {
 elements.importPackage.addEventListener("click", importPackage);
 elements.refreshCatalog.addEventListener("click", loadContents);
 elements.refreshJobs.addEventListener("click", loadJobs);
+elements.openMediaFolder.addEventListener("click", openMediaFolder);
 elements.renderForm.addEventListener("submit", enqueue);
 
 loadHealth();
