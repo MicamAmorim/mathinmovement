@@ -6,10 +6,10 @@ A auditoria separa objetos gráficos, ações, ações compostas, dinâmica e la
 
 ## Estado da migração
 
-Em 2026-09-12, **30/30 demos** possuem `dsl_shadow.visual_program`.
-Os renderers nativos continuam sendo a rota de produção até a conclusão da regressão visual.
+Em 2026-09-12, **30/30 demos** possuem `dsl_shadow.visual_program` e **30/30 qENEM** possuem `dsl_shadow.visuals`.
+Assim, os **60/60 conteúdos de produção** já têm uma representação shadow declarativa.
 
-As qENEM continuam em migração incremental: **12/30 questões** possuem `dsl_shadow.visuals`. O conjunto mínimo de capacidade permanece com 6 questões.
+Os renderers nativos continuam sendo a rota de produção até a conclusão da regressão visual. O conjunto mínimo de capacidade das qENEM permanece com 6 questões.
 
 Cobertura mínima das demos: 31 capacidades semânticas usadas pelas 30 demos.
 Set cover mínimo de 8 demos:
