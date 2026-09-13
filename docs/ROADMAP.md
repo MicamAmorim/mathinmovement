@@ -113,6 +113,8 @@ Critério de saída: todo o fluxo cotidiano pode ser feito pela interface sem us
 
 ## M4 — Pipeline de pós-produção
 
+Implementação concluída e validada localmente em 2026-09-12: módulo FFmpeg, `media_raw/`, fingerprint de raw, troca de trilha sem rerenderizar Manim, ducking, fades, volume e loudness.
+
 Criar uma etapa explícita depois do Manim:
 
 ```text
@@ -134,10 +136,10 @@ post-process
 final MP4
 ```
 
-- [ ] Criar módulo de pós-processamento baseado em FFmpeg.
-- [ ] Separar vídeo renderizado de master final.
-- [ ] Cachear resultado por fingerprint de conteúdo + parâmetros de render + áudio.
-- [ ] Preservar render bruto para não rerenderizar Manim quando apenas a trilha mudar.
+- [x] Criar módulo de pós-processamento baseado em FFmpeg.
+- [x] Separar vídeo renderizado de master final.
+- [x] Cachear o render bruto por fingerprint de conteúdo + assets + parâmetros de render; parâmetros de música refazem apenas o master.
+- [x] Preservar render bruto para não rerenderizar Manim quando apenas a trilha mudar.
 
 ## M5 — Editor e experiência de autoria
 

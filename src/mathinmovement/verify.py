@@ -24,16 +24,22 @@ def _run_python(*args: str) -> None:
 
 def _validate_catalog(registry: Registry) -> tuple[int, int]:
     records = registry.all()
-    demos = [record for record in records if record.type == "demo"]
-    qenem = [record for record in records if record.type == "qenem"]
+    production = [
+        record
+        for record in records
+        if record.manifest.get("status") == "production"
+    ]
+    demos = [record for record in production if record.type == "demo"]
+    qenem = [record for record in production if record.type == "qenem"]
 
-    if len(records) != 60:
+    if len(production) != 60:
         raise RuntimeError(
-            f"Catálogo esperado: 60 conteúdos; encontrado: {len(records)}."
+            "Baseline de produção esperado: 60 conteúdos; "
+            f"encontrado: {len(production)}."
         )
     if len(demos) != 30 or len(qenem) != 30:
         raise RuntimeError(
-            "Catálogo esperado: 30 demos + 30 qENEM; "
+            "Baseline de produção esperado: 30 demos + 30 qENEM; "
             f"encontrado: {len(demos)} demos + {len(qenem)} qENEM."
         )
 
@@ -41,10 +47,21 @@ def _validate_catalog(registry: Registry) -> tuple[int, int]:
     qenem_shadows = 0
 
     for record in records:
+        canonical_program = record.manifest.get("visual_program")
+        if canonical_program:
+            validate_program(canonical_program)
+
+        for name, spec in (record.manifest.get("visuals") or {}).items():
+            if isinstance(spec, dict) and spec.get("program"):
+                validate_program(spec["program"])
+
         shadow = record.manifest.get("dsl_shadow") or {}
         if shadow.get("visual_program"):
             validate_program(shadow["visual_program"])
-            if record.type == "demo":
+            if (
+                record.manifest.get("status") == "production"
+                and record.type == "demo"
+            ):
                 demo_shadows += 1
 
         visual_count = 0
@@ -53,23 +70,28 @@ def _validate_catalog(registry: Registry) -> tuple[int, int]:
                 validate_program(spec["program"])
                 visual_count += 1
 
-        if record.type == "qenem" and visual_count:
+        if (
+            record.manifest.get("status") == "production"
+            and record.type == "qenem"
+            and visual_count
+        ):
             qenem_shadows += 1
 
-        supported_formats = list(shadow.get("formats") or [])
-        approved_formats = list(shadow.get("approved_formats") or [])
-        if "vertical" not in approved_formats:
-            raise RuntimeError(
-                f"{record.id}: DSL vertical ainda não está aprovada para produção."
+        if record.manifest.get("status") == "production":
+            supported_formats = list(shadow.get("formats") or [])
+            approved_formats = list(shadow.get("approved_formats") or [])
+            if "vertical" not in approved_formats:
+                raise RuntimeError(
+                    f"{record.id}: DSL vertical ainda não está aprovada para produção."
+                )
+            unsupported_approvals = sorted(
+                set(approved_formats) - set(supported_formats)
             )
-        unsupported_approvals = sorted(
-            set(approved_formats) - set(supported_formats)
-        )
-        if unsupported_approvals:
-            raise RuntimeError(
-                f"{record.id}: approved_formats contém formato(s) não "
-                f"suportado(s): {unsupported_approvals}."
-            )
+            if unsupported_approvals:
+                raise RuntimeError(
+                    f"{record.id}: approved_formats contém formato(s) não "
+                    f"suportado(s): {unsupported_approvals}."
+                )
 
     if demo_shadows != 30:
         raise RuntimeError(
@@ -80,7 +102,7 @@ def _validate_catalog(registry: Registry) -> tuple[int, int]:
             f"DSL qENEM incompleta: esperado 30/30; encontrado {qenem_shadows}/30."
         )
 
-    for record in records:
+    for record in production:
         production_engine = str(
             (record.manifest.get("render") or {}).get(
                 "production_engine",
@@ -112,12 +134,13 @@ def verify_local(*, render_dsl: bool = False, keep_going: bool = False) -> int:
     demo_shadows, qenem_shadows = _validate_catalog(registry)
 
     stats = database_stats(REGISTRY_DB)
-    if not stats.get("exists") or stats.get("total") != 60:
+    if not stats.get("exists") or stats.get("total") != len(registry):
         raise RuntimeError(
-            "SQLite não ficou sincronizado com os 60 conteúdos do catálogo."
+            "SQLite não ficou sincronizado com o catálogo atual."
         )
     print(
-        "PASS: 60 conteúdos · "
+        f"PASS: {len(registry)} conteúdo(s) válido(s) · "
+        "baseline produção 60 · "
         f"DSL demos {demo_shadows}/30 · "
         f"DSL qENEM {qenem_shadows}/30."
     )
@@ -128,9 +151,20 @@ def verify_local(*, render_dsl: bool = False, keep_going: bool = False) -> int:
 
     for record in registry.all():
         shadow = record.manifest.get("dsl_shadow") or {}
-        if not shadow:
+        canonical = bool(
+            record.manifest.get("visual_program")
+            or any(
+                isinstance(spec, dict) and spec.get("program")
+                for spec in (record.manifest.get("visuals") or {}).values()
+            )
+        )
+        if not shadow and not canonical:
             continue
-        formats = shadow.get("formats") or ["vertical"]
+        formats = (
+            (record.manifest.get("render") or {}).get("formats")
+            if canonical
+            else shadow.get("formats")
+        ) or ["vertical"]
         for video_format in formats:
             checked += 1
             try:

@@ -4,6 +4,7 @@ __pycache__/
 .mim_build/
 cache/
 media/
+media_raw/
 media_native/
 build/
 dist/

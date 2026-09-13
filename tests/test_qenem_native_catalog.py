@@ -15,7 +15,10 @@ class QENEMNativeCatalogTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.registry = Registry().rebuild()
-        cls.records = [r for r in cls.registry.all() if r.type == "qenem"]
+        cls.records = cls.registry.find(
+            content_type="qenem",
+            status="production",
+        )
 
     def test_all_thirty_qenem_prefer_dsl_with_native_fallback(self):
         self.assertEqual(len(self.records), 30)

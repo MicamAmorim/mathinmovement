@@ -11,10 +11,14 @@ class FullCatalogTests(unittest.TestCase):
         cls.registry = Registry().rebuild()
         cls.records = cls.registry.all()
 
-    def test_catalog_contains_exactly_30_demos_and_30_qenem(self):
-        demos = [r for r in self.records if r.type == "demo"]
-        qenem = [r for r in self.records if r.type == "qenem"]
-        self.assertEqual(len(self.records), 60)
+    def test_production_baseline_contains_30_demos_and_30_qenem(self):
+        production = [
+            r for r in self.records
+            if r.manifest.get("status") == "production"
+        ]
+        demos = [r for r in production if r.type == "demo"]
+        qenem = [r for r in production if r.type == "qenem"]
+        self.assertEqual(len(production), 60)
         self.assertEqual(len(demos), 30)
         self.assertEqual(len(qenem), 30)
 
@@ -23,12 +27,7 @@ class FullCatalogTests(unittest.TestCase):
             r for r in self.records
             if r.manifest.get("status") == "production"
         ]
-        drafts = [
-            r for r in self.records
-            if r.manifest.get("status") == "draft"
-        ]
         self.assertEqual(len(production), 60)
-        self.assertEqual(drafts, [])
 
         for record in production:
             render = record.manifest["render"]
