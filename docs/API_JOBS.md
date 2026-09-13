@@ -45,6 +45,12 @@ Padrão:
 http://127.0.0.1:8000
 ```
 
+O Studio local fica em:
+
+```text
+http://127.0.0.1:8000/studio
+```
+
 O OpenAPI interativo do FastAPI fica em:
 
 ```text

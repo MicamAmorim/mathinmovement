@@ -14,3 +14,5 @@ RAW_MEDIA_ROOT = PROJECT_ROOT / "media_raw"
 MEDIA_ROOT = PROJECT_ROOT / "media"
 
 JOBS_DB = CACHE_ROOT / "jobs.sqlite"
+
+UPLOAD_ROOT = CACHE_ROOT / "uploads"

@@ -59,34 +59,36 @@ Critério de saída: um usuário sem conhecer Python consegue pedir a uma LLM um
 
 ## M3 — Math in Movement Studio (Web App)
 
+MVP local concluído e validado em 2026-09-12: dashboard FastAPI com catálogo, filtros, importação de `.demo`/`.qenem`, configuração de render, seleção de trilha por arquivo, formatos efetivos vertical/horizontal, fila de jobs e abertura da pasta de vídeos.
+
 Objetivo: transformar o engine em uma aplicação visual de gerenciamento e renderização.
 
 ### Catálogo
 
-- [ ] Listar todos os `.demo` e `.qenem` cadastrados.
-- [ ] Busca por texto.
-- [ ] Filtros por tipo, ano, tags, status, formato e disponibilidade de narração.
+- [x] Listar todos os `.demo` e `.qenem` cadastrados.
+- [x] Busca por texto.
+- [x] Filtros por tipo, ano, tags, status, formato e disponibilidade de narração.
 - [ ] Ordenação por nome, data, tipo e última renderização.
 - [ ] Cards com título, tipo, tags, thumbnail e status de validação.
 
 ### Upload e importação
 
-- [ ] Upload individual de `.demo` ou `.qenem`.
+- [x] Upload individual de `.demo` ou `.qenem`.
 - [ ] Upload múltiplo.
 - [ ] Upload de `.zip` contendo vários pacotes.
-- [ ] Validação antes da importação definitiva.
+- [x] Validação antes da importação definitiva.
 - [ ] Relatório amigável de erros de schema/DSL/assets.
 - [ ] Proteções contra ZIP malformado, zip-slip, arquivos excessivamente grandes e extensões não permitidas.
-- [ ] Opção de substituir conteúdo existente mediante confirmação.
+- [x] Opção de substituir conteúdo existente mediante confirmação.
 
 ### Renderização
 
-- [ ] Renderizar um item.
+- [x] Renderizar um item.
 - [ ] Selecionar vários itens e renderizar em lote.
-- [ ] Presets: vertical 9:16 e horizontal 16:9.
-- [ ] Qualidade draft/final.
-- [ ] Gerar/ignorar/forçar narração.
-- [ ] Selecionar voz TTS quando aplicável.
+- [x] Presets: vertical 9:16 e horizontal 16:9.
+- [x] Qualidade draft/final.
+- [x] Gerar/ignorar/forçar narração.
+- [x] Selecionar voz TTS quando aplicável.
 - [ ] Fila de jobs com progresso, logs, cancelar, repetir e retry.
 - [ ] Preview do vídeo pronto no próprio navegador.
 - [ ] Download do MP4.
@@ -95,13 +97,13 @@ Objetivo: transformar o engine em uma aplicação visual de gerenciamento e rend
 
 ### Trilha sonora
 
-- [ ] Campo para upload de trilha sonora de fundo por job.
+- [x] Campo para upload de trilha sonora de fundo por job.
 - [ ] Biblioteca opcional de trilhas reutilizáveis.
-- [ ] Controle de volume.
-- [ ] Fade in/fade out.
-- [ ] Loop ou corte automático para a duração do vídeo.
-- [ ] Ducking automático durante a narração.
-- [ ] Normalização de loudness.
+- [x] Controle de volume.
+- [x] Fade in/fade out.
+- [x] Loop ou corte automático para a duração do vídeo.
+- [x] Ducking automático durante a narração.
+- [x] Normalização de loudness.
 - [ ] Preview da mistura antes do render final, quando viável.
 
 ### Exportação
