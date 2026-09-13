@@ -212,6 +212,31 @@ python -m mathinmovement scaffold demo meu-demo
 python -m mathinmovement scaffold qenem minha-questao --year 2026 --question-number 146 --package
 ```
 
+## API interna e jobs
+
+O Studio usa uma fila persistente para que renderizações não bloqueiem requisições HTTP.
+
+Instale a camada opcional:
+
+```powershell
+python -m pip install -e ".[api]"
+```
+
+Execute em processos separados:
+
+```powershell
+python -m mathinmovement serve
+python -m mathinmovement worker
+```
+
+Inspecione a fila:
+
+```powershell
+python -m mathinmovement jobs list
+```
+
+Veja `docs/API_JOBS.md`.
+
 ## Roadmap
 
 O planejamento de evolução do projeto está em [`docs/ROADMAP.md`](docs/ROADMAP.md).
