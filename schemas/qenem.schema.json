@@ -301,6 +301,16 @@
         },
         "visuals": {
           "type": "object"
+        },
+        "approved_formats": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "vertical",
+              "horizontal"
+            ]
+          },
+          "uniqueItems": true
         }
       },
       "additionalProperties": true
