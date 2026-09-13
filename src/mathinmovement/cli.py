@@ -836,6 +836,7 @@ def main() -> None:
         PostProcessError,
         KeyError,
         ValueError,
+        RuntimeError,
     ) as exc:
         print(f"ERRO: {exc}", file=sys.stderr)
         raise SystemExit(2)
