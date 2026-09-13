@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import hashlib
 from pathlib import Path
 
 from .engine import render_record
@@ -10,6 +11,32 @@ from .package_io import ALLOWED_EXTENSIONS, import_package
 from .registry import Registry
 from .tts import TTSResult, prepare_narration
 from .postprocess import PostProcessResult, postprocess_video
+
+
+def _raw_fingerprint(
+    record: ContentRecord,
+    *,
+    video_format: str,
+    quality: str,
+) -> str:
+    digest = hashlib.sha256()
+    digest.update(record.id.encode("utf-8"))
+    digest.update(b"\0")
+    digest.update(video_format.encode("utf-8"))
+    digest.update(b"\0")
+    digest.update(quality.encode("utf-8"))
+    digest.update(b"\0")
+
+    for path in sorted(record.path.rglob("*")):
+        if not path.is_file():
+            continue
+        relative = path.relative_to(record.path).as_posix()
+        digest.update(relative.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(path.read_bytes())
+        digest.update(b"\0")
+
+    return digest.hexdigest()[:12]
 
 
 @dataclass(frozen=True, slots=True)
@@ -106,11 +133,17 @@ def produce(
             output=output,
         )
 
+    fingerprint = _raw_fingerprint(
+        record,
+        video_format=chosen_format,
+        quality=quality,
+    )
+    raw_filename = f"{record.id}-{fingerprint}.mp4"
     raw_output = (
         RAW_MEDIA_ROOT
         / record.type
         / chosen_format
-        / f"{record.id}.mp4"
+        / raw_filename
     )
     if not (reuse_raw and raw_output.exists() and not dry_run):
         raw_output = render_record(
@@ -122,6 +155,7 @@ def produce(
             fast_preview=fast_preview,
             render_engine="production",
             output_root=RAW_MEDIA_ROOT,
+            output_filename=raw_filename,
         )
 
     output = (
