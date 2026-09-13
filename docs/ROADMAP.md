@@ -19,9 +19,9 @@ Este roadmap acompanha a evolução do Math in Movement de engine declarativo em
 - [x] Concluir migração do catálogo para programas DSL declarativos.
   - Estado em 2026-09-12 na branch `feature-dsl-catalog-migration`: 30/30 demos e 30/30 qENEM possuem shadow ports DSL.
   - Regressão renderizada vertical dos 60 conteúdos aprovada visualmente.
-  - Os 60 manifests agora usam `production_engine: dsl`; a produção aplica fallback nativo por formato quando o shadow DSL não o declara.
-  - Demos: DSL aprovada em vertical; horizontal permanece protegido pelo renderer nativo.
-  - qENEM: shadow DSL declarado para vertical e horizontal.
+  - Os 60 manifests agora usam `production_engine: dsl`; a produção usa apenas formatos listados em `dsl_shadow.approved_formats` e aplica fallback nativo nos demais.
+  - Demos: DSL suportada e aprovada em vertical; horizontal permanece protegido pelo renderer nativo.
+  - qENEM: DSL suportada em vertical e horizontal; apenas vertical está promovida até a regressão visual 16:9.
 
 ## M1 — Fechar a migração DSL
 
