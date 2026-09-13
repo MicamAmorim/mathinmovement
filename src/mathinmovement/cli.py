@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import argparse
+import subprocess
 import sys
+from pathlib import Path
 
 from .config import REGISTRY_DB
 from .database import database_stats
@@ -9,6 +11,7 @@ from .engine import RenderError, render_record
 from .models import ManifestError
 from .package_io import export_package, import_package
 from .production import produce
+from .postprocess import PostProcessError, postprocess_video
 from .scaffold import scaffold_content
 from .registry import Registry
 from .tts import prepare_narration
@@ -168,6 +171,13 @@ def cmd_produce(args: argparse.Namespace) -> int:
         force_voice=args.force_voice,
         voice=args.voice,
         dry_run=args.dry_run,
+        soundtrack=args.music,
+        music_volume=args.music_volume,
+        fade_in=args.fade_in,
+        fade_out=args.fade_out,
+        ducking=not args.no_ducking,
+        normalize_audio=not args.no_normalize,
+        reuse_raw=not args.no_reuse_raw,
     )
     if result.imported:
         print(f"Importado e registrado: {result.record.id}")
@@ -175,7 +185,51 @@ def cmd_produce(args: argparse.Namespace) -> int:
         print(f"Conteúdo selecionado: {result.record.id}")
     if result.voice is not None:
         _print_voice_result(result.voice)
+    if result.raw_output is not None:
+        print(f"Vídeo bruto: {result.raw_output}")
+    if result.postprocess is not None:
+        if result.postprocess.command:
+            print(
+                "Pós-produção: "
+                + subprocess.list2cmdline(
+                    list(result.postprocess.command)
+                )
+            )
+        elif args.dry_run:
+            print("Pós-produção: planejada após a criação do vídeo bruto.")
+        else:
+            print("Pós-produção: concluída.")
     print(f"Vídeo: {result.output}")
+    return 0
+
+
+def cmd_postprocess(args: argparse.Namespace) -> int:
+    input_video = Path(args.input)
+    output = (
+        Path(args.output)
+        if args.output
+        else input_video.with_name(
+            f"{input_video.stem}-master.mp4"
+        )
+    )
+    result = postprocess_video(
+        input_video,
+        output,
+        soundtrack=args.music,
+        music_volume=args.music_volume,
+        fade_in=args.fade_in,
+        fade_out=args.fade_out,
+        ducking=not args.no_ducking,
+        normalize=not args.no_normalize,
+        dry_run=args.dry_run,
+    )
+    if result.command:
+        print(">", subprocess.list2cmdline(list(result.command)))
+    elif result.copied:
+        print(f"Cópia direta: {result.input_video} -> {result.output_video}")
+    elif args.dry_run:
+        print("Pós-produção planejada; a entrada ainda não existe.")
+    print(f"Master: {result.output_video}")
     return 0
 
 
@@ -506,10 +560,44 @@ def build_parser() -> argparse.ArgumentParser:
         "--force-voice",
         action="store_true",
     )
+    p_produce.add_argument(
+        "--music",
+        help="Trilha sonora de fundo; ativa media_raw + pós-produção.",
+    )
+    p_produce.add_argument(
+        "--music-volume",
+        type=float,
+        default=0.12,
+        help="Volume linear da trilha de fundo (padrão: 0.12).",
+    )
+    p_produce.add_argument("--fade-in", type=float, default=1.5)
+    p_produce.add_argument("--fade-out", type=float, default=2.5)
+    p_produce.add_argument("--no-ducking", action="store_true")
+    p_produce.add_argument("--no-normalize", action="store_true")
+    p_produce.add_argument(
+        "--no-reuse-raw",
+        action="store_true",
+        help="Força novo render Manim mesmo se media_raw já existir.",
+    )
     p_produce.add_argument("--preview", action="store_true")
     p_produce.add_argument("--fast", action="store_true")
     p_produce.add_argument("--dry-run", action="store_true")
     p_produce.set_defaults(func=cmd_produce)
+
+    p_post = sub.add_parser(
+        "postprocess",
+        help="Cria um master com FFmpeg sem rerenderizar o Manim.",
+    )
+    p_post.add_argument("input", help="MP4 bruto já renderizado.")
+    p_post.add_argument("-o", "--output")
+    p_post.add_argument("--music")
+    p_post.add_argument("--music-volume", type=float, default=0.12)
+    p_post.add_argument("--fade-in", type=float, default=1.5)
+    p_post.add_argument("--fade-out", type=float, default=2.5)
+    p_post.add_argument("--no-ducking", action="store_true")
+    p_post.add_argument("--no-normalize", action="store_true")
+    p_post.add_argument("--dry-run", action="store_true")
+    p_post.set_defaults(func=cmd_postprocess)
 
     p_render = sub.add_parser(
         "render",
@@ -586,6 +674,7 @@ def main() -> None:
     except (
         ManifestError,
         RenderError,
+        PostProcessError,
         KeyError,
         ValueError,
     ) as exc:
