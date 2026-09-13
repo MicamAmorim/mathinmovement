@@ -41,7 +41,7 @@ class DSLCoverageTests(unittest.TestCase):
                 self.assertEqual(record.manifest.get("status"), "production")
                 self.assertEqual(
                     record.manifest["render"]["production_engine"],
-                    "native",
+                    "dsl",
                 )
                 self.assertIn("dsl_shadow", record.manifest)
 
