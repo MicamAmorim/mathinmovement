@@ -100,6 +100,24 @@ Quando habilitada, a narração deve acompanhar exatamente a ordem visual. Para 
 
 Não é necessário embutir MP3 no pacote quando o pipeline TTS irá gerá-los.
 
+## Criar uma base local
+
+O CLI pode gerar um conteúdo mínimo válido antes da edição pela LLM:
+
+```powershell
+python -m mathinmovement scaffold demo meu-demo
+python -m mathinmovement scaffold qenem minha-questao --year 2026 --question-number 146
+```
+
+Para também gerar imediatamente o container ZIP com a extensão correta:
+
+```powershell
+python -m mathinmovement scaffold demo meu-demo --package
+python -m mathinmovement scaffold qenem minha-questao --year 2026 --question-number 146 --package
+```
+
+O diretório gerado contém `manifest.yaml` e `assets/`. Use `--force` somente quando quiser substituir um scaffold já existente.
+
 ## Fluxo de validação
 
 Depois de gerar o pacote:
