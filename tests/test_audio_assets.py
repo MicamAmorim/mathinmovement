@@ -9,11 +9,10 @@ class AudioAssetTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.registry = Registry().rebuild()
-        cls.qenem = [
-            record
-            for record in cls.registry.all()
-            if record.type == "qenem"
-        ]
+        cls.qenem = cls.registry.find(
+            content_type="qenem",
+            status="production",
+        )
 
     def test_all_qenem_audio_is_package_relative_and_exists(self):
         self.assertEqual(len(self.qenem), 30)
