@@ -35,7 +35,7 @@
     "math": "A=\\pi(R^2-r^2)"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

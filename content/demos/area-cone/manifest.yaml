@@ -43,7 +43,7 @@
     "math": "A_T=\\pi rg+\\pi r^2"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

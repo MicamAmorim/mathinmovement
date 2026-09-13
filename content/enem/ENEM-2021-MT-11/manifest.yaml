@@ -73,7 +73,7 @@ visuals:
     note: A altura de 8 cm divide o equilátero em dois triângulos 30°–60°–90° e também divide a base ao meio.
 
 render:
-  production_engine: native
+  production_engine: dsl
   formats:
     - vertical
     - horizontal

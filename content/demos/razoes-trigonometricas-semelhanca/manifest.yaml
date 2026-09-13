@@ -43,7 +43,7 @@
     "math": "\\tan\\theta=\\frac{op}{adj}"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

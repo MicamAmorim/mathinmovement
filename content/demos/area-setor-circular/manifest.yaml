@@ -43,7 +43,7 @@
     "math": "A_s=\\frac12r^2\\theta\\quad(\\theta\\ \\mathrm{em\\ radianos})"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

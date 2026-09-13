@@ -40,7 +40,7 @@
     "math": "A_{\\triangle}=\\frac12bc\\sin A"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

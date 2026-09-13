@@ -46,7 +46,7 @@
     "math": "L:k\\qquad A:k^2\\qquad V:k^3"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

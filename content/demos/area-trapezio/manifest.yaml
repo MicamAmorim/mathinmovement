@@ -38,7 +38,7 @@
     "math": "A=\\frac{(B+b)h}{2}"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

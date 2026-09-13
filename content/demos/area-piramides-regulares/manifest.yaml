@@ -42,7 +42,7 @@
     "math": "A_T=A_b+\\frac{P_bg}{2}"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

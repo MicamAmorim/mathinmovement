@@ -50,7 +50,7 @@
     "math": "A=2\\pi R(2R)=4\\pi R^2"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

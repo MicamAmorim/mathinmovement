@@ -47,7 +47,7 @@
     "math": "A=\\frac{\\ell h}{2}=\\frac{\\sqrt3}{4}\\ell^2"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

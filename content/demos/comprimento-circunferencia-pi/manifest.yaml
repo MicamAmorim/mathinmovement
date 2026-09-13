@@ -42,7 +42,7 @@
     "math": "C=\\pi d=2\\pi r"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

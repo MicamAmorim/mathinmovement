@@ -39,7 +39,7 @@ result:
   math: A=\frac{bh}{2}
 
 render:
-  production_engine: native
+  production_engine: dsl
   formats:
     - vertical
     - horizontal

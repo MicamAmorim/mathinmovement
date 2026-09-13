@@ -40,7 +40,7 @@
     "math": "D=\\sqrt{a^2+b^2+c^2}"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

@@ -38,7 +38,7 @@
     "math": "A=(\\pi r)r=\\pi r^2"
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical"
     ],

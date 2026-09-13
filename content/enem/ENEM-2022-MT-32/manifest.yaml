@@ -84,7 +84,7 @@
     }
   },
   "render": {
-    "production_engine": "native",
+    "production_engine": "dsl",
     "formats": [
       "vertical",
       "horizontal"
