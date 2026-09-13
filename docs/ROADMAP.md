@@ -17,15 +17,16 @@ Este roadmap acompanha a evolução do Math in Movement de engine declarativo em
 - [x] Testes automatizados e regressão DSL.
 - [x] Validação local como quality gate canônico enquanto CI remota estiver indisponível (`mim verify`).
 - [ ] Concluir migração do catálogo para programas DSL declarativos.
-  - Estado em 2026-09-12 na branch `feature-dsl-catalog-migration`: 30/30 demos e 12/30 qENEM possuem shadow ports DSL.
-  - Meta: 30/30 demos e 30/30 qENEM auditados, regressados e promovidos quando visualmente equivalentes.
+  - Estado em 2026-09-12 na branch `feature-dsl-catalog-migration`: 30/30 demos e 30/30 qENEM possuem shadow ports DSL.
+  - Migração estrutural concluída: 60/60 conteúdos possuem representação declarativa shadow.
+  - Próxima etapa: regressão renderizada, correções visuais e promoção quando visualmente equivalentes.
 
 ## M1 — Fechar a migração DSL
 
 Prioridade imediata.
 
 - [x] Migrar os 9 demos restantes para DSL.
-- [ ] Migrar os qENEM restantes para DSL quando aplicável. Estado atual: 12/30.
+- [x] Migrar os qENEM restantes para DSL quando aplicável. Estado atual: 30/30.
 - [ ] Executar regressão visual dos shadow ports.
 - [ ] Corrigir diferenças de layout, TeX, timing e composição.
 - [ ] Promover os programas validados e reduzir dependência de renderers específicos.
