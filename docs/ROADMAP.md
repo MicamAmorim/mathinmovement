@@ -113,6 +113,8 @@ Critério de saída: todo o fluxo cotidiano pode ser feito pela interface sem us
 
 ## M4 — Pipeline de pós-produção
 
+Implementação inicial em `feature-postproduction`: módulo FFmpeg, `media_raw/`, fingerprint de raw e CLI de trilha estão prontos; aguardam quality gate local e smoke test real com música antes da promoção.
+
 Criar uma etapa explícita depois do Manim:
 
 ```text
