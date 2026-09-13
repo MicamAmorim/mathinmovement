@@ -166,6 +166,23 @@ qENEM podem declarar programas DSL estáticos em `visuals.statement.program` e `
 
 A v1 cobre o vocabulário gráfico já usado nos 60 vídeos aprovados. O conjunto mínimo de regressão possui 8 demos e 6 qENEM. Veja `docs/DSL_COVERAGE.md` e `docs/DSL_SPEC.md`.
 
+## Autoria com LLM
+
+Conteúdo novo deve usar a DSL canônica, sem Python arbitrário:
+
+- demos: `visual_program`;
+- qENEM: `visuals.statement.program`, `visuals.concept.program` e `visuals.options.program` quando necessários;
+- `dsl_shadow` fica reservado à compatibilidade do catálogo migrado.
+
+Guia oficial:
+
+- `docs/AUTHORING_WITH_LLM.md`
+- `prompts/llm-demo.md`
+- `prompts/llm-qenem.md`
+- `examples/templates/`
+
+Os templates oficiais são testados automaticamente contra os schemas e a DSL.
+
 ## Roadmap
 
 O planejamento de evolução do projeto está em [`docs/ROADMAP.md`](docs/ROADMAP.md).
