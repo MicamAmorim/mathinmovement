@@ -138,6 +138,35 @@ def _resolve_engine(
     raise ManifestError(f"Engine desconhecido: {requested!r}")
 
 
+def production_formats(record: ContentRecord) -> list[str]:
+    """Formatos que a rota production consegue renderizar de fato."""
+    formats: list[str] = []
+    candidates = ("vertical", "horizontal")
+    render = record.manifest.get("render") or {}
+
+    for video_format in candidates:
+        try:
+            resolved_engine, _ = _resolve_engine(
+                record,
+                "production",
+                video_format=video_format,
+            )
+        except ManifestError:
+            continue
+
+        allowed = _engine_formats(record, resolved_engine)
+        if video_format not in allowed:
+            continue
+        if (
+            resolved_engine == "native"
+            and render.get("native_ready") is not True
+        ):
+            continue
+        formats.append(video_format)
+
+    return formats
+
+
 def _manim_command(
     record: ContentRecord,
     *,
