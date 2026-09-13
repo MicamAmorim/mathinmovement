@@ -56,7 +56,7 @@ python -m mathinmovement list --type qenem
 
 ## Renderização
 
-A rota `production` é sensível ao formato: se o conteúdo declara `production_engine: dsl` e o formato solicitado está em `dsl_shadow.formats`, a DSL é usada e o MP4 final vai para `media/`. Caso contrário, o engine nativo aprovado é usado automaticamente como fallback.
+A rota `production` é sensível ao formato: `dsl_shadow.formats` indica os formatos que a DSL consegue renderizar, enquanto `dsl_shadow.approved_formats` indica quais já foram aprovados visualmente para produção. Se o formato solicitado estiver aprovado, a DSL é usada e o MP4 final vai para `media/`; caso contrário, o engine nativo aprovado é usado automaticamente como fallback.
 
 Um conteúdo:
 
