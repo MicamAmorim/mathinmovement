@@ -53,9 +53,9 @@ Objetivo: permitir que um usuário entregue uma questão do ENEM ou uma fórmula
   - `mim dsl validate`
   - `mim produce --dry-run`
 - [x] Adicionar exemplos prontos em `examples/templates/`.
-- [ ] Adicionar um comando futuro `mim scaffold demo|qenem` para gerar a estrutura-base localmente.
+- [x] Adicionar `mim scaffold demo|qenem` para gerar a estrutura-base localmente, com opção `--package`.
 
-Critério de saída: um usuário sem conhecer Python consegue pedir a uma LLM um conteúdo novo, importar o pacote e validá-lo.
+Critério de saída: um usuário sem conhecer Python consegue pedir a uma LLM um conteúdo novo, importar o pacote e validá-lo. **Implementação concluída na branch `feature-llm-authoring-kit`; aguarda quality gate local antes da consolidação na `main`.**
 
 ## M3 — Math in Movement Studio (Web App)
 
