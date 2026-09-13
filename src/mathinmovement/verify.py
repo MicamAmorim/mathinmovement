@@ -56,6 +56,21 @@ def _validate_catalog(registry: Registry) -> tuple[int, int]:
         if record.type == "qenem" and visual_count:
             qenem_shadows += 1
 
+        supported_formats = list(shadow.get("formats") or [])
+        approved_formats = list(shadow.get("approved_formats") or [])
+        if "vertical" not in approved_formats:
+            raise RuntimeError(
+                f"{record.id}: DSL vertical ainda não está aprovada para produção."
+            )
+        unsupported_approvals = sorted(
+            set(approved_formats) - set(supported_formats)
+        )
+        if unsupported_approvals:
+            raise RuntimeError(
+                f"{record.id}: approved_formats contém formato(s) não "
+                f"suportado(s): {unsupported_approvals}."
+            )
+
     if demo_shadows != 30:
         raise RuntimeError(
             f"DSL demo incompleta: esperado 30/30; encontrado {demo_shadows}/30."
