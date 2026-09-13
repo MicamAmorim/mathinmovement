@@ -232,7 +232,15 @@ def postprocess_video(
     output = Path(output_video)
     music = Path(soundtrack) if soundtrack is not None else None
 
-    if not dry_run and not source.exists():
+    if not source.exists():
+        if dry_run:
+            return PostProcessResult(
+                input_video=source,
+                output_video=output,
+                soundtrack=music,
+                command=None,
+                copied=False,
+            )
         raise ManifestError(f"Vídeo bruto não encontrado: {source}")
     if music is not None and not music.exists():
         raise ManifestError(f"Trilha sonora não encontrada: {music}")
