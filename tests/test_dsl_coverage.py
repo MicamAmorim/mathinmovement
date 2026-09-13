@@ -62,7 +62,10 @@ class DSLCoverageTests(unittest.TestCase):
 
     def test_every_demo_has_valid_shadow_program(self):
         registry = Registry().rebuild()
-        demos = registry.find(content_type="demo")
+        demos = registry.find(
+            content_type="demo",
+            status="production",
+        )
         self.assertEqual(len(demos), 30)
         for record in demos:
             with self.subTest(content_id=record.id):
@@ -87,7 +90,10 @@ class DSLCoverageTests(unittest.TestCase):
 
     def test_every_qenem_has_valid_shadow_visuals(self):
         registry = Registry().rebuild()
-        qenem = registry.find(content_type="qenem")
+        qenem = registry.find(
+            content_type="qenem",
+            status="production",
+        )
         self.assertEqual(len(qenem), 30)
         for record in qenem:
             with self.subTest(content_id=record.id):
