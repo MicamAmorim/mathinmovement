@@ -21,6 +21,23 @@
     </header>
 
     <main>
+      <section class="import-panel card">
+        <div>
+          <p class="eyebrow">IMPORTAR</p>
+          <h2>Novo conteúdo</h2>
+          <p class="hint import-hint">Selecione um pacote <strong>.demo</strong> ou <strong>.qenem</strong>. Ele será validado antes de entrar no catálogo.</p>
+        </div>
+        <div class="import-controls">
+          <input id="packageFile" type="file" accept=".demo,.qenem">
+          <label class="inline-check">
+            <input id="replacePackage" type="checkbox">
+            <span>Substituir se o ID já existir</span>
+          </label>
+          <button class="primary-button compact" id="importPackage" type="button">Importar pacote</button>
+        </div>
+        <p id="importMessage" class="form-message import-message"></p>
+      </section>
+
       <section class="toolbar card">
         <div class="search-wrap">
           <label for="search">Buscar conteúdo</label>
@@ -131,9 +148,13 @@
             </div>
 
             <div class="field-group">
-              <label for="musicPath">Trilha sonora <span>opcional</span></label>
-              <input id="musicPath" type="text" placeholder="C:\caminho\musica.mp3">
-              <p class="hint">O caminho é lido pela máquina onde o worker está executando.</p>
+              <label for="musicFile">Trilha sonora <span>opcional</span></label>
+              <input id="musicFile" type="file" accept="audio/*,.mp3,.wav,.m4a,.aac,.flac,.ogg">
+              <p class="hint" id="musicHint">Selecione uma música; o Studio fará o upload automaticamente para o worker.</p>
+              <details class="advanced-path">
+                <summary>Caminho já existente no servidor</summary>
+                <input id="musicPath" type="text" placeholder="C:\caminho\musica.mp3">
+              </details>
             </div>
 
             <div class="form-grid three">
