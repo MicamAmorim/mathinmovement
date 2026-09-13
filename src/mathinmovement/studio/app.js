@@ -11,6 +11,10 @@ const elements = {
   search: $("search"),
   typeFilter: $("typeFilter"),
   statusFilter: $("statusFilter"),
+  yearFilter: $("yearFilter"),
+  tagFilter: $("tagFilter"),
+  formatFilter: $("formatFilter"),
+  narrationFilter: $("narrationFilter"),
   catalog: $("catalog"),
   catalogEmpty: $("catalogEmpty"),
   catalogCount: $("catalogCount"),
@@ -68,6 +72,10 @@ function filteredContents() {
   const term = elements.search.value.trim().toLowerCase();
   const type = elements.typeFilter.value;
   const status = elements.statusFilter.value;
+  const year = elements.yearFilter.value;
+  const tag = elements.tagFilter.value;
+  const format = elements.formatFilter.value;
+  const narration = elements.narrationFilter.value;
   return state.contents.filter((item) => {
     const haystack = [
       item.id,
@@ -75,10 +83,51 @@ function filteredContents() {
       ...(item.tags || []),
       item.year || "",
     ].join(" ").toLowerCase();
+    const formats = item.render?.formats || ["vertical"];
+    const hasNarration = Boolean(item.narration?.enabled);
     return (!term || haystack.includes(term))
       && (!type || item.type === type)
-      && (!status || item.status === status);
+      && (!status || item.status === status)
+      && (!year || String(item.year || "") === year)
+      && (!tag || (item.tags || []).includes(tag))
+      && (!format || formats.includes(format))
+      && (!narration || (narration === "yes" ? hasNarration : !hasNarration));
   });
+}
+
+function populateFilterOptions() {
+  const currentYear = elements.yearFilter.value;
+  const currentTag = elements.tagFilter.value;
+
+  const years = [...new Set(
+    state.contents.map((item) => item.year).filter(Boolean)
+  )].sort((a, b) => b - a);
+  const tags = [...new Set(
+    state.contents.flatMap((item) => item.tags || [])
+  )].sort((a, b) => a.localeCompare(b, "pt-BR"));
+
+  elements.yearFilter.innerHTML = '<option value="">Todos</option>';
+  years.forEach((year) => {
+    const option = document.createElement("option");
+    option.value = String(year);
+    option.textContent = String(year);
+    elements.yearFilter.appendChild(option);
+  });
+
+  elements.tagFilter.innerHTML = '<option value="">Todas</option>';
+  tags.forEach((tag) => {
+    const option = document.createElement("option");
+    option.value = tag;
+    option.textContent = tag;
+    elements.tagFilter.appendChild(option);
+  });
+
+  if (years.map(String).includes(currentYear)) {
+    elements.yearFilter.value = currentYear;
+  }
+  if (tags.includes(currentTag)) {
+    elements.tagFilter.value = currentTag;
+  }
 }
 
 function renderCatalog() {
@@ -160,6 +209,7 @@ async function loadHealth() {
 async function loadContents() {
   try {
     state.contents = await request("/contents");
+    populateFilterOptions();
     renderCatalog();
   } catch (error) {
     elements.catalog.innerHTML = "";
@@ -288,7 +338,15 @@ async function enqueue(event) {
   }
 }
 
-[elements.search, elements.typeFilter, elements.statusFilter].forEach((node) => {
+[
+  elements.search,
+  elements.typeFilter,
+  elements.statusFilter,
+  elements.yearFilter,
+  elements.tagFilter,
+  elements.formatFilter,
+  elements.narrationFilter,
+].forEach((node) => {
   node.addEventListener("input", renderCatalog);
   node.addEventListener("change", renderCatalog);
 });
