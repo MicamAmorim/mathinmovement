@@ -83,17 +83,20 @@ class DSLCoverageTests(unittest.TestCase):
                     with self.subTest(content_id=record.id, visual=name):
                         validate_program(spec["program"])
                     count += 1
-        self.assertGreaterEqual(count, 27)
+        self.assertGreaterEqual(count, 60)
 
-    def test_qenem_shadow_migration_has_reached_twelve_items(self):
+    def test_every_qenem_has_valid_shadow_visuals(self):
         registry = Registry().rebuild()
         qenem = registry.find(content_type="qenem")
-        migrated = [
-            record
-            for record in qenem
-            if (record.manifest.get("dsl_shadow") or {}).get("visuals")
-        ]
-        self.assertGreaterEqual(len(migrated), 12)
+        self.assertEqual(len(qenem), 30)
+        for record in qenem:
+            with self.subTest(content_id=record.id):
+                visuals = (record.manifest.get("dsl_shadow") or {}).get("visuals") or {}
+                self.assertTrue(visuals)
+                for name, spec in visuals.items():
+                    with self.subTest(content_id=record.id, visual=name):
+                        self.assertIn("program", spec)
+                        validate_program(spec["program"])
 
     def test_common_qenem_profile_is_explicit(self):
         self.assertIn("replacement_transform", QENEM_COMMON)
