@@ -34,9 +34,12 @@ A raiz `http://127.0.0.1:8000/` redireciona para o Studio.
 
 ## O que o MVP já faz
 
-### Catálogo
+### Catálogo e importação
 
 - lista demos e qENEM;
+- importa arquivos `.demo` e `.qenem` diretamente pelo navegador;
+- valida o pacote antes de gravá-lo no catálogo;
+- permite substituir um ID existente mediante opção explícita;
 - busca por título, ID, tag e ano;
 - filtros por tipo, status, ano, tag, formato e disponibilidade de narração;
 - mostra tags, status e metadados básicos;
@@ -46,14 +49,15 @@ A raiz `http://127.0.0.1:8000/` redireciona para o Studio.
 
 Ao selecionar um conteúdo, o painel lateral permite definir:
 
-- vertical 9:16 ou horizontal 16:9, respeitando os formatos declarados no manifest;
+- vertical 9:16 ou horizontal 16:9, usando os formatos efetivamente suportados pela rota de produção, inclusive fallback nativo quando disponível;
 - qualidade draft/final;
 - voz TTS ou voz padrão do manifest;
 - pular TTS;
 - forçar regeneração de TTS;
 - dry-run;
 - preview rápido;
-- caminho opcional de trilha sonora;
+- seleção de arquivo de trilha sonora pelo navegador, com upload automático;
+- caminho manual opcional apenas como modo avançado para arquivos já existentes no servidor;
 - volume da música;
 - fade in/out;
 - ducking;
@@ -108,11 +112,11 @@ sem render real.
 
 Ainda não fazem parte desta primeira versão:
 
-- upload de `.demo`/`.qenem` pela interface;
+- upload múltiplo de pacotes e importação de ZIP com vários conteúdos;
 - thumbnails reais;
 - preview do MP4 no navegador;
 - download do vídeo;
-- upload de música pelo navegador;
+- biblioteca persistente/reutilizável de músicas dentro do Studio;
 - progresso percentual;
 - streaming de logs;
 - retry por botão;
