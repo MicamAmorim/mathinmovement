@@ -155,6 +155,7 @@ class UnifiedContentScene(Scene):
 
         if self.record.type == "demo":
             self._profile = "motion_math_v1"
+            self._schedule_demo_narration()
             self.render_demo()
             return
         if self.record.type == "qenem":
@@ -162,6 +163,51 @@ class UnifiedContentScene(Scene):
             self.render_qenem()
             return
         raise RuntimeError(f"Tipo não suportado: {self.record.type}")
+
+    def _resolve_audio_reference(self, value):
+        if not value:
+            return None
+        rel_path = Path(str(value))
+        if rel_path.is_absolute():
+            return None
+        if rel_path.parts and rel_path.parts[0] == "assets":
+            path = (self.record.path / rel_path).resolve()
+        else:
+            path = (PROJECT_ROOT / rel_path).resolve()
+        return path if path.is_file() else None
+
+    def _schedule_demo_narration(self):
+        narration = self.manifest.get("narration") or {}
+        if not narration.get("enabled", False) or FAST_PREVIEW:
+            return
+
+        master_audio = self._resolve_audio_reference(
+            narration.get("master_audio")
+        )
+        if master_audio is not None:
+            self.add_sound(str(master_audio))
+            return
+
+        for segment in narration.get("segments") or []:
+            if not isinstance(segment, dict):
+                continue
+            key = str(segment.get("key") or "").strip()
+            if not key or segment.get("start") is None:
+                continue
+            audio = self.audio_path(key)
+            if audio is None:
+                continue
+            try:
+                start = float(segment.get("start"))
+            except (TypeError, ValueError) as exc:
+                raise RuntimeError(
+                    f"{self.record.id}/{key}: narration.start inválido."
+                ) from exc
+            if start < 0:
+                raise RuntimeError(
+                    f"{self.record.id}/{key}: narration.start não pode ser negativo."
+                )
+            self.add_sound(str(audio), time_offset=start)
 
     # ------------------------------------------------------------------
     # Demo profile: port of MotionMathScene identity and timing
@@ -2587,17 +2633,7 @@ class UnifiedContentScene(Scene):
 
     def audio_path(self, key):
         rec = self.narr.get(key, {})
-        rel = rec.get("audio")
-        if not rel:
-            return None
-        rel_path = Path(str(rel))
-        if rel_path.is_absolute():
-            return None
-        if rel_path.parts and rel_path.parts[0] == "assets":
-            path = (self.record.path / rel_path).resolve()
-        else:
-            path = (PROJECT_ROOT / rel_path).resolve()
-        return path if path.is_file() else None
+        return self._resolve_audio_reference(rec.get("audio"))
 
     def speak(self, key, animations=None, run_time=None):
         duration = self.segment_duration(key)
