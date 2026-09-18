@@ -157,6 +157,7 @@ class UnifiedContentScene(Scene):
             self._profile = "motion_math_v1"
             self._schedule_demo_narration()
             self.render_demo()
+            self._pad_demo_to_narration_end()
             return
         if self.record.type == "qenem":
             self._profile = "qenem_v1"
@@ -181,13 +182,6 @@ class UnifiedContentScene(Scene):
         if not narration.get("enabled", False) or FAST_PREVIEW:
             return
 
-        master_audio = self._resolve_audio_reference(
-            narration.get("master_audio")
-        )
-        if master_audio is not None:
-            self.add_sound(str(master_audio))
-            return
-
         for segment in narration.get("segments") or []:
             if not isinstance(segment, dict):
                 continue
@@ -208,6 +202,37 @@ class UnifiedContentScene(Scene):
                     f"{self.record.id}/{key}: narration.start não pode ser negativo."
                 )
             self.add_sound(str(audio), time_offset=start)
+
+    def _demo_narration_end(self):
+        narration = self.manifest.get("narration") or {}
+        if not narration.get("enabled", False):
+            return 0.0
+
+        candidates = []
+        try:
+            candidates.append(float(narration.get("duration") or 0))
+        except (TypeError, ValueError):
+            pass
+
+        for segment in narration.get("segments") or []:
+            if not isinstance(segment, dict):
+                continue
+            try:
+                start = float(segment.get("start") or 0)
+                duration = float(segment.get("duration") or 0)
+            except (TypeError, ValueError):
+                continue
+            candidates.append(start + max(0.0, duration))
+
+        return max(candidates or [0.0])
+
+    def _pad_demo_to_narration_end(self):
+        target = self._demo_narration_end()
+        if target <= 0:
+            return
+        current = float(getattr(self, "time", 0.0))
+        if current < target:
+            self.wait(target - current)
 
     # ------------------------------------------------------------------
     # Demo profile: port of MotionMathScene identity and timing
