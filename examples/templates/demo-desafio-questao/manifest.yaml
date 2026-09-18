@@ -2,15 +2,16 @@ schema_version: 1
 id: desafio-89-operacoes-v2-vertical
 type: demo
 status: draft
-title: 89% erram essa — desafio de operações
+title: Questão desafio — operações
 tags:
   - aritmetica
   - desafio
   - shorts
+  - countdown-5s
 
 lesson:
   objective: Resolver uma expressão respeitando parênteses e a ordem da esquerda para a direita.
-  hook: 89% erram essa.
+  hook: 9 ou 1? Quanto dá essa conta?
   steps:
     - narration: 'Parênteses: 1+2=3.'
       math: '1+2=3'
@@ -42,15 +43,15 @@ visual_program:
 
     - id: hook
       type: text
-      text: 89%
+      text: 9 OU 1?
       at: [0, 4.4]
-      font_size: 90
+      font_size: 56
       color: gold
     - id: hook2
       type: text
-      text: ERRAM ESSA
-      at: [0, 3.2]
-      font_size: 32
+      text: QUANTO DÁ ESSA CONTA?
+      at: [0, 3.4]
+      font_size: 29
       color: white
 
     - id: expr
@@ -188,16 +189,16 @@ visual_program:
 
     - id: end
       type: text
-      text: Você conseguiu?
-      at: [0, -1.8]
-      font_size: 33
+      text: VOCÊ CONSEGUIU RESOLVER?
+      at: [0, -1.7]
+      font_size: 28
       color: white
     - id: cta
       type: text
-      text: QUAL FOI O SEU RESULTADO?
-      at: [0, -3.0]
-      font_size: 22
-      color: muted
+      text: COLOQUE NOS COMENTÁRIOS
+      at: [0, -2.8]
+      font_size: 23
+      color: cyan
 
   timeline:
     - op: add
@@ -219,6 +220,7 @@ visual_program:
       target: ring
     - op: add
       target: n5
+      tags: [countdown-5s]
     - op: opacity
       target: brand
       value: 1
@@ -259,6 +261,10 @@ visual_program:
       target: n1
     - op: remove
       target: ring
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 1.2
     - op: remove
       target: challenge
     - op: remove
@@ -362,22 +368,19 @@ visual_program:
     - op: opacity
       target: brand
       value: 1
-      run_time: 2.5
+      run_time: 3.8
 
 editorial_notes:
   operator_palette:
     plus: yellow
-    times: cyan
+    times: blue
     divide: green
     minus: red
-  hook: 89% fornecido pelo autor; não representa estatística verificada.
-  narration_cues:
-    - start: 0
-      end: 2.568
-      text: 89% erram essa.
-    - start: 21
-      end: 22.872
-      text: Você conseguiu?
+  countdown:
+    seconds: 5
+    tag: countdown-5s
+    standard_audio: assets/audio/countdown-5s.mp3
+  closing_phrase: Você conseguiu resolver? Coloque nos comentários.
   render_environment:
     MANIM_PACE: '1.0'
   timing: Pausas realizadas por opacity constante para preservar a duração de referência.
