@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import re
+
 import numpy as np
 from manim import (
     Angle,
@@ -47,7 +49,25 @@ PALETTE = {
     "green": "#8DE2A7",
     "red": "#FF7D7D",
     "blue": "#79A7FF",
+    "yellow": "#FFD84D",
 }
+_LEGACY_COLOR_GROUP_RE = re.compile(r"\{\\color\{([^{}]+)\}([^{}]+)\}")
+_LEGACY_TEXTCOLOR_RE = re.compile(r"\\textcolor\{([^{}]+)\}\{([^{}]+)\}")
+
+
+def _normalize_legacy_math_colors(tex):
+    legacy_map = {}
+
+    def replace(match):
+        color_name, substring = match.groups()
+        legacy_map.setdefault(substring, color_name)
+        return substring
+
+    tex = _LEGACY_COLOR_GROUP_RE.sub(replace, tex)
+    tex = _LEGACY_TEXTCOLOR_RE.sub(replace, tex)
+    return tex, legacy_map
+
+
 DIRECTIONS = {
     "ORIGIN": ORIGIN,
     "UP": UP,
@@ -438,12 +458,38 @@ def make_text(runtime, spec):
 
 @object_type("2d.math", aliases=("math",))
 def make_math(runtime, spec):
+    tex = str(spec.get("tex", spec.get("text", "")))
+    tex, legacy_color_map = _normalize_legacy_math_colors(tex)
+
+    kwargs = {
+        "font_size": float(runtime.resolve(spec.get("font_size", 42))),
+        "color": color(spec.get("color", "white")),
+    }
+
+    tex_to_color_map = spec.get("tex_to_color_map") or {}
+    if not isinstance(tex_to_color_map, dict):
+        raise DSLError("math.tex_to_color_map deve ser um mapa substring -> cor.")
+    merged_color_map = dict(legacy_color_map)
+    merged_color_map.update(tex_to_color_map)
+    if merged_color_map:
+        kwargs["tex_to_color_map"] = {
+            str(tex): color(value)
+            for tex, value in merged_color_map.items()
+        }
+
+    substrings_to_isolate = spec.get("substrings_to_isolate") or []
+    if not isinstance(substrings_to_isolate, (list, tuple)):
+        raise DSLError("math.substrings_to_isolate deve ser uma lista.")
+    if substrings_to_isolate:
+        kwargs["substrings_to_isolate"] = [
+            str(value) for value in substrings_to_isolate
+        ]
+
     return apply_layout(
         runtime,
         MathTex(
-            str(spec.get("tex", spec.get("text", ""))),
-            font_size=float(runtime.resolve(spec.get("font_size", 42))),
-            color=color(spec.get("color", "white")),
+            tex,
+            **kwargs,
         ),
         spec,
     )

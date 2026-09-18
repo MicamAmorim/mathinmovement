@@ -38,7 +38,6 @@ visual_program:
       text: PROF. MIQUÉIAS AMORIM
       at: [0, 6.1]
       font_size: 16
-      font: DejaVu Sans
       color: muted
 
     - id: hook
@@ -46,19 +45,18 @@ visual_program:
       text: 89%
       at: [0, 4.4]
       font_size: 90
-      font: DejaVu Sans
       color: gold
     - id: hook2
       type: text
       text: ERRAM ESSA
       at: [0, 3.2]
       font_size: 32
-      font: DejaVu Sans
       color: white
 
     - id: expr
       type: math
-      tex: '6{\color{green}\div}2{\color{cyan}\times}(1{\color{yellow}+}2)=?'
+      tex: '6\div2\times(1+2)=?'
+      tex_to_color_map: {'+': yellow, '\times': blue, '\div': green, '-': red}
       at: [0, 0.8]
       font_size: 72
 
@@ -67,7 +65,6 @@ visual_program:
       text: VOCÊ TEM 5 SEGUNDOS
       at: [0, -3.4]
       font_size: 26
-      font: DejaVu Sans
       color: muted
 
     - id: n1
@@ -75,35 +72,30 @@ visual_program:
       text: '1'
       at: [0, -1.9]
       font_size: 64
-      font: DejaVu Sans
       color: cyan
     - id: n2
       type: text
       text: '2'
       at: [0, -1.9]
       font_size: 64
-      font: DejaVu Sans
       color: cyan
     - id: n3
       type: text
       text: '3'
       at: [0, -1.9]
       font_size: 64
-      font: DejaVu Sans
       color: cyan
     - id: n4
       type: text
       text: '4'
       at: [0, -1.9]
       font_size: 64
-      font: DejaVu Sans
       color: cyan
     - id: n5
       type: text
       text: '5'
       at: [0, -1.9]
       font_size: 64
-      font: DejaVu Sans
       color: cyan
     - id: ring
       type: circle
@@ -117,23 +109,23 @@ visual_program:
       text: 01 / PARÊNTESES
       at: [0, 4.3]
       font_size: 26
-      font: DejaVu Sans
       color: cyan
     - id: cap1
       type: text
       text: Primeiro, resolva dentro deles.
       at: [0, -1.5]
       font_size: 25
-      font: DejaVu Sans
       color: white
     - id: small1
       type: math
-      tex: '1{\color{yellow}+}2=3'
+      tex: '1+2=3'
+      tex_to_color_map: {'+': yellow, '\times': blue, '\div': green, '-': red}
       at: [0, -2.5]
       font_size: 48
     - id: eq1
       type: math
-      tex: '6{\color{green}\div}2{\color{cyan}\times}3'
+      tex: '6\div2\times3'
+      tex_to_color_map: {'+': yellow, '\times': blue, '\div': green, '-': red}
       at: [0, 0.8]
       font_size: 76
 
@@ -142,23 +134,23 @@ visual_program:
       text: 02 / DA ESQUERDA PARA A DIREITA
       at: [0, 4.3]
       font_size: 23
-      font: DejaVu Sans
       color: cyan
     - id: cap2
       type: text
       text: × e ÷ têm a mesma prioridade.
       at: [0, -1.5]
       font_size: 25
-      font: DejaVu Sans
       color: white
     - id: small2
       type: math
-      tex: '6{\color{green}\div}2=3'
+      tex: '6\div2=3'
+      tex_to_color_map: {'+': yellow, '\times': blue, '\div': green, '-': red}
       at: [0, -2.5]
       font_size: 48
     - id: eq2
       type: math
-      tex: '3{\color{cyan}\times}3'
+      tex: '3\times3'
+      tex_to_color_map: {'+': yellow, '\times': blue, '\div': green, '-': red}
       at: [0, 0.8]
       font_size: 86
 
@@ -167,18 +159,17 @@ visual_program:
       text: 03 / MULTIPLICAÇÃO
       at: [0, 4.3]
       font_size: 24
-      font: DejaVu Sans
       color: cyan
     - id: cap3
       type: text
       text: Agora, basta multiplicar.
       at: [0, -1.5]
       font_size: 25
-      font: DejaVu Sans
       color: white
     - id: eq3
       type: math
-      tex: '3{\color{cyan}\times}3=9'
+      tex: '3\times3=9'
+      tex_to_color_map: {'+': yellow, '\times': blue, '\div': green, '-': red}
       at: [0, 0.8]
       font_size: 84
 
@@ -187,7 +178,6 @@ visual_program:
       text: RESPOSTA
       at: [0, 3.0]
       font_size: 25
-      font: DejaVu Sans
       color: muted
     - id: answer
       type: math
@@ -201,14 +191,12 @@ visual_program:
       text: Você conseguiu?
       at: [0, -1.8]
       font_size: 33
-      font: DejaVu Sans
       color: white
     - id: cta
       type: text
       text: QUAL FOI O SEU RESULTADO?
       at: [0, -3.0]
       font_size: 22
-      font: DejaVu Sans
       color: muted
 
   timeline:
