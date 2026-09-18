@@ -67,7 +67,10 @@ O programa deve conter `dsl_version`, `objects` e `timeline`.
 
 Veja:
 - `examples/templates/demo-minimal/manifest.yaml`;
-- `examples/templates/demo-complete/manifest.yaml`.
+- `examples/templates/demo-complete/manifest.yaml`;
+- `examples/templates/demo-desafio-questao/manifest.yaml` para desafios curtos com contagem regressiva, solução por etapas e CTA final.
+
+Para o formato de **questão desafio**, leia também `examples/templates/demo-desafio-questao/roteiro-desafio-89-v2.md`. Esse arquivo registra timing, retenção, narração e convenções visuais do modelo de referência.
 
 ## qENEM
 

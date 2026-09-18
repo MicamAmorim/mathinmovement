@@ -16,6 +16,15 @@ TEMA / TEOREMA / FÓRMULA:
 OBJETIVO DIDÁTICO OPCIONAL:
 [COLE AQUI]
 
+## Modo questão desafio
+
+Se o usuário pedir um **desafio curto**, uma expressão para o público resolver, “X% erram essa”, contagem regressiva ou formato equivalente, use como referência:
+
+- `examples/templates/demo-desafio-questao/manifest.yaml`;
+- `examples/templates/demo-desafio-questao/roteiro-desafio-89-v2.md`.
+
+Nesse modo, preserve por padrão: questão já no primeiro quadro, 5 segundos para resposta, resolução visual em etapas, resposta final grande e CTA curto. Para operadores aritméticos, use **+ amarelo, × ciano, ÷ verde e − vermelho**, aplicando a cor ao símbolo. Percentuais de erro não devem ser apresentados como dados estatísticos sem fonte.
+
 ## Regras obrigatórias
 
 1. Não escreva Python.

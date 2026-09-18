@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TEMPLATES = (
     ROOT / "examples" / "templates" / "demo-minimal" / "manifest.yaml",
     ROOT / "examples" / "templates" / "demo-complete" / "manifest.yaml",
+    ROOT / "examples" / "templates" / "demo-desafio-questao" / "manifest.yaml",
     ROOT / "examples" / "templates" / "qenem-minimal" / "manifest.yaml",
     ROOT / "examples" / "templates" / "qenem-complete" / "manifest.yaml",
 )

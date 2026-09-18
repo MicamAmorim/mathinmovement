@@ -1,0 +1,395 @@
+schema_version: 1
+id: desafio-89-operacoes-v2-vertical
+type: demo
+status: draft
+title: 89% erram essa — desafio de operações
+tags:
+  - aritmetica
+  - desafio
+  - shorts
+
+lesson:
+  objective: Resolver uma expressão respeitando parênteses e a ordem da esquerda para a direita.
+  hook: 89% erram essa.
+  steps:
+    - narration: 'Parênteses: 1+2=3.'
+      math: '1+2=3'
+    - narration: 'Divisão e multiplicação têm igual prioridade: seguir da esquerda para a direita.'
+      math: '6\div2=3'
+    - narration: Multiplicar o resultado por três.
+      math: '3\times3=9'
+
+result:
+  math: '9'
+
+render:
+  production_engine: dsl
+  formats: [vertical]
+  default_format: vertical
+
+narration:
+  enabled: false
+
+visual_program:
+  dsl_version: '1.0'
+  objects:
+    - id: brand
+      type: text
+      text: PROF. MIQUÉIAS AMORIM
+      at: [0, 6.1]
+      font_size: 16
+      font: DejaVu Sans
+      color: muted
+
+    - id: hook
+      type: text
+      text: 89%
+      at: [0, 4.4]
+      font_size: 90
+      font: DejaVu Sans
+      color: gold
+    - id: hook2
+      type: text
+      text: ERRAM ESSA
+      at: [0, 3.2]
+      font_size: 32
+      font: DejaVu Sans
+      color: white
+
+    - id: expr
+      type: math
+      tex: '6{\color{green}\div}2{\color{cyan}\times}(1{\color{yellow}+}2)=?'
+      at: [0, 0.8]
+      font_size: 72
+
+    - id: challenge
+      type: text
+      text: VOCÊ TEM 5 SEGUNDOS
+      at: [0, -3.4]
+      font_size: 26
+      font: DejaVu Sans
+      color: muted
+
+    - id: n1
+      type: text
+      text: '1'
+      at: [0, -1.9]
+      font_size: 64
+      font: DejaVu Sans
+      color: cyan
+    - id: n2
+      type: text
+      text: '2'
+      at: [0, -1.9]
+      font_size: 64
+      font: DejaVu Sans
+      color: cyan
+    - id: n3
+      type: text
+      text: '3'
+      at: [0, -1.9]
+      font_size: 64
+      font: DejaVu Sans
+      color: cyan
+    - id: n4
+      type: text
+      text: '4'
+      at: [0, -1.9]
+      font_size: 64
+      font: DejaVu Sans
+      color: cyan
+    - id: n5
+      type: text
+      text: '5'
+      at: [0, -1.9]
+      font_size: 64
+      font: DejaVu Sans
+      color: cyan
+    - id: ring
+      type: circle
+      radius: 0.7
+      at: [0, -1.9]
+      color: cyan
+      stroke_width: 2
+
+    - id: s1
+      type: text
+      text: 01 / PARÊNTESES
+      at: [0, 4.3]
+      font_size: 26
+      font: DejaVu Sans
+      color: cyan
+    - id: cap1
+      type: text
+      text: Primeiro, resolva dentro deles.
+      at: [0, -1.5]
+      font_size: 25
+      font: DejaVu Sans
+      color: white
+    - id: small1
+      type: math
+      tex: '1{\color{yellow}+}2=3'
+      at: [0, -2.5]
+      font_size: 48
+    - id: eq1
+      type: math
+      tex: '6{\color{green}\div}2{\color{cyan}\times}3'
+      at: [0, 0.8]
+      font_size: 76
+
+    - id: s2
+      type: text
+      text: 02 / DA ESQUERDA PARA A DIREITA
+      at: [0, 4.3]
+      font_size: 23
+      font: DejaVu Sans
+      color: cyan
+    - id: cap2
+      type: text
+      text: × e ÷ têm a mesma prioridade.
+      at: [0, -1.5]
+      font_size: 25
+      font: DejaVu Sans
+      color: white
+    - id: small2
+      type: math
+      tex: '6{\color{green}\div}2=3'
+      at: [0, -2.5]
+      font_size: 48
+    - id: eq2
+      type: math
+      tex: '3{\color{cyan}\times}3'
+      at: [0, 0.8]
+      font_size: 86
+
+    - id: s3
+      type: text
+      text: 03 / MULTIPLICAÇÃO
+      at: [0, 4.3]
+      font_size: 24
+      font: DejaVu Sans
+      color: cyan
+    - id: cap3
+      type: text
+      text: Agora, basta multiplicar.
+      at: [0, -1.5]
+      font_size: 25
+      font: DejaVu Sans
+      color: white
+    - id: eq3
+      type: math
+      tex: '3{\color{cyan}\times}3=9'
+      at: [0, 0.8]
+      font_size: 84
+
+    - id: answerlabel
+      type: text
+      text: RESPOSTA
+      at: [0, 3.0]
+      font_size: 25
+      font: DejaVu Sans
+      color: muted
+    - id: answer
+      type: math
+      tex: '9'
+      at: [0, 0.8]
+      font_size: 155
+      color: green
+
+    - id: end
+      type: text
+      text: Você conseguiu?
+      at: [0, -1.8]
+      font_size: 33
+      font: DejaVu Sans
+      color: white
+    - id: cta
+      type: text
+      text: QUAL FOI O SEU RESULTADO?
+      at: [0, -3.0]
+      font_size: 22
+      font: DejaVu Sans
+      color: muted
+
+  timeline:
+    - op: add
+      target: brand
+    - op: add
+      target: hook
+    - op: add
+      target: hook2
+    - op: add
+      target: expr
+    - op: add
+      target: challenge
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 3
+
+    - op: add
+      target: ring
+    - op: add
+      target: n5
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 1
+    - op: remove
+      target: n5
+    - op: add
+      target: n4
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 1
+    - op: remove
+      target: n4
+    - op: add
+      target: n3
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 1
+    - op: remove
+      target: n3
+    - op: add
+      target: n2
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 1
+    - op: remove
+      target: n2
+    - op: add
+      target: n1
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 1
+    - op: remove
+      target: n1
+    - op: remove
+      target: ring
+    - op: remove
+      target: challenge
+    - op: remove
+      target: hook
+    - op: remove
+      target: hook2
+
+    - op: parallel
+      run_time: 0.5
+      actions:
+        - op: fade_in
+          target: s1
+        - op: fade_in
+          target: cap1
+        - op: write
+          target: small1
+    - op: highlight
+      target: small1
+      run_time: 0.7
+    - op: replacement_transform
+      target: expr
+      to: eq1
+      run_time: 1
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 1.8
+
+    - op: parallel
+      run_time: 0.5
+      actions:
+        - op: replacement_transform
+          target: s1
+          to: s2
+        - op: replacement_transform
+          target: cap1
+          to: cap2
+        - op: replacement_transform
+          target: small1
+          to: small2
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 1.5
+    - op: highlight
+      target: small2
+      run_time: 0.8
+    - op: replacement_transform
+      target: eq1
+      to: eq2
+      run_time: 1
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 1.2
+
+    - op: parallel
+      run_time: 0.5
+      actions:
+        - op: replacement_transform
+          target: s2
+          to: s3
+        - op: replacement_transform
+          target: cap2
+          to: cap3
+        - op: fade_out
+          target: small2
+    - op: replacement_transform
+      target: eq2
+      to: eq3
+      run_time: 1
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 1.5
+
+    - op: parallel
+      run_time: 0.5
+      actions:
+        - op: fade_out
+          target: s3
+        - op: fade_out
+          target: cap3
+        - op: fade_in
+          target: answerlabel
+        - op: replacement_transform
+          target: eq3
+          to: answer
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 0.5
+
+    - op: parallel
+      run_time: 0.5
+      actions:
+        - op: fade_in
+          target: end
+        - op: fade_in
+          target: cta
+    - op: opacity
+      target: brand
+      value: 1
+      run_time: 2.5
+
+editorial_notes:
+  operator_palette:
+    plus: yellow
+    times: cyan
+    divide: green
+    minus: red
+  hook: 89% fornecido pelo autor; não representa estatística verificada.
+  narration_cues:
+    - start: 0
+      end: 2.568
+      text: 89% erram essa.
+    - start: 21
+      end: 22.872
+      text: Você conseguiu?
+  render_environment:
+    MANIM_PACE: '1.0'
+  timing: Pausas realizadas por opacity constante para preservar a duração de referência.
