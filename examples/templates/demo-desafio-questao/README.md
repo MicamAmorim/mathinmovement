@@ -4,8 +4,8 @@ Este diretório é o modelo oficial de **questão desafio curta** do Math in Mov
 
 A referência nasceu do vídeo **“89% erram essa”** e foi preservada em dois níveis:
 
-- \`roteiro-desafio-89-v2.md\`: referência editorial integral, com timing, narração, retenção e decisões estéticas;
-- \`manifest.yaml\`: referência técnica renderizável em DSL v1.
+- `roteiro-desafio-89-v2.md`: referência editorial integral, com timing, narração, retenção e decisões estéticas;
+- `manifest.yaml`: referência técnica renderizável em DSL v1.
 
 ## Estrutura padrão do formato
 
@@ -24,10 +24,10 @@ A duração de **24 s** é a referência deste modelo, não uma obrigação. Pre
 
 Quando houver esses operadores, use a paleta:
 
-- \`+\` → amarelo;
-- \`×\` → azul/ciano;
-- \`÷\` → verde;
-- \`−\` → vermelho.
+- `+` → amarelo;
+- `×` → azul/ciano;
+- `÷` → verde;
+- `−` → vermelho.
 
 A cor deve ser aplicada ao **operador**, não aos números adjacentes.
 
@@ -41,12 +41,12 @@ Priorize leitura em celular:
 
 ## Ao criar um novo desafio
 
-Copie o \`manifest.yaml\` e altere, no mínimo:
+Copie o `manifest.yaml` e altere, no mínimo:
 
-- \`id\`;
-- \`title\`;
-- \`tags\`;
-- \`lesson.objective\`, \`lesson.steps\` e \`result\`;
+- `id`;
+- `title`;
+- `tags`;
+- `lesson.objective`, `lesson.steps` e `result`;
 - expressão inicial e equações intermediárias;
 - títulos das etapas;
 - resposta final;
@@ -72,10 +72,10 @@ Os MP3/WAV gerados **não são versionados neste template**. O Git mantém o rot
 
 Depois de copiar e adaptar:
 
-\`\`\`powershell
+```powershell
 python -m mathinmovement validate
 python -m mathinmovement dsl validate <id>
 python -m mathinmovement produce <pacote.demo> --dry-run
-\`\`\`
+```
 
-Para reproduzir o timing de 24 s desta referência, use \`MANIM_PACE=1.0\`.
+Para reproduzir o timing de 24 s desta referência, use `MANIM_PACE=1.0`.

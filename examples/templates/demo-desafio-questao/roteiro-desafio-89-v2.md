@@ -47,11 +47,11 @@ Primeiro resolvemos os parênteses. Em seguida, divisão e multiplicação têm 
 
 ## Reprodução no Math in Movement
 
-Pacote: \`desafio-89-operacoes.demo\`, com DSL canônica 1.0, sem código executável.
+Pacote: `desafio-89-operacoes.demo`, com DSL canônica 1.0, sem código executável.
 
-A timeline foi calculada para \`MANIM_PACE=1.0\`; esse valor mantém os timestamps indicados. A configuração padrão 1.15 prolonga as animações, mas não as pausas da contagem.
+A timeline foi calculada para `MANIM_PACE=1.0`; esse valor mantém os timestamps indicados. A configuração padrão 1.15 prolonga as animações, mas não as pausas da contagem.
 
-O pacote inclui as duas falas em MP3 e a faixa de 24 s sincronizada. A renderização visual DSL não injeta as falas automaticamente; a faixa sincronizada é aplicada na pós-produção. Para reproduzir pelo CLI, use \`--music assets/audio/narracao-desafio-89.wav --music-volume 1 --fade-in 0 --fade-out 0 --no-ducking\`.
+O pacote inclui as duas falas em MP3 e a faixa de 24 s sincronizada. A renderização visual DSL não injeta as falas automaticamente; a faixa sincronizada é aplicada na pós-produção. Para reproduzir pelo CLI, use `--music assets/audio/narracao-desafio-89.wav --music-volume 1 --fade-in 0 --fade-out 0 --no-ducking`.
 
 ## Ajustes estéticos — versão 2
 
