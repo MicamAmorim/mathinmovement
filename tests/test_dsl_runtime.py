@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import tempfile
 import unittest
+from pathlib import Path
+from unittest.mock import patch
 
 from manim import Scene, ValueTracker
 
@@ -63,7 +66,6 @@ class DSLRuntimeTests(unittest.TestCase):
         self.assertIn("curve", runtime.objects)
 
     def test_audited_semantic_capabilities_are_registered(self):
-        # Layout e dynamic_redraw também são ações registradas.
         semantic = universe(DEMO_USAGE) | universe(QENEM_USAGE) | QENEM_COMMON
         for name in semantic:
             with self.subTest(name=name):
@@ -79,6 +81,30 @@ class DSLRuntimeTests(unittest.TestCase):
         self.assertIn("dynamic.tracker", object_names)
         self.assertIn("anim.rigid_motion", action_names)
         self.assertIn("dynamic.redraw", action_names)
+
+    def test_countdown_tag_plays_standard_audio(self):
+        program = {
+            "dsl_version": "1.0",
+            "objects": [],
+            "timeline": [],
+        }
+        scene = Scene()
+        runtime = DSLRuntime(scene, program)
+        step = {"op": "wait", "duration": 0.1, "tags": ["countdown-5s"]}
+        with patch.object(scene, "add_sound") as add_sound:
+            runtime.play_audio_tags(step)
+        add_sound.assert_called_once()
+        path = Path(add_sound.call_args.args[0])
+        self.assertEqual(path.name, "countdown-5s.mp3")
+        self.assertTrue(path.is_file())
+
+    def test_timeline_tags_validate_as_strings(self):
+        with self.assertRaises(Exception):
+            validate_program({
+                "dsl_version": "1.0",
+                "objects": [],
+                "timeline": [{"op": "wait", "duration": 0.1, "tags": 5}],
+            })
 
 
 if __name__ == "__main__":

@@ -2,10 +2,12 @@ from __future__ import annotations
 
 import re
 from copy import deepcopy
+from pathlib import Path
 
 import numpy as np
 from manim import VGroup, ValueTracker, always_redraw
 
+from ..config import PROJECT_ROOT
 from .errors import DSLError, DSLReferenceError, DSLVersionError
 from .expressions import eval_expression, resolve_value
 from .registry import get_action, get_object
@@ -16,6 +18,9 @@ from . import actions as _actions  # noqa: F401
 
 
 _VERSION_RE = re.compile(r"^1(?:\.\d+)?$")
+_STANDARD_AUDIO_TAGS = {
+    "countdown-5s": Path("assets/audio/countdown-5s.mp3"),
+}
 
 
 def _validate_tex_escapes(value, path="visual_program"):
@@ -42,6 +47,21 @@ def _validate_tex_escapes(value, path="visual_program"):
     elif isinstance(value, list):
         for index, item in enumerate(value):
             _validate_tex_escapes(item, f"{path}[{index}]")
+
+
+def _normalize_step_tags(step):
+    raw = step.get("tags") or []
+    if isinstance(raw, str):
+        return [raw]
+    if not isinstance(raw, (list, tuple)):
+        raise DSLError("timeline.tags deve ser uma lista de strings.")
+    tags = []
+    for value in raw:
+        tag = str(value).strip()
+        if not tag:
+            raise DSLError("timeline.tags não pode conter tag vazia.")
+        tags.append(tag)
+    return tags
 
 
 def validate_program(program):
@@ -76,6 +96,7 @@ def validate_program(program):
         if not isinstance(step, dict) or not step.get("op"):
             raise DSLError("Cada passo da timeline exige op.")
         get_action(str(step["op"]))
+        _normalize_step_tags(step)
 
     _validate_tex_escapes(program)
     return program
@@ -142,9 +163,22 @@ class DSLRuntime:
             self.build_object(spec)
         return self.objects
 
+    def play_audio_tags(self, step):
+        for tag in _normalize_step_tags(step):
+            relative = _STANDARD_AUDIO_TAGS.get(tag)
+            if relative is None:
+                continue
+            path = (PROJECT_ROOT / relative).resolve()
+            if not path.is_file():
+                raise DSLError(
+                    f"Áudio padrão da tag {tag!r} não encontrado: {path}"
+                )
+            self.scene.add_sound(str(path))
+
     def run(self):
         self.build_objects()
         for step in self.program.get("timeline", []):
+            self.play_audio_tags(step)
             get_action(str(step["op"])).handler(self, step)
         return self
 

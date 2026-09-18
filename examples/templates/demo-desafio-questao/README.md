@@ -1,24 +1,34 @@
-# Template — questão desafio
+# Template — questão desafio curta
 
-Este diretório é o modelo oficial de **questão desafio curta** do Math in Movement.
+Este diretório é a fonte canônica para vídeos curtos no formato **pergunta → palpite → resolução → resposta → comentário**.
 
-A referência nasceu do vídeo **“89% erram essa”** e foi preservada em dois níveis:
+## Estrutura recomendada
 
-- `roteiro-desafio-89-v2.md`: referência editorial integral, com timing, narração, retenção e decisões estéticas;
-- `manifest.yaml`: referência técnica renderizável em DSL v1.
+1. expressão e hook já no primeiro frame;
+2. cinco segundos para o espectador formar um palpite;
+3. uma transformação matemática por etapa;
+4. resposta grande e isolada;
+5. encerramento: **“Você conseguiu resolver? Coloque nos comentários.”**
 
-## Estrutura padrão do formato
+A duração em torno de 24 segundos é a referência, não uma obrigação. Ajuste o início da resolução de acordo com a duração da abertura narrada.
 
-O padrão visual/editorial é:
+## Áudio padrão da contagem
 
-1. a questão aparece no primeiro quadro, sem saudação;
-2. gancho curto acima da questão;
-3. contagem regressiva visual de 5 segundos;
-4. resolução em etapas, uma operação/ideia por vez;
-5. resposta final grande e isolada;
-6. CTA curto perguntando se o espectador acertou.
+Marque o primeiro passo visual da contagem com:
 
-A duração de **24 s** é a referência deste modelo, não uma obrigação. Preserve o ritmo e ajuste a timeline quando a questão exigir mais ou menos etapas.
+```yaml
+- op: add
+  target: n5
+  tags: [countdown-5s]
+```
+
+O runtime toca automaticamente o arquivo versionado no repositório:
+
+```text
+assets/audio/countdown-5s.mp3
+```
+
+A tag deve ficar no passo em que o número `5` aparece. Dessa forma, o áudio acompanha o início real da contagem mesmo quando a duração do hook muda.
 
 ## Convenções visuais
 
@@ -29,7 +39,7 @@ Quando houver esses operadores, use a paleta:
 - `÷` → verde;
 - `−` → vermelho.
 
-A cor deve ser aplicada ao **operador**, não aos números adjacentes. No manifest, faça isso com `tex_to_color_map`; não use `\color{...}` dentro do TeX.
+Aplique a cor ao operador por meio de `tex_to_color_map`; não use `\color{...}` dentro do TeX.
 
 Priorize leitura em celular:
 
@@ -37,36 +47,31 @@ Priorize leitura em celular:
 - equações centrais em torno de 76–86 pt;
 - expressões auxiliares em torno de 48 pt;
 - resposta final muito destacada;
-- margens generosas e nenhuma informação importante próxima da borda.
+- margens generosas.
 
-## Ao criar um novo desafio
+## Títulos
 
-Copie o `manifest.yaml` e altere, no mínimo:
+Varie a engenharia de atenção, em vez de repetir percentuais ou “só gênios”:
 
-- `id`;
-- `title`;
-- `tags`;
-- `lesson.objective`, `lesson.steps` e `result`;
-- expressão inicial e equações intermediárias;
-- títulos das etapas;
-- resposta final;
-- hook e CTA, quando necessário;
-- timeline, caso a quantidade de etapas mude.
+- escolha binária: `9 ou 1?`;
+- desafio direto: `Você acertaria?`;
+- pressão temporal: `Você tem 5 segundos`;
+- conflito de regra: `Multiplica ou divide primeiro?`;
+- erro provável: `Onde está a pegadinha?`;
+- expressão nua: `6 ÷ 2 × (1 + 2) = ?`.
 
-Sempre valide a matemática antes de adaptar a animação.
-
-O texto “89% erram essa” é apenas a referência editorial do vídeo original. Não trate percentuais desse tipo como dado estatístico sem fonte.
+Percentuais como “89% erram” não devem ser tratados como estatística sem fonte.
 
 ## Narração
 
-A referência original usa somente duas falas:
+Por padrão, use somente duas falas:
 
-- abertura;
-- encerramento.
+- abertura: o hook do vídeo;
+- encerramento: `Você conseguiu resolver? Coloque nos comentários.`
 
-O miolo da resolução é visual. Esse padrão deve ser preservado por default para desafios curtos, salvo pedido diferente.
+O miolo da resolução permanece visual para preservar o compromisso mental do espectador.
 
-Os MP3/WAV gerados **não são versionados neste template**. O Git mantém o roteiro e o manifest como fonte de verdade; os assets de voz podem ser gerados no pacote final.
+Os assets de voz de cada conteúdo devem ficar dentro do respectivo `.demo`. O áudio da contagem é compartilhado pelo repositório e acionado pela tag `countdown-5s`.
 
 ## Validação
 
@@ -78,4 +83,4 @@ python -m mathinmovement dsl validate <id>
 python -m mathinmovement produce <pacote.demo> --dry-run
 ```
 
-Para reproduzir o timing de 24 s desta referência, use `MANIM_PACE=1.0`.
+Para reproduzir o ritmo desta referência, use `MANIM_PACE=1.0`.
