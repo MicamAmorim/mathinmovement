@@ -25,11 +25,11 @@ A duração de **24 s** é a referência deste modelo, não uma obrigação. Pre
 Quando houver esses operadores, use a paleta:
 
 - `+` → amarelo;
-- `×` → azul/ciano;
+- `×` → azul;
 - `÷` → verde;
 - `−` → vermelho.
 
-A cor deve ser aplicada ao **operador**, não aos números adjacentes.
+A cor deve ser aplicada ao **operador**, não aos números adjacentes. No manifest, faça isso com `tex_to_color_map`; não use `\color{...}` dentro do TeX.
 
 Priorize leitura em celular:
 

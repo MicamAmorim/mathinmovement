@@ -42,6 +42,24 @@ visual_program:
 
 Tipos podem usar o nome curto ou o namespace canônico. Ex.: `circle` equivale a `2d.circle`.
 
+### Cores por trecho em fórmulas
+
+O objeto `math` aceita `tex_to_color_map` para colorir substrings sem inserir comandos de cor dentro do LaTeX:
+
+```yaml
+- id: expr
+  type: math
+  tex: '6\div2\times(1+2)=?'
+  color: white
+  tex_to_color_map:
+    '+': yellow
+    '\times': blue
+    '\div': green
+    '-': red
+```
+
+Também é possível declarar `substrings_to_isolate` como lista. Prefira `tex_to_color_map` a comandos como `\color{...}` dentro de `tex`, pois mantém o TeX portátil entre instalações do Manim.
+
 ## Objetos 2D da v1
 
 line, dashed_line, polygon, regular_polygon, rectangle, rounded_rectangle, square, circle, ellipse, arc, sector, arc_between_points, dot, arrow, double_arrow, curved_arrow, brace, angle, axes, polyline, graph, text, math e group.

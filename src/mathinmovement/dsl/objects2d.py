@@ -47,6 +47,7 @@ PALETTE = {
     "green": "#8DE2A7",
     "red": "#FF7D7D",
     "blue": "#79A7FF",
+    "yellow": "#FFD84D",
 }
 DIRECTIONS = {
     "ORIGIN": ORIGIN,
@@ -438,12 +439,33 @@ def make_text(runtime, spec):
 
 @object_type("2d.math", aliases=("math",))
 def make_math(runtime, spec):
+    kwargs = {
+        "font_size": float(runtime.resolve(spec.get("font_size", 42))),
+        "color": color(spec.get("color", "white")),
+    }
+
+    tex_to_color_map = spec.get("tex_to_color_map") or {}
+    if not isinstance(tex_to_color_map, dict):
+        raise DSLError("math.tex_to_color_map deve ser um mapa substring -> cor.")
+    if tex_to_color_map:
+        kwargs["tex_to_color_map"] = {
+            str(tex): color(value)
+            for tex, value in tex_to_color_map.items()
+        }
+
+    substrings_to_isolate = spec.get("substrings_to_isolate") or []
+    if not isinstance(substrings_to_isolate, (list, tuple)):
+        raise DSLError("math.substrings_to_isolate deve ser uma lista.")
+    if substrings_to_isolate:
+        kwargs["substrings_to_isolate"] = [
+            str(value) for value in substrings_to_isolate
+        ]
+
     return apply_layout(
         runtime,
         MathTex(
             str(spec.get("tex", spec.get("text", ""))),
-            font_size=float(runtime.resolve(spec.get("font_size", 42))),
-            color=color(spec.get("color", "white")),
+            **kwargs,
         ),
         spec,
     )
