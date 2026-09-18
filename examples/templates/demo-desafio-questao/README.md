@@ -22,10 +22,10 @@ Marque o primeiro passo visual da contagem com:
   tags: [countdown-5s]
 ```
 
-O runtime toca automaticamente o arquivo versionado no repositório:
+O runtime reconstrói automaticamente um WAV PCM a partir do asset textual versionado no repositório e toca:
 
 ```text
-assets/audio/countdown-5s.mp3
+cache/shared_audio/countdown-5s.wav
 ```
 
 A tag deve ficar no passo em que o número `5` aparece. Dessa forma, o áudio acompanha o início real da contagem mesmo quando a duração do hook muda.
@@ -71,7 +71,7 @@ Por padrão, use somente duas falas:
 
 O miolo da resolução permanece visual para preservar o compromisso mental do espectador.
 
-Os assets de voz de cada conteúdo devem ficar dentro do respectivo `.demo`. O áudio da contagem é compartilhado pelo repositório e acionado pela tag `countdown-5s`.
+Os assets de voz de cada conteúdo devem ficar dentro do respectivo `.demo`. O áudio da contagem é compartilhado pelo repositório em partes `.zlib.b64`, materializado em `cache/shared_audio/countdown-5s.wav` e acionado pela tag `countdown-5s`.
 
 ## Validação
 

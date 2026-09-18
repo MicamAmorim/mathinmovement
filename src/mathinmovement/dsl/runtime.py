@@ -1,13 +1,16 @@
 from __future__ import annotations
 
+import base64
+import hashlib
 import re
+import zlib
 from copy import deepcopy
 from pathlib import Path
 
 import numpy as np
 from manim import VGroup, ValueTracker, always_redraw
 
-from ..config import PROJECT_ROOT
+from ..config import CACHE_ROOT, PROJECT_ROOT
 from .errors import DSLError, DSLReferenceError, DSLVersionError
 from .expressions import eval_expression, resolve_value
 from .registry import get_action, get_object
@@ -19,7 +22,15 @@ from . import actions as _actions  # noqa: F401
 
 _VERSION_RE = re.compile(r"^1(?:\.\d+)?$")
 _STANDARD_AUDIO_TAGS = {
-    "countdown-5s": Path("assets/audio/countdown-5s.mp3"),
+    "countdown-5s": {
+        "parts": [
+            Path("assets/audio/countdown-5s.wav.zlib.b64.part1"),
+            Path("assets/audio/countdown-5s.wav.zlib.b64.part2"),
+            Path("assets/audio/countdown-5s.wav.zlib.b64.part3"),
+        ],
+        "cache_name": "countdown-5s.wav",
+        "sha256": "22c9dbe32df19b6150dfb76127918b468a61aa0b36e6ce72bb8ee31ccbdff966",
+    },
 }
 
 
@@ -163,16 +174,51 @@ class DSLRuntime:
             self.build_object(spec)
         return self.objects
 
+    def _materialize_standard_audio(self, tag):
+        spec = _STANDARD_AUDIO_TAGS.get(tag)
+        if spec is None:
+            return None
+
+        cache_dir = CACHE_ROOT / "shared_audio"
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        output = (cache_dir / spec["cache_name"]).resolve()
+
+        if output.is_file():
+            digest = hashlib.sha256(output.read_bytes()).hexdigest()
+            if digest == spec["sha256"]:
+                return output
+
+        encoded_parts = []
+        for relative in spec["parts"]:
+            source = (PROJECT_ROOT / relative).resolve()
+            if not source.is_file():
+                raise DSLError(
+                    f"Asset de áudio padrão da tag {tag!r} não encontrado: {source}"
+                )
+            encoded_parts.append(source.read_text(encoding="ascii").strip())
+
+        try:
+            compressed = base64.b64decode("".join(encoded_parts), validate=True)
+            audio = zlib.decompress(compressed)
+        except Exception as exc:
+            raise DSLError(
+                f"Asset de áudio padrão da tag {tag!r} está corrompido."
+            ) from exc
+
+        digest = hashlib.sha256(audio).hexdigest()
+        if digest != spec["sha256"]:
+            raise DSLError(
+                f"Checksum inválido para o áudio padrão da tag {tag!r}."
+            )
+
+        output.write_bytes(audio)
+        return output
+
     def play_audio_tags(self, step):
         for tag in _normalize_step_tags(step):
-            relative = _STANDARD_AUDIO_TAGS.get(tag)
-            if relative is None:
+            path = self._materialize_standard_audio(tag)
+            if path is None:
                 continue
-            path = (PROJECT_ROOT / relative).resolve()
-            if not path.is_file():
-                raise DSLError(
-                    f"Áudio padrão da tag {tag!r} não encontrado: {path}"
-                )
             self.scene.add_sound(str(path))
 
     def run(self):
