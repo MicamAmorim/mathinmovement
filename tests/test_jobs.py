@@ -36,6 +36,37 @@ class JobStoreTests(unittest.TestCase):
         listed = self.store.list(status="queued")
         self.assertEqual([item.id for item in listed], ["job-1"])
 
+    def test_list_supports_offset_and_count(self):
+        for index in range(4):
+            self.store.enqueue(
+                kind="produce",
+                payload={"target": f"content-{index}"},
+                job_id=f"job-{index}",
+            )
+        page = self.store.list(limit=2, offset=1)
+        self.assertEqual(len(page), 2)
+        self.assertEqual(self.store.count(), 4)
+
+    def test_processed_targets_only_include_succeeded_jobs(self):
+        self.store.enqueue(
+            kind="produce",
+            payload={"target": "processed-demo"},
+            job_id="done",
+        )
+        self.store.claim_next()
+        self.store.succeed("done", {"output": "video.mp4"})
+
+        self.store.enqueue(
+            kind="produce",
+            payload={"target": "queued-demo"},
+            job_id="queued",
+        )
+
+        summary = self.store.processed_targets()
+        self.assertIn("processed-demo", summary)
+        self.assertEqual(summary["processed-demo"]["count"], 1)
+        self.assertNotIn("queued-demo", summary)
+
     def test_claim_is_atomic_and_only_claims_once(self):
         self.store.enqueue(
             kind="produce",
