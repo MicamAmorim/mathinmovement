@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 from manim import Scene, ValueTracker
 
@@ -125,6 +125,21 @@ class DSLRuntimeTests(unittest.TestCase):
             runtime.play_audio_tags(step)
 
         add_sound.assert_not_called()
+
+    def test_narration_play_dispatches_to_scene_speak(self):
+        scene = MagicMock()
+        scene.time = 0.0
+        runtime = DSLRuntime(
+            scene,
+            {"dsl_version": "1.0", "objects": [], "timeline": []},
+        )
+
+        get_action("narration.play").handler(
+            runtime,
+            {"op": "narration.play", "key": "intro"},
+        )
+
+        scene.speak.assert_called_once_with("intro")
 
     def test_timeline_tags_validate_as_strings(self):
         with self.assertRaises(Exception):
