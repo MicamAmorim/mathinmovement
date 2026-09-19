@@ -50,6 +50,60 @@ def _demo_pace():
     return pace if pace > 0 else 1.15
 
 
+_PLAY_ACTIONS = {
+    "anim.create",
+    "anim.fade_in",
+    "anim.fade_out",
+    "anim.write",
+    "anim.translate",
+    "anim.rotate",
+    "anim.scale",
+    "anim.opacity",
+    "anim.stretch",
+    "anim.highlight",
+    "anim.transform",
+    "anim.transform_from_copy",
+    "anim.replacement_transform",
+    "anim.rigid_motion",
+    "dynamic.animate_value",
+    "anim.lagged",
+    "anim.parallel",
+    "anim.style",
+    "layout.move_to",
+    "layout.next_to",
+}
+
+
+def _scene_clock(scene):
+    """Best-effort Manim render clock, used when it actually advances."""
+    renderer = getattr(scene, "renderer", None)
+    raw = getattr(renderer, "time", None)
+    if raw is None:
+        raw = getattr(scene, "time", None)
+    try:
+        return float(raw)
+    except (TypeError, ValueError):
+        return None
+
+
+def _estimated_step_duration(scene, step):
+    """Deterministic fallback for DSL steps when Manim's clock is static."""
+    canonical = get_action(str(step.get("op", ""))).canonical
+    if canonical == "anim.wait":
+        return max(0.0, float(step.get("duration", 1.0)))
+    if canonical not in _PLAY_ACTIONS:
+        return 0.0
+    if canonical == "anim.style" and not (
+        step.get("color") is not None or step.get("opacity") is not None
+    ):
+        return 0.0
+
+    run_time = max(0.0, float(step.get("run_time", 1.0)))
+    if getattr(scene, "_profile", "") == "motion_math_v1":
+        run_time *= _demo_pace()
+    return run_time
+
+
 def _synchronize_countdown_timing(program):
     """Keep visual countdown beats aligned with the tagged audio speed.
 
@@ -211,6 +265,7 @@ class DSLRuntime:
         self.objects = {}
         self.specs = {}
         self.trackers = {}
+        self._timeline_time = 0.0
 
     def variables(self, extra=None):
         values = {
@@ -277,7 +332,7 @@ class DSLRuntime:
             )
         return path
 
-    def play_audio_tags(self, step):
+    def play_audio_tags(self, step, *, start=None):
         event_file_value = os.getenv("MIM_TIMED_AUDIO_EVENTS_FILE")
         if not event_file_value:
             return
@@ -289,9 +344,10 @@ class DSLRuntime:
             if path is None:
                 continue
             spec = _STANDARD_AUDIO_TAGS[tag]
+            event_start = self._timeline_time if start is None else float(start)
             event = {
                 "tag": tag,
-                "start": float(self.scene.time),
+                "start": max(0.0, float(event_start)),
                 "audio": str(path),
                 "speed": float(spec.get("speed", 1.0)),
                 "volume": float(spec.get("volume", 1.0)),
@@ -301,15 +357,34 @@ class DSLRuntime:
                     if spec.get("trim_end") is not None
                     else None
                 ),
+                "target": str(step.get("target") or ""),
+                "op": str(step.get("op") or ""),
             }
             with event_file.open("a", encoding="utf-8") as handle:
                 handle.write(json.dumps(event, ensure_ascii=False) + "\n")
 
     def run(self):
         self.build_objects()
+        self._timeline_time = 0.0
         for step in self.program.get("timeline", []):
-            self.play_audio_tags(step)
+            self.play_audio_tags(step, start=self._timeline_time)
+
+            before = _scene_clock(self.scene)
             get_action(str(step["op"])).handler(self, step)
+            after = _scene_clock(self.scene)
+
+            actual = None
+            if before is not None and after is not None:
+                delta = after - before
+                if delta > 1e-6:
+                    actual = delta
+
+            elapsed = (
+                actual
+                if actual is not None
+                else _estimated_step_duration(self.scene, step)
+            )
+            self._timeline_time += max(0.0, float(elapsed))
         return self
 
 
