@@ -17,6 +17,7 @@ from .registry import get_action, get_object
 
 # Registra built-ins por import lateral explícito.
 from . import objects2d as _objects2d  # noqa: F401
+from . import objects3d as _objects3d  # noqa: F401
 from . import actions as _actions  # noqa: F401
 
 
