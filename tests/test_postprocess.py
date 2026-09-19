@@ -57,7 +57,7 @@ class PostProcessTests(unittest.TestCase):
         event = TimedAudioEvent(
             tag="countdown-5s",
             start=3.0,
-            audio=Path("countdown-5s.opus"),
+            audio=Path("countdown-5s.wav"),
             volume=1.0,
             speed=0.9,
         )
@@ -70,7 +70,7 @@ class PostProcessTests(unittest.TestCase):
             ffmpeg_binary="ffmpeg",
         )
         joined = " ".join(command)
-        self.assertIn("countdown-5s.opus", joined)
+        self.assertIn("countdown-5s.wav", joined)
         self.assertIn("atempo=0.9", joined)
         self.assertIn("adelay=3000:all=1", joined)
         self.assertIn("amix=inputs=3", joined)
