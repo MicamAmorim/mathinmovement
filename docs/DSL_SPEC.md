@@ -66,9 +66,84 @@ Por compatibilidade, o runtime reconhece padrões legados simples como `{\color{
 
 line, dashed_line, polygon, regular_polygon, rectangle, rounded_rectangle, square, circle, ellipse, arc, sector, arc_between_points, dot, arrow, double_arrow, curved_arrow, brace, angle, axes, polyline, graph, text, math e group.
 
+## Objetos 3D da v1
+
+A DSL também aceita geometria tridimensional real, renderizada com `ThreeDScene`/`ThreeDCamera` do Manim:
+
+- `3d.axes`: eixos cartesianos tridimensionais;
+- `3d.cube`: cubo;
+- `3d.prism`: prisma retangular com `dimensions: [x, y, z]`;
+- `3d.dot`: ponto esférico 3D;
+- `3d.line`: segmento 3D;
+- `3d.arrow`: seta 3D;
+- `3d.plane`: plano retangular orientável no espaço.
+
+Objetos 3D aceitam `at`, `shift`, `scale`, `opacity`, `rotate_x`, `rotate_y`, `rotate_z` e também:
+
+```yaml
+rotate:
+  angle: '=pi/2'
+  axis: [0, 1, 0]
+  about_point: [0, 0, 0]
+```
+
+Exemplo:
+
+```yaml
+objects:
+  - id: axes
+    type: 3d.axes
+    x_range: [-4, 4, 1]
+    y_range: [-3, 3, 1]
+    z_range: [-2, 6, 1]
+
+  - id: cube
+    type: 3d.cube
+    side: 1.4
+    at: [1, 0, 3]
+    color: cyan
+    fill_opacity: 0.18
+
+  - id: ray
+    type: 3d.line
+    start: [-2, 0, 0]
+    end: [1, 0, 3]
+    color: gold
+```
+
+## Câmera 3D
+
+A timeline pode controlar a câmera:
+
+```yaml
+timeline:
+  - op: camera.set_orientation
+    phi: '=65*pi/180'
+    theta: '=-55*pi/180'
+    zoom: 0.9
+
+  - op: camera.move
+    phi: '=75*pi/180'
+    theta: '=-25*pi/180'
+    zoom: 1.05
+    run_time: 2.0
+
+  - op: camera.begin_ambient_rotation
+    rate: 0.05
+    about: theta
+
+  - op: wait
+    duration: 2
+
+  - op: camera.stop_ambient_rotation
+    about: theta
+```
+
+Para textos e fórmulas que devem permanecer como HUD durante movimentos da câmera, use `fixed_in_frame`; para labels que permanecem no espaço mas sempre voltados ao observador, use `fixed_orientation`. As ações inversas são `unfix_in_frame` e `unfix_orientation`.
+
 ## Ações da v1
 
-create, fade_in, fade_out, write, translate, rotate, scale, opacity, stretch, highlight, style, copy, transform, transform_from_copy, replacement_transform, rigid_motion, lagged, parallel, wait, add, remove, move_to, next_to, arrange e animate_value.
+create, fade_in, fade_out, write, translate, rotate, scale, opacity, stretch, highlight, style, copy, transform, transform_from_copy, replacement_transform, rigid_motion, lagged, parallel, wait, add, remove, move_to, next_to, arrange, animate_value, camera.set_orientation, camera.move, camera.begin_ambient_rotation, camera.stop_ambient_rotation, fixed_in_frame, fixed_orientation, unfix_in_frame e unfix_orientation.
 
 ## Dinâmica segura
 
@@ -115,4 +190,4 @@ visuals:
 
 ## Evolução
 
-O parser central não enumera tipos. Novas capacidades entram pelo registry. Uma futura camada 3D poderá registrar `3d.*` sem alterar programas 1.x existentes.
+O parser central não enumera tipos. Novas capacidades entram pelo registry. A camada 3D segue esse princípio: `3d.*` e `camera.*` foram adicionados sem alterar a semântica dos programas 2D existentes.
