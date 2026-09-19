@@ -379,10 +379,10 @@ editorial_notes:
   countdown:
     seconds: 5
     tag: countdown-5s
-    standard_audio: cache/shared_audio/countdown-5s.wav
+    standard_audio: assets/audio/countdown-5s-original.mp3
     mixer: ffmpeg
     speed: 0.90
   closing_phrase: Você conseguiu resolver? Coloque nos comentários.
   render_environment:
     MANIM_PACE: '1.0'
-  timing: Pausas realizadas por opacity constante para preservar a duração de referência.
+  timing: O runtime sincroniza automaticamente n5..n1 com o áudio a 90%, considerando MANIM_PACE.
