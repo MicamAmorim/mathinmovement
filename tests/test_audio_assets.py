@@ -49,7 +49,9 @@ class AudioAssetTests(unittest.TestCase):
             text=True,
         )
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertGreater(float(result.stdout.strip()), 5.0)
+        duration = float(result.stdout.strip())
+        self.assertGreater(duration, 10.9)
+        self.assertLess(duration, 11.2)
 
 
     def test_all_qenem_audio_is_package_relative_and_exists(self):
