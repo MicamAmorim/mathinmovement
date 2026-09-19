@@ -22,13 +22,13 @@ Marque o primeiro passo visual da contagem com:
   tags: [countdown-5s]
 ```
 
-O runtime reconstrói automaticamente um WAV PCM a partir do asset textual versionado no repositório e toca:
+A tag deve ficar no passo em que o número `5` aparece. O runtime registra o timestamp exato dessa etapa e **não** envia o bipe ao Manim. Depois do render, o FFmpeg mistura o efeito versionado em:
 
 ```text
-cache/shared_audio/countdown-5s.wav
+assets/audio/countdown-5s.opus
 ```
 
-A tag deve ficar no passo em que o número `5` aparece. Dessa forma, o áudio acompanha o início real da contagem mesmo quando a duração do hook muda.
+O countdown é reproduzido com `atempo=0.9` (90% da velocidade original) para acompanhar melhor a animação `5–4–3–2–1`. Assim preservamos a qualidade do efeito e evitamos a conversão de áudio interna do Manim/PyAV.
 
 ## Convenções visuais
 
@@ -71,7 +71,7 @@ Por padrão, use somente duas falas:
 
 O miolo da resolução permanece visual para preservar o compromisso mental do espectador.
 
-Os assets de voz de cada conteúdo devem ficar dentro do respectivo `.demo`. O áudio da contagem é compartilhado pelo repositório em partes `.zlib.b64`, materializado em `cache/shared_audio/countdown-5s.wav` e acionado pela tag `countdown-5s`.
+Os assets de voz de cada conteúdo devem ficar dentro do respectivo `.demo`. O áudio da contagem é compartilhado pelo repositório e acionado pela tag `countdown-5s`; sua inserção ocorre no pós-processamento com FFmpeg, a 90% da velocidade original.
 
 ## Validação
 
