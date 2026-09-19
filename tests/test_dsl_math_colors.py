@@ -39,9 +39,9 @@ class MathColorMapTests(unittest.TestCase):
         self.assertEqual(kwargs["font_size"], 72.0)
         self.assertEqual(kwargs["color"], objects2d.PALETTE["white"])
         self.assertNotIn("tex_to_color_map", kwargs)
-        self.assertIn(r"{\color[HTML]{FFD84D}+}", args[0])
-        self.assertIn(r"{\color[HTML]{79A7FF}\times}", args[0])
-        self.assertIn(r"{\color[HTML]{8DE2A7}\div}", args[0])
+        self.assertIn(r"\textcolor[HTML]{FFD84D}{+}", args[0])
+        self.assertIn(r"\textcolor[HTML]{79A7FF}{\times}", args[0])
+        self.assertIn(r"\textcolor[HTML]{8DE2A7}{\div}", args[0])
 
     def test_legacy_inline_color_commands_are_migrated_at_runtime(self):
         spec = {
@@ -58,9 +58,9 @@ class MathColorMapTests(unittest.TestCase):
 
         args, kwargs = math_tex.call_args
         self.assertNotIn("tex_to_color_map", kwargs)
-        self.assertIn(r"{\color[HTML]{8DE2A7}\div}", args[0])
-        self.assertIn(r"{\color[HTML]{79A7FF}\times}", args[0])
-        self.assertIn(r"{\color[HTML]{FFD84D}+}", args[0])
+        self.assertIn(r"\textcolor[HTML]{8DE2A7}{\div}", args[0])
+        self.assertIn(r"\textcolor[HTML]{79A7FF}{\times}", args[0])
+        self.assertIn(r"\textcolor[HTML]{FFD84D}{+}", args[0])
 
     def test_color_map_keeps_fraction_and_quad_structurally_valid(self):
         tex = r"u=f_x\frac{X_c}{Z_c}+c_x,\quad v=f_y\frac{Y_c}{Z_c}+c_y"
@@ -70,10 +70,22 @@ class MathColorMapTests(unittest.TestCase):
         )
 
         self.assertIn(r"\quad", prepared)
-        self.assertIn(r"\frac{X_c}{{\color[HTML]{FFCC78}Z_c}}", prepared)
-        self.assertIn(r"{\color[HTML]{FF7D7D}u}=f_x", prepared)
-        self.assertIn(r"{\color[HTML]{8DE2A7}v}=f_y", prepared)
-        self.assertNotIn(r"\q{\color", prepared)
+        self.assertIn(r"\frac{X_c}{\textcolor[HTML]{FFCC78}{Z_c}}", prepared)
+        self.assertIn(r"\textcolor[HTML]{FF7D7D}{u}=f_x", prepared)
+        self.assertIn(r"\textcolor[HTML]{8DE2A7}{v}=f_y", prepared)
+        self.assertNotIn(r"\q\textcolor", prepared)
+        self.assertNotIn("{{", prepared)
+
+    def test_colored_denominator_avoids_manim_double_brace_notation(self):
+        prepared = objects2d._apply_inline_math_colors(
+            r"\frac{X_c}{Z_c}",
+            {"Z_c": "gold"},
+        )
+        self.assertEqual(
+            prepared,
+            r"\frac{X_c}{\textcolor[HTML]{FFCC78}{Z_c}}",
+        )
+        self.assertNotIn("{{", prepared)
 
     def test_inline_colors_add_xcolor_to_active_tex_template(self):
         spec = {
@@ -109,7 +121,7 @@ class MathColorMapTests(unittest.TestCase):
         self.assertIs(result, fake_math)
         args, kwargs = math_tex.call_args
         self.assertNotIn("tex_to_color_map", kwargs)
-        self.assertIn(r"\frac{X_c}{{\color[HTML]{FFCC78}Z_c}}", args[0])
+        self.assertIn(r"\frac{X_c}{\textcolor[HTML]{FFCC78}{Z_c}}", args[0])
         self.assertIn(r"\quad", args[0])
 
     def test_challenge_template_does_not_embed_latex_color_commands(self):
