@@ -129,7 +129,8 @@ class UnifiedContentScene(ThreeDScene):
     """
 
     def wait(self, duration=1, **kwargs):
-        kwargs.setdefault("frozen_frame", True)
+        if not getattr(self, "_mim_camera_motion_active", False):
+            kwargs.setdefault("frozen_frame", True)
         return super().wait(duration, **kwargs)
 
     def play(self, *animations, **kwargs):
