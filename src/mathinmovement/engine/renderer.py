@@ -210,6 +210,8 @@ _TIMED_PLAY_OPS = {
     "anim.style",
     "layout.move_to",
     "layout.next_to",
+    "move_camera",
+    "camera.move",
 }
 
 
