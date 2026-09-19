@@ -242,6 +242,21 @@ def action_wait(runtime, spec):
     runtime.scene.wait(float(runtime.resolve(spec.get("duration", 1))))
 
 
+@action_type(
+    "narration.play",
+    aliases=("speak", "narrate"),
+    description="Toca um segmento TTS do manifest e aguarda sua duração real.",
+)
+def action_narration_play(runtime, spec):
+    key = str(spec.get("key") or "").strip()
+    if not key:
+        raise DSLError("narration.play exige key.")
+    speak = getattr(runtime.scene, "speak", None)
+    if speak is None:
+        raise DSLError("narration.play exige uma cena com suporte a speak().")
+    speak(key)
+
+
 def _scene_method(runtime, name):
     method = getattr(runtime.scene, name, None)
     if method is None:
