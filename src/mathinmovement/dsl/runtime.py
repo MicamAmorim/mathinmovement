@@ -25,6 +25,10 @@ _STANDARD_AUDIO_TAGS = {
         "path": Path("assets/audio/countdown-5s-original.mp3"),
         "speed": 0.9,
         "volume": 1.0,
+        # O countdown usado anteriormente corresponde aos frames 185..421
+        # deste MP3 CBR (44.1 kHz, 1152 amostras por frame).
+        "trim_start": 4.83265306122449,
+        "trim_end": 11.023673469387756,
         "visual_targets": ("n5", "n4", "n3", "n2", "n1"),
     },
 }
@@ -291,6 +295,12 @@ class DSLRuntime:
                 "audio": str(path),
                 "speed": float(spec.get("speed", 1.0)),
                 "volume": float(spec.get("volume", 1.0)),
+                "trim_start": float(spec.get("trim_start", 0.0)),
+                "trim_end": (
+                    float(spec["trim_end"])
+                    if spec.get("trim_end") is not None
+                    else None
+                ),
             }
             with event_file.open("a", encoding="utf-8") as handle:
                 handle.write(json.dumps(event, ensure_ascii=False) + "\n")
