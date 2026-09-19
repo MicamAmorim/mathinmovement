@@ -60,6 +60,8 @@ class PostProcessTests(unittest.TestCase):
             audio=Path("countdown-5s-original.mp3"),
             volume=1.0,
             speed=0.9,
+            trim_start=4.83265306122449,
+            trim_end=11.023673469387756,
         )
         command = build_timed_audio_mix_command(
             "raw.mp4",
@@ -71,6 +73,8 @@ class PostProcessTests(unittest.TestCase):
         )
         joined = " ".join(command)
         self.assertIn("countdown-5s-original.mp3", joined)
+        self.assertIn("atrim=start=4.832653:end=11.023673", joined)
+        self.assertIn("asetpts=PTS-STARTPTS", joined)
         self.assertIn("atempo=0.9", joined)
         self.assertIn("adelay=3000:all=1", joined)
         self.assertIn("amix=inputs=3", joined)
