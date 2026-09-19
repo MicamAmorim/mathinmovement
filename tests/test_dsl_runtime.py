@@ -112,10 +112,10 @@ class DSLRuntimeTests(unittest.TestCase):
             self.assertEqual(payload["tag"], "countdown-5s")
             self.assertEqual(payload["start"], 0.0)
             self.assertEqual(payload["speed"], 0.9)
-            self.assertEqual(path.name, "countdown-5s.wav")
+            self.assertEqual(payload["volume"], 1.0)
+            self.assertEqual(path.name, "countdown-5s.opus")
             self.assertTrue(path.is_file())
-            self.assertEqual(path.read_bytes()[:4], b"RIFF")
-            self.assertEqual(path.read_bytes()[8:12], b"WAVE")
+            self.assertEqual(path.read_bytes()[:4], b"OggS")
 
     def test_timeline_tags_validate_as_strings(self):
         with self.assertRaises(Exception):
