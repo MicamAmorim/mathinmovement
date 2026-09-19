@@ -28,7 +28,7 @@ A tag deve ficar no passo em que o número `5` aparece. O runtime registra o tim
 assets/audio/countdown-5s-original.mp3
 ```
 
-O countdown é reproduzido com `atempo=0.9` (90% da velocidade original). O runtime também sincroniza automaticamente a permanência visual de `n5 → n4 → n3 → n2 → n1` com o intervalo efetivo do áudio, levando em conta `MANIM_PACE`. Na mixagem final, um limiter evita clipping entre narração e bipe.
+O arquivo original tem cerca de 11,02 s; o trecho usado pelo countdown começa em 4,832653 s e vai até o fim. O FFmpeg recorta essa janela diretamente do MP3, zera o timestamp do recorte e então aplica `atempo=0.9` (90% da velocidade original). O runtime também sincroniza automaticamente a permanência visual de `n5 → n4 → n3 → n2 → n1` com o intervalo efetivo do áudio, levando em conta `MANIM_PACE`. Na mixagem final, um limiter evita clipping entre narração e bipe.
 
 ## Convenções visuais
 
