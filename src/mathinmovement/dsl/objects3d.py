@@ -77,8 +77,9 @@ def apply_layout_3d(runtime, mob, spec):
 
 def _solid_style(spec):
     kwargs = style(spec)
-    if "color" not in kwargs:
-        kwargs["color"] = color(spec.get("color", "cyan"))
+    base_color = color(spec.get("fill_color", spec.get("color", "cyan")))
+    kwargs.setdefault("color", color(spec.get("color", "cyan")))
+    kwargs.setdefault("fill_color", base_color)
     return kwargs
 
 
