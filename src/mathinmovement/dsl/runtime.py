@@ -1,18 +1,15 @@
 from __future__ import annotations
 
-import base64
-import hashlib
 import json
 import os
 import re
-import zlib
 from copy import deepcopy
 from pathlib import Path
 
 import numpy as np
 from manim import VGroup, ValueTracker, always_redraw
 
-from ..config import CACHE_ROOT, PROJECT_ROOT
+from ..config import PROJECT_ROOT
 from .errors import DSLError, DSLReferenceError, DSLVersionError
 from .expressions import eval_expression, resolve_value
 from .registry import get_action, get_object
@@ -25,17 +22,106 @@ from . import actions as _actions  # noqa: F401
 _VERSION_RE = re.compile(r"^1(?:\.\d+)?$")
 _STANDARD_AUDIO_TAGS = {
     "countdown-5s": {
-        "parts": [
-            Path("assets/audio/countdown-5s.wav.zlib.b64.part1"),
-            Path("assets/audio/countdown-5s.wav.zlib.b64.part2"),
-            Path("assets/audio/countdown-5s.wav.zlib.b64.part3"),
-        ],
-        "cache_name": "countdown-5s.wav",
-        "sha256": "22c9dbe32df19b6150dfb76127918b468a61aa0b36e6ce72bb8ee31ccbdff966",
+        "path": Path("assets/audio/countdown-5s-original.mp3"),
         "speed": 0.9,
         "volume": 1.0,
+        # O countdown usado anteriormente corresponde aos frames 185..421
+        # deste MP3 CBR (44.1 kHz, 1152 amostras por frame).
+        "trim_start": 4.83265306122449,
+        "trim_end": 11.023673469387756,
+        "visual_targets": ("n5", "n4", "n3", "n2", "n1"),
     },
 }
+
+
+def _step_duration_slot(step):
+    if "run_time" in step:
+        return "run_time", float(step["run_time"])
+    if str(step.get("op", "")) == "wait" and "duration" in step:
+        return "duration", float(step["duration"])
+    return None
+
+
+def _demo_pace():
+    try:
+        pace = float(os.getenv("MANIM_PACE", "1.15"))
+    except (TypeError, ValueError):
+        pace = 1.15
+    return pace if pace > 0 else 1.15
+
+
+def _synchronize_countdown_timing(program):
+    """Keep visual countdown beats aligned with the tagged audio speed.
+
+    Existing challenge demos use n5..n1 and one timed hold between add/remove.
+    We rescale the hold segment for each visible number so old imported demos
+    stay synchronized without requiring re-import.
+    """
+    timeline = program.get("timeline") or []
+    for tagged_index, tagged_step in enumerate(timeline):
+        tags = _normalize_step_tags(tagged_step)
+        if "countdown-5s" not in tags:
+            continue
+
+        spec = _STANDARD_AUDIO_TAGS["countdown-5s"]
+        speed = float(spec.get("speed", 1.0))
+        if speed <= 0:
+            continue
+        interval = 1.0 / speed
+        pace = _demo_pace()
+        targets = tuple(spec.get("visual_targets") or ())
+        tagged_target = str(tagged_step.get("target", ""))
+        if tagged_target not in targets:
+            continue
+
+        cursor = tagged_index
+        for target in targets[targets.index(tagged_target):]:
+            add_index = next(
+                (
+                    index
+                    for index in range(cursor, len(timeline))
+                    if str(timeline[index].get("op", "")) == "add"
+                    and str(timeline[index].get("target", "")) == target
+                ),
+                None,
+            )
+            if add_index is None:
+                break
+
+            remove_index = next(
+                (
+                    index
+                    for index in range(add_index + 1, len(timeline))
+                    if str(timeline[index].get("op", "")) == "remove"
+                    and str(timeline[index].get("target", "")) == target
+                ),
+                None,
+            )
+            if remove_index is None:
+                break
+
+            slots = []
+            total = 0.0
+            for step in timeline[add_index + 1:remove_index]:
+                slot = _step_duration_slot(step)
+                if slot is None:
+                    continue
+                key, value = slot
+                if value < 0:
+                    continue
+                factor = pace if key == "run_time" else 1.0
+                slots.append((step, key, value, factor))
+                total += value * factor
+
+            if total > 0 and slots:
+                scale = interval / total
+                for step, key, value, _factor in slots:
+                    step[key] = value * scale
+
+            cursor = remove_index + 1
+
+    return program
+
 
 
 def _validate_tex_escapes(value, path="visual_program"):
@@ -120,7 +206,8 @@ def validate_program(program):
 class DSLRuntime:
     def __init__(self, scene, program):
         self.scene = scene
-        self.program = validate_program(program)
+        normalized_program = _synchronize_countdown_timing(deepcopy(program))
+        self.program = validate_program(normalized_program)
         self.objects = {}
         self.specs = {}
         self.trackers = {}
@@ -183,40 +270,12 @@ class DSLRuntime:
         if spec is None:
             return None
 
-        cache_dir = CACHE_ROOT / "shared_audio"
-        cache_dir.mkdir(parents=True, exist_ok=True)
-        output = (cache_dir / spec["cache_name"]).resolve()
-
-        if output.is_file():
-            digest = hashlib.sha256(output.read_bytes()).hexdigest()
-            if digest == spec["sha256"]:
-                return output
-
-        encoded_parts = []
-        for relative in spec["parts"]:
-            source = (PROJECT_ROOT / relative).resolve()
-            if not source.is_file():
-                raise DSLError(
-                    f"Asset de áudio padrão da tag {tag!r} não encontrado: {source}"
-                )
-            encoded_parts.append(source.read_text(encoding="ascii").strip())
-
-        try:
-            compressed = base64.b64decode("".join(encoded_parts), validate=True)
-            audio = zlib.decompress(compressed)
-        except Exception as exc:
+        path = (PROJECT_ROOT / spec["path"]).resolve()
+        if not path.is_file():
             raise DSLError(
-                f"Asset de áudio padrão da tag {tag!r} está corrompido."
-            ) from exc
-
-        digest = hashlib.sha256(audio).hexdigest()
-        if digest != spec["sha256"]:
-            raise DSLError(
-                f"Checksum inválido para o áudio padrão da tag {tag!r}."
+                f"Áudio padrão da tag {tag!r} não encontrado: {path}"
             )
-
-        output.write_bytes(audio)
-        return output
+        return path
 
     def play_audio_tags(self, step):
         event_file_value = os.getenv("MIM_TIMED_AUDIO_EVENTS_FILE")
@@ -236,6 +295,12 @@ class DSLRuntime:
                 "audio": str(path),
                 "speed": float(spec.get("speed", 1.0)),
                 "volume": float(spec.get("volume", 1.0)),
+                "trim_start": float(spec.get("trim_start", 0.0)),
+                "trim_end": (
+                    float(spec["trim_end"])
+                    if spec.get("trim_end") is not None
+                    else None
+                ),
             }
             with event_file.open("a", encoding="utf-8") as handle:
                 handle.write(json.dumps(event, ensure_ascii=False) + "\n")

@@ -113,10 +113,52 @@ class DSLRuntimeTests(unittest.TestCase):
             self.assertEqual(payload["start"], 0.0)
             self.assertEqual(payload["speed"], 0.9)
             self.assertEqual(payload["volume"], 1.0)
-            self.assertEqual(path.name, "countdown-5s.wav")
+            self.assertAlmostEqual(payload["trim_start"], 4.83265306122449)
+            self.assertAlmostEqual(payload["trim_end"], 11.023673469387756)
+            self.assertEqual(path.name, "countdown-5s-original.mp3")
             self.assertTrue(path.is_file())
-            self.assertEqual(path.read_bytes()[:4], b"RIFF")
-            self.assertEqual(path.read_bytes()[8:12], b"WAVE")
+            self.assertGreater(path.stat().st_size, 300_000)
+
+    def test_countdown_visual_holds_follow_90_percent_audio_speed(self):
+        timeline = []
+        for index, target in enumerate(("n5", "n4", "n3", "n2", "n1")):
+            add_step = {"op": "add", "target": target}
+            if index == 0:
+                add_step["tags"] = ["countdown-5s"]
+            timeline.extend([
+                add_step,
+                {
+                    "op": "opacity",
+                    "target": "brand",
+                    "value": 1,
+                    "run_time": 1.0,
+                },
+                {"op": "remove", "target": target},
+            ])
+
+        with patch.dict(
+            "os.environ",
+            {"MANIM_PACE": "1.15"},
+            clear=False,
+        ):
+            runtime = DSLRuntime(
+                Scene(),
+                {
+                    "dsl_version": "1.0",
+                    "objects": [],
+                    "timeline": timeline,
+                },
+            )
+        holds = [
+            step["run_time"]
+            for step in runtime.program["timeline"]
+            if step.get("op") == "opacity"
+        ]
+        self.assertEqual(len(holds), 5)
+        expected_raw_hold = (1.0 / 0.9) / 1.15
+        for hold in holds:
+            self.assertAlmostEqual(hold, expected_raw_hold, places=6)
+            self.assertAlmostEqual(hold * 1.15, 1.0 / 0.9, places=6)
 
     def test_timeline_tags_validate_as_strings(self):
         with self.assertRaises(Exception):

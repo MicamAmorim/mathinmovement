@@ -29,6 +29,8 @@ class TimedAudioEvent:
     audio: Path
     volume: float = 1.0
     speed: float = 1.0
+    trim_start: float = 0.0
+    trim_end: float | None = None
 
 
 def load_timed_audio_events(path: str | Path) -> list[TimedAudioEvent]:
@@ -50,6 +52,13 @@ def load_timed_audio_events(path: str | Path) -> list[TimedAudioEvent]:
             tag = str(payload.get("tag") or "")
             volume = float(payload.get("volume", 1.0))
             speed = float(payload.get("speed", 1.0))
+            trim_start = float(payload.get("trim_start", 0.0))
+            raw_trim_end = payload.get("trim_end")
+            trim_end = (
+                float(raw_trim_end)
+                if raw_trim_end is not None
+                else None
+            )
         except (KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
             raise PostProcessError(
                 f"Evento de áudio inválido em {event_file}:{line_number}."
@@ -66,6 +75,14 @@ def load_timed_audio_events(path: str | Path) -> list[TimedAudioEvent]:
             raise PostProcessError(
                 f"Evento de áudio com speed inválido em {event_file}:{line_number}."
             )
+        if trim_start < 0:
+            raise PostProcessError(
+                f"Evento de áudio com trim_start negativo em {event_file}:{line_number}."
+            )
+        if trim_end is not None and trim_end <= trim_start:
+            raise PostProcessError(
+                f"Evento de áudio com janela de trim inválida em {event_file}:{line_number}."
+            )
         if not audio.is_file():
             raise PostProcessError(
                 f"Áudio temporizado não encontrado: {audio}"
@@ -77,6 +94,8 @@ def load_timed_audio_events(path: str | Path) -> list[TimedAudioEvent]:
                 audio=audio,
                 volume=volume,
                 speed=speed,
+                trim_start=trim_start,
+                trim_end=trim_end,
             )
         )
     return events
@@ -316,8 +335,13 @@ def build_timed_audio_mix_command(
     for index, event in enumerate(active, start=1):
         label = f"sfx{index}"
         delay_ms = max(0, int(round(event.start * 1000)))
+        trim = f"atrim=start={_fmt(event.trim_start)}"
+        if event.trim_end is not None:
+            trim += f":end={_fmt(event.trim_end)}"
         filters.append(
             f"[{index}:a]"
+            f"{trim},"
+            "asetpts=PTS-STARTPTS,"
             "aresample=48000,"
             f"atempo={_fmt(event.speed)},"
             f"volume={_fmt(event.volume)},"
@@ -331,7 +355,8 @@ def build_timed_audio_mix_command(
     filters.append(
         "".join(mix_inputs)
         + f"amix=inputs={len(mix_inputs)}:"
-        "duration=first:dropout_transition=0:normalize=0[aout]"
+        "duration=first:dropout_transition=0:normalize=0,"
+        "alimiter=limit=0.95:attack=5:release=50:level=0[aout]"
     )
 
     cmd += [
@@ -346,7 +371,11 @@ def build_timed_audio_mix_command(
         "-c:a",
         "aac",
         "-b:a",
-        "256k",
+        "320k",
+        "-ar",
+        "48000",
+        "-ac",
+        "2",
         "-movflags",
         "+faststart",
         "-shortest",

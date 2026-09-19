@@ -22,13 +22,13 @@ Marque o primeiro passo visual da contagem com:
   tags: [countdown-5s]
 ```
 
-A tag deve ficar no passo em que o número `5` aparece. O runtime registra o timestamp exato dessa etapa e **não** envia o bipe ao Manim. O asset versionado é reconstruído como WAV PCM validado por checksum em:
+A tag deve ficar no passo em que o número `5` aparece. O runtime registra o timestamp exato dessa etapa e **não** envia o bipe ao Manim. O FFmpeg usa diretamente o arquivo original versionado em:
 
 ```text
-cache/shared_audio/countdown-5s.wav
+assets/audio/countdown-5s-original.mp3
 ```
 
-Depois do render, o FFmpeg mistura esse WAV com `atempo=0.9` (90% da velocidade original) para acompanhar melhor a animação `5–4–3–2–1`. Assim evitamos a conversão de áudio interna do Manim/PyAV.
+O arquivo original tem cerca de 11,02 s; o trecho usado pelo countdown começa em 4,832653 s e vai até o fim. O FFmpeg recorta essa janela diretamente do MP3, zera o timestamp do recorte e então aplica `atempo=0.9` (90% da velocidade original). O runtime também sincroniza automaticamente a permanência visual de `n5 → n4 → n3 → n2 → n1` com o intervalo efetivo do áudio, levando em conta `MANIM_PACE`. Na mixagem final, um limiter evita clipping entre narração e bipe.
 
 ## Convenções visuais
 
@@ -71,7 +71,7 @@ Por padrão, use somente duas falas:
 
 O miolo da resolução permanece visual para preservar o compromisso mental do espectador.
 
-Os assets de voz de cada conteúdo devem ficar dentro do respectivo `.demo`. O áudio da contagem é compartilhado pelo repositório em partes `.wav.zlib.b64`, reconstruído com checksum e acionado pela tag `countdown-5s`; sua inserção ocorre no pós-processamento com FFmpeg, a 90% da velocidade original.
+Os assets de voz de cada conteúdo devem ficar dentro do respectivo `.demo`. O áudio da contagem é o MP3 original compartilhado em `assets/audio/countdown-5s-original.mp3`; sua inserção ocorre no pós-processamento com FFmpeg, a 90% da velocidade original.
 
 ## Validação
 

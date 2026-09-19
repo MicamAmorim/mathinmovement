@@ -57,9 +57,11 @@ class PostProcessTests(unittest.TestCase):
         event = TimedAudioEvent(
             tag="countdown-5s",
             start=3.0,
-            audio=Path("countdown-5s.wav"),
+            audio=Path("countdown-5s-original.mp3"),
             volume=1.0,
             speed=0.9,
+            trim_start=4.83265306122449,
+            trim_end=11.023673469387756,
         )
         command = build_timed_audio_mix_command(
             "raw.mp4",
@@ -70,12 +72,17 @@ class PostProcessTests(unittest.TestCase):
             ffmpeg_binary="ffmpeg",
         )
         joined = " ".join(command)
-        self.assertIn("countdown-5s.wav", joined)
+        self.assertIn("countdown-5s-original.mp3", joined)
+        self.assertIn("atrim=start=4.832653:end=11.023673", joined)
+        self.assertIn("asetpts=PTS-STARTPTS", joined)
         self.assertIn("atempo=0.9", joined)
         self.assertIn("adelay=3000:all=1", joined)
         self.assertIn("amix=inputs=3", joined)
         self.assertIn("-c:v copy", joined)
-        self.assertIn("-b:a 256k", joined)
+        self.assertIn("-b:a 320k", joined)
+        self.assertIn("alimiter=limit=0.95", joined)
+        self.assertIn("-ar 48000", joined)
+        self.assertIn("-ac 2", joined)
 
     def test_raw_fingerprint_changes_when_asset_changes(self):
         with tempfile.TemporaryDirectory() as tmp:
