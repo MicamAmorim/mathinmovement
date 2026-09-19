@@ -140,19 +140,21 @@ class JobStore:
         *,
         status: str | None = None,
         limit: int = 100,
+        offset: int = 0,
     ) -> list[JobRecord]:
         if status is not None and status not in JOB_STATUSES:
             raise ValueError(f"Status de job inválido: {status!r}")
         limit = max(1, min(int(limit), 1000))
+        offset = max(0, int(offset))
         with closing(_connect(self.path)) as conn:
             if status is None:
                 rows = conn.execute(
                     """
                     SELECT * FROM jobs
                     ORDER BY created_at DESC
-                    LIMIT ?
+                    LIMIT ? OFFSET ?
                     """,
-                    (limit,),
+                    (limit, offset),
                 ).fetchall()
             else:
                 rows = conn.execute(
@@ -160,11 +162,65 @@ class JobStore:
                     SELECT * FROM jobs
                     WHERE status = ?
                     ORDER BY created_at DESC
-                    LIMIT ?
+                    LIMIT ? OFFSET ?
                     """,
-                    (status, limit),
+                    (status, limit, offset),
                 ).fetchall()
         return [_row_to_job(row) for row in rows]
+
+    def count(
+        self,
+        *,
+        status: str | None = None,
+    ) -> int:
+        if status is not None and status not in JOB_STATUSES:
+            raise ValueError(f"Status de job inválido: {status!r}")
+        with closing(_connect(self.path)) as conn:
+            if status is None:
+                row = conn.execute(
+                    "SELECT COUNT(*) AS total FROM jobs"
+                ).fetchone()
+            else:
+                row = conn.execute(
+                    "SELECT COUNT(*) AS total FROM jobs WHERE status = ?",
+                    (status,),
+                ).fetchone()
+        return int(row["total"] if row is not None else 0)
+
+    def processed_targets(self) -> dict[str, dict[str, Any]]:
+        """Resume conteúdos que já tiveram produção concluída com sucesso."""
+        with closing(_connect(self.path)) as conn:
+            rows = conn.execute(
+                """
+                SELECT payload_json, created_at, finished_at
+                FROM jobs
+                WHERE status = 'succeeded'
+                ORDER BY created_at DESC
+                """
+            ).fetchall()
+
+        summary: dict[str, dict[str, Any]] = {}
+        for row in rows:
+            try:
+                payload = json.loads(row["payload_json"])
+            except (TypeError, ValueError, json.JSONDecodeError):
+                continue
+            target = str(payload.get("target") or "").strip()
+            if not target:
+                continue
+            current = summary.setdefault(
+                target,
+                {
+                    "count": 0,
+                    "last_processed_at": (
+                        str(row["finished_at"])
+                        if row["finished_at"]
+                        else str(row["created_at"])
+                    ),
+                },
+            )
+            current["count"] += 1
+        return summary
 
     def claim_next(
         self,

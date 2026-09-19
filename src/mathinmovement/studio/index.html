@@ -25,15 +25,15 @@
         <div>
           <p class="eyebrow">IMPORTAR</p>
           <h2>Novo conteúdo</h2>
-          <p class="hint import-hint">Selecione um pacote <strong>.demo</strong> ou <strong>.qenem</strong>. Ele será validado antes de entrar no catálogo.</p>
+          <p class="hint import-hint">Selecione um ou vários pacotes <strong>.demo</strong> ou <strong>.qenem</strong>. Cada arquivo será validado antes de entrar no catálogo.</p>
         </div>
         <div class="import-controls">
-          <input id="packageFile" type="file" accept=".demo,.qenem">
+          <input id="packageFile" type="file" accept=".demo,.qenem" multiple>
           <label class="inline-check">
             <input id="replacePackage" type="checkbox">
             <span>Substituir se o ID já existir</span>
           </label>
-          <button class="primary-button compact" id="importPackage" type="button">Importar pacote</button>
+          <button class="primary-button compact" id="importPackage" type="button">Importar selecionados</button>
         </div>
         <p id="importMessage" class="form-message import-message"></p>
       </section>
@@ -233,6 +233,7 @@
           </div>
           <div class="jobs-controls">
             <span class="polling-indicator"><span></span> atualização automática</span>
+            <button class="ghost-button" id="toggleJobHistory">Todo histórico</button>
             <button class="ghost-button" id="refreshJobs">Atualizar</button>
           </div>
         </div>
@@ -253,6 +254,23 @@
             </table>
           </div>
           <div id="jobsEmpty" class="empty-state hidden">A fila ainda está vazia.</div>
+          <div id="jobsHistoryControls" class="jobs-history-controls hidden">
+            <label>
+              Itens por página
+              <select id="jobsPageSize">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25" selected>25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+            </label>
+            <div class="jobs-pagination">
+              <button class="ghost-button" id="jobsPrev" type="button">Anterior</button>
+              <span id="jobsPageInfo">Página 1</span>
+              <button class="ghost-button" id="jobsNext" type="button">Próxima</button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -274,7 +292,10 @@
     <article class="content-card">
       <div class="card-topline">
         <span class="type-pill card-type"></span>
-        <span class="status-pill card-status"></span>
+        <div class="card-badges">
+          <span class="processed-pill hidden">Já processado</span>
+          <span class="status-pill card-status"></span>
+        </div>
       </div>
       <div>
         <h3 class="card-title"></h3>

@@ -29,7 +29,10 @@ def _job_dict(job: JobRecord) -> dict[str, Any]:
     }
 
 
-def _content_dict(record) -> dict[str, Any]:
+def _content_dict(
+    record,
+    processing: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     narration = record.manifest.get("narration") or {}
     render = record.manifest.get("render") or {}
     return {
@@ -46,6 +49,9 @@ def _content_dict(record) -> dict[str, Any]:
             "segments": len(narration.get("segments", [])),
             "voice": narration.get("voice"),
         },
+        "processed": bool(processing),
+        "processed_count": int((processing or {}).get("count", 0)),
+        "last_processed_at": (processing or {}).get("last_processed_at"),
     }
 
 
@@ -159,26 +165,35 @@ def create_app(*, store: JobStore | None = None):
             status=status,
             year=year,
         )
-        return [_content_dict(record) for record in records]
+        processed = store.processed_targets()
+        return [
+            _content_dict(record, processed.get(record.id))
+            for record in records
+        ]
 
-    @app.post("/imports", status_code=201)
-    async def import_content(
-        file: UploadFile = File(...),
-        replace: bool = Form(False),
+    async def _import_upload(
+        upload: UploadFile,
+        *,
+        replace: bool,
     ) -> dict[str, Any]:
-        original_name = _safe_upload_name(file.filename, "content.demo")
+        original_name = _safe_upload_name(
+            upload.filename,
+            "content.demo",
+        )
         suffix = Path(original_name).suffix.lower()
         if suffix not in ALLOWED_EXTENSIONS:
             raise HTTPException(
                 status_code=415,
-                detail="Envie um pacote .demo ou .qenem.",
+                detail=(
+                    f"{original_name}: envie um pacote .demo ou .qenem."
+                ),
             )
 
         upload_dir = UPLOAD_ROOT / "packages"
         temporary = upload_dir / f"{uuid.uuid4().hex}{suffix}"
         try:
             await _save_upload(
-                file,
+                upload,
                 temporary,
                 max_bytes=50 * 1024 * 1024,
             )
@@ -188,21 +203,74 @@ def create_app(*, store: JobStore | None = None):
             )
             record = Registry().rebuild().get(destination.name)
             return {
+                "name": original_name,
                 "imported": True,
-                "content": _content_dict(record),
+                "content": _content_dict(
+                    record,
+                    store.processed_targets().get(record.id),
+                ),
             }
         except ManifestError as exc:
             raise HTTPException(
                 status_code=422,
-                detail=str(exc),
+                detail=f"{original_name}: {exc}",
             ) from exc
         except ValueError as exc:
             raise HTTPException(
                 status_code=413,
-                detail=str(exc),
+                detail=f"{original_name}: {exc}",
             ) from exc
         finally:
             temporary.unlink(missing_ok=True)
+
+    @app.post("/imports", status_code=201)
+    async def import_content(
+        file: UploadFile = File(...),
+        replace: bool = Form(False),
+    ) -> dict[str, Any]:
+        return await _import_upload(file, replace=replace)
+
+    @app.post("/imports/batch", status_code=201)
+    async def import_contents_batch(
+        files: list[UploadFile] = File(...),
+        replace: bool = Form(False),
+    ) -> dict[str, Any]:
+        if not files:
+            raise HTTPException(
+                status_code=422,
+                detail="Selecione pelo menos um pacote.",
+            )
+        if len(files) > 50:
+            raise HTTPException(
+                status_code=422,
+                detail="Importe no máximo 50 pacotes por vez.",
+            )
+
+        imported: list[dict[str, Any]] = []
+        failed: list[dict[str, str]] = []
+        for upload in files:
+            original_name = _safe_upload_name(
+                upload.filename,
+                "content.demo",
+            )
+            try:
+                imported.append(
+                    await _import_upload(
+                        upload,
+                        replace=replace,
+                    )
+                )
+            except HTTPException as exc:
+                failed.append({
+                    "name": original_name,
+                    "error": str(exc.detail),
+                })
+
+        return {
+            "total": len(files),
+            "imported": imported,
+            "failed": failed,
+        }
 
     @app.post("/uploads/music", status_code=201)
     async def upload_music(
@@ -297,7 +365,7 @@ def create_app(*, store: JobStore | None = None):
     @app.get("/jobs")
     def list_jobs(
         status: str | None = Query(default=None),
-        limit: int = Query(default=100, ge=1, le=1000),
+        limit: int = Query(default=5, ge=1, le=1000),
     ) -> list[dict[str, Any]]:
         if status is not None and status not in JOB_STATUSES:
             raise HTTPException(
@@ -308,6 +376,31 @@ def create_app(*, store: JobStore | None = None):
             _job_dict(job)
             for job in store.list(status=status, limit=limit)
         ]
+
+    @app.get("/jobs/history")
+    def job_history(
+        status: str | None = Query(default=None),
+        limit: int = Query(default=25, ge=1, le=100),
+        offset: int = Query(default=0, ge=0),
+    ) -> dict[str, Any]:
+        if status is not None and status not in JOB_STATUSES:
+            raise HTTPException(
+                status_code=422,
+                detail=f"Status inválido: {status}",
+            )
+        return {
+            "items": [
+                _job_dict(job)
+                for job in store.list(
+                    status=status,
+                    limit=limit,
+                    offset=offset,
+                )
+            ],
+            "total": store.count(status=status),
+            "limit": limit,
+            "offset": offset,
+        }
 
     @app.get("/jobs/{job_id}")
     def get_job(job_id: str) -> dict[str, Any]:

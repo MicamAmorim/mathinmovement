@@ -2,6 +2,10 @@ const state = {
   contents: [],
   selected: null,
   jobs: [],
+  jobsHistory: false,
+  jobsLimit: 5,
+  jobsOffset: 0,
+  jobsTotal: 0,
 };
 
 const $ = (id) => document.getElementById(id);
@@ -48,6 +52,12 @@ const elements = {
   jobsBody: $("jobsBody"),
   jobsEmpty: $("jobsEmpty"),
   refreshJobs: $("refreshJobs"),
+  toggleJobHistory: $("toggleJobHistory"),
+  jobsHistoryControls: $("jobsHistoryControls"),
+  jobsPageSize: $("jobsPageSize"),
+  jobsPrev: $("jobsPrev"),
+  jobsNext: $("jobsNext"),
+  jobsPageInfo: $("jobsPageInfo"),
   openMediaFolder: $("openMediaFolder"),
   folderMessage: $("folderMessage"),
   cardTemplate: $("contentCardTemplate"),
@@ -154,6 +164,7 @@ function renderCatalog() {
     const card = fragment.querySelector(".content-card");
     const type = fragment.querySelector(".card-type");
     const status = fragment.querySelector(".card-status");
+    const processed = fragment.querySelector(".processed-pill");
     const title = fragment.querySelector(".card-title");
     const id = fragment.querySelector(".card-id");
     const tags = fragment.querySelector(".tag-list");
@@ -163,6 +174,16 @@ function renderCatalog() {
     type.textContent = item.type;
     status.textContent = item.status;
     status.classList.add(item.status);
+    if (item.processed) {
+      processed.classList.remove("hidden");
+      const count = Number(item.processed_count || 0);
+      const when = item.last_processed_at
+        ? formatDate(item.last_processed_at)
+        : "data desconhecida";
+      processed.title = count > 1
+        ? `${count} processamentos concluídos · último em ${when}`
+        : `Processado em ${when}`;
+    }
     title.textContent = item.title;
     id.textContent = item.id;
     const formats = item.production_formats || item.render?.formats || ["vertical"];
@@ -213,39 +234,55 @@ function selectContent(item) {
 }
 
 async function importPackage() {
-  const file = elements.packageFile.files?.[0];
-  if (!file) {
-    elements.importMessage.textContent = "Selecione um arquivo .demo ou .qenem.";
+  const files = [...(elements.packageFile.files || [])];
+  if (!files.length) {
+    elements.importMessage.textContent = "Selecione um ou mais arquivos .demo ou .qenem.";
     elements.importMessage.className = "form-message import-message error";
     return;
   }
 
-  const suffix = file.name.toLowerCase();
-  if (!suffix.endsWith(".demo") && !suffix.endsWith(".qenem")) {
-    elements.importMessage.textContent = "O arquivo deve terminar em .demo ou .qenem.";
+  const invalid = files.filter((file) => {
+    const name = file.name.toLowerCase();
+    return !name.endsWith(".demo") && !name.endsWith(".qenem");
+  });
+  if (invalid.length) {
+    elements.importMessage.textContent = `Formato inválido: ${invalid.map((file) => file.name).join(", ")}`;
     elements.importMessage.className = "form-message import-message error";
     return;
   }
 
   const form = new FormData();
-  form.append("file", file);
+  files.forEach((file) => form.append("files", file));
   form.append("replace", elements.replacePackage.checked ? "true" : "false");
 
   elements.importPackage.disabled = true;
-  elements.importMessage.textContent = "Validando e importando pacote...";
+  elements.importMessage.textContent = `Validando e importando ${files.length} pacote${files.length === 1 ? "" : "s"}...`;
   elements.importMessage.className = "form-message import-message";
 
   try {
-    const result = await request("/imports", {
+    const result = await request("/imports/batch", {
       method: "POST",
       body: form,
     });
-    elements.importMessage.textContent = `${result.content.id} importado com sucesso.`;
-    elements.importMessage.className = "form-message import-message success";
+    const imported = result.imported || [];
+    const failed = result.failed || [];
+    const parts = [`${imported.length} importado${imported.length === 1 ? "" : "s"}`];
+    if (failed.length) {
+      parts.push(`${failed.length} com erro`);
+      parts.push(failed.map((item) => `${item.name}: ${item.error}`).join(" | "));
+    }
+    elements.importMessage.textContent = parts.join(" · ");
+    elements.importMessage.className = failed.length
+      ? "form-message import-message error"
+      : "form-message import-message success";
     elements.packageFile.value = "";
     await loadContents();
-    const imported = state.contents.find((item) => item.id === result.content.id);
-    if (imported) selectContent(imported);
+
+    if (imported.length === 1) {
+      const importedId = imported[0].content?.id;
+      const item = state.contents.find((content) => content.id === importedId);
+      if (item) selectContent(item);
+    }
   } catch (error) {
     elements.importMessage.textContent = error.message;
     elements.importMessage.className = "form-message import-message error";
@@ -253,7 +290,6 @@ async function importPackage() {
     elements.importPackage.disabled = false;
   }
 }
-
 async function uploadSelectedMusic() {
   const file = elements.musicFile.files?.[0];
   if (!file) {
@@ -354,10 +390,38 @@ function renderJobs() {
   });
 }
 
+function renderJobHistoryControls() {
+  elements.jobsHistoryControls.classList.toggle("hidden", !state.jobsHistory);
+  elements.toggleJobHistory.textContent = state.jobsHistory
+    ? "Voltar aos recentes"
+    : "Todo histórico";
+
+  if (!state.jobsHistory) return;
+
+  const limit = state.jobsLimit;
+  const page = Math.floor(state.jobsOffset / limit) + 1;
+  const totalPages = Math.max(1, Math.ceil(state.jobsTotal / limit));
+  elements.jobsPageInfo.textContent = `Página ${page} de ${totalPages} · ${state.jobsTotal} jobs`;
+  elements.jobsPrev.disabled = state.jobsOffset <= 0;
+  elements.jobsNext.disabled = state.jobsOffset + limit >= state.jobsTotal;
+}
+
 async function loadJobs() {
   try {
-    state.jobs = await request("/jobs?limit=30");
+    if (state.jobsHistory) {
+      const result = await request(
+        `/jobs/history?limit=${state.jobsLimit}&offset=${state.jobsOffset}`
+      );
+      state.jobs = result.items || [];
+      state.jobsTotal = Number(result.total || 0);
+    } else {
+      state.jobs = await request("/jobs?limit=5");
+      state.jobsTotal = state.jobs.length;
+      state.jobsLimit = 5;
+      state.jobsOffset = 0;
+    }
     renderJobs();
+    renderJobHistoryControls();
   } catch (error) {
     elements.jobsBody.innerHTML = "";
     elements.jobsEmpty.classList.remove("hidden");
@@ -365,6 +429,26 @@ async function loadJobs() {
   }
 }
 
+async function toggleJobHistory() {
+  state.jobsHistory = !state.jobsHistory;
+  state.jobsOffset = 0;
+  state.jobsLimit = state.jobsHistory
+    ? Number(elements.jobsPageSize.value || 25)
+    : 5;
+  await loadJobs();
+}
+
+async function changeJobsPageSize() {
+  state.jobsLimit = Number(elements.jobsPageSize.value || 25);
+  state.jobsOffset = 0;
+  await loadJobs();
+}
+
+async function changeJobsPage(direction) {
+  const next = state.jobsOffset + direction * state.jobsLimit;
+  state.jobsOffset = Math.max(0, next);
+  await loadJobs();
+}
 async function openMediaFolder() {
   elements.openMediaFolder.disabled = true;
   elements.folderMessage.textContent = "Abrindo pasta...";
@@ -455,6 +539,10 @@ async function enqueue(event) {
 elements.importPackage.addEventListener("click", importPackage);
 elements.refreshCatalog.addEventListener("click", loadContents);
 elements.refreshJobs.addEventListener("click", loadJobs);
+elements.toggleJobHistory.addEventListener("click", toggleJobHistory);
+elements.jobsPageSize.addEventListener("change", changeJobsPageSize);
+elements.jobsPrev.addEventListener("click", () => changeJobsPage(-1));
+elements.jobsNext.addEventListener("click", () => changeJobsPage(1));
 elements.openMediaFolder.addEventListener("click", openMediaFolder);
 elements.renderForm.addEventListener("submit", enqueue);
 
