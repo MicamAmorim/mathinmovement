@@ -126,9 +126,12 @@ class DSLRuntimeTests(unittest.TestCase):
 
         add_sound.assert_not_called()
 
-    def test_narration_play_dispatches_to_scene_speak(self):
+    def test_narration_play_uses_one_low_level_audio_track(self):
         scene = MagicMock()
-        scene.time = 0.0
+        scene.time = 3.25
+        scene.renderer.skip_animations = False
+        scene.audio_path.return_value = Path("intro.mp3")
+        scene.segment_duration.return_value = 4.5
         runtime = DSLRuntime(
             scene,
             {"dsl_version": "1.0", "objects": [], "timeline": []},
@@ -139,7 +142,12 @@ class DSLRuntimeTests(unittest.TestCase):
             {"op": "narration.play", "key": "intro"},
         )
 
-        scene.speak.assert_called_once_with("intro")
+        scene.renderer.file_writer.add_sound.assert_called_once_with(
+            "intro.mp3",
+            3.25,
+        )
+        scene.add_sound.assert_not_called()
+        scene.wait.assert_called_once_with(4.5)
 
     def test_timeline_tags_validate_as_strings(self):
         with self.assertRaises(Exception):
