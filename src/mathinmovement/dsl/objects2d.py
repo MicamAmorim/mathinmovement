@@ -68,12 +68,14 @@ def _normalize_legacy_math_colors(tex):
     tex = _LEGACY_TEXTCOLOR_RE.sub(replace, tex)
     return tex, legacy_map
 
-def _latex_color_command(value):
+def _latex_colored_token(value, token):
+    """Wrap one math token with xcolor without creating Manim {{...}} splits."""
     resolved = str(color(value))
+    token = str(token)
     if re.fullmatch(r"#[0-9A-Fa-f]{6}", resolved):
-        return rf"\color[HTML]{{{resolved[1:].upper()}}}"
+        return rf"\textcolor[HTML]{{{resolved[1:].upper()}}}{{{token}}}"
     if re.fullmatch(r"[A-Za-z]+", resolved):
-        return rf"\color{{{resolved.lower()}}}"
+        return rf"\textcolor{{{resolved.lower()}}}{{{token}}}"
     raise DSLError(
         "math.tex_to_color_map exige cor nomeada ou hexadecimal #RRGGBB; "
         f"recebido: {value!r}."
@@ -117,10 +119,9 @@ def _apply_inline_math_colors(tex, color_map):
     for token, value in ordered:
         if not token:
             raise DSLError("math.tex_to_color_map não aceita chave vazia.")
-        command = _latex_color_command(value)
         pattern = _math_color_token_pattern(token)
         prepared = pattern.sub(
-            lambda match: "{" + command + match.group(0) + "}",
+            lambda match: _latex_colored_token(value, match.group(0)),
             prepared,
         )
     return prepared
