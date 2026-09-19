@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import re
+import zlib
 from copy import deepcopy
 from pathlib import Path
 
@@ -25,11 +26,13 @@ _VERSION_RE = re.compile(r"^1(?:\.\d+)?$")
 _STANDARD_AUDIO_TAGS = {
     "countdown-5s": {
         "parts": [
-            Path(f"assets/audio/countdown-5s.mp3.b64.part{i}")
-            for i in range(1, 7)
+            Path("assets/audio/countdown-5s.wav.zlib.b64.part1"),
+            Path("assets/audio/countdown-5s.wav.zlib.b64.part2"),
+            Path("assets/audio/countdown-5s.wav.zlib.b64.part3"),
         ],
-        "cache_name": "countdown-5s.mp3",
-        "sha256": "92dabcf3529a02d601a80e0e47fef3a77ccd70889152a4579f96b5b1389eb485",
+        "cache_name": "countdown-5s.wav",
+        "sha256": "22c9dbe32df19b6150dfb76127918b468a61aa0b36e6ce72bb8ee31ccbdff966",
+        "speed": 0.9,
     },
 }
 
@@ -198,7 +201,8 @@ class DSLRuntime:
             encoded_parts.append(source.read_text(encoding="ascii").strip())
 
         try:
-            audio = base64.b64decode("".join(encoded_parts), validate=True)
+            compressed = base64.b64decode("".join(encoded_parts), validate=True)
+            audio = zlib.decompress(compressed)
         except Exception as exc:
             raise DSLError(
                 f"Asset de áudio padrão da tag {tag!r} está corrompido."
@@ -224,10 +228,12 @@ class DSLRuntime:
             path = self._materialize_standard_audio(tag)
             if path is None:
                 continue
+            spec = _STANDARD_AUDIO_TAGS[tag]
             event = {
                 "tag": tag,
                 "start": float(self.scene.time),
                 "audio": str(path),
+                "speed": float(spec.get("speed", 1.0)),
             }
             with event_file.open("a", encoding="utf-8") as handle:
                 handle.write(json.dumps(event, ensure_ascii=False) + "\n")
