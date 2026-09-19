@@ -1,0 +1,90 @@
+dsl_version: '1.0'
+objects:
+  - id: axes
+    type: 3d.axes
+    x_range: [-4, 4, 1]
+    y_range: [-3, 3, 1]
+    z_range: [-4, 5, 1]
+    x_length: 7
+    y_length: 5
+    z_length: 7
+    axis_config:
+      color: muted
+      stroke_width: 2
+
+  - id: cube
+    type: 3d.cube
+    side: 1.5
+    at: [0.5, 0.6, 2.8]
+    color: cyan
+    fill_opacity: 0.18
+
+  - id: camera_left
+    type: 3d.dot
+    point: [-2.2, 0, -2.8]
+    radius: 0.10
+    color: red
+
+  - id: camera_right
+    type: 3d.dot
+    point: [2.2, 0, -2.8]
+    radius: 0.10
+    color: blue
+
+  - id: ray_left
+    type: 3d.line
+    start: [-2.2, 0, -2.8]
+    end: [0.5, 0.6, 2.8]
+    color: red
+    thickness: 0.025
+
+  - id: ray_right
+    type: 3d.line
+    start: [2.2, 0, -2.8]
+    end: [0.5, 0.6, 2.8]
+    color: blue
+    thickness: 0.025
+
+timeline:
+  - op: camera.set_orientation
+    phi: '=68*pi/180'
+    theta: '=-55*pi/180'
+    zoom: 0.9
+
+  - op: create
+    target: axes
+    run_time: 0.8
+
+  - op: parallel
+    run_time: 0.8
+    actions:
+      - op: fade_in
+        target: cube
+      - op: fade_in
+        target: camera_left
+      - op: fade_in
+        target: camera_right
+
+  - op: parallel
+    run_time: 1.0
+    actions:
+      - op: create
+        target: ray_left
+      - op: create
+        target: ray_right
+
+  - op: camera.begin_ambient_rotation
+    rate: 0.08
+    about: theta
+
+  - op: wait
+    duration: 1.5
+
+  - op: camera.stop_ambient_rotation
+    about: theta
+
+  - op: camera.move
+    phi: '=72*pi/180'
+    theta: '=-35*pi/180'
+    zoom: 1.0
+    run_time: 1.2
