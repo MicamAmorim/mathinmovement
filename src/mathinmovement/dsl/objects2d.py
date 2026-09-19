@@ -70,9 +70,9 @@ def _normalize_legacy_math_colors(tex):
 def _latex_color_command(value):
     resolved = str(color(value))
     if re.fullmatch(r"#[0-9A-Fa-f]{6}", resolved):
-        return rf"\\color[HTML]{{{resolved[1:].upper()}}}"
+        return rf"\color[HTML]{{{resolved[1:].upper()}}}"
     if re.fullmatch(r"[A-Za-z]+", resolved):
-        return rf"\\color{{{resolved.lower()}}}"
+        return rf"\color{{{resolved.lower()}}}"
     raise DSLError(
         "math.tex_to_color_map exige cor nomeada ou hexadecimal #RRGGBB; "
         f"recebido: {value!r}."
