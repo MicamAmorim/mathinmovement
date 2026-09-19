@@ -209,9 +209,9 @@ def _manim_command(
     env["MIM_CONTENT_ID"] = record.id
     env["MIM_FORMAT"] = video_format
     env["MIM_QUALITY"] = quality
-    env["MIM_TIMED_AUDIO_EVENTS_FILE"] = str(
-        build_dir / "_mim_audio_events.jsonl"
-    )
+    event_file = build_dir / "_mim_audio_events.jsonl"
+    event_file.unlink(missing_ok=True)
+    env["MIM_TIMED_AUDIO_EVENTS_FILE"] = str(event_file)
     return cmd, env, PROJECT_ROOT
 
 
