@@ -75,6 +75,24 @@ class MathColorMapTests(unittest.TestCase):
         self.assertIn(r"{\color[HTML]{8DE2A7}v}=f_y", prepared)
         self.assertNotIn(r"\q{\color", prepared)
 
+    def test_inline_colors_add_xcolor_to_active_tex_template(self):
+        spec = {
+            "type": "math",
+            "tex": r"P_c=RP_w+t",
+            "tex_to_color_map": {"P_c": "gold"},
+        }
+        fake_math = object()
+        with (
+            patch.object(objects2d, "MathTex", return_value=fake_math) as math_tex,
+            patch.object(objects2d, "apply_layout", return_value=fake_math),
+        ):
+            result = objects2d.make_math(_Runtime(), spec)
+
+        self.assertIs(result, fake_math)
+        _, kwargs = math_tex.call_args
+        template = kwargs["tex_template"]
+        self.assertIn(r"\usepackage{xcolor}", template.body)
+
     def test_fraction_color_map_is_not_forwarded_to_mathtex_splitter(self):
         spec = {
             "type": "math",
