@@ -5,12 +5,38 @@ import hashlib
 from pathlib import Path
 
 from .engine import render_record
-from .config import MEDIA_ROOT, RAW_MEDIA_ROOT
+from .config import MEDIA_ROOT, PROJECT_ROOT, RAW_MEDIA_ROOT
 from .models import ContentRecord, ManifestError
 from .package_io import ALLOWED_EXTENSIONS, import_package
 from .registry import Registry
 from .tts import TTSResult, prepare_narration
 from .postprocess import PostProcessResult, postprocess_video
+
+
+def _shared_render_inputs() -> list[Path]:
+    """Arquivos compartilhados que alteram o vídeo bruto.
+
+    O cache raw não pode depender apenas do conteúdo do .demo/.qenem:
+    mudanças no engine DSL/renderer ou em efeitos de áudio compartilhados
+    também precisam invalidar o artefato.
+    """
+    paths: list[Path] = []
+    package_root = PROJECT_ROOT / "src" / "mathinmovement"
+    if package_root.is_dir():
+        paths.extend(
+            path
+            for path in package_root.rglob("*.py")
+            if path.is_file()
+        )
+
+    shared_audio = PROJECT_ROOT / "assets" / "audio"
+    if shared_audio.is_dir():
+        paths.extend(
+            path
+            for path in shared_audio.rglob("*")
+            if path.is_file()
+        )
+    return sorted(set(paths))
 
 
 def _raw_fingerprint(
@@ -31,6 +57,14 @@ def _raw_fingerprint(
         if not path.is_file():
             continue
         relative = path.relative_to(record.path).as_posix()
+        digest.update(relative.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(path.read_bytes())
+        digest.update(b"\0")
+
+    for path in _shared_render_inputs():
+        relative = path.relative_to(PROJECT_ROOT).as_posix()
+        digest.update(b"shared\0")
         digest.update(relative.encode("utf-8"))
         digest.update(b"\0")
         digest.update(path.read_bytes())
