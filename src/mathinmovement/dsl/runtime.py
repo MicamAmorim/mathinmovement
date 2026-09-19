@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 import os
 import re
 from copy import deepcopy
@@ -22,160 +21,20 @@ from . import actions as _actions  # noqa: F401
 _VERSION_RE = re.compile(r"^1(?:\.\d+)?$")
 _STANDARD_AUDIO_TAGS = {
     "countdown-5s": {
-        "path": Path("assets/audio/countdown-5s-original.mp3"),
-        "speed": 0.9,
-        "volume": 1.0,
-        # O countdown usado anteriormente corresponde aos frames 185..421
-        # deste MP3 CBR (44.1 kHz, 1152 amostras por frame).
-        "trim_start": 4.83265306122449,
-        "trim_end": 11.023673469387756,
-        "visual_targets": ("n5", "n4", "n3", "n2", "n1"),
+        "paths": (
+            Path("assets/audio/countdown-5s.mp3"),
+            Path("assets/audio/countdown-5s-original.mp3"),
+        ),
     },
 }
 
 
-def _step_duration_slot(step):
-    if "run_time" in step:
-        return "run_time", float(step["run_time"])
-    if str(step.get("op", "")) == "wait" and "duration" in step:
-        return "duration", float(step["duration"])
-    return None
-
-
-def _demo_pace():
-    try:
-        pace = float(os.getenv("MANIM_PACE", "1.15"))
-    except (TypeError, ValueError):
-        pace = 1.15
-    return pace if pace > 0 else 1.15
-
-
-_PLAY_ACTIONS = {
-    "anim.create",
-    "anim.fade_in",
-    "anim.fade_out",
-    "anim.write",
-    "anim.translate",
-    "anim.rotate",
-    "anim.scale",
-    "anim.opacity",
-    "anim.stretch",
-    "anim.highlight",
-    "anim.transform",
-    "anim.transform_from_copy",
-    "anim.replacement_transform",
-    "anim.rigid_motion",
-    "dynamic.animate_value",
-    "anim.lagged",
-    "anim.parallel",
-    "anim.style",
-    "layout.move_to",
-    "layout.next_to",
-}
-
-
-def _scene_clock(scene):
-    """Best-effort Manim render clock, used when it actually advances."""
-    renderer = getattr(scene, "renderer", None)
-    raw = getattr(renderer, "time", None)
-    if raw is None:
-        raw = getattr(scene, "time", None)
-    try:
-        return float(raw)
-    except (TypeError, ValueError):
-        return None
-
-
-def _estimated_step_duration(scene, step):
-    """Deterministic fallback for DSL steps when Manim's clock is static."""
-    canonical = get_action(str(step.get("op", ""))).canonical
-    if canonical == "anim.wait":
-        return max(0.0, float(step.get("duration", 1.0)))
-    if canonical not in _PLAY_ACTIONS:
-        return 0.0
-    if canonical == "anim.style" and not (
-        step.get("color") is not None or step.get("opacity") is not None
-    ):
-        return 0.0
-
-    run_time = max(0.0, float(step.get("run_time", 1.0)))
-    if getattr(scene, "_profile", "") == "motion_math_v1":
-        run_time *= _demo_pace()
-    return run_time
-
-
-def _synchronize_countdown_timing(program):
-    """Keep visual countdown beats aligned with the tagged audio speed.
-
-    Existing challenge demos use n5..n1 and one timed hold between add/remove.
-    We rescale the hold segment for each visible number so old imported demos
-    stay synchronized without requiring re-import.
-    """
-    timeline = program.get("timeline") or []
-    for tagged_index, tagged_step in enumerate(timeline):
-        tags = _normalize_step_tags(tagged_step)
-        if "countdown-5s" not in tags:
-            continue
-
-        spec = _STANDARD_AUDIO_TAGS["countdown-5s"]
-        speed = float(spec.get("speed", 1.0))
-        if speed <= 0:
-            continue
-        interval = 1.0 / speed
-        pace = _demo_pace()
-        targets = tuple(spec.get("visual_targets") or ())
-        tagged_target = str(tagged_step.get("target", ""))
-        if tagged_target not in targets:
-            continue
-
-        cursor = tagged_index
-        for target in targets[targets.index(tagged_target):]:
-            add_index = next(
-                (
-                    index
-                    for index in range(cursor, len(timeline))
-                    if str(timeline[index].get("op", "")) == "add"
-                    and str(timeline[index].get("target", "")) == target
-                ),
-                None,
-            )
-            if add_index is None:
-                break
-
-            remove_index = next(
-                (
-                    index
-                    for index in range(add_index + 1, len(timeline))
-                    if str(timeline[index].get("op", "")) == "remove"
-                    and str(timeline[index].get("target", "")) == target
-                ),
-                None,
-            )
-            if remove_index is None:
-                break
-
-            slots = []
-            total = 0.0
-            for step in timeline[add_index + 1:remove_index]:
-                slot = _step_duration_slot(step)
-                if slot is None:
-                    continue
-                key, value = slot
-                if value < 0:
-                    continue
-                factor = pace if key == "run_time" else 1.0
-                slots.append((step, key, value, factor))
-                total += value * factor
-
-            if total > 0 and slots:
-                scale = interval / total
-                for step, key, value, _factor in slots:
-                    step[key] = value * scale
-
-            cursor = remove_index + 1
-
-    return program
-
+def _fast_preview_enabled():
+    return os.getenv("MIM_FAST_PREVIEW", "0").lower() in {
+        "1",
+        "true",
+        "yes",
+    }
 
 
 def _validate_tex_escapes(value, path="visual_program"):
@@ -260,12 +119,10 @@ def validate_program(program):
 class DSLRuntime:
     def __init__(self, scene, program):
         self.scene = scene
-        normalized_program = _synchronize_countdown_timing(deepcopy(program))
-        self.program = validate_program(normalized_program)
+        self.program = validate_program(deepcopy(program))
         self.objects = {}
         self.specs = {}
         self.trackers = {}
-        self._timeline_time = 0.0
 
     def variables(self, extra=None):
         values = {
@@ -325,69 +182,41 @@ class DSLRuntime:
         if spec is None:
             return None
 
-        path = (PROJECT_ROOT / spec["path"]).resolve()
-        if not path.is_file():
-            raise DSLError(
-                f"Áudio padrão da tag {tag!r} não encontrado: {path}"
-            )
-        return path
+        candidates = [
+            (PROJECT_ROOT / relative).resolve()
+            for relative in spec.get("paths", ())
+        ]
+        for path in candidates:
+            if path.is_file():
+                return path
 
-    def play_audio_tags(self, step, *, start=None):
-        event_file_value = os.getenv("MIM_TIMED_AUDIO_EVENTS_FILE")
-        if not event_file_value:
+        expected = ", ".join(str(path) for path in candidates)
+        raise DSLError(
+            f"Áudio padrão da tag {tag!r} não encontrado. "
+            f"Esperado em: {expected}"
+        )
+
+    def play_audio_tags(self, step):
+        """Toca efeitos marcados pelo mesmo mecanismo da narração."""
+        if _fast_preview_enabled():
             return
 
-        event_file = Path(event_file_value)
-        event_file.parent.mkdir(parents=True, exist_ok=True)
         for tag in _normalize_step_tags(step):
             path = self._materialize_standard_audio(tag)
             if path is None:
                 continue
-            spec = _STANDARD_AUDIO_TAGS[tag]
-            event_start = self._timeline_time if start is None else float(start)
-            event = {
-                "tag": tag,
-                "start": max(0.0, float(event_start)),
-                "audio": str(path),
-                "speed": float(spec.get("speed", 1.0)),
-                "volume": float(spec.get("volume", 1.0)),
-                "trim_start": float(spec.get("trim_start", 0.0)),
-                "trim_end": (
-                    float(spec["trim_end"])
-                    if spec.get("trim_end") is not None
-                    else None
-                ),
-                "target": str(step.get("target") or ""),
-                "op": str(step.get("op") or ""),
-            }
-            with event_file.open("a", encoding="utf-8") as handle:
-                handle.write(json.dumps(event, ensure_ascii=False) + "\n")
+            self.scene.add_sound(str(path))
+            print(
+                f"[audio] {tag} via Manim @ "
+                f"{float(getattr(self.scene, 'time', 0.0)):.3f}s"
+            )
 
     def run(self):
         self.build_objects()
-        self._timeline_time = 0.0
         for step in self.program.get("timeline", []):
-            self.play_audio_tags(step, start=self._timeline_time)
-
-            before = _scene_clock(self.scene)
+            self.play_audio_tags(step)
             get_action(str(step["op"])).handler(self, step)
-            after = _scene_clock(self.scene)
-
-            actual = None
-            if before is not None and after is not None:
-                delta = after - before
-                if delta > 1e-6:
-                    actual = delta
-
-            estimated = _estimated_step_duration(self.scene, step)
-            # Para ações DSL com duração declarada, a timeline é a fonte de
-            # verdade. O relógio do Manim pode permanecer em 0 em frames
-            # congelados/alguns renderers. Para helpers didáticos sem duração
-            # explícita, usamos o delta do renderer quando ele estiver disponível.
-            elapsed = estimated if estimated > 0 else (actual or 0.0)
-            self._timeline_time += max(0.0, float(elapsed))
         return self
-
 
 def run_visual_program(scene, program):
     return DSLRuntime(scene, program).run()
