@@ -212,6 +212,21 @@ class DSLRuntimeTests(unittest.TestCase):
         self.assertNotIn("run_time", kwargs)
         self.assertAlmostEqual(wait.run_time, 7.25, places=6)
 
+    def test_motion_math_play_clamps_explicit_run_time_to_one_frame(self):
+        scene = object.__new__(UnifiedContentScene)
+        scene._profile = "motion_math_v1"
+        wait = Wait(run_time=1.0)
+
+        with (
+            patch.dict("os.environ", {"MANIM_PACE": "1.0"}, clear=False),
+            patch("mathinmovement.engine.scene.config.frame_rate", 15),
+            patch.object(Scene, "play", return_value=None) as base_play,
+        ):
+            UnifiedContentScene.play(scene, wait, run_time=0.04)
+
+        _, kwargs = base_play.call_args
+        self.assertAlmostEqual(kwargs["run_time"], 1.0 / 15.0, places=6)
+
     def test_motion_math_play_scales_only_explicit_run_time(self):
         scene = object.__new__(UnifiedContentScene)
         scene._profile = "motion_math_v1"
