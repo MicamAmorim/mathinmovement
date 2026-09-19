@@ -381,6 +381,7 @@ editorial_notes:
     tag: countdown-5s
     standard_audio: assets/audio/countdown-5s-original.mp3
     mixer: ffmpeg
+    source_trim: [4.832653, 11.023673]
     speed: 0.90
   closing_phrase: Você conseguiu resolver? Coloque nos comentários.
   render_environment:
