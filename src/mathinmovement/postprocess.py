@@ -331,7 +331,8 @@ def build_timed_audio_mix_command(
     filters.append(
         "".join(mix_inputs)
         + f"amix=inputs={len(mix_inputs)}:"
-        "duration=first:dropout_transition=0:normalize=0[aout]"
+        "duration=first:dropout_transition=0:normalize=0,"
+        "alimiter=limit=0.95:attack=5:release=50:level=0[aout]"
     )
 
     cmd += [
@@ -346,7 +347,11 @@ def build_timed_audio_mix_command(
         "-c:a",
         "aac",
         "-b:a",
-        "256k",
+        "320k",
+        "-ar",
+        "48000",
+        "-ac",
+        "2",
         "-movflags",
         "+faststart",
         "-shortest",
