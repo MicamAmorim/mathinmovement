@@ -121,8 +121,8 @@ def safe_mathtex(tex, font_size=50, color=WHITE, max_width=7.4):
     return obj
 
 
-class UnifiedContentScene(Scene):
-    """Native v2 scene engine.
+class UnifiedContentScene(ThreeDScene):
+    """Unified 2D/3D scene engine.
 
     It reads only v2 manifests/registry. Visual behavior is ported from the
     approved renderers without importing legacy scene or data modules at runtime.
