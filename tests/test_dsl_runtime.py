@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-from manim import Scene, ValueTracker
+from manim import Scene, ValueTracker, Wait
 
 from mathinmovement.dsl.coverage import (
     DEMO_USAGE,
@@ -19,6 +19,7 @@ from mathinmovement.dsl.registry import (
     object_capabilities,
 )
 from mathinmovement.dsl.runtime import DSLRuntime, validate_program
+from mathinmovement.engine.scene import UnifiedContentScene
 
 
 PROGRAM = {
@@ -148,6 +149,32 @@ class DSLRuntimeTests(unittest.TestCase):
         )
         scene.add_sound.assert_not_called()
         scene.wait.assert_called_once_with(4.5)
+
+    def test_motion_math_play_does_not_override_wait_animation_duration(self):
+        scene = object.__new__(UnifiedContentScene)
+        scene._profile = "motion_math_v1"
+        wait = Wait(run_time=7.25)
+
+        with patch.object(Scene, "play", return_value=None) as base_play:
+            UnifiedContentScene.play(scene, wait)
+
+        _, kwargs = base_play.call_args
+        self.assertNotIn("run_time", kwargs)
+        self.assertAlmostEqual(wait.run_time, 7.25, places=6)
+
+    def test_motion_math_play_scales_only_explicit_run_time(self):
+        scene = object.__new__(UnifiedContentScene)
+        scene._profile = "motion_math_v1"
+        wait = Wait(run_time=7.25)
+
+        with (
+            patch.dict("os.environ", {"MANIM_PACE": "1.15"}, clear=False),
+            patch.object(Scene, "play", return_value=None) as base_play,
+        ):
+            UnifiedContentScene.play(scene, wait, run_time=2.0)
+
+        _, kwargs = base_play.call_args
+        self.assertAlmostEqual(kwargs["run_time"], 2.3, places=6)
 
     def test_timeline_tags_validate_as_strings(self):
         with self.assertRaises(Exception):
