@@ -134,8 +134,11 @@ class UnifiedContentScene(ThreeDScene):
         return super().wait(duration, **kwargs)
 
     def play(self, *animations, **kwargs):
-        if getattr(self, "_profile", "") == "motion_math_v1":
-            kwargs["run_time"] = kwargs.get("run_time", 1) * float(
+        if (
+            getattr(self, "_profile", "") == "motion_math_v1"
+            and "run_time" in kwargs
+        ):
+            kwargs["run_time"] = float(kwargs["run_time"]) * float(
                 os.getenv("MANIM_PACE", "1.15")
             )
         return super().play(*animations, **kwargs)
