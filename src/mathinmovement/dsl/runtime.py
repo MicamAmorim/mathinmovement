@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import base64
 import hashlib
+import json
+import os
 import re
 import zlib
 from copy import deepcopy
@@ -30,6 +32,8 @@ _STANDARD_AUDIO_TAGS = {
         ],
         "cache_name": "countdown-5s.wav",
         "sha256": "22c9dbe32df19b6150dfb76127918b468a61aa0b36e6ce72bb8ee31ccbdff966",
+        "speed": 0.9,
+        "volume": 1.0,
     },
 }
 
@@ -215,11 +219,26 @@ class DSLRuntime:
         return output
 
     def play_audio_tags(self, step):
+        event_file_value = os.getenv("MIM_TIMED_AUDIO_EVENTS_FILE")
+        if not event_file_value:
+            return
+
+        event_file = Path(event_file_value)
+        event_file.parent.mkdir(parents=True, exist_ok=True)
         for tag in _normalize_step_tags(step):
             path = self._materialize_standard_audio(tag)
             if path is None:
                 continue
-            self.scene.add_sound(str(path))
+            spec = _STANDARD_AUDIO_TAGS[tag]
+            event = {
+                "tag": tag,
+                "start": float(self.scene.time),
+                "audio": str(path),
+                "speed": float(spec.get("speed", 1.0)),
+                "volume": float(spec.get("volume", 1.0)),
+            }
+            with event_file.open("a", encoding="utf-8") as handle:
+                handle.write(json.dumps(event, ensure_ascii=False) + "\n")
 
     def run(self):
         self.build_objects()

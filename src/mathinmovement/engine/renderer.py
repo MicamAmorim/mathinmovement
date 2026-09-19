@@ -9,6 +9,7 @@ from pathlib import Path
 
 from ..config import PROJECT_ROOT
 from ..models import ContentRecord, ManifestError
+from ..postprocess import load_timed_audio_events, mix_timed_audio_events
 
 
 class RenderError(RuntimeError):
@@ -208,6 +209,9 @@ def _manim_command(
     env["MIM_CONTENT_ID"] = record.id
     env["MIM_FORMAT"] = video_format
     env["MIM_QUALITY"] = quality
+    event_file = build_dir / "_mim_audio_events.jsonl"
+    event_file.unlink(missing_ok=True)
+    env["MIM_TIMED_AUDIO_EVENTS_FILE"] = str(event_file)
     return cmd, env, PROJECT_ROOT
 
 
@@ -349,6 +353,18 @@ def render_record(
         candidates,
         key=lambda p: (p.stat().st_mtime_ns, p.stat().st_size),
     )
+
+    event_file = build_dir / "_mim_audio_events.jsonl"
+    timed_events = load_timed_audio_events(event_file)
+    if timed_events:
+        mixed = build_dir / "_mim_timed_audio_mix.mp4"
+        mix_timed_audio_events(
+            rendered,
+            mixed,
+            events=timed_events,
+        )
+        rendered = mixed
+
     output_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy2(rendered, output)
     print(f"OK: {output}")

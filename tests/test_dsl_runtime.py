@@ -82,7 +82,7 @@ class DSLRuntimeTests(unittest.TestCase):
         self.assertIn("anim.rigid_motion", action_names)
         self.assertIn("dynamic.redraw", action_names)
 
-    def test_countdown_tag_plays_standard_audio(self):
+    def test_countdown_tag_registers_ffmpeg_event_without_manim_audio(self):
         program = {
             "dsl_version": "1.0",
             "objects": [],
@@ -91,14 +91,32 @@ class DSLRuntimeTests(unittest.TestCase):
         scene = Scene()
         runtime = DSLRuntime(scene, program)
         step = {"op": "wait", "duration": 0.1, "tags": ["countdown-5s"]}
-        with patch.object(scene, "add_sound") as add_sound:
-            runtime.play_audio_tags(step)
-        add_sound.assert_called_once()
-        path = Path(add_sound.call_args.args[0])
-        self.assertEqual(path.name, "countdown-5s.wav")
-        self.assertTrue(path.is_file())
-        self.assertEqual(path.read_bytes()[:4], b"RIFF")
-        self.assertEqual(path.read_bytes()[8:12], b"WAVE")
+
+        with tempfile.TemporaryDirectory() as tmp:
+            event_file = Path(tmp) / "events.jsonl"
+            with (
+                patch.dict(
+                    "os.environ",
+                    {"MIM_TIMED_AUDIO_EVENTS_FILE": str(event_file)},
+                    clear=False,
+                ),
+                patch.object(scene, "add_sound") as add_sound,
+            ):
+                runtime.play_audio_tags(step)
+
+            add_sound.assert_not_called()
+            payload = __import__("json").loads(
+                event_file.read_text(encoding="utf-8").strip()
+            )
+            path = Path(payload["audio"])
+            self.assertEqual(payload["tag"], "countdown-5s")
+            self.assertEqual(payload["start"], 0.0)
+            self.assertEqual(payload["speed"], 0.9)
+            self.assertEqual(payload["volume"], 1.0)
+            self.assertEqual(path.name, "countdown-5s.wav")
+            self.assertTrue(path.is_file())
+            self.assertEqual(path.read_bytes()[:4], b"RIFF")
+            self.assertEqual(path.read_bytes()[8:12], b"WAVE")
 
     def test_timeline_tags_validate_as_strings(self):
         with self.assertRaises(Exception):

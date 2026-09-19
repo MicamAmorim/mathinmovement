@@ -4,7 +4,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from mathinmovement.postprocess import build_ffmpeg_command
+from mathinmovement.postprocess import (
+    TimedAudioEvent,
+    build_ffmpeg_command,
+    build_timed_audio_mix_command,
+)
 from mathinmovement.production import _raw_fingerprint
 from mathinmovement.models import ContentRecord
 
@@ -48,6 +52,30 @@ class PostProcessTests(unittest.TestCase):
         self.assertNotIn("sidechaincompress", joined)
         self.assertIn("[music]", joined)
         self.assertIn("-c:a aac", joined)
+
+    def test_timed_countdown_uses_ffmpeg_atempo_and_delay(self):
+        event = TimedAudioEvent(
+            tag="countdown-5s",
+            start=3.0,
+            audio=Path("countdown-5s.wav"),
+            volume=1.0,
+            speed=0.9,
+        )
+        command = build_timed_audio_mix_command(
+            "raw.mp4",
+            "master.mp4",
+            events=[event],
+            duration=12.0,
+            has_source_audio=True,
+            ffmpeg_binary="ffmpeg",
+        )
+        joined = " ".join(command)
+        self.assertIn("countdown-5s.wav", joined)
+        self.assertIn("atempo=0.9", joined)
+        self.assertIn("adelay=3000:all=1", joined)
+        self.assertIn("amix=inputs=3", joined)
+        self.assertIn("-c:v copy", joined)
+        self.assertIn("-b:a 256k", joined)
 
     def test_raw_fingerprint_changes_when_asset_changes(self):
         with tempfile.TemporaryDirectory() as tmp:
