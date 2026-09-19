@@ -30,9 +30,11 @@ class APISmokeTests(unittest.TestCase):
         self.assertIn("/health", paths)
         self.assertIn("/contents", paths)
         self.assertIn("/imports", paths)
+        self.assertIn("/imports/batch", paths)
         self.assertIn("/uploads/music", paths)
         self.assertIn("/system/open-media-folder", paths)
         self.assertIn("/jobs", paths)
+        self.assertIn("/jobs/history", paths)
         self.assertIn("/jobs/{job_id}", paths)
         self.assertIn("/jobs/{job_id}/cancel", paths)
 
