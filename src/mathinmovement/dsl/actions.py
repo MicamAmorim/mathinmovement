@@ -245,16 +245,32 @@ def action_wait(runtime, spec):
 @action_type(
     "narration.play",
     aliases=("speak", "narrate"),
-    description="Toca um segmento TTS do manifest e aguarda sua duração real.",
+    description="Toca uma única faixa TTS e aguarda sua duração real.",
 )
 def action_narration_play(runtime, spec):
     key = str(spec.get("key") or "").strip()
     if not key:
         raise DSLError("narration.play exige key.")
-    speak = getattr(runtime.scene, "speak", None)
-    if speak is None:
-        raise DSLError("narration.play exige uma cena com suporte a speak().")
-    speak(key)
+
+    audio_path = getattr(runtime.scene, "audio_path", None)
+    segment_duration = getattr(runtime.scene, "segment_duration", None)
+    if audio_path is None or segment_duration is None:
+        raise DSLError(
+            "narration.play exige cena com audio_path() e segment_duration()."
+        )
+
+    duration = float(segment_duration(key))
+    audio = audio_path(key)
+    if audio is not None and not bool(
+        getattr(runtime.scene.renderer, "skip_animations", False)
+    ):
+        # Bypass Scene.add_sound on purpose: narration is already synchronized
+        # by this DSL action and must not be mirrored by timed-audio hooks.
+        runtime.scene.renderer.file_writer.add_sound(
+            str(audio),
+            float(getattr(runtime.scene, "time", 0.0)),
+        )
+    runtime.scene.wait(duration)
 
 
 def _scene_method(runtime, name):
