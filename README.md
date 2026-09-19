@@ -186,7 +186,7 @@ python -m mathinmovement dsl regress --quality draft
 Um demo novo pode declarar `visual_program` com `dsl_version`, `objects` e `timeline`.
 qENEM podem declarar programas DSL estáticos em `visuals.statement.program` e `visuals.concept.program`.
 
-A v1 cobre o vocabulário gráfico já usado nos 60 vídeos aprovados. O conjunto mínimo de regressão possui 8 demos e 6 qENEM. Veja `docs/DSL_COVERAGE.md` e `docs/DSL_SPEC.md`.
+A v1 cobre o vocabulário gráfico já usado nos 60 vídeos aprovados e possui uma camada 3D opt-in (`3d.*` + `camera.*`) baseada em `ThreeDScene`, sem exigir mudanças nos manifests 2D existentes. O conjunto mínimo de regressão possui 8 demos e 6 qENEM. Veja `docs/DSL_COVERAGE.md` e `docs/DSL_SPEC.md`.
 
 ## Autoria com LLM
 
