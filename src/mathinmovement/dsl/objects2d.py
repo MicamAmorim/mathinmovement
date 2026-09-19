@@ -82,7 +82,7 @@ def _latex_color_command(value):
 def _math_color_token_pattern(token):
     token = str(token)
     escaped = re.escape(token)
-    if token.startswith("\\") and re.fullmatch(r"\\\\[A-Za-z]+", token):
+    if token.startswith("\\") and re.fullmatch(r"\\[A-Za-z]+", token):
         return re.compile(escaped)
     if re.fullmatch(r"[A-Za-z0-9_]+", token):
         return re.compile(
