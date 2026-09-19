@@ -67,6 +67,43 @@ def _normalize_legacy_math_colors(tex):
     tex = _LEGACY_TEXTCOLOR_RE.sub(replace, tex)
     return tex, legacy_map
 
+_LATEX_CONTROL_RE = re.compile(r"\\[A-Za-z]+")
+
+
+def _color_key_conflicts_with_control_sequence(tex, key):
+    """Detect color keys that would split a LaTeX command in MathTex."""
+    key = str(key)
+    if len(key) != 1 or not key.isalpha():
+        return False
+    return any(
+        key in match.group(0)[1:]
+        for match in _LATEX_CONTROL_RE.finditer(tex)
+    )
+
+
+def _isolate_standalone_math_token(tex, key):
+    """Wrap standalone token occurrences without touching control words."""
+    escaped = re.escape(str(key))
+    pattern = re.compile(
+        rf"(?<![A-Za-z\\{{])({escaped})(?![A-Za-z}}])"
+    )
+    return pattern.sub(r"{{\1}}", tex)
+
+
+def _prepare_math_color_map(tex, color_map):
+    """Keep risky single-letter mappings away from Manim's splitter."""
+    safe = {}
+    deferred = {}
+    prepared = tex
+    for key, value in color_map.items():
+        key = str(key)
+        if _color_key_conflicts_with_control_sequence(prepared, key):
+            prepared = _isolate_standalone_math_token(prepared, key)
+            deferred[key] = value
+        else:
+            safe[key] = value
+    return prepared, safe, deferred
+
 
 DIRECTIONS = {
     "ORIGIN": ORIGIN,
@@ -471,10 +508,14 @@ def make_math(runtime, spec):
         raise DSLError("math.tex_to_color_map deve ser um mapa substring -> cor.")
     merged_color_map = dict(legacy_color_map)
     merged_color_map.update(tex_to_color_map)
-    if merged_color_map:
+    tex, safe_color_map, deferred_color_map = _prepare_math_color_map(
+        tex,
+        merged_color_map,
+    )
+    if safe_color_map:
         kwargs["tex_to_color_map"] = {
             str(tex): color(value)
-            for tex, value in merged_color_map.items()
+            for tex, value in safe_color_map.items()
         }
 
     substrings_to_isolate = spec.get("substrings_to_isolate") or []
@@ -485,14 +526,17 @@ def make_math(runtime, spec):
             str(value) for value in substrings_to_isolate
         ]
 
-    return apply_layout(
-        runtime,
-        MathTex(
-            tex,
-            **kwargs,
-        ),
-        spec,
+    mob = MathTex(
+        tex,
+        **kwargs,
     )
+    for token, value in deferred_color_map.items():
+        mob.set_color_by_tex(
+            str(token),
+            color(value),
+            substring=False,
+        )
+    return apply_layout(runtime, mob, spec)
 
 
 @object_type("layout.group", aliases=("group",))
