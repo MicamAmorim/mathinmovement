@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-from manim import Scene, ValueTracker, Wait
+from manim import Dot, FadeIn, Scene, ValueTracker, Wait
 
 from mathinmovement.dsl.coverage import (
     DEMO_USAGE,
@@ -199,6 +199,20 @@ class DSLRuntimeTests(unittest.TestCase):
                 runtime,
                 {"op": "narration.begin", "key": "second"},
             )
+
+    def test_motion_math_play_preserves_legacy_implicit_pacing(self):
+        scene = object.__new__(UnifiedContentScene)
+        scene._profile = "motion_math_v1"
+        animation = FadeIn(Dot())
+
+        with (
+            patch.dict("os.environ", {"MANIM_PACE": "1.15"}, clear=False),
+            patch.object(Scene, "play", return_value=None) as base_play,
+        ):
+            UnifiedContentScene.play(scene, animation)
+
+        _, kwargs = base_play.call_args
+        self.assertAlmostEqual(kwargs["run_time"], 1.15, places=6)
 
     def test_motion_math_play_does_not_override_wait_animation_duration(self):
         scene = object.__new__(UnifiedContentScene)
