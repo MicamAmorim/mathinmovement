@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import os
+from dataclasses import replace
 import shutil
 import subprocess
 import sys
@@ -166,6 +167,112 @@ def production_formats(record: ContentRecord) -> list[str]:
         formats.append(video_format)
 
     return formats
+
+
+_TIMED_PLAY_OPS = {
+    "create",
+    "fade_in",
+    "fade_out",
+    "write",
+    "translate",
+    "rotate",
+    "scale",
+    "opacity",
+    "stretch",
+    "highlight",
+    "transform",
+    "transform_from_copy",
+    "replacement_transform",
+    "rigid_motion",
+    "animate_value",
+    "lagged",
+    "parallel",
+    "style",
+    "move_to",
+    "next_to",
+    "anim.create",
+    "anim.fade_in",
+    "anim.fade_out",
+    "anim.write",
+    "anim.translate",
+    "anim.rotate",
+    "anim.scale",
+    "anim.opacity",
+    "anim.stretch",
+    "anim.highlight",
+    "anim.transform",
+    "anim.transform_from_copy",
+    "anim.replacement_transform",
+    "anim.rigid_motion",
+    "dynamic.animate_value",
+    "anim.lagged",
+    "anim.parallel",
+    "anim.style",
+    "layout.move_to",
+    "layout.next_to",
+}
+
+
+def _timeline_step_duration(step: dict) -> float:
+    op = str(step.get("op", "")).strip()
+    if op in {"wait", "anim.wait"}:
+        try:
+            return max(0.0, float(step.get("duration", 1.0)))
+        except (TypeError, ValueError):
+            return 0.0
+    if op in _TIMED_PLAY_OPS:
+        try:
+            return max(0.0, float(step.get("run_time", 1.0)))
+        except (TypeError, ValueError):
+            return 0.0
+    return 0.0
+
+
+def _manifest_timed_audio_starts(manifest: dict) -> list[tuple[str, float]]:
+    """Resolve tagged-audio starts directly from the declared DSL timeline.
+
+    This is deliberately independent of Manim's scene clock. For DSL actions,
+    declared run_time/wait values are what drive the visual timeline, so the
+    manifest is the most reliable source for the post-process timestamp.
+    """
+    program = manifest.get("visual_program") or {}
+    timeline = program.get("timeline") or []
+    elapsed = 0.0
+    starts: list[tuple[str, float]] = []
+
+    for step in timeline:
+        raw_tags = step.get("tags") or []
+        tags = [raw_tags] if isinstance(raw_tags, str) else list(raw_tags)
+        for raw_tag in tags:
+            tag = str(raw_tag).strip()
+            if tag:
+                starts.append((tag, elapsed))
+        elapsed += _timeline_step_duration(step)
+
+    return starts
+
+
+def _align_events_to_manifest(manifest: dict, timed_events):
+    expected_by_tag: dict[str, list[float]] = {}
+    for tag, start in _manifest_timed_audio_starts(manifest):
+        expected_by_tag.setdefault(tag, []).append(start)
+
+    seen: dict[str, int] = {}
+    aligned = []
+    for event in timed_events:
+        index = seen.get(event.tag, 0)
+        starts = expected_by_tag.get(event.tag) or []
+        if index < len(starts):
+            expected = starts[index]
+            if abs(float(event.start) - expected) > 1e-6:
+                print(
+                    f"[audio] corrigindo {event.tag}: "
+                    f"runtime={event.start:.3f}s -> manifest={expected:.3f}s"
+                )
+            event = replace(event, start=expected)
+            seen[event.tag] = index + 1
+        aligned.append(event)
+    return aligned
 
 
 def _manim_command(
@@ -356,6 +463,7 @@ def render_record(
 
     event_file = build_dir / "_mim_audio_events.jsonl"
     timed_events = load_timed_audio_events(event_file)
+    timed_events = _align_events_to_manifest(record.manifest, timed_events)
     if timed_events:
         for event in timed_events:
             print(
