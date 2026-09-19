@@ -379,11 +379,11 @@ editorial_notes:
   countdown:
     seconds: 5
     tag: countdown-5s
-    standard_audio: assets/audio/countdown-5s-original.mp3
-    mixer: ffmpeg
-    source_trim: [4.832653, 11.023673]
+    source_audio: assets/audio/countdown-5s-original.mp3
+    playback_audio: assets/audio/countdown-5s-original_90porc.mp3
+    playback: manim_add_sound
     speed: 0.90
   closing_phrase: Você conseguiu resolver? Coloque nos comentários.
   render_environment:
     MANIM_PACE: '1.0'
-  timing: O runtime sincroniza automaticamente n5..n1 com o áudio a 90%, considerando MANIM_PACE.
+  timing: A tag countdown-5s toca o MP3 a 90% via Scene.add_sound no passo em que n5 entra.

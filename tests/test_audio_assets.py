@@ -6,7 +6,7 @@ import unittest
 
 from manim import Scene
 
-from mathinmovement.dsl.runtime import DSLRuntime
+from mathinmovement.config import PROJECT_ROOT
 from mathinmovement.registry import Registry
 
 
@@ -19,22 +19,13 @@ class AudioAssetTests(unittest.TestCase):
             status="production",
         )
 
-    def test_countdown_mp3_is_decodable_by_ffprobe(self):
+    def test_countdown_source_mp3_is_decodable_by_ffprobe(self):
         ffprobe = shutil.which("ffprobe")
         if ffprobe is None:
             self.skipTest("ffprobe não disponível")
 
-        runtime = DSLRuntime(
-            Scene(),
-            {"dsl_version": "1.0", "objects": [], "timeline": []},
-        )
-        audio = runtime._materialize_standard_audio("countdown-5s")
-        self.assertIsNotNone(audio)
+        audio = PROJECT_ROOT / "assets/audio/countdown-5s-original.mp3"
         self.assertTrue(audio.is_file())
-        self.assertIn(
-            audio.name,
-            {"countdown-5s.mp3", "countdown-5s-original.mp3"},
-        )
         self.assertGreater(audio.stat().st_size, 1_000)
 
         result = subprocess.run(
@@ -52,9 +43,7 @@ class AudioAssetTests(unittest.TestCase):
             text=True,
         )
         self.assertEqual(result.returncode, 0, result.stderr)
-        duration = float(result.stdout.strip())
-        self.assertGreater(duration, 4.0)
-        self.assertLess(duration, 12.0)
+        self.assertGreater(float(result.stdout.strip()), 4.0)
 
 
     def test_all_qenem_audio_is_package_relative_and_exists(self):

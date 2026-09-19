@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import os
 import re
+import shutil
+import subprocess
 from copy import deepcopy
 from pathlib import Path
 
@@ -21,10 +23,18 @@ from . import actions as _actions  # noqa: F401
 _VERSION_RE = re.compile(r"^1(?:\.\d+)?$")
 _STANDARD_AUDIO_TAGS = {
     "countdown-5s": {
-        "paths": (
+        "prepared_path": Path(
+            "assets/audio/countdown-5s-original_90porc.mp3"
+        ),
+        "source_paths": (
             Path("assets/audio/countdown-5s.mp3"),
             Path("assets/audio/countdown-5s-original.mp3"),
         ),
+        "speed": 0.9,
+        # Compatibilidade com a versão antiga de ~11 s do arquivo original.
+        "legacy_trim_start": 4.83265306122449,
+        "legacy_trim_end": 11.023673469387756,
+        "legacy_duration_threshold": 7.0,
     },
 }
 
@@ -35,6 +45,112 @@ def _fast_preview_enabled():
         "true",
         "yes",
     }
+
+
+def _media_binary(name):
+    path = shutil.which(name)
+    if path is None:
+        raise DSLError(
+            f"{name} não encontrado no PATH. "
+            "Ele é necessário para preparar o countdown a 90%."
+        )
+    return path
+
+
+def _probe_audio_duration(path):
+    ffprobe = _media_binary("ffprobe")
+    result = subprocess.run(
+        [
+            ffprobe,
+            "-v",
+            "error",
+            "-show_entries",
+            "format=duration",
+            "-of",
+            "default=noprint_wrappers=1:nokey=1",
+            str(path),
+        ],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode:
+        raise DSLError(
+            f"ffprobe falhou ao inspecionar {path}: "
+            f"{result.stderr.strip()}"
+        )
+    try:
+        return float(result.stdout.strip())
+    except ValueError as exc:
+        raise DSLError(
+            f"ffprobe retornou duração inválida para {path}."
+        ) from exc
+
+
+def _prepare_countdown_audio(spec):
+    prepared = (PROJECT_ROOT / spec["prepared_path"]).resolve()
+    if prepared.is_file():
+        return prepared
+
+    source = None
+    for relative in spec.get("source_paths", ()):
+        candidate = (PROJECT_ROOT / relative).resolve()
+        if candidate.is_file():
+            source = candidate
+            break
+    if source is None:
+        expected = ", ".join(
+            str((PROJECT_ROOT / relative).resolve())
+            for relative in spec.get("source_paths", ())
+        )
+        raise DSLError(
+            "Fonte do countdown não encontrada. "
+            f"Esperado em: {expected}"
+        )
+
+    duration = _probe_audio_duration(source)
+    filters = []
+    threshold = float(spec.get("legacy_duration_threshold", 7.0))
+    if duration > threshold:
+        start = float(spec["legacy_trim_start"])
+        end = float(spec["legacy_trim_end"])
+        filters.extend(
+            [
+                f"atrim=start={start}:end={end}",
+                "asetpts=PTS-STARTPTS",
+            ]
+        )
+    filters.append(f"atempo={float(spec.get('speed', 0.9))}")
+
+    ffmpeg = _media_binary("ffmpeg")
+    prepared.parent.mkdir(parents=True, exist_ok=True)
+    result = subprocess.run(
+        [
+            ffmpeg,
+            "-y",
+            "-i",
+            str(source),
+            "-vn",
+            "-af",
+            ",".join(filters),
+            "-c:a",
+            "libmp3lame",
+            "-b:a",
+            "256k",
+            str(prepared),
+        ],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode or not prepared.is_file():
+        raise DSLError(
+            "FFmpeg falhou ao preparar o countdown a 90%: "
+            f"{result.stderr.strip()}"
+        )
+
+    print(
+        f"[audio] countdown preparado a 90%: {prepared.name}"
+    )
+    return prepared
 
 
 def _validate_tex_escapes(value, path="visual_program"):
@@ -181,20 +297,9 @@ class DSLRuntime:
         spec = _STANDARD_AUDIO_TAGS.get(tag)
         if spec is None:
             return None
-
-        candidates = [
-            (PROJECT_ROOT / relative).resolve()
-            for relative in spec.get("paths", ())
-        ]
-        for path in candidates:
-            if path.is_file():
-                return path
-
-        expected = ", ".join(str(path) for path in candidates)
-        raise DSLError(
-            f"Áudio padrão da tag {tag!r} não encontrado. "
-            f"Esperado em: {expected}"
-        )
+        if tag == "countdown-5s":
+            return _prepare_countdown_audio(spec)
+        return None
 
     def play_audio_tags(self, step):
         """Toca efeitos marcados pelo mesmo mecanismo da narração."""

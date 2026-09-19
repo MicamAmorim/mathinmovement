@@ -22,13 +22,16 @@ Marque o primeiro passo visual da contagem com:
   tags: [countdown-5s]
 ```
 
-A tag deve ficar no passo em que o número `5` aparece. O runtime registra o timestamp exato dessa etapa e **não** envia o bipe ao Manim. O FFmpeg usa diretamente o arquivo original versionado em:
+A tag é executada pelo mesmo mecanismo da narração: quando a timeline chega ao passo marcado, o runtime chama `Scene.add_sound()`.
+
+O arquivo efetivamente tocado é:
 
 ```text
-assets/audio/countdown-5s-original.mp3
+assets/audio/countdown-5s-original_90porc.mp3
 ```
 
-O arquivo original tem cerca de 11,02 s; o trecho usado pelo countdown começa em 4,832653 s e vai até o fim. O FFmpeg recorta essa janela diretamente do MP3, zera o timestamp do recorte e então aplica `atempo=0.9` (90% da velocidade original). O runtime também sincroniza automaticamente a permanência visual de `n5 → n4 → n3 → n2 → n1` com o intervalo efetivo do áudio, levando em conta `MANIM_PACE`. Na mixagem final, um limiter evita clipping entre narração e bipe.
+Se ele ainda não existir, o runtime o cria automaticamente com FFmpeg a partir do MP3 fonte, usando `atempo=0.9` e MP3 256 kbps. Se a fonte ainda for a versão antiga longa (~11 s), o trecho validado do countdown é recortado antes de desacelerar. Depois de criado, o arquivo 90% é reutilizado nos próximos renders.
+
 
 ## Convenções visuais
 
@@ -71,7 +74,7 @@ Por padrão, use somente duas falas:
 
 O miolo da resolução permanece visual para preservar o compromisso mental do espectador.
 
-Os assets de voz de cada conteúdo devem ficar dentro do respectivo `.demo`. O áudio da contagem é o MP3 original compartilhado em `assets/audio/countdown-5s-original.mp3`; sua inserção ocorre no pós-processamento com FFmpeg, a 90% da velocidade original.
+Os assets de voz de cada conteúdo devem ficar dentro do respectivo `.demo`. O countdown é preparado como `assets/audio/countdown-5s-original_90porc.mp3` com FFmpeg (`atempo=0.9`) e inserido durante o render com `Scene.add_sound()`, como a narração.
 
 ## Validação
 

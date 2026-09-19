@@ -91,16 +91,20 @@ class DSLRuntimeTests(unittest.TestCase):
         runtime = DSLRuntime(scene, program)
         step = {"op": "wait", "duration": 0.1, "tags": ["countdown-5s"]}
 
-        with patch.object(scene, "add_sound") as add_sound:
+        prepared = Path(
+            "assets/audio/countdown-5s-original_90porc.mp3"
+        )
+        with (
+            patch.object(
+                runtime,
+                "_materialize_standard_audio",
+                return_value=prepared,
+            ),
+            patch.object(scene, "add_sound") as add_sound,
+        ):
             runtime.play_audio_tags(step)
 
-        add_sound.assert_called_once()
-        path = Path(add_sound.call_args.args[0])
-        self.assertTrue(path.is_file())
-        self.assertIn(
-            path.name,
-            {"countdown-5s.mp3", "countdown-5s-original.mp3"},
-        )
+        add_sound.assert_called_once_with(str(prepared))
 
     def test_countdown_tag_is_skipped_in_fast_preview(self):
         scene = Scene()
