@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import shutil
 import subprocess
 from dataclasses import dataclass
@@ -19,6 +20,59 @@ class PostProcessResult:
     soundtrack: Path | None
     command: tuple[str, ...] | None
     copied: bool
+
+
+@dataclass(frozen=True, slots=True)
+class TimedAudioEvent:
+    tag: str
+    start: float
+    audio: Path
+    volume: float = 1.0
+
+
+def load_timed_audio_events(path: str | Path) -> list[TimedAudioEvent]:
+    event_file = Path(path)
+    if not event_file.is_file():
+        return []
+
+    events: list[TimedAudioEvent] = []
+    for line_number, raw in enumerate(
+        event_file.read_text(encoding="utf-8").splitlines(),
+        start=1,
+    ):
+        if not raw.strip():
+            continue
+        try:
+            payload = json.loads(raw)
+            start = float(payload["start"])
+            audio = Path(str(payload["audio"]))
+            tag = str(payload.get("tag") or "")
+            volume = float(payload.get("volume", 1.0))
+        except (KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
+            raise PostProcessError(
+                f"Evento de áudio inválido em {event_file}:{line_number}."
+            ) from exc
+        if start < 0:
+            raise PostProcessError(
+                f"Evento de áudio com start negativo em {event_file}:{line_number}."
+            )
+        if volume < 0:
+            raise PostProcessError(
+                f"Evento de áudio com volume negativo em {event_file}:{line_number}."
+            )
+        if not audio.is_file():
+            raise PostProcessError(
+                f"Áudio temporizado não encontrado: {audio}"
+            )
+        events.append(
+            TimedAudioEvent(
+                tag=tag,
+                start=start,
+                audio=audio,
+                volume=volume,
+            )
+        )
+    return events
 
 
 def _require_binary(name: str) -> str:
@@ -215,6 +269,118 @@ def build_ffmpeg_command(
         str(output_video),
     ]
     return cmd
+
+
+
+def build_timed_audio_mix_command(
+    input_video: str | Path,
+    output_video: str | Path,
+    *,
+    events: list[TimedAudioEvent],
+    duration: float,
+    has_source_audio: bool,
+    ffmpeg_binary: str | None = None,
+) -> list[str]:
+    if duration <= 0:
+        raise ManifestError("duration deve ser positiva.")
+
+    ffmpeg = ffmpeg_binary or _require_binary("ffmpeg")
+    source = Path(input_video)
+    output = Path(output_video)
+    active = [event for event in events if event.start < duration]
+
+    cmd = [ffmpeg, "-y", "-i", str(source)]
+    for event in active:
+        cmd += ["-i", str(event.audio)]
+
+    filters = [
+        "anullsrc=r=48000:cl=stereo,"
+        f"atrim=0:{_fmt(duration)},asetpts=N/SR/TB[base]"
+    ]
+    mix_inputs = ["[base]"]
+
+    if has_source_audio:
+        filters.append(
+            "[0:a]aresample=48000,apad,"
+            f"atrim=0:{_fmt(duration)}[sourceaudio]"
+        )
+        mix_inputs.append("[sourceaudio]")
+
+    for index, event in enumerate(active, start=1):
+        label = f"sfx{index}"
+        delay_ms = max(0, int(round(event.start * 1000)))
+        filters.append(
+            f"[{index}:a]"
+            "aresample=48000,"
+            f"volume={_fmt(event.volume)},"
+            f"adelay={delay_ms}:all=1,"
+            "apad,"
+            f"atrim=0:{_fmt(duration)}"
+            f"[{label}]"
+        )
+        mix_inputs.append(f"[{label}]")
+
+    filters.append(
+        "".join(mix_inputs)
+        + f"amix=inputs={len(mix_inputs)}:"
+        "duration=first:dropout_transition=0:normalize=0[aout]"
+    )
+
+    cmd += [
+        "-filter_complex",
+        ";".join(filters),
+        "-map",
+        "0:v:0",
+        "-map",
+        "[aout]",
+        "-c:v",
+        "copy",
+        "-c:a",
+        "aac",
+        "-b:a",
+        "256k",
+        "-movflags",
+        "+faststart",
+        "-shortest",
+        str(output),
+    ]
+    return cmd
+
+
+def mix_timed_audio_events(
+    input_video: str | Path,
+    output_video: str | Path,
+    *,
+    events: list[TimedAudioEvent],
+    dry_run: bool = False,
+) -> tuple[str, ...] | None:
+    source = Path(input_video)
+    output = Path(output_video)
+    if not events:
+        if not dry_run:
+            output.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, output)
+        return None
+
+    duration = probe_duration(source)
+    has_source_audio = probe_has_audio(source)
+    command = build_timed_audio_mix_command(
+        source,
+        output,
+        events=events,
+        duration=duration,
+        has_source_audio=has_source_audio,
+    )
+    if dry_run:
+        return tuple(command)
+
+    output.parent.mkdir(parents=True, exist_ok=True)
+    result = subprocess.run(command)
+    if result.returncode:
+        raise PostProcessError(
+            f"FFmpeg terminou com código {result.returncode} ao mixar efeitos temporizados."
+        )
+    return tuple(command)
 
 
 def postprocess_video(
