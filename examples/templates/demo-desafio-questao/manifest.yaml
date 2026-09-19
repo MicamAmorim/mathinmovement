@@ -379,7 +379,7 @@ editorial_notes:
   countdown:
     seconds: 5
     tag: countdown-5s
-    standard_audio: assets/audio/countdown-5s.opus
+    standard_audio: cache/shared_audio/countdown-5s.wav
     mixer: ffmpeg
     speed: 0.90
   closing_phrase: Você conseguiu resolver? Coloque nos comentários.
