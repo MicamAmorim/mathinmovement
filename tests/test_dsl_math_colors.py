@@ -73,7 +73,7 @@ class MathColorMapTests(unittest.TestCase):
         )
 
     def test_single_letter_color_does_not_split_latex_control_sequence(self):
-        tex = r"u=f_x\\frac{X_c}{Z_c}+c_x,\\quad v=f_y\\frac{Y_c}{Z_c}+c_y"
+        tex = r"u=f_x\frac{X_c}{Z_c}+c_x,\quad v=f_y\frac{Y_c}{Z_c}+c_y"
         prepared, safe, deferred = objects2d._prepare_math_color_map(
             tex,
             {"u": "red", "v": "green", "Z_c": "gold"},
@@ -81,7 +81,7 @@ class MathColorMapTests(unittest.TestCase):
 
         self.assertIn(r"{{u}}=", prepared)
         self.assertIn(r"{{v}}=", prepared)
-        self.assertIn(r"\\quad", prepared)
+        self.assertIn(r"\quad", prepared)
         self.assertNotIn("u", safe)
         self.assertNotIn("v", safe)
         self.assertEqual(safe["Z_c"], "gold")
@@ -90,7 +90,7 @@ class MathColorMapTests(unittest.TestCase):
     def test_risky_color_tokens_are_applied_after_mathtex_build(self):
         spec = {
             "type": "math",
-            "tex": r"u=1,\\quad v=2",
+            "tex": r"u=1,\quad v=2",
             "tex_to_color_map": {"u": "red", "v": "green"},
         }
         fake_math = MagicMock()
@@ -102,7 +102,7 @@ class MathColorMapTests(unittest.TestCase):
 
         self.assertIs(result, fake_math)
         args, kwargs = math_tex.call_args
-        self.assertEqual(args[0], r"{{u}}=1,\\quad {{v}}=2")
+        self.assertEqual(args[0], r"{{u}}=1,\quad {{v}}=2")
         self.assertNotIn("tex_to_color_map", kwargs)
         fake_math.set_color_by_tex.assert_any_call(
             "u", objects2d.PALETTE["red"], substring=False
