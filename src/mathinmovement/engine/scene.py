@@ -134,15 +134,20 @@ class UnifiedContentScene(ThreeDScene):
         return super().wait(duration, **kwargs)
 
     def play(self, *animations, **kwargs):
-        if (
-            getattr(self, "_profile", "") == "motion_math_v1"
-            and "run_time" in kwargs
-        ):
-            paced = float(kwargs["run_time"]) * float(
-                os.getenv("MANIM_PACE", "1.15")
-            )
+        if getattr(self, "_profile", "") == "motion_math_v1":
+            pace = float(os.getenv("MANIM_PACE", "1.15"))
             frame_rate = max(1.0, float(config.frame_rate))
-            kwargs["run_time"] = max(paced, 1.0 / frame_rate)
+            if "run_time" in kwargs:
+                paced = float(kwargs["run_time"]) * pace
+                kwargs["run_time"] = max(paced, 1.0 / frame_rate)
+            elif animations and not all(
+                isinstance(animation, Wait) for animation in animations
+            ):
+                # Backward compatibility with the original MotionMath engine:
+                # ordinary self.play(...) calls without run_time were forced
+                # to the profile's default paced second. Wait keeps its own
+                # duration so narration timing is not truncated.
+                kwargs["run_time"] = max(pace, 1.0 / frame_rate)
         return super().play(*animations, **kwargs)
 
     def construct(self):
