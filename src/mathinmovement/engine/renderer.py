@@ -254,6 +254,19 @@ def _manifest_timed_audio_starts(manifest: dict) -> list[tuple[str, float]]:
     return starts
 
 
+def _should_mix_timed_audio_events(manifest: dict) -> bool:
+    """Avoid re-mixing timeline narration already embedded by Manim.
+
+    Timeline-synchronized narration is written once by narration.play. Timed
+    post-mixing remains enabled when explicit DSL audio tags are present, e.g.
+    countdown effects.
+    """
+    narration = manifest.get("narration") or {}
+    if str(narration.get("sync") or "").strip().lower() != "timeline":
+        return True
+    return bool(_manifest_timed_audio_starts(manifest))
+
+
 def _align_events_to_manifest(manifest: dict, timed_events):
     expected_by_tag: dict[str, list[float]] = {}
     for tag, start in _manifest_timed_audio_starts(manifest):
@@ -465,7 +478,10 @@ def render_record(
 
     event_file = build_dir / "_mim_audio_events.jsonl"
     timed_events = load_timed_audio_events(event_file)
-    timed_events = _align_events_to_manifest(record.manifest, timed_events)
+    if _should_mix_timed_audio_events(record.manifest):
+        timed_events = _align_events_to_manifest(record.manifest, timed_events)
+    else:
+        timed_events = []
     if timed_events:
         for event in timed_events:
             print(
