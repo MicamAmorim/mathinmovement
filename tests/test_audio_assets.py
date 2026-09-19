@@ -19,7 +19,7 @@ class AudioAssetTests(unittest.TestCase):
             status="production",
         )
 
-    def test_countdown_wav_is_materialized_and_decodable_by_ffprobe(self):
+    def test_original_countdown_mp3_is_decodable_by_ffprobe(self):
         ffprobe = shutil.which("ffprobe")
         if ffprobe is None:
             self.skipTest("ffprobe não disponível")
@@ -31,8 +31,8 @@ class AudioAssetTests(unittest.TestCase):
         audio = runtime._materialize_standard_audio("countdown-5s")
         self.assertIsNotNone(audio)
         self.assertTrue(audio.is_file())
-        self.assertEqual(audio.read_bytes()[:4], b"RIFF")
-        self.assertEqual(audio.read_bytes()[8:12], b"WAVE")
+        self.assertEqual(audio.name, "countdown-5s-original.mp3")
+        self.assertGreater(audio.stat().st_size, 300_000)
 
         result = subprocess.run(
             [
