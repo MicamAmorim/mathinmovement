@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
 from manim import Dot, FadeIn, Scene, ValueTracker, Wait
@@ -233,7 +234,10 @@ class DSLRuntimeTests(unittest.TestCase):
 
         with (
             patch.dict("os.environ", {"MANIM_PACE": "1.0"}, clear=False),
-            patch("mathinmovement.engine.scene.config.frame_rate", 15),
+            patch(
+                "mathinmovement.engine.scene.config",
+                SimpleNamespace(frame_rate=15),
+            ),
             patch.object(Scene, "play", return_value=None) as base_play,
         ):
             UnifiedContentScene.play(scene, wait, run_time=0.04)
