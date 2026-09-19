@@ -379,11 +379,12 @@ class DSLRuntime:
                 if delta > 1e-6:
                     actual = delta
 
-            elapsed = (
-                actual
-                if actual is not None
-                else _estimated_step_duration(self.scene, step)
-            )
+            estimated = _estimated_step_duration(self.scene, step)
+            # Para ações DSL com duração declarada, a timeline é a fonte de
+            # verdade. O relógio do Manim pode permanecer em 0 em frames
+            # congelados/alguns renderers. Para helpers didáticos sem duração
+            # explícita, usamos o delta do renderer quando ele estiver disponível.
+            elapsed = estimated if estimated > 0 else (actual or 0.0)
             self._timeline_time += max(0.0, float(elapsed))
         return self
 
