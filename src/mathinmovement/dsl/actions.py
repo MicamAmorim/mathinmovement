@@ -294,6 +294,7 @@ def action_camera_begin_ambient_rotation(runtime, spec):
         rate=float(runtime.resolve(spec.get("rate", 0.02))),
         about=str(spec.get("about", "theta")),
     )
+    runtime.scene._mim_camera_motion_active = True
 
 
 @action_type(
@@ -305,6 +306,7 @@ def action_camera_stop_ambient_rotation(runtime, spec):
     _scene_method(runtime, "stop_ambient_camera_rotation")(
         about=str(spec.get("about", "theta")),
     )
+    runtime.scene._mim_camera_motion_active = False
 
 
 @action_type(
