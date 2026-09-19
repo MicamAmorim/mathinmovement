@@ -150,6 +150,56 @@ class DSLRuntimeTests(unittest.TestCase):
         scene.add_sound.assert_not_called()
         scene.wait.assert_called_once_with(4.5)
 
+    def test_narration_begin_end_waits_only_remaining_audio(self):
+        scene = MagicMock()
+        scene.time = 2.0
+        scene.renderer.skip_animations = False
+        scene.audio_path.return_value = Path("intro.mp3")
+        scene.segment_duration.return_value = 8.0
+        runtime = DSLRuntime(
+            scene,
+            {"dsl_version": "1.0", "objects": [], "timeline": []},
+        )
+
+        get_action("narration.begin").handler(
+            runtime,
+            {"op": "narration.begin", "key": "intro"},
+        )
+        scene.renderer.file_writer.add_sound.assert_called_once_with(
+            "intro.mp3",
+            2.0,
+        )
+
+        scene.time = 6.5
+        get_action("narration.end").handler(
+            runtime,
+            {"op": "narration.end", "key": "intro"},
+        )
+
+        scene.wait.assert_called_once_with(3.5)
+        self.assertIsNone(runtime._active_narration)
+
+    def test_narration_begin_rejects_overlapping_tracks(self):
+        scene = MagicMock()
+        scene.time = 0.0
+        scene.renderer.skip_animations = False
+        scene.audio_path.return_value = Path("intro.mp3")
+        scene.segment_duration.return_value = 5.0
+        runtime = DSLRuntime(
+            scene,
+            {"dsl_version": "1.0", "objects": [], "timeline": []},
+        )
+
+        get_action("narration.begin").handler(
+            runtime,
+            {"op": "narration.begin", "key": "first"},
+        )
+        with self.assertRaises(Exception):
+            get_action("narration.begin").handler(
+                runtime,
+                {"op": "narration.begin", "key": "second"},
+            )
+
     def test_motion_math_play_does_not_override_wait_animation_duration(self):
         scene = object.__new__(UnifiedContentScene)
         scene._profile = "motion_math_v1"
