@@ -28,6 +28,7 @@ class TimedAudioEvent:
     start: float
     audio: Path
     volume: float = 1.0
+    speed: float = 1.0
 
 
 def load_timed_audio_events(path: str | Path) -> list[TimedAudioEvent]:
@@ -48,6 +49,7 @@ def load_timed_audio_events(path: str | Path) -> list[TimedAudioEvent]:
             audio = Path(str(payload["audio"]))
             tag = str(payload.get("tag") or "")
             volume = float(payload.get("volume", 1.0))
+            speed = float(payload.get("speed", 1.0))
         except (KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
             raise PostProcessError(
                 f"Evento de áudio inválido em {event_file}:{line_number}."
@@ -60,6 +62,10 @@ def load_timed_audio_events(path: str | Path) -> list[TimedAudioEvent]:
             raise PostProcessError(
                 f"Evento de áudio com volume negativo em {event_file}:{line_number}."
             )
+        if speed <= 0:
+            raise PostProcessError(
+                f"Evento de áudio com speed inválido em {event_file}:{line_number}."
+            )
         if not audio.is_file():
             raise PostProcessError(
                 f"Áudio temporizado não encontrado: {audio}"
@@ -70,6 +76,7 @@ def load_timed_audio_events(path: str | Path) -> list[TimedAudioEvent]:
                 start=start,
                 audio=audio,
                 volume=volume,
+                speed=speed,
             )
         )
     return events
@@ -312,6 +319,7 @@ def build_timed_audio_mix_command(
         filters.append(
             f"[{index}:a]"
             "aresample=48000,"
+            f"atempo={_fmt(event.speed)},"
             f"volume={_fmt(event.volume)},"
             f"adelay={delay_ms}:all=1,"
             "apad,"
