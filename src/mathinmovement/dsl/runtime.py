@@ -38,6 +38,14 @@ def _step_duration_slot(step):
     return None
 
 
+def _demo_pace():
+    try:
+        pace = float(os.getenv("MANIM_PACE", "1.15"))
+    except (TypeError, ValueError):
+        pace = 1.15
+    return pace if pace > 0 else 1.15
+
+
 def _synchronize_countdown_timing(program):
     """Keep visual countdown beats aligned with the tagged audio speed.
 
@@ -56,6 +64,7 @@ def _synchronize_countdown_timing(program):
         if speed <= 0:
             continue
         interval = 1.0 / speed
+        pace = _demo_pace()
         targets = tuple(spec.get("visual_targets") or ())
         tagged_target = str(tagged_step.get("target", ""))
         if tagged_target not in targets:
@@ -96,12 +105,13 @@ def _synchronize_countdown_timing(program):
                 key, value = slot
                 if value < 0:
                     continue
-                slots.append((step, key, value))
-                total += value
+                factor = pace if key == "run_time" else 1.0
+                slots.append((step, key, value, factor))
+                total += value * factor
 
             if total > 0 and slots:
                 scale = interval / total
-                for step, key, value in slots:
+                for step, key, value, _factor in slots:
                     step[key] = value * scale
 
             cursor = remove_index + 1
