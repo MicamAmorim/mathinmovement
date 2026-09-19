@@ -113,6 +113,8 @@ class DSLRuntimeTests(unittest.TestCase):
             self.assertEqual(payload["start"], 0.0)
             self.assertEqual(payload["speed"], 0.9)
             self.assertEqual(payload["volume"], 1.0)
+            self.assertAlmostEqual(payload["trim_start"], 4.83265306122449)
+            self.assertAlmostEqual(payload["trim_end"], 11.023673469387756)
             self.assertEqual(path.name, "countdown-5s-original.mp3")
             self.assertTrue(path.is_file())
             self.assertGreater(path.stat().st_size, 300_000)
