@@ -329,6 +329,28 @@ def action_fixed_orientation(runtime, spec):
     )
 
 
+@action_type(
+    "scene.unfix_in_frame",
+    aliases=("unfix_in_frame",),
+    description="Remove um objeto do conjunto fixo ao quadro da câmera 3D.",
+)
+def action_unfix_in_frame(runtime, spec):
+    _scene_method(runtime, "remove_fixed_in_frame_mobjects")(
+        runtime.object(str(spec["target"]))
+    )
+
+
+@action_type(
+    "scene.unfix_orientation",
+    aliases=("unfix_orientation",),
+    description="Remove a orientação fixa de um objeto diante da câmera 3D.",
+)
+def action_unfix_orientation(runtime, spec):
+    _scene_method(runtime, "remove_fixed_orientation_mobjects")(
+        runtime.object(str(spec["target"]))
+    )
+
+
 @action_type("scene.add", aliases=("add",))
 def action_add(runtime, spec):
     runtime.scene.add(runtime.object(str(spec["target"])))
