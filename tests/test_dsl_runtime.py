@@ -119,6 +119,47 @@ class DSLRuntimeTests(unittest.TestCase):
             self.assertTrue(path.is_file())
             self.assertGreater(path.stat().st_size, 300_000)
 
+    def test_countdown_event_uses_elapsed_dsl_time_when_scene_clock_is_static(self):
+        class StaticRenderer:
+            time = 0.0
+
+        class StaticScene:
+            renderer = StaticRenderer()
+            _profile = "motion_math_v1"
+
+            def wait(self, duration=1, **kwargs):
+                return None
+
+        runtime = DSLRuntime(
+            StaticScene(),
+            {
+                "dsl_version": "1.0",
+                "objects": [],
+                "timeline": [
+                    {"op": "wait", "duration": 3.45},
+                    {
+                        "op": "wait",
+                        "duration": 0.1,
+                        "tags": ["countdown-5s"],
+                    },
+                ],
+            },
+        )
+
+        with tempfile.TemporaryDirectory() as tmp:
+            event_file = Path(tmp) / "events.jsonl"
+            with patch.dict(
+                "os.environ",
+                {"MIM_TIMED_AUDIO_EVENTS_FILE": str(event_file)},
+                clear=False,
+            ):
+                runtime.run()
+
+            payload = __import__("json").loads(
+                event_file.read_text(encoding="utf-8").strip()
+            )
+            self.assertAlmostEqual(payload["start"], 3.45, places=6)
+
     def test_countdown_visual_holds_follow_90_percent_audio_speed(self):
         timeline = []
         for index, target in enumerate(("n5", "n4", "n3", "n2", "n1")):

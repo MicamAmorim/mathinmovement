@@ -357,6 +357,10 @@ def render_record(
     event_file = build_dir / "_mim_audio_events.jsonl"
     timed_events = load_timed_audio_events(event_file)
     if timed_events:
+        for event in timed_events:
+            print(
+                f"[audio] {event.tag} @ {event.start:.3f}s"
+            )
         mixed = build_dir / "_mim_timed_audio_mix.mp4"
         mix_timed_audio_events(
             rendered,
