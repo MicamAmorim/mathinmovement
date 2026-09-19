@@ -3,6 +3,7 @@ from __future__ import annotations
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 from mathinmovement.engine.scene import UnifiedContentScene
@@ -67,7 +68,7 @@ class DemoNarrationTests(unittest.TestCase):
                     {"key": "closing", "start": 21.0, "duration": 1.872},
                 ],
             })
-            scene.time = 20.5
+            scene.renderer = SimpleNamespace(time=20.5)
             with patch.object(UnifiedContentScene, "wait") as wait:
                 scene._pad_demo_to_narration_end()
             wait.assert_called_once_with(3.5)
