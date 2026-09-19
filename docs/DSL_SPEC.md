@@ -145,6 +145,27 @@ Para textos e fórmulas que devem permanecer como HUD durante movimentos da câm
 
 create, fade_in, fade_out, write, translate, rotate, scale, opacity, stretch, highlight, style, copy, transform, transform_from_copy, replacement_transform, rigid_motion, lagged, parallel, wait, add, remove, move_to, next_to, arrange, animate_value, camera.set_orientation, camera.move, camera.begin_ambient_rotation, camera.stop_ambient_rotation, fixed_in_frame, fixed_orientation, unfix_in_frame e unfix_orientation.
 
+## Narração sincronizada
+
+Demos com TTS podem declarar segmentos em `narration.segments` e acioná-los diretamente na timeline com `narration.play`:
+
+```yaml
+narration:
+  enabled: true
+  voice: pt-BR-AntonioNeural
+  segments:
+    - key: intro
+      text: 'Uma câmera projeta o mundo 3D em uma imagem 2D.'
+      estimated_seconds: 4
+
+visual_program:
+  timeline:
+    - op: narration.play
+      key: intro
+```
+
+Durante `produce`, o TTS gera/cacheia o MP3 e grava sua duração real no manifest importado. A ação `narration.play` toca esse áudio no ponto exato da timeline e aguarda sua duração, mantendo a animação seguinte sincronizada. Para este modo, os segmentos não precisam declarar `start`; `start` continua disponível para a estratégia legada de agendamento absoluto.
+
 ## Dinâmica segura
 
 Trackers são objetos `tracker`. Um objeto com `dynamic: true` é reconstruído via always_redraw. Valores iniciados por `=` são expressões numéricas restritas.
