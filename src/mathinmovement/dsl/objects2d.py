@@ -4,6 +4,7 @@ import re
 
 import numpy as np
 from manim import (
+    config,
     Angle,
     Arc,
     ArcBetweenPoints,
@@ -77,6 +78,20 @@ def _latex_color_command(value):
         "math.tex_to_color_map exige cor nomeada ou hexadecimal #RRGGBB; "
         f"recebido: {value!r}."
     )
+
+
+def _tex_template_with_xcolor():
+    """Copy the active Manim template and enable xcolor for inline math colors."""
+    template = config["tex_template"].copy()
+    body = str(getattr(template, "body", ""))
+    if r"\usepackage{xcolor}" not in body:
+        if getattr(template, "_body", ""):
+            raise DSLError(
+                "O template TeX ativo é fixo e não carrega xcolor. "
+                "Use um template configurável ou inclua \\usepackage{xcolor}."
+            )
+        template.add_to_preamble(r"\usepackage{xcolor}")
+    return template
 
 
 def _math_color_token_pattern(token):
@@ -515,6 +530,7 @@ def make_math(runtime, spec):
     merged_color_map.update(tex_to_color_map)
     if merged_color_map:
         tex = _apply_inline_math_colors(tex, merged_color_map)
+        kwargs["tex_template"] = _tex_template_with_xcolor()
 
     substrings_to_isolate = spec.get("substrings_to_isolate") or []
     if not isinstance(substrings_to_isolate, (list, tuple)):
