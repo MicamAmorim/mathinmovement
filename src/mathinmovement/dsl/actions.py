@@ -242,35 +242,79 @@ def action_wait(runtime, spec):
     runtime.scene.wait(float(runtime.resolve(spec.get("duration", 1))))
 
 
-@action_type(
-    "narration.play",
-    aliases=("speak", "narrate"),
-    description="Toca uma única faixa TTS e aguarda sua duração real.",
-)
-def action_narration_play(runtime, spec):
-    key = str(spec.get("key") or "").strip()
-    if not key:
-        raise DSLError("narration.play exige key.")
-
+def _narration_segment(runtime, key):
     audio_path = getattr(runtime.scene, "audio_path", None)
     segment_duration = getattr(runtime.scene, "segment_duration", None)
     if audio_path is None or segment_duration is None:
         raise DSLError(
-            "narration.play exige cena com audio_path() e segment_duration()."
+            "Narração exige cena com audio_path() e segment_duration()."
+        )
+    return audio_path(key), float(segment_duration(key))
+
+
+@action_type(
+    "narration.begin",
+    aliases=("begin_narration",),
+    description="Inicia uma faixa TTS sem bloquear as animações seguintes.",
+)
+def action_narration_begin(runtime, spec):
+    key = str(spec.get("key") or "").strip()
+    if not key:
+        raise DSLError("narration.begin exige key.")
+    if getattr(runtime, "_active_narration", None) is not None:
+        active = runtime._active_narration["key"]
+        raise DSLError(
+            f"Já existe uma narração ativa: {active!r}. "
+            "Finalize-a com narration.end antes de iniciar outra."
         )
 
-    duration = float(segment_duration(key))
-    audio = audio_path(key)
+    audio, duration = _narration_segment(runtime, key)
+    start = float(getattr(runtime.scene, "time", 0.0))
     if audio is not None and not bool(
         getattr(runtime.scene.renderer, "skip_animations", False)
     ):
-        # Bypass Scene.add_sound on purpose: narration is already synchronized
-        # by this DSL action and must not be mirrored by timed-audio hooks.
-        runtime.scene.renderer.file_writer.add_sound(
-            str(audio),
-            float(getattr(runtime.scene, "time", 0.0)),
+        # Deliberately bypass Scene.add_sound so timed-audio hooks cannot
+        # duplicate this narration in post-processing.
+        runtime.scene.renderer.file_writer.add_sound(str(audio), start)
+    runtime._active_narration = {
+        "key": key,
+        "start": start,
+        "duration": duration,
+    }
+
+
+@action_type(
+    "narration.end",
+    aliases=("end_narration",),
+    description="Finaliza a narração ativa e espera apenas o tempo restante.",
+)
+def action_narration_end(runtime, spec):
+    active = getattr(runtime, "_active_narration", None)
+    if active is None:
+        raise DSLError("narration.end foi usado sem narration.begin ativo.")
+
+    expected = str(spec.get("key") or "").strip()
+    if expected and expected != active["key"]:
+        raise DSLError(
+            f"narration.end esperava {expected!r}, "
+            f"mas a faixa ativa é {active['key']!r}."
         )
-    runtime.scene.wait(duration)
+
+    elapsed = float(getattr(runtime.scene, "time", 0.0)) - float(active["start"])
+    remaining = max(0.0, float(active["duration"]) - elapsed)
+    if remaining > 0:
+        runtime.scene.wait(remaining)
+    runtime._active_narration = None
+
+
+@action_type(
+    "narration.play",
+    aliases=("speak", "narrate"),
+    description="Toca uma faixa TTS e aguarda sua duração real.",
+)
+def action_narration_play(runtime, spec):
+    action_narration_begin(runtime, spec)
+    action_narration_end(runtime, spec)
 
 
 def _scene_method(runtime, name):
