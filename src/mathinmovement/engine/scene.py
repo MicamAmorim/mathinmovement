@@ -138,9 +138,11 @@ class UnifiedContentScene(ThreeDScene):
             getattr(self, "_profile", "") == "motion_math_v1"
             and "run_time" in kwargs
         ):
-            kwargs["run_time"] = float(kwargs["run_time"]) * float(
+            paced = float(kwargs["run_time"]) * float(
                 os.getenv("MANIM_PACE", "1.15")
             )
+            frame_rate = max(1.0, float(config.frame_rate))
+            kwargs["run_time"] = max(paced, 1.0 / frame_rate)
         return super().play(*animations, **kwargs)
 
     def construct(self):
