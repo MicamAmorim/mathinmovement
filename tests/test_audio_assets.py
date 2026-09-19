@@ -4,7 +4,6 @@ import shutil
 import subprocess
 import unittest
 
-from mathinmovement.config import PROJECT_ROOT
 from manim import Scene
 
 from mathinmovement.dsl.runtime import DSLRuntime
