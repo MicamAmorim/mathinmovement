@@ -8,6 +8,7 @@ from manim import (
     FadeOut,
     Indicate,
     LaggedStart,
+    OUT,
     ReplacementTransform,
     Rotate,
     Transform,
@@ -64,9 +65,15 @@ def make_animation(runtime, spec):
             if spec.get("about_point") is not None
             else target.get_center()
         )
+        axis = (
+            point(runtime, spec["axis"])
+            if spec.get("axis") is not None
+            else OUT
+        )
         return Rotate(
             target,
             float(runtime.resolve(spec.get("angle", 0))),
+            axis=axis,
             about_point=about,
         )
     if canonical == "anim.scale":
@@ -100,11 +107,16 @@ def make_animation(runtime, spec):
             if spec.get("about_point") is not None
             else np.zeros(3)
         )
+        axis = (
+            point(runtime, spec["axis"])
+            if spec.get("axis") is not None
+            else OUT
+        )
         return UpdateFromAlphaFunc(
             target,
             lambda mob, alpha: mob.become(
                 original.copy()
-                .rotate(angle * alpha, about_point=about)
+                .rotate(angle * alpha, axis=axis, about_point=about)
                 .shift(alpha * shift)
             ),
         )
@@ -228,6 +240,93 @@ def action_parallel(runtime, spec):
 @action_type("anim.wait", aliases=("wait",))
 def action_wait(runtime, spec):
     runtime.scene.wait(float(runtime.resolve(spec.get("duration", 1))))
+
+
+def _scene_method(runtime, name):
+    method = getattr(runtime.scene, name, None)
+    if method is None:
+        raise DSLError(
+            f"Ação 3D exige cena compatível com ThreeDScene: {name}."
+        )
+    return method
+
+
+def _camera_kwargs(runtime, spec):
+    kwargs = {}
+    for key in ("phi", "theta", "gamma", "zoom", "focal_distance"):
+        if spec.get(key) is not None:
+            kwargs[key] = float(runtime.resolve(spec[key]))
+    if spec.get("frame_center") is not None:
+        kwargs["frame_center"] = point(runtime, spec["frame_center"])
+    return kwargs
+
+
+@action_type(
+    "camera.set_orientation",
+    aliases=("set_camera_orientation",),
+    description="Define instantaneamente a orientação da câmera 3D.",
+)
+def action_camera_set_orientation(runtime, spec):
+    _scene_method(runtime, "set_camera_orientation")(
+        **_camera_kwargs(runtime, spec)
+    )
+
+
+@action_type(
+    "camera.move",
+    aliases=("move_camera",),
+    description="Anima a câmera 3D até uma nova orientação/zoom.",
+)
+def action_camera_move(runtime, spec):
+    kwargs = _camera_kwargs(runtime, spec)
+    kwargs["run_time"] = _runtime(spec)
+    kwargs["rate_func"] = _rate(spec)
+    _scene_method(runtime, "move_camera")(**kwargs)
+
+
+@action_type(
+    "camera.begin_ambient_rotation",
+    aliases=("begin_ambient_camera_rotation",),
+    description="Inicia rotação ambiente da câmera 3D.",
+)
+def action_camera_begin_ambient_rotation(runtime, spec):
+    _scene_method(runtime, "begin_ambient_camera_rotation")(
+        rate=float(runtime.resolve(spec.get("rate", 0.02))),
+        about=str(spec.get("about", "theta")),
+    )
+
+
+@action_type(
+    "camera.stop_ambient_rotation",
+    aliases=("stop_ambient_camera_rotation",),
+    description="Interrompe rotação ambiente da câmera 3D.",
+)
+def action_camera_stop_ambient_rotation(runtime, spec):
+    _scene_method(runtime, "stop_ambient_camera_rotation")(
+        about=str(spec.get("about", "theta")),
+    )
+
+
+@action_type(
+    "scene.fixed_in_frame",
+    aliases=("fixed_in_frame",),
+    description="Mantém um objeto 2D fixo no quadro enquanto a câmera 3D se move.",
+)
+def action_fixed_in_frame(runtime, spec):
+    _scene_method(runtime, "add_fixed_in_frame_mobjects")(
+        runtime.object(str(spec["target"]))
+    )
+
+
+@action_type(
+    "scene.fixed_orientation",
+    aliases=("fixed_orientation",),
+    description="Mantém a orientação visual do objeto diante da câmera 3D.",
+)
+def action_fixed_orientation(runtime, spec):
+    _scene_method(runtime, "add_fixed_orientation_mobjects")(
+        runtime.object(str(spec["target"]))
+    )
 
 
 @action_type("scene.add", aliases=("add",))
