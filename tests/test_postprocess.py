@@ -75,7 +75,10 @@ class PostProcessTests(unittest.TestCase):
         self.assertIn("adelay=3000:all=1", joined)
         self.assertIn("amix=inputs=3", joined)
         self.assertIn("-c:v copy", joined)
-        self.assertIn("-b:a 320k", joined)\n        self.assertIn("alimiter=limit=0.95", joined)\n        self.assertIn("-ar 48000", joined)\n        self.assertIn("-ac 2", joined)
+        self.assertIn("-b:a 320k", joined)
+        self.assertIn("alimiter=limit=0.95", joined)
+        self.assertIn("-ar 48000", joined)
+        self.assertIn("-ac 2", joined)
 
     def test_raw_fingerprint_changes_when_asset_changes(self):
         with tempfile.TemporaryDirectory() as tmp:
