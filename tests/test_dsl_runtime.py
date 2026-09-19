@@ -134,22 +134,29 @@ class DSLRuntimeTests(unittest.TestCase):
                 {"op": "remove", "target": target},
             ])
 
-        runtime = DSLRuntime(
-            Scene(),
-            {
-                "dsl_version": "1.0",
-                "objects": [],
-                "timeline": timeline,
-            },
-        )
+        with patch.dict(
+            "os.environ",
+            {"MANIM_PACE": "1.15"},
+            clear=False,
+        ):
+            runtime = DSLRuntime(
+                Scene(),
+                {
+                    "dsl_version": "1.0",
+                    "objects": [],
+                    "timeline": timeline,
+                },
+            )
         holds = [
             step["run_time"]
             for step in runtime.program["timeline"]
             if step.get("op") == "opacity"
         ]
         self.assertEqual(len(holds), 5)
+        expected_raw_hold = (1.0 / 0.9) / 1.15
         for hold in holds:
-            self.assertAlmostEqual(hold, 1.0 / 0.9, places=6)
+            self.assertAlmostEqual(hold, expected_raw_hold, places=6)
+            self.assertAlmostEqual(hold * 1.15, 1.0 / 0.9, places=6)
 
     def test_timeline_tags_validate_as_strings(self):
         with self.assertRaises(Exception):
