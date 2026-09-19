@@ -3,14 +3,13 @@ from __future__ import annotations
 import json
 import os
 import re
-import zlib
 from copy import deepcopy
 from pathlib import Path
 
 import numpy as np
 from manim import VGroup, ValueTracker, always_redraw
 
-from ..config import CACHE_ROOT, PROJECT_ROOT
+from ..config import PROJECT_ROOT
 from .errors import DSLError, DSLReferenceError, DSLVersionError
 from .expressions import eval_expression, resolve_value
 from .registry import get_action, get_object
@@ -23,14 +22,9 @@ from . import actions as _actions  # noqa: F401
 _VERSION_RE = re.compile(r"^1(?:\.\d+)?$")
 _STANDARD_AUDIO_TAGS = {
     "countdown-5s": {
-        "parts": [
-            Path("assets/audio/countdown-5s.wav.zlib.b64.part1"),
-            Path("assets/audio/countdown-5s.wav.zlib.b64.part2"),
-            Path("assets/audio/countdown-5s.wav.zlib.b64.part3"),
-        ],
-        "cache_name": "countdown-5s.wav",
-        "sha256": "22c9dbe32df19b6150dfb76127918b468a61aa0b36e6ce72bb8ee31ccbdff966",
+        "path": Path("assets/audio/countdown-5s.opus"),
         "speed": 0.9,
+        "volume": 1.0,
     },
 }
 
@@ -204,6 +198,7 @@ class DSLRuntime:
                 "start": float(self.scene.time),
                 "audio": str(path),
                 "speed": float(spec.get("speed", 1.0)),
+                "volume": float(spec.get("volume", 1.0)),
             }
             with event_file.open("a", encoding="utf-8") as handle:
                 handle.write(json.dumps(event, ensure_ascii=False) + "\n")
